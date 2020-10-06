@@ -1,5 +1,7 @@
 # GDD
 
+![alt text](.../breakfast/GDD/LogoAtaraxia/logo_definitivo.png)
+
 ## CONTACTO
 #### WEB:
 #### TWITTER: @AtaraxiaDevs
@@ -36,6 +38,8 @@
 ### [10.2.- DATOS DE DESARROLLO]	
 ### [10.3.- MODELO DE NEGOCIO]
 
+---
+---
 
 ## 1.- FICHA RESUMEN
 
@@ -52,6 +56,8 @@
 | **TECNOLOGÍAS** | Phaser                  |
 | **MECÁNICAS**   | - Duelos 1vs1 de Ejércitos, a ciegas <br> - Diferentes Unidades y Habilidades <br>- Conquistar el terreno enemigo |
 
+---
+
 ## 2.- HISTORIAL DE VERSIONES
 
 | **VERSION**     | **CAMBIOS DE VERSION**  |
@@ -59,6 +65,8 @@
 | 1.0             |                         |
 |                 |                         |
 |                 |                         |
+
+---
 
 ## 3.- SINOPSIS DEL JUEGO		
 ## 4.- CARACTERÍSTICAS PRINCIPALES	
