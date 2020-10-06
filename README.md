@@ -1,5 +1,10 @@
 # GDD
 
+## CONTACTO
+#### WEB:
+#### TWITTER:
+#### YOUTUBE:
+
 # INDICE
 
 ## 1.- FICHA RESUMEN	
