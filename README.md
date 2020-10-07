@@ -79,15 +79,18 @@
 
 ## 4.- CARACTERÍSTICAS PRINCIPALES
 
-**- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.
-**- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!
-**- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o la prestidigitadora fruta. (NOMBRE PROVISIONAL)
-**- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!
+**- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
+**- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!<br>
+**- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o la prestidigitadora fruta. (NOMBRE PROVISIONAL)<br>
+**- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!<br>
 **- Modos de Juego:** Puedes jugar con caminos fijos... o no. El modo de juego SWAP (NOMBRE PROVISIONAL) te permite elevar tus estrategias a otro nivel. En cambio, si te gusta jugar con algo más manejable... el modo MICRO, con sus unidades fijas, puede ser para ti. O puedes jugar al modo de juego CLÁSICO, que es el estándar.
 
 ## 5.- DISEÑO DEL JUEGO		
 ### 5.1.- MECÁNICAS			
 ### 5.2.- ESTADOS JUEGO	
+
+
+
 ### 5.3.- INTERFACES	
 ### 5.4.- CONTROLES	
 ### 5.5.- PROGRESO DEL JUEGO	
