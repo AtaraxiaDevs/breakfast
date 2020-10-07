@@ -9,36 +9,41 @@
 #### [TWITTER: @AtaraxiaDevs](https://twitter.com/AtaraxiaDevs?s=08)
 #### [YOUTUBE: https://www.youtube.com/watch?v=YqdJcBMMgJw](https://www.youtube.com/channel/UCf6IyOGVFrC8l-6_nfMpzhQ)
 
+<br></br>
+<hr></hr>
+<br></br>
+
+
 # INDICE
 
 ## [1.- FICHA RESUMEN	](#fichaResumen)
-## [2.- HISTORIAL DE VERSIONES]
-## [3.- SINOPSIS DEL JUEGO]		
-## [4.- CARACTERÍSTICAS PRINCIPALES]	
-## [5.- DISEÑO DEL JUEGO]		
-### [5.1.- MECÁNICAS]			
-### [5.2.- ESTADOS JUEGO]	
-### [5.3.- INTERFACES]	
-### [5.4.- CONTROLES]	
-### [5.5.- PROGRESO DEL JUEGO]	
-### [5.6.- NIVELES]	
-## [6.- DISEÑO DEL MUNDO]	
-### [6.1.- PERSONAJES]	
-### [6.2.- LOCALIZACIONES]	
-## [7.- ARTE]	
-### [7.1.- ESTILO Y REFERENCIAS]	
-### [7.2.- CONCEPTS]	
-### [7.3.- ARTE PROMOCIONAL]	
-## [8.- SONIDO]	
-### [8.1.- BANDA SONORA]	
-### [8.2.- EFECTOS DE SONIDO]	
-## [9.- NARRATIVA Y GUION]	
-### [9.1.- SINOPSIS]	
-### [9.2.- GUION Y DIÁLOGOS]	
-## [10.- DETALLES DE PRODUCCIÓN]	
-### [10.1.- MIEMBROS DEL EQUIPO]	
-### [10.2.- DATOS DE DESARROLLO]	
-### [10.3.- MODELO DE NEGOCIO]
+## [2.- HISTORIAL DE VERSIONES](#historialDeVersiones)
+## [3.- SINOPSIS DEL JUEGO](#sinopsisDelJuego)
+## [4.- CARACTERÍSTICAS PRINCIPALES](#caracteristicasPrincipales)	
+## [5.- DISEÑO DEL JUEGO](#diseñoDelJuego)		
+### [5.1.- MECÁNICAS](#mecánicas)			
+### [5.2.- ESTADOS JUEGO](#estadosJuego)
+### [5.3.- INTERFACES](#interfaces)
+### [5.4.- CONTROLES](#controles)
+### [5.5.- PROGRESO DEL JUEGO](#progresoDelJuego)
+### [5.6.- NIVELES](#niveles)
+## [6.- DISEÑO DEL MUNDO](#diseñoDelMundo)
+### [6.1.- PERSONAJES](#personajes)
+### [6.2.- LOCALIZACIONES](#localizaciones)
+## [7.- ARTE](#arte)
+### [7.1.- ESTILO Y REFERENCIAS](#estiloYReferncias)
+### [7.2.- CONCEPTS](#concepts)
+### [7.3.- ARTE PROMOCIONAL](#artePromocional)
+## [8.- SONIDO](#sonido)	
+### [8.1.- BANDA SONORA](#bandaSonora)	
+### [8.2.- EFECTOS DE SONIDO](#efectosDeSonido)
+## [9.- NARRATIVA Y GUION](#narrativaYGuion)	
+### [9.1.- SINOPSIS](#sinopsis)
+### [9.2.- GUION Y DIÁLOGOS](#guionYDialogos)
+## [10.- DETALLES DE PRODUCCIÓN](#detallesDeProduccion)
+### [10.1.- MIEMBROS DEL EQUIPO](#miembrosDelEquipo)
+### [10.2.- DATOS DE DESARROLLO](#datosDeDesarrollo)
+### [10.3.- MODELO DE NEGOCIO](#modeloDeNegocio)
 
 ---
 ---
@@ -60,7 +65,7 @@
 
 ---
 
-## 2.- HISTORIAL DE VERSIONES
+## 2.- HISTORIAL DE VERSIONES <a name="historialDeVerciones"/>
 
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
@@ -69,8 +74,8 @@
 |                 |                         |
 
 ---
-
-## 3.- SINOPSIS DEL JUEGO
+ 
+## 3.- SINOPSIS DEL JUEGO <a name="sinopsisDelJuego"/>
 
 > ¿Cual es la comida más importante del día? ¡Compite con tus amigos para ayudar a los pequeños alienígenas (NOMBRE PROVISIONAL) del espacio exterior a decidir! 
 > ¿Estas del lado de la valiente Mantequilla Gritona o de la astuta Mermelada Explosiva (NOMBRE PROVISIONAL)? ¡Descúbrelo aquí!
@@ -79,7 +84,7 @@
 > la base enemiga y ganar la ronda. El equipo ganador se decide al mejor de 5 de estas rondas, donde los ejércitos tendrán que sobrevivir a un escenario cambiante. ¡Usa las
 > habilidades de tus aliados para abrirte paso! El enemigo se esconde... ¡pero tu revelarás su plan, y haras que muerdan el polvo del Cacao!
 
-## 4.- CARACTERÍSTICAS PRINCIPALES
+## 4.- CARACTERÍSTICAS PRINCIPALES <a name="caracteristicasPrincipales"/>
 
 **- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
 **- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!<br>
@@ -87,30 +92,30 @@
 **- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!<br>
 **- Modos de Juego:** Puedes jugar con caminos fijos... o no. El modo de juego SWAP (NOMBRE PROVISIONAL) te permite elevar tus estrategias a otro nivel. En cambio, si te gusta jugar con algo más manejable... el modo MICRO, con sus unidades fijas, puede ser para ti. O puedes jugar al modo de juego CLÁSICO, que es el estándar.
 
-## 5.- DISEÑO DEL JUEGO		
-### 5.1.- MECÁNICAS			
-### 5.2.- ESTADOS JUEGO	
+## 5.- DISEÑO DEL JUEGO	<a name="diseñoDelJuego"/>
+### 5.1.- MECÁNICAS			<a name="mecanicas"/>
+### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
-### 5.3.- INTERFACES	
-### 5.4.- CONTROLES	
-### 5.5.- PROGRESO DEL JUEGO	
-### 5.6.- NIVELES	
-## 6.- DISEÑO DEL MUNDO	
-### 6.1.- PERSONAJES	
-### 6.2.- LOCALIZACIONES	
-## 7.- ARTE	
-### 7.1.- ESTILO Y REFERENCIAS	
-### 7.2.- CONCEPTS	
-### 7.3.- ARTE PROMOCIONAL	
-## 8.- SONIDO	
-### 8.1.- BANDA SONORA	
-### 8.2.- EFECTOS DE SONIDO	
-## 9.- NARRATIVA Y GUION	
-### 9.1.- SINOPSIS	
-### 9.2.- GUION Y DIÁLOGOS	
-## 10.- DETALLES DE PRODUCCIÓN	
-### 10.1.- MIEMBROS DEL EQUIPO	
-### 10.2.- DATOS DE DESARROLLO	
-### 10.3.- MODELO DE NEGOCIO
+### 5.3.- INTERFACES	<a name="interfaces"/>
+### 5.4.- CONTROLES	<a name="controles"/>
+### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
+### 5.6.- NIVELES	<a name="niveles"/>
+## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
+### 6.1.- PERSONAJES	<a name="personajes"/>
+### 6.2.- LOCALIZACIONES	<a name="localizaciones"/>
+## 7.- ARTE	<a name="arte"/>
+### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
+### 7.2.- CONCEPTS	<a name="concepts"/>
+### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
+## 8.- SONIDO	<a name="sonido"/>
+### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
+### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
+## 9.- NARRATIVA Y GUION	<a name="narrativaYGuion"/>
+### 9.1.- SINOPSIS <a name="sinopsis"/>	
+### 9.2.- GUION Y DIÁLOGOS	<a name="guionYDialogos"/>
+## 10.- DETALLES DE PRODUCCIÓN	<a name="detallesDeProduccion"/>
+### 10.1.- MIEMBROS DEL EQUIPO	<a name="miembrosDelEquipo"/>
+### 10.2.- DATOS DE DESARROLLO	<a name="datosDeDesarrollo"/>
+### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
