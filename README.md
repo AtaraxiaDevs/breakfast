@@ -21,7 +21,7 @@
 ## [3.- SINOPSIS DEL JUEGO](#sinopsisDelJuego)
 ## [4.- CARACTERÍSTICAS PRINCIPALES](#caracteristicasPrincipales)	
 ## [5.- DISEÑO DEL JUEGO](#diseñoDelJuego)		
-### [5.1.- MECÁNICAS](#mecánicas)			
+### [5.1.- MECÁNICAS](#mecanicas)			
 ### [5.2.- ESTADOS JUEGO](#estadosJuego)
 ### [5.3.- INTERFACES](#interfaces)
 ### [5.4.- CONTROLES](#controles)
@@ -65,7 +65,7 @@
 
 ---
 
-## 2.- HISTORIAL DE VERSIONES <a name="historialDeVerciones"/>
+## 2.- HISTORIAL DE VERSIONES <a name="historialDeVersiones"/>
 
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
