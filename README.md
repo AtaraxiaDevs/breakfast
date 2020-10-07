@@ -1,6 +1,6 @@
 # GDD
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/tree/main/GDD/LogoAtaraxia/logo_definitivo.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png)
 
 ## CONTACTO
 #### WEB:
