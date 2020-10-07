@@ -1,6 +1,6 @@
 # GDD
 
-![alt text](.../breakfast/GDD/LogoAtaraxia/logo_definitivo.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/tree/main/GDD/LogoAtaraxia/logo_definitivo.png)
 
 ## CONTACTO
 #### WEB:
@@ -89,7 +89,7 @@
 ### 5.1.- MECÁNICAS			
 ### 5.2.- ESTADOS JUEGO	
 
-
+![alt text](https://github.com/AtaraxiaDevs/breakfast/tree/main/GDD/ESTADOS DEL JUEGO.png)
 
 ### 5.3.- INTERFACES	
 ### 5.4.- CONTROLES	
