@@ -134,5 +134,12 @@
 ### 9.2.- GUION Y DIÁLOGOS	<a name="guionYDialogos"/>
 ## 10.- DETALLES DE PRODUCCIÓN	<a name="detallesDeProduccion"/>
 ### 10.1.- MIEMBROS DEL EQUIPO	<a name="miembrosDelEquipo"/>
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Daniel Ayllón Peinado**: Programador, Scrum Master y CM.<br>
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Pablo García Sánchez**: Artista y Diseñador 2D <br>
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Celtia Martin García**: Artista 2D y Programadora.<br> 
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Iconos%20Desarrollador/Dani.jpeg" width="50px"> **Daniel Muñoz Rivera**: Game Designer y Usabilidad.<br>
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Alberto Sánchez Mateo**: Product Owner, Programador y Web Designer. <br>
+<img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Wei Zheng**: Artista técnico y Diseñador 2D. <br>
+
 ### 10.2.- DATOS DE DESARROLLO	<a name="datosDeDesarrollo"/>
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
