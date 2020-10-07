@@ -2,14 +2,16 @@
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png)
 
+
+
 ## CONTACTO
 #### WEB:
-#### TWITTER: @AtaraxiaDevs
-#### YOUTUBE: https://www.youtube.com/watch?v=YqdJcBMMgJw
+#### [TWITTER: @AtaraxiaDevs](https://twitter.com/AtaraxiaDevs?s=08)
+#### [YOUTUBE: https://www.youtube.com/watch?v=YqdJcBMMgJw](https://www.youtube.com/channel/UCf6IyOGVFrC8l-6_nfMpzhQ)
 
 # INDICE
 
-## [1.- FICHA RESUMEN	]
+## [1.- FICHA RESUMEN	](#fichaResumen)
 ## [2.- HISTORIAL DE VERSIONES]
 ## [3.- SINOPSIS DEL JUEGO]		
 ## [4.- CARACTERÍSTICAS PRINCIPALES]	
@@ -41,7 +43,7 @@
 ---
 ---
 
-## 1.- FICHA RESUMEN
+## 1.- FICHA RESUMEN <a name="fichaResumen"/>
 
 | **NOMBRE**      | BTF: Break-Troops-Fast   |
 | :-------------: | :---------------------:  |
@@ -89,7 +91,7 @@
 ### 5.1.- MECÁNICAS			
 ### 5.2.- ESTADOS JUEGO	
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/tree/main/GDD/ESTADOS DEL JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
 ### 5.3.- INTERFACES	
 ### 5.4.- CONTROLES	
