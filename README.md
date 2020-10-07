@@ -43,17 +43,17 @@
 
 ## 1.- FICHA RESUMEN
 
-| **NOMBRE**      | BTF: Break-Troops-Fast  |
-| :-------------: | :---------------------: |
-| **VERSION**     | 1.0                     |
-| **GENERO**      | Estrategia / Turnos     |
-| **TEMÁTICA**    | Comida                  |
-| **PLATAFORMA**  | Web                     |
-| **JUEGOS RELACIONADOS**  | Clash Royale, Warlords: Call To Arms |
+| **NOMBRE**      | BTF: Break-Troops-Fast   |
+| :-------------: | :---------------------:  |
+| **VERSION**     | 1.0                      |
+| **GENERO**      | Estrategia / Turnos      |
+| **TEMÁTICA**    | Comida                   |
+| **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
+| **JUEGOS RELACIONADOS**  | Clash Royale, Warlords: Call To Arms, Stratego |
 | **PUBLICO OBJETIVO**     | Infantil, Casual        |
 | **ESTILO VISUAL**        | 2D, Pixel Art           |
-| **VISTA**       | Picada                  |
-| **TECNOLOGÍAS** | Phaser                  |
+| **VISTA**       | Picada                   |
+| **TECNOLOGÍAS** | Phaser                   |
 | **MECÁNICAS**   | - Duelos 1vs1 de Ejércitos, a ciegas <br> - Diferentes Unidades y Habilidades <br>- Conquistar el terreno enemigo |
 
 ---
@@ -62,14 +62,29 @@
 
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
-| 1.0             |                         |
+| 1.0             | Versión Inicial         |
 |                 |                         |
 |                 |                         |
 
 ---
 
-## 3.- SINOPSIS DEL JUEGO		
-## 4.- CARACTERÍSTICAS PRINCIPALES	
+## 3.- SINOPSIS DEL JUEGO
+
+> ¿Cual es la comida más importante del día? ¡Compite con tus amigos para ayudar a los pequeños alienígenas (NOMBRE PROVISIONAL) del espacio exterior a decidir! 
+> ¿Estas del lado de la valiente Mantequilla Gritona o de la astuta Mermelada Explosiva (NOMBRE PROVISIONAL)? ¡Descúbrelo aquí!
+
+> BTF: Break-Troops-Fast es un juego de estrategia, que enfrenta a dos jugadores en una batalla donde deberán gestionar sus comestibles tropas para conseguir llegar hasta
+> la base enemiga y ganar la ronda. El equipo ganador se decide al mejor de 5 de estas rondas, donde los ejércitos tendrán que sobrevivir a un escenario cambiante. ¡Usa las
+> habilidades de tus aliados para abrirte paso! El enemigo se esconde... ¡pero tu revelarás su plan, y haras que muerdan el polvo del Cacao!
+
+## 4.- CARACTERÍSTICAS PRINCIPALES
+
+**- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.
+**- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!
+**- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o la prestidigitadora fruta. (NOMBRE PROVISIONAL)
+**- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!
+**- Modos de Juego:** Puedes jugar con caminos fijos... o no. El modo de juego SWAP (NOMBRE PROVISIONAL) te permite elevar tus estrategias a otro nivel. En cambio, si te gusta jugar con algo más manejable... el modo MICRO, con sus unidades fijas, puede ser para ti. O puedes jugar al modo de juego CLÁSICO, que es el estándar.
+
 ## 5.- DISEÑO DEL JUEGO		
 ### 5.1.- MECÁNICAS			
 ### 5.2.- ESTADOS JUEGO	
