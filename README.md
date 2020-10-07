@@ -98,6 +98,23 @@
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
 
+**INICIO**: Menú que se muestra al iniciar el juego.<br>
+
+- *JUGAR*: Empieza la partida.
+- *RANKING*: Muestra las mejores puntuaciones. Contabiliza los puntos de las 5 rondas. Tiene un botón ATRÁS, que vuelve a **INICIO**.
+- *CRÉDITOS*: Nombre del equipo y los desarrolladores. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *SALIR*: Salir y cerrar el juego.
+- *TUTORIAL*: Pantalla que muestra los controles. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *STATS*: Accesible desde **TUTORIAL**. Muestra estadísticas avanzadas, para jugadores más experimentados. Al ser para niños, se evita mostrar este tipo de contenido. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+
+**JUEGO**: Pantallas del juego<br>
+
+- *PRE-PARTIDA*: Los jugadores eligen el equipo y el modo de juego.Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. Hay una por jugador. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
+- *COMBATE*: Gameplay en tiempo real de la batalla. Tiene botones para controlar el juego. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
+- *RECUENTO RONDA*: Se cuentan los puntos para ver quien gana la ronda, se muestra mediante una tabla resumen. Cuando se pasa 5 veces por esta pantalla, la siguiente será **GAME OVER**. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
+- *GAME OVER*: Pantalla final del juego, donde se muestra el ganador y los puntos conseguidos.
+
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 ### 5.4.- CONTROLES	<a name="controles"/>
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
