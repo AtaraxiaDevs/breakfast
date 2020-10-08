@@ -24,8 +24,9 @@
 ### [5.1.- MECÁNICAS](#mecanicas)
 #### [5.1.1.- SISTEMA](#mecanicas1)
 #### [5.1.2.- PERSONAJES](#mecanicas2)
-#### [5.1.3.- HABILIDADES](#mecanicas3)
-#### [5.1.4.- ECONOMÍA](#mecanicas4)
+#### [5.1.3.- COMBATE](#mecanicas3)
+#### [5.1.4.- HABILIDADES](#mecanicas4)
+#### [5.1.5.- ECONOMÍA](#mecanicas5)
 ### [5.2.- ESTADOS JUEGO](#estadosJuego)
 ### [5.3.- INTERFACES](#interfaces)
 ### [5.4.- CONTROLES](#controles)
@@ -106,10 +107,12 @@
 
 El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de ronda al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos y es ganada por el que más haya conseguido. NUNCA puede haber un empate en la Ronda, siempre queda al menos 1 unidad en el campo. Al mejor de 5, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
 
-El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 1).
+El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 5).
 
 - **Zona de Jugador:** Un atacante recorre esta zona en 7 segundos. Zona inmutable, siempre es recta. La habilidad SWAP puede cambiar dos de las líneas entre sí. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
 - **Zona Neutra:** Un atacante recorre esta zona en 14 segundos. Zona variable, puede ser modificada (por habilidad o modo de juego). En esta zona, se activan los llamados "Comportamientos" de los personajes.
+
+<br>
 
 El juego se divide en dos grandes fases:
 
@@ -132,8 +135,64 @@ En el escenario, se pueden conseguir habilidades en forma de objetos. Se añaden
 El combate se acaba por tiempo o porque todas las unidades han llegado a campo contrario. Si acaba por tiempo, las unidades vivas suman otro punto. Los recursos monetarios y las habilidades se conservan entre rondas.
 
 #### 5.1.2.- PERSONAJES  <a name="mecanicas2"/>
-#### 5.1.3.- HABILIDADES <a name="mecanicas3"/>
-#### 5.1.4.- ECONOMÍA    <a name="mecanicas4"/>
+
+Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ronda. Todos los personajes tienen las siguientes estadíticas:
+
+- `ATK`: Daño de ataque
+- `HP`: Vida Total
+- `VEL`: Velocidad de Movimiento
+- `DPS`: Velocidad de Ataque
+- `RAN`: Distancia a la que se empieza a atacar o se establece un combate.
+- `COMPORTAMIENTO`: Habilidad pasiva de una unidad en concreto que establece el patrón de movimiento y toma de decisiones.
+
+Las Unidades Disponibles y sus estadísticas son:
+
+| **NOMBRE **     | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **COMPORTAMIENTO** |
+| :-------------: |:---------------------:  | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
+| Atacante        | Tostada                 |    4    |   9    |    5    |   1     |    1    | En un cruce, elige el camino con más unidades.                                |
+| Defensor        | Magdalena               |    2    |   15   |    2    |   0,33  |    1    | En un cruce, se detiene y bloquea a los enemigos, no a los aliados.           |
+| Distancia       | Bol de Cereales         |    3    |   5    |    4    |   0,5   |    1    | Al detectar una unidad a rango, se para y ataca a distancia.                  |
+| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    5    | En un cruce, elige el camino con más unidades.                                |
+| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |   1     |    1    | Al combatir contra 2 unidades, explota y daña a todos los enemigos cercanos.  |
+
+#### 5.1.3.- COMBATE     <a name="mecanicas3"/>
+
+El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
+
+Daño de Ataque = (0,9 x ATK) + (0,1 x RANDOM(0,10))
+
+Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores.
+
+El DPS funciona como un contador acumulativo. Hay que llegar a 1 para declarar un ataque, en cada segundo que dure el ataque. El atacante ataca cada vez, mientras que el tanque debe esperar. El velocista ataca 2 veces por segundo.
+
+Algunos ejemplos de Batalla:
+
+**Atacante vs Defensor**
+
+Rango => 1 = 1     (Empiezan a la vez)
+
+DPS =  A = 1 / D = 0,33
+
+Ataque 1 => A   R = 3    HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
+
+DPS =  A = 1 / D = 0,66
+
+Ataque 2 => A   R = 7    HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
+
+DPS =  A = 1 / D = 1     (RANDOM) = > ¿Quien ataca primero? Sale D
+
+Ataque 3 => D   R = 9    HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3
+Ataque 4 => A   R = 1    HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
+
+DPS =  A = 1 / D = 0,33
+
+Ataque 5 => A   R = 0    HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
+
+EL ATACANTE GANA
+
+
+#### 5.1.4.- HABILIDADES <a name="mecanicas4"/>
+#### 5.1.5.- ECONOMÍA    <a name="mecanicas5"/>
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
