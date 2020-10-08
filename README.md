@@ -21,7 +21,11 @@
 ## [3.- SINOPSIS DEL JUEGO](#sinopsisDelJuego)
 ## [4.- CARACTERÍSTICAS PRINCIPALES](#caracteristicasPrincipales)	
 ## [5.- DISEÑO DEL JUEGO](#diseñoDelJuego)		
-### [5.1.- MECÁNICAS](#mecanicas)			
+### [5.1.- MECÁNICAS](#mecanicas)
+#### [5.1.1.- SISTEMA](#mecanicas1)
+#### [5.1.2.- PERSONAJES](#mecanicas2)
+#### [5.1.3.- HABILIDADES](#mecanicas3)
+#### [5.1.4.- ECONOMÍA](#mecanicas4)
 ### [5.2.- ESTADOS JUEGO](#estadosJuego)
 ### [5.3.- INTERFACES](#interfaces)
 ### [5.4.- CONTROLES](#controles)
@@ -42,7 +46,7 @@
 ### [9.2.- GUION Y DIÁLOGOS](#guionYDialogos)
 ## [10.- DETALLES DE PRODUCCIÓN](#detallesDeProduccion)
 ### [10.1.- MIEMBROS DEL EQUIPO](#miembrosDelEquipo)
-### [10.2.- DATOS DE DESARROLLO](#datosDeDesarrollo)
+### [10.2.- PLAN DE DESARROLLO](#datosDeDesarrollo)
 ### [10.3.- MODELO DE NEGOCIO](#modeloDeNegocio)
 
 ---
@@ -84,6 +88,8 @@
 > la base enemiga y ganar la ronda. El equipo ganador se decide al mejor de 5 de estas rondas, donde los ejércitos tendrán que sobrevivir a un escenario cambiante. ¡Usa las
 > habilidades de tus aliados para abrirte paso! El enemigo se esconde... ¡pero tu revelarás su plan, y haras que muerdan el polvo del Cacao!
 
+---
+
 ## 4.- CARACTERÍSTICAS PRINCIPALES <a name="caracteristicasPrincipales"/>
 
 **- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
@@ -92,8 +98,43 @@
 **- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!<br>
 **- Modos de Juego:** Puedes jugar con caminos fijos... o no. El modo de juego SWAP (NOMBRE PROVISIONAL) te permite elevar tus estrategias a otro nivel. En cambio, si te gusta jugar con algo más manejable... el modo MICRO, con sus unidades fijas, puede ser para ti. O puedes jugar al modo de juego CLÁSICO, que es el estándar.
 
-## 5.- DISEÑO DEL JUEGO	<a name="diseñoDelJuego"/>
-### 5.1.- MECÁNICAS			<a name="mecanicas"/>
+---
+
+## 5.- DISEÑO DEL JUEGO	 <a name="diseñoDelJuego"/>
+### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
+#### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
+
+El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de ronda al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos y es ganada por el que más haya conseguido. NUNCA puede haber un empate en la Ronda, siempre queda al menos 1 unidad en el campo. Al mejor de 5, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
+
+El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 1).
+
+- **Zona de Jugador:** Un atacante recorre esta zona en 7 segundos. Zona inmutable, siempre es recta. La habilidad SWAP puede cambiar dos de las líneas entre sí. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
+- **Zona Neutra:** Un atacante recorre esta zona en 14 segundos. Zona variable, puede ser modificada (por habilidad o modo de juego). En esta zona, se activan los llamados "Comportamientos" de los personajes.
+
+El juego se divide en dos grandes fases:
+
+**FASE DE PREPARACIÓN**
+
+En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Esta fase dura 30 segundos.
+
+En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas, en VERTICAL. Una serie de botones representan las unidades disponibles en ese momento. Al pulsar en los botones, se selecciona una unidad, y hay que pulsar la línea para colocarla. Las líneas ¿tienen un máximo de unidades?. Cuando se acabe el tiempo, sin aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+
+**FASE DE COMBATE**
+
+En la fase de combate, en tiempo real, se usan las habilidades para: corregir tu estrategia, perjudicar al adversario, invocar a poderosas unidades extra... Esta fase dura 2 minutos.
+
+En esta fase, entramos de lleno al escenario principal. Empezamos en un plano del cielo, hasta que baja al campo de batalla, y se revela la colocación de las unidades. Una cuenta atrás y empieza la partida. Se muestra el oro del jugador contrario en este momento. A partir de este momento, se pueden usar habilidades. La habilidad SWAP aparece como predeterminada, si se tiene, ya que es la que tiene más sentido usar al principio. 
+
+Las unidades combaten cuando se encuentran a una distancia de X entre sí. La excepción a esto es el Distancia, que por su "Comportamiento" empieza a atacar cuando entra en un rango. Estos combates se deciden teniendo en cuenta las estadísticas definidas en el apartado **PERSONAJES**. El combate se desarrolla mejor en el apartado **COMBATE**. Una unidad sale vencedora y la otra muere. Todas las unidades vuelven a caminar cuando terminan su combate, hasta llegar a la zona de puntuación.
+
+En el escenario, se pueden conseguir habilidades en forma de objetos. Se añaden a tu stack de habilidades, donde se podrán almacenar.
+
+El combate se acaba por tiempo o porque todas las unidades han llegado a campo contrario. Si acaba por tiempo, las unidades vivas suman otro punto. Los recursos monetarios y las habilidades se conservan entre rondas.
+
+#### 5.1.2.- PERSONAJES  <a name="mecanicas2"/>
+#### 5.1.3.- HABILIDADES <a name="mecanicas3"/>
+#### 5.1.4.- ECONOMÍA    <a name="mecanicas4"/>
+
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
@@ -141,5 +182,5 @@
 <img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Alberto Sánchez Mateo**: Product Owner, Programador y Web Designer. <br>
 <img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Wei Zheng**: Artista técnico y Diseñador 2D. <br>
 
-### 10.2.- DATOS DE DESARROLLO	<a name="datosDeDesarrollo"/>
+### 10.2.- PLAN DE DESARROLLO	<a name="datosDeDesarrollo"/>
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
