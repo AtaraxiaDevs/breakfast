@@ -147,7 +147,7 @@ Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ro
 
 Las Unidades Disponibles y sus estadísticas son:
 
-| **NOMBRE **     | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **COMPORTAMIENTO** |
+| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **COMPORTAMIENTO** |
 | :-------------: |:---------------------:  | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
 | Atacante        | Tostada                 |    4    |   9    |    5    |   1     |    1    | En un cruce, elige el camino con más unidades.                                |
 | Defensor        | Magdalena               |    2    |   15   |    2    |   0,33  |    1    | En un cruce, se detiene y bloquea a los enemigos, no a los aliados.           |
@@ -171,22 +171,22 @@ Algunos ejemplos de Batalla:
 
 Rango => 1 = 1     (Empiezan a la vez)
 
-DPS =  A = 1 / D = 0,33
+DPS =>  A = 1 ///////// D = 0,33
 
-Ataque 1 => A   R = 3    HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
+Ataque 1 => A /////////  R = 3 ////////   HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
 
-DPS =  A = 1 / D = 0,66
+DPS =>  A = 1 ///////// D = 0,66
 
-Ataque 2 => A   R = 7    HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
+Ataque 2 => A ///////// R = 7  ////////  HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
 
-DPS =  A = 1 / D = 1     (RANDOM) = > ¿Quien ataca primero? Sale D
+DPS =>  A = 1 ///////// D = 1  ////////  (RANDOM) = > ¿Quien ataca primero? Sale D
 
-Ataque 3 => D   R = 9    HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3
-Ataque 4 => A   R = 1    HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
+Ataque 3 => D /////////  R = 9 ////////   HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3
+Ataque 4 => A /////////  R = 1 ////////   HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
 
-DPS =  A = 1 / D = 0,33
+DPS =>  A = 1 ///////// D = 0,33
 
-Ataque 5 => A   R = 0    HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
+Ataque 5 => A /////////  R = 0 ////////  HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
 
 EL ATACANTE GANA
 
