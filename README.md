@@ -148,11 +148,11 @@ Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ro
 Las Unidades Disponibles y sus estadísticas son:
 
 | **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **COMPORTAMIENTO** |
-| :-------------: |:---------------------:  | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
+| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
 | Atacante        | Tostada                 |    4    |   9    |    5    |   1     |    1    | En un cruce, elige el camino con más unidades.                                |
 | Defensor        | Magdalena               |    2    |   15   |    2    |   0,33  |    1    | En un cruce, se detiene y bloquea a los enemigos, no a los aliados.           |
 | Distancia       | Bol de Cereales         |    3    |   5    |    4    |   0,5   |    1    | Al detectar una unidad a rango, se para y ataca a distancia.                  |
-| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    5    | En un cruce, elige el camino con más unidades.                                |
+| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    5    | En un cruce, elige el camino con menos unidades.                              |
 | Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |   1     |    1    | Al combatir contra 2 unidades, explota y daña a todos los enemigos cercanos.  |
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
@@ -171,28 +171,78 @@ Algunos ejemplos de Batalla:
 
 Rango => 1 = 1     (Empiezan a la vez)
 
-DPS =>  A = 1 ///////// D = 0,33
+`DPS` =>  A = 1   /////////   D = 0,33
 
-Ataque 1 => A /////////  R = 3 ////////   HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
+Ataque 1 => A     /////////   R = 3      ////////    HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
 
-DPS =>  A = 1 ///////// D = 0,66
+`DPS` =>  A = 1   /////////   D = 0,66
 
-Ataque 2 => A ///////// R = 7  ////////  HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
+Ataque 2 => A     /////////   R = 7      ////////    HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
 
-DPS =>  A = 1 ///////// D = 1  ////////  (RANDOM) = > ¿Quien ataca primero? Sale D
+`DPS` =>  A = 1   /////////   D = 1      ////////    (RANDOM) = > ¿Quien ataca primero? Sale D
 
-Ataque 3 => D /////////  R = 9 ////////   HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3
-Ataque 4 => A /////////  R = 1 ////////   HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
+Ataque 3 => D     /////////   R = 9      ////////    HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3 <br>
+Ataque 4 => A     /////////   R = 1      ////////    HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
 
-DPS =>  A = 1 ///////// D = 0,33
+`DPS` =>  A = 1   /////////   D = 0,33
 
-Ataque 5 => A /////////  R = 0 ////////  HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
+Ataque 5 => A     /////////   R = 0      ////////    HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
 
 EL ATACANTE GANA
 
-
 #### 5.1.4.- HABILIDADES <a name="mecanicas4"/>
+
+Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario y de premios, y se almacenan en un Stack de Habilidades, donde podremos usarlas en cualquier momento del combate. Se selecciona en ese Stack y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
+
+**COMÚN**
+
+- *SWAP* (): Se intercambian las unidades de dos líneas que se encuentren en la zona del jugador propio. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
+- *SWEETS* (): Aumenta tus Toppings en 100.
+- *NO SWEETS* (): Disminuye los Toppings del rival en 100.
+
+**RARO**
+
+- *EXTRA UNIT* (): Una unidad aleatoria aparece en una línea a elegir, en la zona del jugador propio. Puede servir como ataque sorpresa o como defensa de línea ante unidades enemigas. <br>
+- *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 5 segundos.
+- *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para ganar dinero al mantenerlo en el campo.
+
+**ULTRA RARO**
+
+- *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en el campo, en una línea a elegir de la zona de jugador propia. Aguanta 2 ataques del rival, y en el tercero explota y hace daño a todos los enemigos cercanos. Es un gran boost de dinero o una casi condición de victoria.
+
 #### 5.1.5.- ECONOMÍA    <a name="mecanicas5"/>
+
+Se usa un sistema monetario para comprar unidades y ponerlas al campo. La moneda de este juego son los "Toppings de Colores". Cada jugador empezará la partida con 1000 Toppings en su poder. Gastará esos Toppings para conseguir las primeras unidades, y recibirá más Toppings atendiendo a una serie de variables:
+
+- **Variables fijas**: Toppings Iniciales, Ronda Ganada o Perdida, Unidad Abatida.
+
+- **Variables dinámicas**: Duración de Ronda, Unidades Restantes, Unidades que puntúan.
+
+Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los gana y un símbolo "-" que los pierde realizando esta acción.
+
+| **NOMBRE**      | **COMPRAR** | **POR BAJA** | **POR MANTENER** | **POR PUNTUAR**  |
+| :-------------: | :---------: | :----------: | :--------------: | :--------------: |
+| Atacante        | -100        |    +50       |   +50            |   +100           |
+| Defensor        | -100        |    +100      |   +50            |   +100           |
+| Distancia       | -200        |    +100      |   +50            |   +200           | 
+| Velocista       | -200        |    +25       |   +300           |   +50            |
+| Jefe            |  NO         |    +500      |   +500           |   +1000          |
+
+<br>
+
+| **GANADOR RONDA** | **PERDEDOR RONDA** | **TOPPINGS POR SEGUNDO** |
+| :---------------: | :----------------: | :----------------------: |
+|       +500        |       +300         |           20 TPS         |
+
+`EJEMPLO`:
+
+Con el dinero inicial, J1 decide comprar 5 Atacantes, 1 Defensor, 1 Distancia y 1 Velocista (0). J2 decide comprar 4 atacantes, 1 defensor y 1 Distancia. (300).
+
+Primera Ronda: Gana J1, pero se acaba por tiempo. En J1 han llegado 2 atacantes y se ha mantenido 1 distancia (150). 
+En J2 ha llegado 1 atacante pero no se ha mantenido nadie (100).
+
+Al agotarse el tiempo, ambos suman 120. J1 acaba teniendo (500 + 150 + 240 + 350 + 0) = 1240. J2 acaba teniendo (300 + 100 + 240 + 275 + 300) = 1215.
+
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
