@@ -44,7 +44,6 @@
 ### [8.2.- EFECTOS DE SONIDO](#efectosDeSonido)
 ## [9.- NARRATIVA Y GUION](#narrativaYGuion)	
 ### [9.1.- SINOPSIS](#sinopsis)
-### [9.2.- GUION Y DIÁLOGOS](#guionYDialogos)
 ## [10.- DETALLES DE PRODUCCIÓN](#detallesDeProduccion)
 ### [10.1.- MIEMBROS DEL EQUIPO](#miembrosDelEquipo)
 ### [10.2.- PLAN DE DESARROLLO](#datosDeDesarrollo)
@@ -267,21 +266,106 @@ Al agotarse el tiempo, ambos suman 120. J1 acaba teniendo (500 + 150 + 240 + 350
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 ### 5.4.- CONTROLES	<a name="controles"/>
+
+Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y móvil. 
+
+**CONTROLES PC**
+
+Basado en el teclado.
+
+*Controles Menú*
+`WASD`: Seleccionar entre opciones
+`INTRO`: Elegir opción
+
+*Jugador 1*
+`W - S`: Cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.
+`A - D`: Cambiar entre unidades en la Preparación (o habilidades, en el Combate).
+`SPACE`: Acción / Desplegar Unidad / Usar habilidad
+
+*Jugador 2*
+`Flecha Arriba - Flecha Abajo`: Cambiar entre líneas (Usando habilidades o desplegando unidades)
+`Flecha Izquierda - Flecha Derecha`: Cambiar entre unidades en la preparación (o habilidades, en el combate)
+`INTRO`: Acción / Desplegar Unidad / Usar habilidad
+
+*Botones Extra*
+**...**
+`ESC`: Salir
+
+**CONTROLES MÓVIL Y TABLETA**
+
+Basado en el control táctil. Los mismos controles para los dos jugadores, un tipo de botón para cada uno. Los Menús se controlan con botones táctiles.
+
+*Jugadores*
+`FLECHAS DE LÍNEA`: Elegir línea. Solo hay que hacerlo cuando se resaltan.
+`ICONO DE UNIDADES`: Al pulsar, cambias la unidad seleccionada.
+`ICONO DE HABILIDADES`: Al pulsar, cambias la habilidad seleccionada.
+`ICONO USAR`: En el Combate, pulsa para activar la habilidad.
+
+*Botones Extra*
+**...**
+`SALIR`: Sale al menú principal
+
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
+
+La idea del juego es que ambos jugadores jueguen muchas partidas entre sí. Cuanto más jueguen, más descubren el funcionamiento de las unidades / habilidades, y sobre todo, las estrategias de sus rivales.
+
+Las primeras partidas consistirán en un tanteo aleatorio de las mecánicas. Destacará mucho más el uso de habilidades, ya que es lo más tangible en primera instancia. Probablemente se consigan partidas de duración media. 
+
+Al ir avanzando, entrará más en juego la estrategia en la fase de preparación. Sobre todo, si te enfrentas a alguien conocido. Apareceran nuevas estrategias, como dejar vacía una línea para ganar las otras dos, ahorrar toppings entre rondas, tirar rondas enteras sin usar unidades... Y muchas otras.
+
+El engaño va a ser una constante entre rondas: cargar la línea superior para dejarla vacía en la siguiente ronda; saber donde pondrá sus unidades el contrario y contratacar; usar una habilidad SWAP decisiva en el último momento...
+
+El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran las victorias más épicas y aplastantes. **DISCUTIR MECÁNICA BEAT THE RANKING**
+
 ### 5.6.- NIVELES	<a name="niveles"/>
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
+
+- **TOSTADA:**
+- **MAGDALENA:**
+- **BOL DE CEREALES:**
+- **¿FRUTA?:**
+- **MANTEQUILLA GRITONA:**
+- **MERMELADA EXPLOSIVA:**
+
 ### 6.2.- LOCALIZACIONES	<a name="localizaciones"/>
+
+Este apartado se refiere a los diferentes escenarios visuales en los que se desarrolla el juego:
+
+- **MERENDERO:**
+- **COCINA:**
+
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 ### 7.2.- CONCEPTS	<a name="concepts"/>
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 ## 8.- SONIDO	<a name="sonido"/>
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
+
+- *Tema Menú*:
+- *Tema Preparación*:
+- *Tema Combate*:
+
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
+
+- *Botón Menú pulsado*:
+- *Cuenta atrás Combate*:
+- *Invocar unidad en línea*: Ruido de Pasos
+- *Cambiar entre unidades / habilidades*:
+- *Ganancia de Toppings*:
+- *Punto conseguido*:
+- *Fin de Ronda*:
+- *Fin de Partida / Game Over*:
+
 ## 9.- NARRATIVA Y GUION	<a name="narrativaYGuion"/>
 ### 9.1.- SINOPSIS <a name="sinopsis"/>	
-### 9.2.- GUION Y DIÁLOGOS	<a name="guionYDialogos"/>
+
+Unos amigables alienígenas deciden venir a la Tierra en busca de nutrientes que les hagan crecer y llegar a su forma completa. Sin embargo, se encuentran con tan amplia variedad de alimentos, que empiezan a tener discusiones internas. Dos de los más respetados, M.G. Y M.E. (NOMBRES PROVISIONALES) reúnen dos grandes grupos, que defienden que el desayuno es la comida más importante del día. 
+
+M.G. defiende que la dieta debería estar sustentada en la Mantequilla, y decide fusionarse con ella para demostrar su poder. M.E. no se queda atrás, pero cree que la Mermelada es mucho más poderosa. Sus constantes discusiones y su creciente temperamento hacen que decidan librar una batalla para probar que llevan la razón.
+
+Los jugadores representan a un pequeño ejército de estos dos grandes grupos. Es por eso que podrán llamar a los poderosos M.G. y M.E. a batalla para apoyarles. 
+
 ## 10.- DETALLES DE PRODUCCIÓN	<a name="detallesDeProduccion"/>
 ### 10.1.- MIEMBROS DEL EQUIPO	<a name="miembrosDelEquipo"/>
 <img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Daniel Ayllón Peinado**: Programador, Scrum Master y CM.<br>
