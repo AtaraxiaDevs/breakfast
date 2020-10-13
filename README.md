@@ -81,8 +81,8 @@
  
 ## 3.- SINOPSIS DEL JUEGO <a name="sinopsisDelJuego"/>
 
-> ¿Cual es la comida más importante del día? ¡Compite con tus amigos para ayudar a los pequeños alienígenas (NOMBRE PROVISIONAL) del espacio exterior a decidir! 
-> ¿Estas del lado de la valiente Mantequilla Gritona o de la astuta Mermelada Explosiva (NOMBRE PROVISIONAL)? ¡Descúbrelo aquí!
+> ¿Cual es la comida más importante del día? ¡Compite con tus amigos para ayudar a los pequeños alienígenas  del espacio exterior a decidir! 
+> ¿Estas del lado de la valiente Mantequilla Gritona o de la astuta Mermelada Explosiva ? ¡Descúbrelo aquí!
 
 > BTF: Break-Troops-Fast es un juego de estrategia, que enfrenta a dos jugadores en una batalla donde deberán gestionar sus comestibles tropas para conseguir llegar hasta
 > la base enemiga y ganar la ronda. El equipo ganador se decide al mejor de 5 de estas rondas, donde los ejércitos tendrán que sobrevivir a un escenario cambiante. ¡Usa las
@@ -150,8 +150,8 @@ Las Unidades Disponibles y sus estadísticas son:
 | :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
 | Atacante        | Tostada                 |    4    |   9    |    5    |   1     |    1    | En un cruce, elige el camino con más unidades.                                |
 | Defensor        | Magdalena               |    2    |   15   |    2    |   0,33  |    1    | En un cruce, se detiene y bloquea a los enemigos, no a los aliados.           |
-| Distancia       | Bol de Cereales         |    3    |   5    |    4    |   0,5   |    1    | Al detectar una unidad a rango, se para y ataca a distancia.                  |
-| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    5    | En un cruce, elige el camino con menos unidades.                              |
+| Distancia       | Bol de Cereales         |    3    |   5    |    4    |   0,5   |    5    | Al detectar una unidad a rango, se para y ataca a distancia.                  |
+| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    1    | En un cruce, elige el camino con menos unidades.                              |
 | Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |   1     |    1    | Al combatir contra 2 unidades, explota y daña a todos los enemigos cercanos.  |
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
@@ -338,6 +338,9 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 ### 7.2.- CONCEPTS	<a name="concepts"/>
+
+
+
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 ## 8.- SONIDO	<a name="sonido"/>
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
