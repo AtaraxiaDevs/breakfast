@@ -273,36 +273,36 @@ Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y m�
 
 Basado en el teclado.
 
-*Controles Menú*
-`WASD`: Seleccionar entre opciones
+*Controles Menú* <br>
+`WASD`: Seleccionar entre opciones<br>
 `INTRO`: Elegir opción
 
-*Jugador 1*
-`W - S`: Cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.
-`A - D`: Cambiar entre unidades en la Preparación (o habilidades, en el Combate).
+*Jugador 1*<br>
+`W - S`: Cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
+`A - D`: Cambiar entre unidades en la Preparación (o habilidades, en el Combate).<br>
 `SPACE`: Acción / Desplegar Unidad / Usar habilidad
 
-*Jugador 2*
-`Flecha Arriba - Flecha Abajo`: Cambiar entre líneas (Usando habilidades o desplegando unidades)
-`Flecha Izquierda - Flecha Derecha`: Cambiar entre unidades en la preparación (o habilidades, en el combate)
+*Jugador 2*<br>
+`Flecha Arriba - Flecha Abajo`: Cambiar entre líneas (Usando habilidades o desplegando unidades)<br>
+`Flecha Izquierda - Flecha Derecha`: Cambiar entre unidades en la preparación (o habilidades, en el combate)<br>
 `INTRO`: Acción / Desplegar Unidad / Usar habilidad
 
-*Botones Extra*
-**...**
+*Botones Extra*<br>
+**...**<br>
 `ESC`: Salir
 
 **CONTROLES MÓVIL Y TABLETA**
 
 Basado en el control táctil. Los mismos controles para los dos jugadores, un tipo de botón para cada uno. Los Menús se controlan con botones táctiles.
 
-*Jugadores*
-`FLECHAS DE LÍNEA`: Elegir línea. Solo hay que hacerlo cuando se resaltan.
-`ICONO DE UNIDADES`: Al pulsar, cambias la unidad seleccionada.
-`ICONO DE HABILIDADES`: Al pulsar, cambias la habilidad seleccionada.
+*Jugadores*<br>
+`FLECHAS DE LÍNEA`: Elegir línea. Solo hay que hacerlo cuando se resaltan.<br>
+`ICONO DE UNIDADES`: Al pulsar, cambias la unidad seleccionada.<br>
+`ICONO DE HABILIDADES`: Al pulsar, cambias la habilidad seleccionada.<br>
 `ICONO USAR`: En el Combate, pulsa para activar la habilidad.
 
-*Botones Extra*
-**...**
+*Botones Extra*<br>
+**...**<br>
 `SALIR`: Sale al menú principal
 
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
