@@ -27,6 +27,7 @@
 #### [5.1.3.- COMBATE](#mecanicas3)
 #### [5.1.4.- HABILIDADES](#mecanicas4)
 #### [5.1.5.- ECONOMÍA](#mecanicas5)
+#### [5.1.6.- RANKING](#mecanicas6)
 ### [5.2.- ESTADOS JUEGO](#estadosJuego)
 ### [5.3.- INTERFACES](#interfaces)
 ### [5.4.- CONTROLES](#controles)
@@ -57,13 +58,15 @@
 | **NOMBRE**      | BTF: Break-Troops-Fast   |
 | :-------------: | :---------------------:  |
 | **VERSION**     | 1.0                      |
-| **GENERO**      | Estrategia / Turnos      |
+| **GENERO**      | Estrategia     |
 | **TEMÁTICA**    | Comida                   |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
 | **JUEGOS RELACIONADOS**  | Clash Royale, Warlords: Call To Arms, Stratego |
 | **PUBLICO OBJETIVO**     | Infantil, Casual        |
 | **ESTILO VISUAL**        | 2D, Pixel Art           |
-| **VISTA**       | Picada                   |
+| **CALIFICACIÓN**         | PEGI 7+                 |
+| **IDIOMA**      | Español, Inglés          |
+| **VISTA**       | Cenital 3/4              |
 | **TECNOLOGÍAS** | Phaser                   |
 | **MECÁNICAS**   | - Duelos 1vs1 de Ejércitos, a ciegas <br> - Diferentes Unidades y Habilidades <br>- Conquistar el terreno enemigo |
 
@@ -242,6 +245,23 @@ En J2 ha llegado 1 atacante pero no se ha mantenido nadie (100).
 
 Al agotarse el tiempo, ambos suman 120. J1 acaba teniendo (500 + 150 + 240 + 350 + 0) = 1240. J2 acaba teniendo (300 + 100 + 240 + 275 + 300) = 1215.
 
+#### 5.1.6.- RANKING    <a name="mecanicas6"/>
+
+El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas puntuaciones se miden con este sistema, y se muestra en la pantalla de Final de Partida. Este sistema es interno, y solo se le informa al jugador de su puntuación final:
+
+| **NOMBRE**      | **POR BAJA** | **POR MANTENER** | **POR PUNTUAR**  | 
+| :-------------: | :----------: | :--------------: | :--------------: | 
+| Atacante        |    +10       |   +5             |   +20            |         
+| Defensor        |    +10       |   +5             |   +20            |
+| Distancia       |    +10       |   +5             |   +20            | 
+| Velocista       |    +10       |   +20            |   +20            |
+| Jefe            |    +300      |   +50            |   +500           |
+
+<br>
+
+| **GANADOR RONDA** | **PERDEDOR RONDA** | **GANAR LA PARTIDA** | **PERDER LA PARTIDA** | **POR USAR HABILIDAD** | **POR TOPPINGS RESTANTES** |
+| :---------------: | :----------------: | :------------------: | :-------------------: | :--------------------: | :------------------------: |
+|       +300        |       -100         |         +100         |           0           |          +10           |       +(TOPPINGS / 2)      |
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
@@ -265,6 +285,27 @@ Al agotarse el tiempo, ambos suman 120. J1 acaba teniendo (500 + 150 + 240 + 350
 - *GAME OVER*: Pantalla final del juego, donde se muestra el ganador y los puntos conseguidos.
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
+
+INICIO:
+
+RANKING:
+
+CRÉDITOS:
+
+TUTORIAL:
+
+STATS:
+
+PRE-PARTIDA:
+
+PREPARACIÓN:
+
+COMBATE:
+
+RECUENTO RONDA:
+
+GAME OVER:
+
 ### 5.4.- CONTROLES	<a name="controles"/>
 
 Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y móvil. 
@@ -318,6 +359,15 @@ El engaño va a ser una constante entre rondas: cargar la línea superior para d
 El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran las victorias más épicas y aplastantes. **DISCUTIR MECÁNICA BEAT THE RANKING**
 
 ### 5.6.- NIVELES	<a name="niveles"/>
+
+En el caso de este juego, no se trata de niveles, sino de distintos Modos de Juego. Se podrán seleccionar en la pantalla de Pre-Partida.
+
+- **Modo CLÁSICO**: El juego estándar, sin cambios adicionales.
+- **Modo LABERINTO**: La zona neutra pasa a ser una zona variable, donde las unidades tomarán distintos caminos. Estos cambios se notificarán en la pantalla de preparación, para que se tengan en cuenta en la estrategia. Los personajes pondrán en marcha sus "Comportamientos", con lo que la estrategia variará conforme al modo normal, dando una nueva dimensión al juego.
+- **Modo MICRO**: Sin Toppings iniciales. Cada Ronda, los recursos se ven limitados a 1 unidad por cada tipo de soldado (4), y a 3 habilidades. Hay que saber gestionar los recursos en este modo de juego similar a un Mirror Match. 
+
+---
+
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
 
@@ -335,6 +385,8 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 - **MERENDERO:**
 - **COCINA:**
 
+---
+
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 ### 7.2.- CONCEPTS	<a name="concepts"/>
@@ -342,6 +394,9 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
+
+---
+
 ## 8.- SONIDO	<a name="sonido"/>
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
@@ -360,6 +415,8 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 - *Fin de Ronda*:
 - *Fin de Partida / Game Over*:
 
+---
+
 ## 9.- NARRATIVA Y GUION	<a name="narrativaYGuion"/>
 ### 9.1.- SINOPSIS <a name="sinopsis"/>	
 
@@ -368,6 +425,8 @@ Unos amigables alienígenas deciden venir a la Tierra en busca de nutrientes que
 M.G. defiende que la dieta debería estar sustentada en la Mantequilla, y decide fusionarse con ella para demostrar su poder. M.E. no se queda atrás, pero cree que la Mermelada es mucho más poderosa. Sus constantes discusiones y su creciente temperamento hacen que decidan librar una batalla para probar que llevan la razón.
 
 Los jugadores representan a un pequeño ejército de estos dos grandes grupos. Es por eso que podrán llamar a los poderosos M.G. y M.E. a batalla para apoyarles. 
+
+---
 
 ## 10.- DETALLES DE PRODUCCIÓN	<a name="detallesDeProduccion"/>
 ### 10.1.- MIEMBROS DEL EQUIPO	<a name="miembrosDelEquipo"/>
@@ -379,4 +438,46 @@ Los jugadores representan a un pequeño ejército de estos dos grandes grupos. E
 <img src="https://raw.githubusercontent.com/AtaraxiaDevs/breakfast/main/GDD/Iconos%20Desarrollador/Wei.png" width="50px"> **Wei Zheng**: Artista técnico y Diseñador 2D. <br>
 
 ### 10.2.- PLAN DE DESARROLLO	<a name="datosDeDesarrollo"/>
+
+IDEAS
+- Nuevas unidades y habilidades
+- Modo Torneo
+- Modo de Juego en tiempo real?
+- Moneda de juego y de pago?
+- Secuela, rediseño o continuidad en el tiempo?
+
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
+
+IDEAS
+- Marcas patrocinan las unidades
+- Anuncios de las mismas marcas, no intrusivos, en el inicio de partida
+- Free to Play con Skins?
+- Promociones con las marcas
+- Relacion con cadenas de supermercados?
+- Buscar becas del estado?
+
+COSTES:
+
+- Licencias
+- Empleados
+- Externos?
+
+INGRESOS:
+
+- Patrocinio
+- Becas o ayudas
+- Colaboraciones?
+- Eventos?
+
+RELLENADO DE ESQUEMA
+
+- Socios clave
+- Recursos Clave
+- Actividades clave
+- Propuesta de valor
+- Relacion con el consumidor
+- Canales
+- Mercado Meta
+- Estructuras de Coste
+- Flujo de Ingresos
+
