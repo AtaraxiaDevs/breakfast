@@ -2,10 +2,10 @@ var config = {
   type: Phaser.AUTO,
   scale: {
     mode: Phaser.Scale.FIT,
-    parent: 'phaser-example',
+    parent: "phaser-example",
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 800,
-    height: 600
+    width: 1920,
+    height: 1080,
   },
   backgroundColor: 0x444444,
   scene: {
@@ -18,34 +18,45 @@ var config = {
 var game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image("s_provisional", "resources/s_provisional.png")
+  this.load.image("s_provisional", "resources/s_provisional.png");
 }
 
 function create() {
-  this.add.image(200, 400, 's_provisional')
+  this.add.image(200, 400, "s_provisional");
+  if (isMobile) {
+    scene.scale.lockOrientation("landscape");
+    resize();
+    console.log("Me he reajustao");
+  }
 }
 
 function update() {}
 
-function resize(){​​
-  var canvas = document.querySelector("canvas");
-  var windowWidth = window.innerWidth;
-  var windowHeight = window.innerHeight;
-  var windowRatio = windowWidth / windowHeight;
-  var gameRatio = game.config.width / game.config.height;
+function resize() {
+  let canvas = document.querySelector("canvas");
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+  let windwRatio = windowWidth / windowHeight;
+  let gameRatio = game.config.width / game.config.height;
 
-  if(windowRatio < gameRatio){​​
-      canvas.style.width = windowWidth + "px";
-      canvas.style.height = (windowWidth / gameRatio) + "px";
-  }​​
-  else {​​
-      canvas.style.width = (windowHeight * gameRatio) + "px";
-      canvas.style.height = windowHeight + "px";
-  }​​
-}​​
+  if (windwRatio < gameRatio) {
+    canvas.style.width = windowWidth + "px";
+    canvas.style.height = windowHeight + "px";
+  } else {
+    canvas.style.width = windowHeight * gameRatio + "px";
+    canvas.style.height = windowHeight + "px";
+  }
 
-window.addEventListener("touchstart", function () {
-  resize()
-});
+  console.log("He hecho resize");
+}
 
-alert("SOY UN PUTO MOVIL GRACIAS");
+let isMobile = false;
+addEventListener("touchstart", tareasMovil, false);
+
+function tareasMovil() {
+  alert("Soy Un Móvil");
+  isMobile = true;
+  resize();
+
+  // Element.removeEventListener("touchstart", tareasMovil, true);
+}
