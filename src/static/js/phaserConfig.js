@@ -50,13 +50,13 @@ function resize() {
   console.log("He hecho resize");
 }
 
-let isMobile = false;
+let isMobile;
 addEventListener("touchstart", tareasMovil, false);
 
 function tareasMovil() {
-  alert("Soy Un Móvil");
-  isMobile = true;
-  resize();
-
-  // Element.removeEventListener("touchstart", tareasMovil, true);
+  if (isMobile == undefined) {
+    // alert("Soy Un Móvil");
+    isMobile = true;
+    resize();
+  }
 }
