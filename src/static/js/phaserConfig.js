@@ -16,4 +16,4 @@ var config = {
 
 var game = new Phaser.Game(config);
 
-export default new Configuracion();
+export default new Configuracion(game);

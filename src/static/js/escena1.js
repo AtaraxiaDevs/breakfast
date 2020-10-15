@@ -15,8 +15,7 @@ export default class Escena1 extends Phaser.Scene {
     console.log(ConfiguracionJuego.isMobile);
     if (ConfiguracionJuego.isMobile) {
       console.log("Era mobile");
-      screen.orientation.lock("landscape");
-      // resize();
+      ConfiguracionJuego.resize();
     }
   }
 

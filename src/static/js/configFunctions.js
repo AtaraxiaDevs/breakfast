@@ -30,12 +30,27 @@ export default class Configuracion {
     return device;
   };
 
-  constructor() {
+  constructor(gameCanvas) {
     this.isMobile = this.getDeviceName();
+    this.canvas = gameCanvas;
   }
 
   resize = function () {
-    let canvas = document.querySelector("canvas");
+    if (this.canvas.requestFullscreen) {
+      this.canvas.requestFullscreen();
+    } else if (this.canvas.mozRequestFullScreen) {
+      /* Firefox */
+      this.canvas.mozRequestFullScreen();
+    } else if (this.canvas.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.canvas.webkitRequestFullscreen();
+      /* IE/Edge */
+      this.canvas.msRequestFullscreen();
+    }
+
+    screen.orientation.lock("landscape");
+
+    /*let canvas = document.querySelector("canvas");
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
     let windwRatio = windowWidth / windowHeight;
@@ -47,6 +62,6 @@ export default class Configuracion {
     } else {
       canvas.style.width = windowHeight * gameRatio + "px";
       canvas.style.height = windowHeight + "px";
-    }
+    }*/
   };
 }
