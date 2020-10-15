@@ -32,20 +32,24 @@ export default class Configuracion {
 
   constructor(gameCanvas) {
     this.isMobile = this.getDeviceName();
-    this.canvas = gameCanvas;
+    //this.canvas = gameCanvas;
   }
 
-  resize = function () {
-    if (this.canvas.requestFullscreen) {
-      this.canvas.requestFullscreen();
-    } else if (this.canvas.mozRequestFullScreen) {
+  resize = function () { 
+    var canvas = document.getElementById('canvas');
+    console.log(canvas);
+    
+    if (canvas.requestFullscreen) {
+     
+      canvas.requestFullscreen();
+    } else if (canvas.mozRequestFullScreen) {
       /* Firefox */
-      this.canvas.mozRequestFullScreen();
-    } else if (this.canvas.webkitRequestFullscreen) {
+      canvas.mozRequestFullScreen();
+    } else if (canvas.webkitRequestFullscreen) {
       /* Chrome, Safari and Opera */
-      this.canvas.webkitRequestFullscreen();
+      canvas.webkitRequestFullscreen();
       /* IE/Edge */
-      this.canvas.msRequestFullscreen();
+      canvas.msRequestFullscreen();
     }
 
     screen.orientation.lock("landscape");

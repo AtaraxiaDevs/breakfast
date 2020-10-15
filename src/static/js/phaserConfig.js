@@ -12,6 +12,9 @@ var config = {
   },
   backgroundColor: 0x444444,
   scene: [Escena1],
+  parent : 'canvas'
+
+
 };
 
 var game = new Phaser.Game(config);
