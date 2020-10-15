@@ -5,7 +5,7 @@
 
 
 ## CONTACTO
-#### WEB:
+#### [WEB: Ataraxia Devs] (https://ataraxiadevs.github.io/)
 #### [TWITTER: @AtaraxiaDevs](https://twitter.com/AtaraxiaDevs?s=08)
 #### [YOUTUBE: https://www.youtube.com/watch?v=YqdJcBMMgJw](https://www.youtube.com/channel/UCf6IyOGVFrC8l-6_nfMpzhQ)
 
@@ -113,6 +113,8 @@ El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas dif
 
 - **Zona de Jugador:** Un atacante recorre esta zona en 7 segundos. Zona inmutable, siempre es recta. La habilidad SWAP puede cambiar dos de las líneas entre sí. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
 - **Zona Neutra:** Un atacante recorre esta zona en 14 segundos. Zona variable, puede ser modificada (por habilidad o modo de juego). En esta zona, se activan los llamados "Comportamientos" de los personajes.
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Escenario.png)
 
 <br>
 
