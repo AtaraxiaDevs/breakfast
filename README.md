@@ -5,7 +5,7 @@
 
 
 ## CONTACTO
-#### [WEB: Ataraxia Devs] (https://ataraxiadevs.github.io/)
+#### [WEB: Ataraxia Devs](https://ataraxiadevs.github.io/)
 #### [TWITTER: @AtaraxiaDevs](https://twitter.com/AtaraxiaDevs?s=08)
 #### [YOUTUBE: https://www.youtube.com/watch?v=YqdJcBMMgJw](https://www.youtube.com/channel/UCf6IyOGVFrC8l-6_nfMpzhQ)
 
