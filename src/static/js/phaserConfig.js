@@ -16,6 +16,7 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+let isMobile = getDeviceName();
 
 function preload() {
   this.load.image("s_provisional", "resources/s_provisional.png");
@@ -24,9 +25,9 @@ function preload() {
 function create() {
   this.add.image(200, 400, "s_provisional");
   if (isMobile) {
-    scene.scale.lockOrientation("landscape");
+    //scene.scale.lockOrientation("landscape");
+    console.log(isMobile);
     resize();
-    console.log("Me he reajustao");
   }
 }
 
@@ -46,12 +47,7 @@ function resize() {
     canvas.style.width = windowHeight * gameRatio + "px";
     canvas.style.height = windowHeight + "px";
   }
-
-  console.log("He hecho resize");
 }
-
-let isMobile;
-addEventListener("touchstart", tareasMovil, false);
 
 function tareasMovil() {
   if (isMobile == undefined) {
@@ -59,4 +55,35 @@ function tareasMovil() {
     isMobile = true;
     resize();
   }
+}
+
+function checkUserAgent(name) {
+  if (navigator.userAgent.indexOf(name) != -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function getDeviceName() {
+  "use strict";
+
+  let device = "n/a";
+
+  if (
+    checkUserAgent("Android") ||
+    (checkUserAgent("iPhone") && !window.MSStream)
+  ) {
+    device = true;
+  } else if (
+    checkUserAgent("Mac OS") ||
+    checkUserAgent("Macintosh") ||
+    checkUserAgent("Windows")
+  ) {
+    device = false;
+  } else {
+    device = undefined;
+  }
+
+  return device;
 }
