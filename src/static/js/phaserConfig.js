@@ -1,4 +1,5 @@
 import Configuracion from "./configFunctions.js";
+import GameAPI from "./gameAPI.js"
 import Escena1 from "./escena1.js";
 
 var config = {
@@ -21,4 +22,6 @@ var config = {
 
 var game = new Phaser.Game(config);
 
-export default new Configuracion(game);
+
+export let ConfiguracionJuego =  new Configuracion(game);
+export let APIJuego = new GameAPI();
