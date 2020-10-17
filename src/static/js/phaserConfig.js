@@ -3,8 +3,12 @@ import Escena1 from "./escena1.js";
 
 var config = {
   type: Phaser.AUTO,
+  physics: {
+    default: 'arcade',
+  },
   scale: {
     mode: Phaser.Scale.FIT,
+    orientation: Phaser.Scale.Orientation.LANDSCAPE,
     parent: "phaser-example",
     autoCenter: Phaser.Scale.CENTER_BOTH,
     width: 1920,
@@ -13,8 +17,6 @@ var config = {
   backgroundColor: 0x444444,
   scene: [Escena1],
   parent : 'canvas'
-
-
 };
 
 var game = new Phaser.Game(config);
