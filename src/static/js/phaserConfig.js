@@ -2,6 +2,7 @@ import Configuracion from "./configFunctions.js";
 import GameAPI from "./gameAPI.js"
 import Escena1 from "./escena1.js";
 
+
 var config = {
   type: Phaser.AUTO,
   physics: {
@@ -21,6 +22,8 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+
+
 
 
 export let ConfiguracionJuego =  new Configuracion(game);
