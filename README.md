@@ -107,7 +107,11 @@
 ### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
 #### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
 
-El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de ronda al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos y es ganada por el que más haya conseguido. NUNCA puede haber un empate en la Ronda, siempre queda al menos 1 unidad en el campo. Al mejor de 5, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
+El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA y cada fila es ganada por el que más haya conseguido.  Al mejor de 3, el jugador que gana consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
+
+**¿EMPATE TÉCNICO O MUERTE SÚBITA?**
+
+Siempre queda al menos 1 unidad en el campo. Si una fila no puntua (EMPATE TÉCNICO) el marcador puede quedar 1-1, por lo que: o gana el que haya ganado la Fila más contudentemente (entre un 4-2 y un 3-1, el punto se lo lleva el 4-2); o hay una ronda extra de una única fila (beneficia al que ahorra). 
 
 El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 5).
 
@@ -124,7 +128,9 @@ El juego se divide en dos grandes fases:
 
 En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Esta fase dura 30 segundos.
 
-En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas, en VERTICAL. Una serie de botones representan las unidades disponibles en ese momento. Al pulsar en los botones, se selecciona una unidad, y hay que pulsar la línea para colocarla. Las líneas ¿tienen un máximo de unidades?. Cuando se acabe el tiempo, sin aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas, en VERTICAL. Un único botón representa las unidades disponibles en ese momento, que se van cambiando al pulsarlo. Esa unidad mostrada esta seleccionada, y hay que pulsar la línea para colocarla. Las líneas tienen un máximo de X unidades y sin mínimo de unidades. Cuando se acabe el tiempo, sin aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+
+Si no se pone NINGUNA unidad en el campo en esta fase, el jugador se considera INACTIVO y la partida se acaba, pasando a la pantalla de GAME OVER.
 
 **FASE DE COMBATE**
 
@@ -288,25 +294,37 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 
-INICIO:
+`INICIO:`
 
-RANKING:
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/INICIO.png)
 
-CRÉDITOS:
+`RANKING:`
 
-TUTORIAL:
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RANKING.png)
 
-STATS:
+`CRÉDITOS:`
 
-PRE-PARTIDA:
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/CREDITOS.png)
 
-PREPARACIÓN:
+`TUTORIAL:`
 
-COMBATE:
+`STATS:`
 
-RECUENTO RONDA:
+`PRE-PARTIDA:`
 
-GAME OVER:
+`PREPARACIÓN:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20PREPARACI%C3%93N.png)
+
+`COMBATE:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20COMBATE.png)
+
+`RECUENTO RONDA:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RECUENTO%20RONDA.png)
+
+`GAME OVER:`
 
 ### 5.4.- CONTROLES	<a name="controles"/>
 
