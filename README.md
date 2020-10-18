@@ -47,7 +47,7 @@
 ### [9.1.- SINOPSIS](#sinopsis)
 ## [10.- DETALLES DE PRODUCCIÓN](#detallesDeProduccion)
 ### [10.1.- MIEMBROS DEL EQUIPO](#miembrosDelEquipo)
-### [10.2.- PLAN DE DESARROLLO](#datosDeDesarrollo)
+### [10.2.- CICLO DE VIDA](#cicloDeVida)
 ### [10.3.- MODELO DE NEGOCIO](#modeloDeNegocio)
 
 ---
@@ -466,7 +466,7 @@ Los jugadores representan a un pequeño ejército de estos dos grandes grupos. E
 <img src="https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/LogoAtaraxia/logo_definitivo.png" width="50px"> **Alberto Sánchez Mateo**: Product Owner, Programador y Web Designer. <br>
 <img src="https://raw.githubusercontent.com/AtaraxiaDevs/breakfast/main/GDD/Iconos%20Desarrollador/Wei.png" width="50px"> **Wei Zheng**: Artista técnico y Diseñador 2D. <br>
 
-### 10.2.- PLAN DE DESARROLLO	<a name="datosDeDesarrollo"/>
+### 10.2.- CICLO DE VIDA	<a name="cicloDeVida"/>
 
 IDEAS
 - Nuevas unidades y habilidades
@@ -477,36 +477,29 @@ IDEAS
 
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
 
-IDEAS
-- Marcas patrocinan las unidades
-- Anuncios de las mismas marcas, no intrusivos, en el inicio de partida
-- Free to Play con Skins?
-- Promociones con las marcas
-- Relacion con cadenas de supermercados?
-- Buscar becas del estado?
+*MODELO DE NEGOCIO*
 
-COSTES:
+-Fidelización : Buscamos que los usuarios sigan jugando constantemente al juego, usando para ello los premios que se pueden conseguir a través del juego.
 
-- Licencias
-- Empleados
-- Externos?
+*MONETIZACION*
 
-INGRESOS:
+- Micro-transacciones
+- Free to Play
+- Publicidad
 
-- Patrocinio
-- Becas o ayudas
-- Colaboraciones?
-- Eventos?
+*MARKETING*
 
-RELLENADO DE ESQUEMA
+- Promoción en redes sociales
+- Convenciones Pequeñas
+- Torneos
+- Potenciar eventos online (COVID)
 
-- Socios clave
-- Recursos Clave
-- Actividades clave
-- Propuesta de valor
-- Relacion con el consumidor
-- Canales
-- Mercado Meta
-- Estructuras de Coste
-- Flujo de Ingresos
+*IDEAS*
+
+- Marcas patrocinan las Unidades. Potenciar rivalidad sana entre marcas. 
+- Anuncios de las mismas marcas, no intrusivos, en el inicio de partida. Diseñados codo a codo con las marcas.
+- Relacion con cadenas de Supermercados. Promociones, premios, eventos.
+
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Modelo%20de%20Negocio.png)
 
