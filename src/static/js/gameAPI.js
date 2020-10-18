@@ -31,7 +31,6 @@ export default class GameAPI {
         this.personajesRenderizados.push(new Personaje(tipo));
         this.dibujarSprite(this.personajesRenderizados[this.personajesRenderizados.length-1])
 
-
     }
 
     //Función encargada de recorrer cada personaje y activarlos para que empiecen a luchar.
@@ -41,6 +40,12 @@ export default class GameAPI {
          
       }
     }
+
+    //------------------------ UI---------------------------------------
+    //TODO -Botón para cambiar personaje
+    //TODO -Botón para añadir personaje a la línea
+    //TODO -Botón para confirmar compo ? 
+    //TODO -Botón deshacer
 
     
     constructor(){

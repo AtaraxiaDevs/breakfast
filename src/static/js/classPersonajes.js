@@ -2,7 +2,8 @@ export default class Personaje{
     
     //Función encargada de activar la máquina de estados
     arrancar = function(){
-        this.sprite.setVelocityX(this.infoBase.vel); //! POR AHORA solo activa la velocidad en el eje X
+        let multiplicador = 10;
+        this.sprite.setVelocityX(this.infoBase.vel*multiplicador); //! POR AHORA solo activa la velocidad en el eje X
     }
 
     //* Parámetros: objeto Sprite de Phaser
