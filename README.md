@@ -294,33 +294,37 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 
-INICIO:
+`INICIO:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/INICIO.png)
 
-RANKING:
+`RANKING:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RANKING.png)
 
-CRÉDITOS:
+`CRÉDITOS:`
 
-TUTORIAL:
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/CREDITOS.png)
 
-STATS:
+`TUTORIAL:`
 
-PRE-PARTIDA:
+`STATS:`
 
-PREPARACIÓN:
+`PRE-PARTIDA:`
+
+`PREPARACIÓN:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20PREPARACI%C3%93N.png)
 
-COMBATE:
+`COMBATE:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20COMBATE.png)
 
-RECUENTO RONDA:
+`RECUENTO RONDA:`
 
-GAME OVER:
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RECUENTO%20RONDA.png)
+
+`GAME OVER:`
 
 ### 5.4.- CONTROLES	<a name="controles"/>
 
