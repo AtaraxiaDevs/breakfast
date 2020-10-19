@@ -399,6 +399,10 @@ En el caso de este juego, no se trata de niveles, sino de distintos Modos de Jue
 ## 6.- DISEÑO DEL MUNDO	<a name="diseñoDelMundo"/>
 ### 6.1.- PERSONAJES	<a name="personajes"/>
 
+- **ALIENS:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnAround_Aliens/turnaround3.png)
+
 - **TOSTADA:**
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/Tostada_Wei.png)
@@ -434,7 +438,9 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
+- **VELOCISTA:**
 
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/src/static/resources/sprite_veloz_idle.png)
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
