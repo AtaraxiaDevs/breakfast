@@ -468,31 +468,66 @@ Los jugadores representan a un pequeño ejército de estos dos grandes grupos. E
 
 ### 10.2.- CICLO DE VIDA	<a name="cicloDeVida"/>
 
-IDEAS
-- Nuevas unidades y habilidades
-- Modo Torneo
-- Modo de Juego en tiempo real?
-- Moneda de juego y de pago?
-- Secuela, rediseño o continuidad en el tiempo?
+La idea es mantener el juego a lo largo del tiempo, por lo que el modelo que se toma es la mejora e inclusión de contenido constante, así como actualización casi diaria de la tienda, promociones y eventos.
+
+La primera etapa es ver como se comporta el juego: analizar datos, buscar mejoras nuevas, definir el jugador medio... Esto puede provocar cambios en el plan, así como ayudar a que afloren nuevas ideas y pensar en que quieren o buscan los jugadores en nuestro juego.
+
+La segunda etapa va a buscar añadir al juego nuevas unidades y habilidades, para fomentar la diversidad de partidas y evitar que se haga repetitivo. Esto se mantendrá a lo largo de todo su ciclo de vida. Hay que establecer un ritmo de salida de nuevo contenido, que irá relacinado con los socios externos y las necesidades del público o el juego. Las estadísticas nos ayudarán a identificar que es lo que le falta al juego.
+
+La tercera etapa consiste en la ampliación de la tienda. Para este punto, atraídas una serie de marcas, necesitaremos reformar la tienda para empezar a vender Skins y manejar el sistema de premios. La creación de un sistema de Moneda Virtual de Pago y una Moneda del Juego son cruciales en esta parte. 
+
+A partir de aquí, la cuarta etapa se basa en la adición de elementos nuevos, que irán saliendo a lo largo del desarrollo o que parten de algunas ideas que se enumeran a continuación:
+
+POSIBLES AMPLIACIONES DEL JUEGO
+
+- Pasar el juego a Online: hacer que el juego sea online, lo que supone un rango más amplio de jugadores y la inserción de servidores.
+- Modo Torneo: establecer un torneo competitivo del juego. Compatible con juego Online. Pueden ser presenciales o no, y se darán premios aportados por las marcas, o en forma de Moneda del Juego.
+- Modo de Juego en tiempo real: si el juego resulta poco dinámico, podremos realizar una segunda versión (o rediseño de la misma) donde el combate se cambie a ser 100% en tiempo real, con un Gameplay parecido al Warlords: Call To Arms.
 
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
 
+*PLAN DE NEGOCIO*
+
+Como primer paso, hay que poner el juego en el mercado. Aquí ponemos la primera piedra: empezamos valiéndonos de los anuncios (siempre con contenido relacionado) para su monetización y nos enfocamos en ver como reacciona el público, acercándolo a la gente mediante las redes sociales, eventos pequeños y publicidad extra. 
+
+Una vez testeado el juego, necesitaremos prepararlo para ampliar su mercado. Necesitamos unas ciertas cosas para ello: una serie de marcas menores, que nos ayuden a poner en marcha la tienda; buscar contratos de publicidad relacionados con el sector alimenticio, con marcas más conocidas; e ir promocionando el juego por sitios donde podamos encontrar a nuestro público meta.
+
+Para empezar con buen pie, empezaremos enfocándonos en el comercio más local. Con local no nos referimos a comercio de pueblo, sino a franquicias más específicas del panorama, como puede ser SuperSol (Andalucía) o a ciertas tiendas que resulten populares, como XXXXX. Así, ganamos clientes de manera progresiva sin tener que recurrir a marcas grandes, y demostramos que nuestro modelo funciona.
+
+Cuando ya hemos pasado esa primera fase, nos ponemos en contacto con las empresas que vamos a apuntar en la siguiente fase, pero solo para ofrecer espacios de publicidad. Esto nos da a conocer, y además nos posiciona como contactos fiables para hacer negocios. 
+
+PROMOCIONAR ANTE EL PUBLICO META
+
+Al establecer este mercado más pequeño, empezamos a atraer a las grandes empresas, que ya se interesaron cuando les ofrecimos poner su publicidad. Además, empezamos a apuntar a franquicias más grandes: supermercados, marcas populares, etc. Establecemos así un modelo de negocio más firme, basado en el descrito abajo.
+
 *MODELO DE NEGOCIO*
 
--Fidelización : Buscamos que los usuarios sigan jugando constantemente al juego, usando para ello los premios que se pueden conseguir a través del juego.
+El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. 
+
+El Ranking nos ayuda a conseguir que el juego trascienda a las partidas, buscando superar las puntuaciones más altas. Además, el Modo Torneo que se implementará posteriormente ayudará a que se necesite una práctica anterior a base de jugar partidas, para conseguir el premio final. 
+
+Los premios que se obtienen están directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la moneda del juego, conseguida a base de jugar partidas, podremos canjear cupones y productos de estas marcas. Esto puede servir para animar al jugador a seguir jugando por los premios, mientras que las marcas consiguen varias cosas:
+
+- Pueden probar nuevos productos y ver si el público está interesado. Los datos de compra alojados en nuestra tienda les pueden indicar que productos triunfan y cuales no
+- Actuar como Cebo y Anzuelo: poner los productos en la tienda puede implicar que nuestros jugadores los prueben y acaben cogiendoles el gusto, lo que supone nuevos clientes potenciales para la empresa que los ponga.
+- Potenciar la compra en los establecimientos, estableciendo una relación directa con la membresía de estos (Club Carrefour, por ejemplo).
+
+Posteriormente, con la inclusión del modo Torneo, podremos establecer grandes premios aportados por estas marcas (cestas regalo, descuentos, vales por X dinero) para el ganador, que además podrán establecer como requisito ser miembro del establecimiento (en el caso de supermercados, por ejemplo). Esto no resulta un problema para los niños, ya que serían los padres los encargados de hacer esta gestión. 
+
+Como modelo secundario, relacionado con las microtransacciones, establecemos el Cebo y Anzuelo. Cuando se tenga una serie de marcas asociadas, podemos regalar a los nuevos jugadores la Skin de alguna de esas marcas, como bienvenida al juego. Esto ayuda a que se conozcan las Skins, y el jugador lo agradecerá. El resto ya resultará de pago, encontrándose en la tienda. Si el juego acaba potenciando las rivalidades entre marcas, no sería de extrañar que ciertas Skins sean muy compradas, para destacar el posicionamiento propio. Tampoco se puede descartar un cambio de opinión, lo cual puede desembocar en comprar otra Skin más acorde a tus preferencias. 
 
 *MONETIZACION*
 
-- Micro-transacciones
-- Free to Play
-- Publicidad
+- Micro-transacciones : Habrá Skins de pago. La Moneda virtual del juego
+- Free to Play: Ningún coste a la hora de jugar.
+- Publicidad: Inclusión de publicidad relacionada con el juego antes del inicio de la partida, evitando así que resulte molesta y repelente a nuestro público infantil. 
 
 *MARKETING*
 
 - Promoción en redes sociales
+- Potenciar eventos online (COVID)
 - Convenciones Pequeñas
 - Torneos
-- Potenciar eventos online (COVID)
 
 *IDEAS*
 
