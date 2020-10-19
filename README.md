@@ -38,7 +38,7 @@
 ### [6.2.- LOCALIZACIONES](#localizaciones)
 ## [7.- ARTE](#arte)
 ### [7.1.- ESTILO Y REFERENCIAS](#estiloYReferncias)
-### [7.2.- CONCEPTS](#concepts)
+### [7.2.- CONCEPTS](#arteFinal)
 ### [7.3.- ARTE PROMOCIONAL](#artePromocional)
 ## [8.- SONIDO](#sonido)	
 ### [8.1.- BANDA SONORA](#bandaSonora)	
@@ -334,7 +334,6 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/GAME%20OVER.png)
 
-
 ### 5.4.- CONTROLES	<a name="controles"/>
 
 Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y móvil. 
@@ -401,9 +400,21 @@ En el caso de este juego, no se trata de niveles, sino de distintos Modos de Jue
 ### 6.1.- PERSONAJES	<a name="personajes"/>
 
 - **TOSTADA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/Tostada_Wei.png)
+
 - **MAGDALENA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/Tanks_Wei.png)
+
 - **BOL DE CEREALES:**
-- **¿FRUTA?:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnArounds_Unidades/turndistanciaLucia.png)
+
+- **VELOCISTA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnArounds_Unidades/turnvelocista.png)
+
 - **MANTEQUILLA GRITONA:**
 - **MERMELADA EXPLOSIVA:**
 
@@ -418,11 +429,16 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
-### 7.2.- CONCEPTS	<a name="concepts"/>
+
+
+
+### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
 
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
+
+
 
 ---
 
