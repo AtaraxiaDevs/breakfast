@@ -5,7 +5,32 @@ export default class GameAPI {
     cargarSprites = function(){
         this.escena.load.image("s_provisional", "resources/s_provisional.png");
         this.escena.load.image("s_provisional2", "resources/s_provisional2.png");
+        this.escena.load.spritesheet("sp_velozIddle", "resources/sprite_veloz_idle.png",{frameWidth:1000,frameHeight:1000})
+        this.escena.load.spritesheet("sp_velozCorrer", "resources/sprite_veloz_correr.png",{frameWidth:1000,frameHeight:1000})
     };
+
+    cargarAnims = function(){
+        for(let i in dbAnimations){
+            for(let j in dbAnimations[i]){
+                console.log(dbAnimations[i][j].spritesheet)
+            this.escena.anims.create({
+                /*key: dbAnimations[i].animationName,
+                frames: this.escena.anims.generateFrameNumbers(dbAnimations[i].spritesheet,{start:dbAnimations[i].startFrame,end:dbAnimations[i].endFrame}),
+                frameRate: dbAnimations[i].frameRate,
+                repeat: dbAnimations[i].repeat*/
+                key: "veloz_correr",
+                frames: this.escena.anims.generateFrameNumbers("sp_velozCorrer",{start:0,end:7}),
+                frameRate: 10,
+                repeat: -1
+            })
+            }
+            
+            
+            
+        }
+    }
+
+
     
 
     // Parámetros: objeto Personaje
@@ -13,6 +38,7 @@ export default class GameAPI {
     dibujarSprite = function(personaje){
         personaje.setSprite(this.escena.physics.add.sprite(200, 400, personaje.sprite))
         personaje.sprite.setScale(0.6) //! PROVISIONAL hay que adaptarlo si o si a los sprites
+        personaje.playAnimation("correr");
         
     }
 
@@ -28,8 +54,9 @@ export default class GameAPI {
     //* Parámetros: string con el tipo de personaje
     //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
     añadirPersonaje = function(tipo){
-        this.personajesRenderizados.push(new Personaje(tipo));
+        this.personajesRenderizados.push(new Personaje(tipo,200,400, this.escena));
         this.dibujarSprite(this.personajesRenderizados[this.personajesRenderizados.length-1])
+        
 
     }
 
