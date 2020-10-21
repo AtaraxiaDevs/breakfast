@@ -12,19 +12,37 @@ export default class GameAPI {
     cargarAssets = function(){
         this.escena.load.image("s_provisional","assets/animations/s_provisional.png");
         this.escena.load.image("s_provisional2", "assets/animations/s_provisional2.png");
-//this.escena.load.spritesheet("sp_velozIddle", "resources/sprite_veloz_idle.png",{frameWidth:1000,frameHeight:1000})
-      //  this.escena.load.spritesheet("sp_velozCorrer", "resources/sprite_veloz_correr.png",{frameWidth:1000,frameHeight:1000})
-      //  this.escena.load.spritesheet("sp_tankCorrer", "resources/sprite_tank_correr.png",{frameWidth:1000,frameHeight:1000})
+        
 
         for(let i in dbAnimations){
             for(let j in dbAnimations[i].animaciones){
                 
-                console.log("assets/animations/" + dbAnimations[i].animaciones[j].src);
+                
                 this.escena.load.spritesheet(dbAnimations[i].animaciones[j].spritesheet,"assets/animations/" + dbAnimations[i].animaciones[j].src,{frameWidth:500,frameHeight:500})
             }
             
         }
     };
+
+    cambiarTipo(){
+            switch(this.personajeActual){
+                case "veloz":
+                    this.personajeActual = "tank";
+                    break;
+                case "tank":
+                    this.personajeActual = "distancia";
+                    break;
+                case "distancia":
+                    this.personajeActual = "caballero";
+                    break;
+                case "caballero":
+                    this.personajeActual = "veloz";
+                    break;
+        }
+
+    
+    console.log(this.personajeActual)
+}
 
     cargarAnims = function(){
         for(let i in dbAnimations){
@@ -58,8 +76,8 @@ export default class GameAPI {
     
     //* Parámetros: string con el tipo de personaje
     //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
-    añadirPersonaje = function(tipo){
-        this.personajesRenderizados.push(new Personaje(tipo,200,400, this.escena));
+    añadirPersonaje = function(){
+        this.personajesRenderizados.push(new Personaje(this.personajeActual,200,400, this.escena));
         
 
     }
@@ -81,5 +99,6 @@ export default class GameAPI {
     
     constructor(){
         this.personajesRenderizados = []; // Lista con todos los personajes de la escena
+        this.personajeActual = "veloz"
     }
 }

@@ -85,7 +85,7 @@ let dbAnimations = {
     "animationName": "distancia_correr",
     "spritesheet": "sp_distanciaCorrer",
     "startFrame": 0,
-    "endFrame": 3,
+    "endFrame": 7,
     "frameRate": 7,
     "repeat": -1,
     "src": "sprite_distancia_correr.png"
@@ -103,7 +103,7 @@ let dbAnimations = {
 
    
 },
-   /*
+   
    "tank":{
     "sprite": {
         "spriteName": "tank",
@@ -146,5 +146,5 @@ let dbAnimations = {
     "src":"sprite_tank_muerte.png"
    }
    }
-}*/
+}
 }

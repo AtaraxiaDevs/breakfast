@@ -4,6 +4,7 @@ export default class Personaje extends Phaser.Physics.Arcade.Sprite{
     arrancar = function(){
         let multiplicador = 10;
         this.setVelocityX(this.infoBase.vel*multiplicador); //! POR AHORA solo activa la velocidad en el eje X
+        this.playAnimation("correr")
     }
 
     

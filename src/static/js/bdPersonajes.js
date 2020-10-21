@@ -5,7 +5,6 @@ let bd = {
         "vel":  15,
         "dps":  1,
         "rango": 1,
-        "sprite": "sp_velozIddle"
     },
     "tank":{
         "atk":  4,
@@ -13,6 +12,15 @@ let bd = {
         "vel":  10,
         "dps":  1,
         "rango": 1,
-        "sprite": "s_provisional2"
+    },
+
+    "distancia":{
+        "atk":  4,
+        "hp":   9,
+        "vel":  10,
+        "dps":  1,
+        "rango": 1,
+        
+
     }
 }
