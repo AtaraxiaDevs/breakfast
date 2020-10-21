@@ -10,8 +10,8 @@ export default class GameAPI {
     
     // Función encargada de cargar todos las imágenes  de la pantalla de partida.
     cargarAssets = function(){
-        this.escena.load.image("s_provisional", "resources/s_provisional.png");
-        this.escena.load.image("s_provisional2", "resources/s_provisional2.png");
+        this.escena.load.image("s_provisional","assets/animations/s_provisional.png");
+        this.escena.load.image("s_provisional2", "assets/animations/s_provisional2.png");
 //this.escena.load.spritesheet("sp_velozIddle", "resources/sprite_veloz_idle.png",{frameWidth:1000,frameHeight:1000})
       //  this.escena.load.spritesheet("sp_velozCorrer", "resources/sprite_veloz_correr.png",{frameWidth:1000,frameHeight:1000})
       //  this.escena.load.spritesheet("sp_tankCorrer", "resources/sprite_tank_correr.png",{frameWidth:1000,frameHeight:1000})
@@ -19,8 +19,8 @@ export default class GameAPI {
         for(let i in dbAnimations){
             for(let j in dbAnimations[i].animaciones){
                 
-                console.log("resources/" + dbAnimations[i].animaciones[j].src);
-                this.escena.load.spritesheet(dbAnimations[i].animaciones[j].spritesheet,"resources/" + dbAnimations[i].animaciones[j].src,{frameWidth:1000,frameHeight:1000})
+                console.log("assets/animations/" + dbAnimations[i].animaciones[j].src);
+                this.escena.load.spritesheet(dbAnimations[i].animaciones[j].spritesheet,"assets/animations/" + dbAnimations[i].animaciones[j].src,{frameWidth:500,frameHeight:500})
             }
             
         }
@@ -60,7 +60,6 @@ export default class GameAPI {
     //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
     añadirPersonaje = function(tipo){
         this.personajesRenderizados.push(new Personaje(tipo,200,400, this.escena));
-        //this.dibujarSprite(this.personajesRenderizados[this.personajesRenderizados.length-1])
         
 
     }
