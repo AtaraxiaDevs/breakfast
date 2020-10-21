@@ -17,7 +17,7 @@ let dbAnimations = {
         "animationName": "veloz_iddle",
         "spritesheet": "sp_velozIddle",
         "startFrame": 0,
-        "endFrame": 3,
+        "endFrame": 5,
         "frameRate": 3,
         "repeat": -1,
         "src": "sprite_veloz_idle.png"
@@ -26,7 +26,7 @@ let dbAnimations = {
         "animationName": "veloz_atacar",
         "spritesheet": "sp_velozAtacar",
         "startFrame": 0,
-        "endFrame": 7,
+        "endFrame": 6,
         "frameRate": 3,
         "repeat": -1,
         "src": "sprite_veloz_atacar.png"
@@ -35,7 +35,7 @@ let dbAnimations = {
         "animationName": "veloz_correr",
         "spritesheet": "sp_velozCorrer",
         "startFrame": 0,
-        "endFrame": 3,
+        "endFrame": 7,
         "frameRate": 10,
         "repeat": -1,
         "src": "sprite_veloz_correr.png"
@@ -44,7 +44,7 @@ let dbAnimations = {
         "animationName": "veloz_muerte",
         "spritesheet": "sp_velozMuerte",
         "startFrame": 0,
-        "endFrame": 3,
+        "endFrame": 8,
         "frameRate": 10,
         "repeat": -1,
         "src": "sprite_veloz_muerte.png"
@@ -53,6 +53,56 @@ let dbAnimations = {
 
        
    },
+
+
+
+
+   "distancia":{
+    "sprite": {
+        "spriteName": "distancia",
+        "spriteObject": "",
+    },
+    "animaciones":{
+    "iddle":{
+    "animationName": "distancia_iddle",
+    "spritesheet": "sp_distanciaIddle",
+    "startFrame": 0,
+    "endFrame": 5,
+    "frameRate": 6,
+    "repeat": -1,
+    "src": "sprite_distancia_idle.png"
+   },
+   "atacar":{
+    "animationName": "distancia_atacar",
+    "spritesheet": "sp_distanciaAtacar",
+    "startFrame": 0,
+    "endFrame": 6,
+    "frameRate": 6,
+    "repeat": -1,
+    "src": "sprite_distancia_atacar.png"
+   },
+   "correr":{
+    "animationName": "distancia_correr",
+    "spritesheet": "sp_distanciaCorrer",
+    "startFrame": 0,
+    "endFrame": 3,
+    "frameRate": 7,
+    "repeat": -1,
+    "src": "sprite_distancia_correr.png"
+   },
+   "muerte":{
+    "animationName": "distancia_muerte",
+    "spritesheet": "sp_distanciaMuerte",
+    "startFrame": 0,
+    "endFrame": 3,
+    "frameRate": 8,
+    "repeat": -1,
+    "src": "sprite_distancia_muerte.png"
+   }
+   }
+
+   
+},
    /*
    "tank":{
     "sprite": {
