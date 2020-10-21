@@ -1,12 +1,18 @@
 import Configuracion from "./configFunctions.js";
 import GameAPI from "./gameAPI.js"
 import Escena1 from "./escena1.js";
+import Escena2 from "./escena2.js"
 
 
 var config = {
   type: Phaser.AUTO,
   physics: {
     default: 'arcade',
+    debug: true,
+    arcade:{
+      
+    }
+
   },
   scale: {
     mode: Phaser.Scale.FIT,
@@ -17,7 +23,7 @@ var config = {
     height: 1080,
   },
   backgroundColor: 0x444444,
-  scene: [Escena1],
+  scene: [Escena1,Escena2],
   parent : 'canvas'
 };
 

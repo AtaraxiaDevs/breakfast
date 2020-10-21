@@ -7,7 +7,7 @@ let bd = {
         "rango": 1,
         "sprite": "sp_velozIddle"
     },
-    "placeHolder2":{
+    "tank":{
         "atk":  4,
         "hp":   9,
         "vel":  10,
