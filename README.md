@@ -304,7 +304,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `INICIO:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE\InterfazUsuario\Menu/MenuFinalESP.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/ARTE\InterfazUsuario\Menu/MenuFinalESP.png)
 
 `RANKING:`
 
