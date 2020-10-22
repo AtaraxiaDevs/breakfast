@@ -425,7 +425,7 @@ En el caso de este juego, no se trata de niveles, sino de distintos Modos de Jue
 
 - **MAGDALENA:**
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/TurnArounds_Unidades/turnTank.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnArounds_Unidades/turnTank.png)
 
 - **BOL DE CEREALES:**
 
