@@ -421,11 +421,11 @@ En el caso de este juego, no se trata de niveles, sino de distintos Modos de Jue
 
 - **TOSTADA:**
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/Tostada_Wei.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnArounds_Unidades/turnaround_ata.png)
 
 - **MAGDALENA:**
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/Tanks_Wei.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/TurnArounds_Unidades/turnTank.png)
 
 - **BOL DE CEREALES:**
 
