@@ -15,13 +15,13 @@ export default class GameAPI {
     this.escena.load.image("fondo", "assets/images/MenuFinalSinBotones.png");
     this.escena.load.image("espanya", "assets/misc/ESPAÑA.png");
     this.escena.load.image("gb", "assets/misc/GB.png");
-    this.escena.load.image("jugar", "assets/misc/JUGAR.png");
-    this.escena.load.image("play", "assets/misc/PLAY.png");
+    this.escena.load.image("spanish_jugar", "assets/misc/JUGAR.png");
+    this.escena.load.image("english_jugar", "assets/misc/PLAY.png");
     this.escena.load.image("ranking", "assets/misc/RANKING.png");
-    this.escena.load.image("shop", "assets/misc/SHOP.png");
+    this.escena.load.image("spanish_tienda", "assets/misc/TIENDA.png");
+    this.escena.load.image("english_tienda", "assets/misc/SHOP.png");
     this.escena.load.image("soundOff", "assets/misc/SoundOFF.png");
     this.escena.load.image("soundOn", "assets/misc/SoundON.png");
-    this.escena.load.image("tienda", "assets/misc/TIENDA.png");
     this.escena.load.image("tutorial", "assets/misc/TUTORIAL.png");
 
     // ---------------- SPRITES ANIMACIONES -------------------
@@ -102,8 +102,18 @@ export default class GameAPI {
   //TODO -Botón para confirmar compo ?
   //TODO -Botón deshacer
 
+  setLenguage = function () {
+      if (this.lenguage === "spanish") {
+          this.lenguage = "english"
+      } else {
+          this.lenguage = "spanish"
+      }
+      return this.lenguage
+  }
+
   constructor() {
     this.personajesRenderizados = []; // Lista con todos los personajes de la escena
     this.personajeActual = "veloz";
+    this.lenguage = "spanish";
   }
 }
