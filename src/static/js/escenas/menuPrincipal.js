@@ -12,29 +12,31 @@ export default class MenuPrincipal extends Phaser.Scene {
   create() {
     var fondo = this.add.image(0, 0, "fondo").setOrigin(0);
 
-    this.clickButtonJugar = this.add
+    let clickButtonJugar = this.add
       .image(925, 590, "spanish_jugar")
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", () => this.scene.start("escena2"));
 
-    this.clickButtonTienda = this.add
+    let clickButtonTienda = this.add
       .image(615, 410, "spanish_tienda")
       .setScale(0.3);
 
-    this.clickButtonRanking = this.add.image(605, 730, "ranking").setScale(0.3);
+    let clickButtonRanking = this.add.image(605, 730, "ranking").setScale(0.3);
 
-    this.clickButtonTutorial = this.add
+    let clickButtonTutorial = this.add
       .image(1240, 730, "tutorial")
       .setScale(0.3);
 
-    this.clickButtonIdioma = this.add
-      .image(925, 855, "gb")
+    let clickButtonIdioma = this.add
+      .image(925, 855, "english")
       .setScale(0.2)
       .setInteractive()
       .on("pointerdown", function () {
         let lenguage = APIJuego.setLenguage();
-        this.clickButtonJugar.setTexture("english_jugar");
+        clickButtonJugar.setTexture(lenguage + "_jugar");
+        clickButtonTienda.setTexture(lenguage + "_tienda")
+        clickButtonIdioma.setTexture(lenguage === "spanish" ? "english" : "spanish")
       });
   }
 }

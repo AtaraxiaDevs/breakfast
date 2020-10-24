@@ -13,8 +13,8 @@ export default class GameAPI {
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
     this.escena.load.image("fondo", "assets/images/MenuFinalSinBotones.png");
-    this.escena.load.image("espanya", "assets/misc/ESPAÑA.png");
-    this.escena.load.image("gb", "assets/misc/GB.png");
+    this.escena.load.image("spanish", "assets/misc/ESPAÑA.png");
+    this.escena.load.image("english", "assets/misc/GB.png");
     this.escena.load.image("spanish_jugar", "assets/misc/JUGAR.png");
     this.escena.load.image("english_jugar", "assets/misc/PLAY.png");
     this.escena.load.image("ranking", "assets/misc/RANKING.png");
