@@ -1,8 +1,5 @@
-import  {ConfiguracionJuego,APIJuego } from "../main.js"
-import Personaje from "../classPersonajes.js"
-
-
-
+import { ConfiguracionJuego, APIJuego } from "../main.js";
+import Personaje from "../classPersonajes.js";
 
 export default class Escena1 extends Phaser.Scene {
   constructor() {
@@ -10,20 +7,13 @@ export default class Escena1 extends Phaser.Scene {
   }
 
   preload() {
-    APIJuego.setEscena(this)
-    APIJuego.cargarAssets()
-    
-    
+    APIJuego.setEscena(this);
+    APIJuego.cargarAssets();
   }
 
   create() {
-    APIJuego.setEscena(this)
+    APIJuego.setEscena(this);
     APIJuego.cargarAnims();
-    
-   
-    
-    
-    
 
     // DETECCIÓN DE MÓVIL
     if (ConfiguracionJuego.isMobile) {
@@ -31,8 +21,6 @@ export default class Escena1 extends Phaser.Scene {
       ConfiguracionJuego.resize();
     }
 
-    this.scene.start("escena2")
+    this.scene.start("menuPrincipal");
   }
-
-  
 }
