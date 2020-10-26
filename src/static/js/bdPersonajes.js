@@ -5,6 +5,7 @@ let bd = {
         "vel":  15,
         "dps":  1,
         "rango": 1,
+        "priority": 1,
     },
     "tank":{
         "atk":  4,
@@ -12,6 +13,7 @@ let bd = {
         "vel":  10,
         "dps":  1,
         "rango": 1,
+        "priority": 4,
     },
 
     "distancia":{
@@ -20,7 +22,19 @@ let bd = {
         "vel":  10,
         "dps":  1,
         "rango": 1,
+        "priority": 2,
         
 
-    }
+    },
+    
+    "atacante":{
+        "atk":  4,
+        "hp":   9,
+        "vel":  10,
+        "dps":  1,
+        "rango": 1,
+        "priority": 3,
+        
+
+    },
 }
