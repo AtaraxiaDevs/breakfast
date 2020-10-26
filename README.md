@@ -349,7 +349,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `GAME OVER:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/GAME%20OVER.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/GameOver/InterfazGameOver.png)
 
 ### 5.4.- CONTROLES	<a name="controles"/>
 
