@@ -333,7 +333,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `PRE-PARTIDA:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/PRE-PARTIDA.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/PrePartida/InterfazPrePartida.png)
 
 `PREPARACIÓN:`
 
