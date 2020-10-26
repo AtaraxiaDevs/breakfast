@@ -45,9 +45,9 @@ export default class GameAPI {
         this.personajeActual = "distancia";
         break;
       case "distancia":
-        this.personajeActual = "caballero";
+        this.personajeActual = "atacante";
         break;
-      case "caballero":
+      case "atacante":
         this.personajeActual = "veloz";
         break;
     }
@@ -83,22 +83,77 @@ export default class GameAPI {
 
   //* Parámetros: string con el tipo de personaje
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
-  añadirPersonaje = function () {
-    this.personajesRenderizados.push(
-      new Personaje(this.personajeActual, 200, 400, this.escena)
+  añadirPersonaje = function (fila) {
+    this.combate[fila-1].push(
+      new Personaje(this.personajeActual, 200, 400, this.escena,+1)
     );
+
+    this.reeordenarFilas();
+    
   };
+
+  reeordenarFilas = function(){
+      for(let i =0;i<this.combate.length;i++){
+        let arrayAux = this.combate[i].filter(obj => obj.direction == +1 )
+        arrayAux = arrayAux.sort(function(a,b){
+          return a.priority - b.priority;
+        })
+        let inicio = 100
+        
+        for(let j = 0;j<arrayAux.length;j++){
+          arrayAux[j].body.reset(inicio + j*500, 400);
+        }
+      }
+
+      for(let i =0;i<this.combate.length;i++){
+        let arrayAux = this.combate[i].filter(obj => obj.direction == -1 )
+        arrayAux = arrayAux.sort(function(a,b){
+          return a.priority - b.priority;
+        })
+        let inicio = 1500
+        
+        for(let j = 0;j<arrayAux.length;j++){
+          arrayAux[j].body.reset(inicio - j*500, 400);
+        }
+      }
+  }
+
 
   //Función encargada de recorrer cada personaje y activarlos para que empiecen a luchar.
   arrancarPersonajes = function () {
-    for (let i = 0; i < this.personajesRenderizados.length; i++) {
-      this.personajesRenderizados[i].arrancar();
+    for (let i = 0; i < this.combate.length; i++) {
+      for(let j=0;j<this.combate[i].length;j++)
+      this.combate[i][j].arrancar();
     }
   };
 
+  //------------------------------ COMBATE --------------------------------------------
+  cargarPuzle = function(){
+   // console.log(bdPuzles[this.puzleActual].enemigos[0].linea)
+    for(let i in bdPuzles[this.puzleActual].enemigos){
+      this.combate[bdPuzles[this.puzleActual].enemigos[i].linea-1].push(
+        new Personaje(bdPuzles[this.puzleActual].enemigos[i].tipo, 200, 400, this.escena,-1))
+    }
+
+    this.reeordenarFilas();
+    
+  }
+  cargarCombate = function(){
+    for(let i = 0;i<3;i++){
+      this.combate[i] = [];
+    }
+    this.cargarPuzle();
+
+  }
+
+  
+  
+
+  cargarEnemigos = function(){
+
+  }
+
   //------------------------ UI---------------------------------------
-  //TODO -Botón para cambiar personaje
-  //TODO -Botón para añadir personaje a la línea
   //TODO -Botón para confirmar compo ?
   //TODO -Botón deshacer
 
@@ -112,7 +167,8 @@ export default class GameAPI {
   }
 
   constructor() {
-    this.personajesRenderizados = []; // Lista con todos los personajes de la escena
+    this.puzleActual = "1";
+    this.combate = []; // Lista con todos los personajes de la escena
     this.personajeActual = "veloz";
     this.lenguage = "spanish";
   }

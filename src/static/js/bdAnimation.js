@@ -145,6 +145,51 @@ let dbAnimations = {
     "repeat": -1,
     "src":"sprite_tank_muerte.png"
    }
+   } 
+},
+
+"atacante":{
+    "sprite": {
+        "spriteName": "tank",
+        "spriteObject": "",
+    },
+    "animaciones":{
+    "iddle":{
+    "animationName": "atacante_iddle",
+    "spritesheet": "sp_atacanteIddle",
+    "startFrame": 0,
+    "endFrame": 3,
+    "frameRate": 3,
+    "repeat": -1,
+    "src":"sprite_atacante_idle.png"
+   },
+   "atacar":{
+    "animationName": "atacante_atacar",
+    "spritesheet": "sp_atacanteAtacar",
+    "startFrame": 0,
+    "endFrame": 7,
+    "frameRate": 3,
+    "repeat": -1,
+    "src":"sprite_atacante_atacar.png"
+   },
+   "correr":{
+    "animationName": "atacante_correr",
+    "spritesheet": "sp_atacanteCorrer",
+    "startFrame": 0,
+    "endFrame": 3,
+    "frameRate": 10,
+    "repeat": -1,
+    "src":"sprite_atacante_correr.png"
+   },"muerte":{
+    "animationName": "atacante_muerte",
+    "spritesheet": "sp_atacanteMuerte",
+    "startFrame": 0,
+    "endFrame": 3,
+    "frameRate": 10,
+    "repeat": -1,
+    "src":"sprite_atacante_muerte.png"
    }
-}
+   } 
+},
+
 }
