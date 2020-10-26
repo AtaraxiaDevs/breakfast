@@ -309,7 +309,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `RANKING:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RANKING.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Ranking/InterfazRanking.png)
 
 `CRÉDITOS:`
 
