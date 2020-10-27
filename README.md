@@ -77,8 +77,8 @@
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
 | 1.0             | Versión Inicial         |
-|                 |                         |
-|                 |                         |
+| 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
+|                 |                                                                               |
 
 ---
  
@@ -97,9 +97,9 @@
 
 **- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
 **- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!<br>
-**- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o la prestidigitadora fruta. (NOMBRE PROVISIONAL)<br>
+**- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o el Velocista.<br>
 **- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!<br>
-**- Modos de Juego:** Puedes jugar con caminos fijos... o no. El modo de juego SWAP (NOMBRE PROVISIONAL) te permite elevar tus estrategias a otro nivel. En cambio, si te gusta jugar con algo más manejable... el modo MICRO, con sus unidades fijas, puede ser para ti. O puedes jugar al modo de juego CLÁSICO, que es el estándar.
+**- Modos de Juego:** Puedes jugar con tus amigos en el Modo Duelo o enfrentarte a los desafiantes niveles del Modo Táctica. 
 
 ---
 
@@ -109,14 +109,12 @@
 
 El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA y cada fila es ganada por el que más haya conseguido.  Al mejor de 3, el jugador que gana consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
 
-**¿EMPATE TÉCNICO O MUERTE SÚBITA?**
-
-Siempre queda al menos 1 unidad en el campo. Si una fila no puntua (EMPATE TÉCNICO) el marcador puede quedar 1-1, por lo que: o gana el que haya ganado la Fila más contudentemente (entre un 4-2 y un 3-1, el punto se lo lleva el 4-2); o hay una ronda extra de una única fila (beneficia al que ahorra). 
+Siempre queda al menos 1 unidad en el campo. Si una fila no puntua (EMPATE TÉCNICO) el marcador puede quedar 1-1, por lo que: o gana el que haya ganado la Fila más contudentemente (entre un 4-2 y un 3-1, el punto se lo lleva el 4-2). Si en el remoto caso de que las filas hayan quedado exactamente igual, la ronda se da como "reiniciada": el dinero gastado se pierde, pero no se gana nada de lo ocurrido en esa ronda. 
 
 El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 5).
 
 - **Zona de Jugador:** Un atacante recorre esta zona en 7 segundos. Zona inmutable, siempre es recta. La habilidad SWAP puede cambiar dos de las líneas entre sí. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
-- **Zona Neutra:** Un atacante recorre esta zona en 14 segundos. Zona variable, puede ser modificada (por habilidad o modo de juego). En esta zona, se activan los llamados "Comportamientos" de los personajes.
+- **Zona Neutra:** Un atacante recorre esta zona en 14 segundos. Aquí pueden aparecer objetos, que son Habilidades obtenibles, o Toppings, para ganar algo extra.
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Escenario.png)
 
@@ -128,52 +126,52 @@ El juego se divide en dos grandes fases:
 
 En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Esta fase dura 30 segundos.
 
-En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas, en VERTICAL. Un único botón representa las unidades disponibles en ese momento, que se van cambiando al pulsarlo. Esa unidad mostrada esta seleccionada, y hay que pulsar la línea para colocarla. Las líneas tienen un máximo de X unidades y sin mínimo de unidades. Cuando se acabe el tiempo, sin aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas. Un único botón representa las unidades disponibles en ese momento, que se van cambiando al pulsarlo. Esa unidad mostrada esta seleccionada, y hay que pulsar la línea para colocarla. Las líneas NO tienen un máximo ni un mínimo de unidades. Cuando se acabe el tiempo, sin aceptar, las líneas quedan definidas y se pasa a la fase de combate.
 
-Si no se pone NINGUNA unidad en el campo en esta fase, el jugador se considera INACTIVO y la partida se acaba, pasando a la pantalla de GAME OVER.
+Si no se pone NINGUNA unidad en el campo en esta fase, el jugador pierde la Ronda automáticamente.
 
 **FASE DE COMBATE**
 
 En la fase de combate, en tiempo real, se usan las habilidades para: corregir tu estrategia, perjudicar al adversario, invocar a poderosas unidades extra... Esta fase dura 2 minutos.
 
-En esta fase, entramos de lleno al escenario principal. Empezamos en un plano del cielo, hasta que baja al campo de batalla, y se revela la colocación de las unidades. Una cuenta atrás y empieza la partida. Se muestra el oro del jugador contrario en este momento. A partir de este momento, se pueden usar habilidades. La habilidad SWAP aparece como predeterminada, si se tiene, ya que es la que tiene más sentido usar al principio. 
+En esta fase, entramos de lleno al escenario principal. Vemos el campo de batalla, y se revela la colocación de las unidades. Una cuenta atrás y empieza la partida. Se muestra el oro del jugador contrario en este momento. A partir de este momento, se pueden usar habilidades. La habilidad SWAP aparece como predeterminada, si se tiene, ya que es la que tiene más sentido usar al principio. 
 
-Las unidades combaten cuando se encuentran a una distancia de X entre sí. La excepción a esto es el Distancia, que por su "Comportamiento" empieza a atacar cuando entra en un rango. Estos combates se deciden teniendo en cuenta las estadísticas definidas en el apartado **PERSONAJES**. El combate se desarrolla mejor en el apartado **COMBATE**. Una unidad sale vencedora y la otra muere. Todas las unidades vuelven a caminar cuando terminan su combate, hasta llegar a la zona de puntuación.
+Las unidades combaten cuando se encuentran a una distancia de X (Rango) entre sí. Estos combates se deciden teniendo en cuenta las estadísticas definidas en el apartado **PERSONAJES**. El combate se desarrolla mejor en el apartado **COMBATE**. Una unidad sale vencedora y la otra muere. Todas las unidades vuelven a caminar cuando terminan su combate, hasta llegar a la zona de puntuación.
 
 En el escenario, se pueden conseguir habilidades en forma de objetos. Se añaden a tu stack de habilidades, donde se podrán almacenar.
 
-El combate se acaba por tiempo o porque todas las unidades han llegado a campo contrario. Si acaba por tiempo, las unidades vivas suman otro punto. Los recursos monetarios y las habilidades se conservan entre rondas.
+El combate se acaba por tiempo o porque todas las unidades han llegado a campo contrario. Los recursos monetarios y las habilidades se conservan entre rondas.
 
 #### 5.1.2.- PERSONAJES  <a name="mecanicas2"/>
 
-Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ronda. Todos los personajes tienen las siguientes estadíticas:
+Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ronda. Su comportamiento estándar es: detenerse cuando encuentran una unidad a rango y empezar a atacar. Si la derrota, y no hay nadie más a rango, sigue andando. Todos los personajes tienen las siguientes estadíticas:
 
 - `ATK`: Daño de ataque
 - `HP`: Vida Total
 - `VEL`: Velocidad de Movimiento
 - `DPS`: Velocidad de Ataque
 - `RAN`: Distancia a la que se empieza a atacar o se establece un combate.
-- `COMPORTAMIENTO`: Habilidad pasiva de una unidad en concreto que establece el patrón de movimiento y toma de decisiones.
+- `PRIORIDAD`: Valor que define el orden en el que se colocan las unidades en la linea. A mayor valor, se colocan antes.
 
 Las Unidades Disponibles y sus estadísticas son:
 
-| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **COMPORTAMIENTO** |
-| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-------------------------------------------------------------: |
-| Atacante        | Tostada                 |    4    |   9    |    5    |   1     |    1    | En un cruce, elige el camino con más unidades.                                |
-| Defensor        | Magdalena               |    2    |   15   |    2    |   0,33  |    1    | En un cruce, se detiene y bloquea a los enemigos, no a los aliados.           |
-| Distancia       | Bol de Cereales         |    3    |   5    |    4    |   0,5   |    5    | Al detectar una unidad a rango, se para y ataca a distancia.                  |
-| Velocista       | ¿Fruta?                 |    3    |   4    |    10   |   1,5   |    1    | En un cruce, elige el camino con menos unidades.                              |
-| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |   1     |    1    | Al combatir contra 2 unidades, explota y daña a todos los enemigos cercanos.  |
+| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **PRIORIDAD** |
+| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-----------: |
+| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |       3       |
+| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |       4       |
+| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |       2       |
+| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    |       1       |
+| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    |       -       |
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
 
-El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
+El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear a un enemigo a la vez, pero puede ser golpeada por varios. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
 
 Daño de Ataque = (0,9 x ATK) + (0,1 x RANDOM(0,10))
 
 Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores.
 
-El DPS funciona como un contador acumulativo. Hay que llegar a 1 para declarar un ataque, en cada segundo que dure el ataque. El atacante ataca cada vez, mientras que el tanque debe esperar. El velocista ataca 2 veces por segundo.
+El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick. El atacante ataca cada vez, mientras que el tanque debe esperar 3 ticks. El velocista ataca 2 veces por tick.
 
 Algunos ejemplos de Batalla:
 
@@ -206,7 +204,7 @@ Las habilidades constituyen la parte jugable en el combate a tiempo real. Están
 
 **COMÚN**
 
-- *SWAP* (): Se intercambian las unidades de dos líneas que se encuentren en la zona del jugador propio. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
+- *SWAP* (): Se intercambian las unidades controladas por un jugador entre dos líneas. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
@@ -218,7 +216,7 @@ Las habilidades constituyen la parte jugable en el combate a tiempo real. Están
 
 **ULTRA RARO**
 
-- *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en el campo, en una línea a elegir de la zona de jugador propia. Aguanta 2 ataques del rival, y en el tercero explota y hace daño a todos los enemigos cercanos. Es un gran boost de dinero o una casi condición de victoria.
+- *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en la Zona Neutra, en una línea a elegir. Aguanta 2 ataques del rival, y en el tercero explota y hace daño a todos los enemigos cercanos. Es un gran boost de dinero o una casi condición de victoria.
 
 #### 5.1.5.- ECONOMÍA    <a name="mecanicas5"/>
 
@@ -409,15 +407,22 @@ Al ir avanzando, entrará más en juego la estrategia en la fase de preparación
 
 El engaño va a ser una constante entre rondas: cargar la línea superior para dejarla vacía en la siguiente ronda; saber donde pondrá sus unidades el contrario y contratacar; usar una habilidad SWAP decisiva en el último momento...
 
-El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran las victorias más épicas y aplastantes. **DISCUTIR MECÁNICA BEAT THE RANKING**
+El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran las victorias más épicas y aplastantes.
 
 ### 5.6.- NIVELES	<a name="niveles"/>
 
-En el caso de este juego, no se trata de niveles, sino de distintos Modos de Juego. Se podrán seleccionar en la pantalla de Pre-Partida.
+Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego:
 
-- **Modo CLÁSICO**: El juego estándar, sin cambios adicionales.
-- **Modo LABERINTO**: La zona neutra pasa a ser una zona variable, donde las unidades tomarán distintos caminos. Estos cambios se notificarán en la pantalla de preparación, para que se tengan en cuenta en la estrategia. Los personajes pondrán en marcha sus "Comportamientos", con lo que la estrategia variará conforme al modo normal, dando una nueva dimensión al juego.
-- **Modo MICRO**: Sin Toppings iniciales. Cada Ronda, los recursos se ven limitados a 1 unidad por cada tipo de soldado (4), y a 3 habilidades. Hay que saber gestionar los recursos en este modo de juego similar a un Mirror Match. 
+- **MODO DUELO**: Basado en Multijugador Local. Empiezas en una pantalla pre-partida, donde tienes que elegir entre 2 variantes:
+
+-> CLÁSICO: el juego estándar, sin cambios adicionales.
+-> MICRO: sin Toppings iniciales. Cada Ronda, los recursos se ven limitados a 1 unidad por cada tipo de soldado (4), y a 3 habilidades. Hay que saber gestionar los recursos en este modo de juego similar a un Mirror Match. Multijugador Local
+
+- **Modo TÁCTICA**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina. Estos puzzles se organizan en una serie de sectores, basados en modos de juego o promociones:
+
+-> PUZZLE CLÁSICO:
+-> PUZZLE MICRO:
+-> EVENTO HALLOWEEN:
 
 ---
 
