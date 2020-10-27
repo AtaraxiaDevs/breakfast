@@ -325,7 +325,11 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `PERSONAJES:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/PERSONAJES.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Personajes/InterfazPersonajes.png)
+
+`INFO PERSONAJE:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Personajes/InterfazDefensor.png)
 
 `HABILIDADES:`
 
