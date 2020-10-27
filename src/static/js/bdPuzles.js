@@ -2,11 +2,11 @@ let bdPuzles = {
     "1":{
         "enemigos":{
             "1":{
-                "tipo": "veloz",
+                "tipo": "tank",
                 "linea": "1"
             },
             "2":{
-                "tipo": "veloz",
+                "tipo": "atacante",
                 "linea": "1"  
             },
             "3":{

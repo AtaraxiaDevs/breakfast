@@ -88,6 +88,8 @@ export default class GameAPI {
       new Personaje(this.personajeActual, 200, 400, this.escena,+1)
     );
 
+    this.ultimoColocado = [fila-1,this.combate[fila-1].length -1];
+
     this.reeordenarFilas();
     
   };
@@ -118,6 +120,13 @@ export default class GameAPI {
       }
   }
 
+    deshacer = function(){
+      this.combate[this.ultimoColocado[0]][this.ultimoColocado[1]].destroy()
+      this.combate[this.ultimoColocado[0]].splice(this.ultimoColocado[1],1);
+      this.reeordenarFilas();
+      ;
+    }
+
 
   //Función encargada de recorrer cada personaje y activarlos para que empiecen a luchar.
   arrancarPersonajes = function () {
@@ -147,11 +156,6 @@ export default class GameAPI {
   }
 
   
-  
-
-  cargarEnemigos = function(){
-
-  }
 
   //------------------------ UI---------------------------------------
   //TODO -Botón para confirmar compo ?
@@ -171,5 +175,6 @@ export default class GameAPI {
     this.combate = []; // Lista con todos los personajes de la escena
     this.personajeActual = "veloz";
     this.lenguage = "spanish";
+    this.ultimoColocado = "";
   }
 }

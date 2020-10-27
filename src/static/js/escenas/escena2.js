@@ -27,6 +27,12 @@ export default class Escena2 extends Phaser.Scene {
       APIJuego.cambiarTipo();
     });
 
+    this.button = this.add.image(1000, 900, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
+
+    this.button.on("pointerdown", function () {
+      APIJuego.deshacer();
+    });
+
 
     // DETECCIÓN DE MÓVIL
     if (ConfiguracionJuego.isMobile) {
