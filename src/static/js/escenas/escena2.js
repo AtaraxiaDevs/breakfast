@@ -14,23 +14,30 @@ export default class Escena2 extends Phaser.Scene {
     //TODO -Botón para confirmar compo ?
     //TODO -Botón deshacer
 
-    this.button = this.add.image(500, 500, "s_provisional2").setInteractive(); // BOTÓN PROVISIONAL
-
+    this.button = this.add.image(0, 0, "s_provisional2").setInteractive(); // BOTÓN PROVISIONAL
+    
     this.button.on("pointerdown", function () {
       APIJuego.añadirPersonaje(1);
       //APIJuego.arrancarPersonajes();
     });
 
-    this.button = this.add.image(800, 500, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
+    this.button = this.add.image(0, 1000, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
 
     this.button.on("pointerdown", function () {
       APIJuego.cambiarTipo();
     });
 
-    this.button = this.add.image(1000, 900, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
+    this.button = this.add.image(1000, 0, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
 
     this.button.on("pointerdown", function () {
       APIJuego.deshacer();
+    });
+
+    this.button = this.add.image(1000, 1000, "s_provisional").setInteractive(); // BOTÓN PROVISIONAL
+
+    this.button.on("pointerdown", function () {
+      APIJuego.arrancarPersonajes();
+      console.log("arrancado")
     });
 
 
@@ -41,5 +48,7 @@ export default class Escena2 extends Phaser.Scene {
     }
   }
 
-  update() {}
+  update() {
+    APIJuego.actualizar();
+  }
 }

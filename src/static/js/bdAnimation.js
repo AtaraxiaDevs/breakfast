@@ -14,8 +14,8 @@ let dbAnimations = {
         },
         "animaciones":{
         "iddle":{
-        "animationName": "veloz_iddle",
-        "spritesheet": "sp_velozIddle",
+        "animationName": "veloz_idle",
+        "spritesheet": "sp_velozIdle",
         "startFrame": 0,
         "endFrame": 5,
         "frameRate": 3,
@@ -28,7 +28,7 @@ let dbAnimations = {
         "startFrame": 0,
         "endFrame": 6,
         "frameRate": 3,
-        "repeat": -1,
+        "repeat": 0,
         "src": "sprite_veloz_atacar.png"
        },
        "correr":{
@@ -46,7 +46,7 @@ let dbAnimations = {
         "startFrame": 0,
         "endFrame": 8,
         "frameRate": 10,
-        "repeat": -1,
+        "repeat": 0,
         "src": "sprite_veloz_muerte.png"
        }
        }
@@ -64,8 +64,8 @@ let dbAnimations = {
     },
     "animaciones":{
     "iddle":{
-    "animationName": "distancia_iddle",
-    "spritesheet": "sp_distanciaIddle",
+    "animationName": "distancia_idle",
+    "spritesheet": "sp_distanciaIdle",
     "startFrame": 0,
     "endFrame": 5,
     "frameRate": 6,
@@ -78,7 +78,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 6,
     "frameRate": 6,
-    "repeat": -1,
+    "repeat": 0,
     "src": "sprite_distancia_atacar.png"
    },
    "correr":{
@@ -96,7 +96,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 3,
     "frameRate": 8,
-    "repeat": -1,
+    "repeat": 0,
     "src": "sprite_distancia_muerte.png"
    }
    }
@@ -111,8 +111,8 @@ let dbAnimations = {
     },
     "animaciones":{
     "iddle":{
-    "animationName": "tank_iddle",
-    "spritesheet": "sp_tankIddle",
+    "animationName": "tank_idle",
+    "spritesheet": "sp_tankIdle",
     "startFrame": 0,
     "endFrame": 3,
     "frameRate": 3,
@@ -125,7 +125,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 7,
     "frameRate": 3,
-    "repeat": -1,
+    "repeat": 0,
     "src":"sprite_tank_atacar.png"
    },
    "correr":{
@@ -142,7 +142,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 3,
     "frameRate": 10,
-    "repeat": -1,
+    "repeat": 0,
     "src":"sprite_tank_muerte.png"
    }
    } 
@@ -155,8 +155,8 @@ let dbAnimations = {
     },
     "animaciones":{
     "iddle":{
-    "animationName": "atacante_iddle",
-    "spritesheet": "sp_atacanteIddle",
+    "animationName": "atacante_idle",
+    "spritesheet": "sp_atacanteIdle",
     "startFrame": 0,
     "endFrame": 3,
     "frameRate": 3,
@@ -169,7 +169,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 7,
     "frameRate": 3,
-    "repeat": -1,
+    "repeat": 0,
     "src":"sprite_atacante_atacar.png"
    },
    "correr":{
@@ -186,7 +186,7 @@ let dbAnimations = {
     "startFrame": 0,
     "endFrame": 3,
     "frameRate": 10,
-    "repeat": -1,
+    "repeat": 0,
     "src":"sprite_atacante_muerte.png"
    }
    } 

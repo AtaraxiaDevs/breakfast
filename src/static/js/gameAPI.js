@@ -85,10 +85,11 @@ export default class GameAPI {
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
   añadirPersonaje = function (fila) {
     this.combate[fila-1].push(
-      new Personaje(this.personajeActual, 200, 400, this.escena,+1)
+      new Personaje(this.personajeActual, 200, 400, this.escena,+1,this.idCount)
     );
-
-    this.ultimoColocado = [fila-1,this.combate[fila-1].length -1];
+    this.ultimoColocado = this.idCount;
+    this.idCount++;
+    
 
     this.reeordenarFilas();
     
@@ -103,7 +104,7 @@ export default class GameAPI {
         let inicio = 100
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicio + j*500, 400);
+          arrayAux[j].body.reset(inicio + j*125, 400);
         }
       }
 
@@ -115,16 +116,60 @@ export default class GameAPI {
         let inicio = 1500
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicio - j*500, 400);
+          arrayAux[j].body.reset(inicio - j*125, 400);
         }
       }
   }
 
     deshacer = function(){
-      this.combate[this.ultimoColocado[0]][this.ultimoColocado[1]].destroy()
-      this.combate[this.ultimoColocado[0]].splice(this.ultimoColocado[1],1);
+      this.eliminarPersonaje(this.ultimoColocado)
       this.reeordenarFilas();
-      ;
+    }
+
+    eliminarPersonaje = function(id){
+      for(let i = 0;i< this.combate.length;i++){
+        for(let j = 0;i< this.combate[i].length;j++){
+          console.log("I: " + i + " y J: " + j)
+          if(this.combate[i][j] == undefined){break}
+            if(this.combate[i][j].id==id){
+              this.combate[i][j].destroy()
+              this.combate[i].splice(j,1);
+              this.idCount--;
+              this.ultimoColocado = "m"
+              break
+            }
+         
+        }
+      }
+      console.log("Eliminado")
+    }
+
+    enemigoCercano = function(id,x,direction){
+        let masCercano = undefined;
+        let fila = undefined;
+
+        for (let i = 0; i < this.combate.length; i++) {
+          for(let j=0;j<this.combate[i].length;j++)
+            if(this.combate[i][j].id == id){
+              fila = i;
+            }
+        }
+
+        if(fila != undefined){
+        for(let j = 0;j<this.combate[fila].length;j++){
+            if(this.combate[fila][j].direction != direction){
+                if(masCercano < Math.abs(this.combate[fila][j].x - x) || masCercano == undefined){
+                    masCercano = {
+                      id: this.combate[fila][j].id,
+                      separacion: Math.abs(this.combate[fila][j].x - x)
+                    }
+                }
+            }
+        }
+      }
+
+        return masCercano;
+
     }
 
 
@@ -141,7 +186,8 @@ export default class GameAPI {
    // console.log(bdPuzles[this.puzleActual].enemigos[0].linea)
     for(let i in bdPuzles[this.puzleActual].enemigos){
       this.combate[bdPuzles[this.puzleActual].enemigos[i].linea-1].push(
-        new Personaje(bdPuzles[this.puzleActual].enemigos[i].tipo, 200, 400, this.escena,-1))
+        new Personaje(bdPuzles[this.puzleActual].enemigos[i].tipo, 200, 400, this.escena,-1,this.idCount))
+        this.idCount++;
     }
 
     this.reeordenarFilas();
@@ -153,6 +199,22 @@ export default class GameAPI {
     }
     this.cargarPuzle();
 
+  }
+
+  actualizar = function(){
+    for (let i = 0; i < this.combate.length; i++) {
+      for(let j=0;j<this.combate[i].length;j++)
+      this.combate[i][j].update();
+    }
+  }
+
+  hacerDaño = function(id,daño){
+    for (let i = 0; i < this.combate.length; i++) {
+      for(let j=0;j<this.combate[i].length;j++)
+        if(this.combate[i][j].id == id){
+            this.combate[i][j].hpActual = this.combate[i][j].hpActual-daño
+        }
+    }
   }
 
   
@@ -176,5 +238,6 @@ export default class GameAPI {
     this.personajeActual = "veloz";
     this.lenguage = "spanish";
     this.ultimoColocado = "";
+    this.idCount = 0;
   }
 }
