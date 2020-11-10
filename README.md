@@ -341,6 +341,10 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/TIENDA.png)
 
+`REGISTRO:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Registro/InterfazRegistro.png)
+
 `PRE-PARTIDA:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/PrePartida/InterfazPrePartida.png)
