@@ -12,7 +12,7 @@ export default class GameAPI {
     this.escena.load.image("s_provisional2", "assets/images/s_provisional2.png");
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
-    this.escena.load.image("fondo", "assets/images/MenuFinalSinBotones.png");
+    this.escena.load.image("fondoMP", "assets/images/MenuFinalSinBotones.png");
     this.escena.load.image("spanish", "assets/misc/ESPAÑA.png");
     this.escena.load.image("english", "assets/misc/GB.png");
     this.escena.load.image("spanish_jugar", "assets/misc/JUGAR.png");
@@ -23,6 +23,25 @@ export default class GameAPI {
     this.escena.load.image("soundOff", "assets/misc/SoundOFF.png");
     this.escena.load.image("soundOn", "assets/misc/SoundON.png");
     this.escena.load.image("tutorial", "assets/misc/TUTORIAL.png");
+    this.escena.load.image("spanish_creditos", "assets/misc/CREDITOS.png");
+    this.escena.load.image("english_creditos", "assets/misc/CREDITS.png");
+    this.escena.load.image("sonidoOn", "assets/misc/SoundON.png");
+    this.escena.load.image("sonidoOff", "assets/misc/SoundOFF.png");
+    this.escena.load.image("salir", "assets/misc/Salir.png");
+
+
+    // --------------- ASSETS RANKING -----------------
+    this.escena.load.image("fondoRanking", "assets/images/InterfazBaseRanking.png");
+
+    // --------------- ASSETS PREPARACION -----------------
+    this.escena.load.image("fondoPreparacion", "assets/images/InterfazBasePreparacion.png")
+    this.escena.load.image("flecha", "assets/preparacion/flecha3.png")
+    this.escena.load.image("spanish_deshacer", "assets/preparacion/Deshacer.png")
+    this.escena.load.image("english_deshacer", "assets/preparacion/Undo.png")
+    this.escena.load.image("spanish_comenzar", "assets/preparacion/Comenzar.png")
+    this.escena.load.image("english_comenzar", "assets/preparacion/Start.png")
+    this.escena.load.image("spanish_unidades", "assets/preparacion/EligeTusUnidades.png")
+    this.escena.load.image("english_unidades", "assets/preparacion/ChooseYourUnits.png")
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
@@ -237,6 +256,7 @@ export default class GameAPI {
     this.combate = []; // Lista con todos los personajes de la escena
     this.personajeActual = "veloz";
     this.lenguage = "spanish";
+    this.dinero = "1000"
     this.ultimoColocado = "";
     this.idCount = 0;
   }
