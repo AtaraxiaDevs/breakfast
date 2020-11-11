@@ -307,49 +307,74 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Menu/MenuFinalESP.png)
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Menu/MenuFinalENG.png)
 
+
 `RANKING:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RANKING.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Ranking/InterfazRanking10.png)
 
 `CRÉDITOS:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/CREDITOS.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Creditos/InterfazCreditos.png)
 
 `TUTORIAL:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/TUTORIAL.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/InterfazTutorial.png)
+
+`DESCRIPCION:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Descripcion/InterfazDescripcion.png)
+
+`CONTROLES:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Controles/InterfazControles.png)
 
 `PERSONAJES:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/PERSONAJES.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Personajes/InterfazPersonajes.png)
+
+`INFO PERSONAJE:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Personajes/InterfazDefensor.png)
 
 `HABILIDADES:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/HABILIDADES.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Habilidades/InterfazHabilidadesEspañol.png)
 
 `TIENDA:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/TIENDA.png)
 
+`TIENDA-SKINS:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaSkin.png)
+
+`TIENDA-COMPRAR:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaComprar.png)
+
+`REGISTRO:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Registro/InterfazRegistro.png)
+
 `PRE-PARTIDA:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/PRE-PARTIDA.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/PrePartida/InterfazPrePartida.png)
 
 `PREPARACIÓN:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20PREPARACI%C3%93N.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Preparacion/InterfazPreparacion.png)
 
 `COMBATE:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/FASE%20COMBATE.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida.png)
 
 `RECUENTO RONDA:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/RECUENTO%20RONDA.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/RecuentoRonda/InterfazRecuentoRonda.png)
 
 `GAME OVER:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/GAME%20OVER.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/GameOver/InterfazGameOver.png)
 
 ### 5.4.- CONTROLES	<a name="controles"/>
 
