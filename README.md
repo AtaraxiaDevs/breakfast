@@ -343,7 +343,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 `TIENDA-SKINS:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTienda.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaSkin.png)
 
 `TIENDA-COMPRAR:`
 
