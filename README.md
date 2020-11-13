@@ -270,7 +270,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO1.png)
 
 **INICIO**: Menú que se muestra al iniciar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*<br>
 
@@ -285,7 +285,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 **JUEGO**: Pantallas del juego<br>
 
-- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego. Si se elige el modo Duelo (M), hay dos fases de preparación. Si se elige el modo Táctica, aparecen sus niveles y solo hay una fase de preparación.Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
 - *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. Hay una por jugador. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *COMBATE*: Gameplay en tiempo real de la batalla. Tiene botones para controlar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *RECUENTO RONDA*: Se cuentan los puntos para ver quien gana la ronda, se muestra mediante una tabla resumen. Cuando se pasa 5 veces por esta pantalla, la siguiente será **GAME OVER**. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
