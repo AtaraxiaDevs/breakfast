@@ -57,7 +57,7 @@
 
 | **NOMBRE**      | BTF: Break-Troops-Fast   |
 | :-------------: | :---------------------:  |
-| **VERSION**     | 1.0                      |
+| **VERSION**     | 1.2                      |
 | **GENERO**      | Estrategia     |
 | **TEMÁTICA**    | Comida                   |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
@@ -78,7 +78,7 @@
 | :-------------: |:---------------------:  |
 | 1.0             | Versión Inicial         |
 | 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
-|                 |                                                                               |
+| 1.2             | Otro refinamiento de mecánicas                                                |
 
 ---
  
@@ -151,17 +151,16 @@ Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ro
 - `VEL`: Velocidad de Movimiento
 - `DPS`: Velocidad de Ataque
 - `RAN`: Distancia a la que se empieza a atacar o se establece un combate.
-- `PRIORIDAD`: Valor que define el orden en el que se colocan las unidades en la linea. A mayor valor, se colocan antes.
 
 Las Unidades Disponibles y sus estadísticas son:
 
-| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **PRIORIDAD** |
-| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-----------: |
-| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |       3       |
-| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |       4       |
-| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |       2       |
-| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    |       1       |
-| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    |       -       |
+| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** |
+| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: |
+| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |
+| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |
+| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |
+| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    | 
+| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    | 
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
 
@@ -204,12 +203,12 @@ Las habilidades constituyen la parte jugable en el combate a tiempo real. Están
 
 **COMÚN**
 
-- *SWAP* (): Se intercambian las unidades controladas por un jugador entre dos líneas. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
 **RARO**
 
+- *SWAP* (): Se intercambian las unidades controladas por un jugador entre dos líneas. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
 - *EXTRA UNIT* (): Una unidad aleatoria aparece en una línea a elegir, en la zona del jugador propio. Puede servir como ataque sorpresa o como defensa de línea ante unidades enemigas. <br>
 - *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 5 segundos.
 - *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para ganar dinero al mantenerlo en el campo.
@@ -336,10 +335,6 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 `HABILIDADES:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Habilidades/InterfazHabilidadesEspañol.png)
-
-`TIENDA:`
-
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/TIENDA.png)
 
 `TIENDA-SKINS:`
 
@@ -484,13 +479,11 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
-- **VELOCISTA:**
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/src/static/resources/sprite_veloz_idle.png)
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
-
+![alt text] (https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/Imagenes%20Promocionales/promo.png)
 
 ---
 
