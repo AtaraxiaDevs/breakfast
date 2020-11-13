@@ -164,7 +164,7 @@ Las Unidades Disponibles y sus estadísticas son:
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
 
-El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear a un enemigo a la vez, pero puede ser golpeada por varios. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
+El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear y ser golpeada por un enemigo a la vez. Los personajes están separados, siguiéndose entre sí en la línea, para evitar acumulaciones. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
 
 Daño de Ataque = (0,9 x ATK) + (0,1 x RANDOM(0,10))
 
@@ -374,25 +374,19 @@ Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y m�
 
 **CONTROLES PC**
 
-Basado en el teclado.
+Basado en el teclado y ratón.
 
 *Controles Menú* <br>
-`WASD`: Seleccionar entre opciones<br>
-`INTRO`: Elegir opción
+`Ratón`: Seleccionar entre opciones<br>
+`Click Izq Ratón`: Elegir opción
 
 *Jugador 1*<br>
-`W - S`: Cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
-`A - D`: Cambiar entre unidades en la Preparación (o habilidades, en el Combate).<br>
-`SPACE`: Acción / Desplegar Unidad / Usar habilidad
+`W - S`: Cambiar entre habilidades y cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
+`SPACE`: Acción / Usar habilidad
 
 *Jugador 2*<br>
-`Flecha Arriba - Flecha Abajo`: Cambiar entre líneas (Usando habilidades o desplegando unidades)<br>
-`Flecha Izquierda - Flecha Derecha`: Cambiar entre unidades en la preparación (o habilidades, en el combate)<br>
-`INTRO`: Acción / Desplegar Unidad / Usar habilidad
-
-*Botones Extra*<br>
-**...**<br>
-`ESC`: Salir
+`Flecha Izquierda - Flecha Derecha`: Cambiar entre habilidades y cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
+`INTRO`: Acción / Usar habilidad
 
 **CONTROLES MÓVIL Y TABLETA**
 
@@ -431,9 +425,9 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 
 - **Modo TÁCTICA**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina. Estos puzzles se organizan en una serie de sectores, basados en modos de juego o promociones:
 
--> PUZZLE CLÁSICO:
--> PUZZLE MICRO:
--> EVENTO HALLOWEEN:
+-> PUZZLE CLÁSICO:<br>
+-> PUZZLE MICRO:<br>
+-> EVENTO HALLOWEEN:<br>
 
 ---
 
@@ -467,23 +461,73 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 
 Este apartado se refiere a los diferentes escenarios visuales en los que se desarrolla el juego:
 
-- **MERENDERO:**
+- **RESTAURANTE:**
+
+
+
 - **COCINA:**
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida.png)
 
 ---
 
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 
+Debido a que el público objetivo son principalmente niños pequeños, se ha querido dotar el arte del juego un estilo amigable, colorido,mono, y con colores pastel.
+Inicialmente se planteó como se podrían diseñar personajes relacionados con el desayuno. Se plantearon varios diseños, hasta que se decidió que los protagonistas iban a ser pequeños alienígenas adorables que, con materiales que pueden encontrarse en la cocina a la hora del desayuno, se han construido máquinas para combatir entre sí.
+Aquí ya podemos concretar un estilo predefinido para todos los personajes: consistirían en un pequeño extraterrestre manejando una máquina fabricada a partir de utensilios de cocina y alimentos típicos del desayuno.
+Los escenarios, por tanto, serán lugares donde es típico tomarse el desayuno: un restaurante, la cocina...
+También se ha decidido utilizar pixel art para homogeneizar el estilo de los artistas 2D del equipo, además de aportar un estilo sencillo.
+
+Juegos con Personajes similares:
+
+`Fall Guys`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/Fallguys.jpeg)
+
+`Little Big Planet`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/littlebigplanet.jpeg)
+
+`Melbits`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/melbits.jpeg)
+
+`Among Us`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/amongus.jpeg)
+
+
 
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
+- **TOSTADA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_atacante_idle.png)
+
+- **MAGDALENA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_tank_idle.png)
+
+- **BOL DE CEREALES:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_distancia_idle.png)
+
+- **VELOCISTA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_veloz_idle.png)
+
+- **MANTEQUILLA GRITONA:**
+
+
+- **MERMELADA EXPLOSIVA:**
 
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
-![alt text] (https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/Imagenes%20Promocionales/promo.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/Imagenes%20Promocionales/promo.png)
 
 ---
 
