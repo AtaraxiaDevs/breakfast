@@ -348,6 +348,10 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaSkin.png)
 
+`TIENDA-PREMIOS:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaPremios.png)
+
 `TIENDA-COMPRAR:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaComprar.png)
@@ -367,6 +371,8 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 `COMBATE:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida.png)
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida2.png)
 
 `RECUENTO RONDA:`
 
