@@ -16,6 +16,14 @@ export default class Jefe extends Phaser.Scene {
       .image(940, 135, APIJuego.lenguage + "_jefe")
       .setScale(0.73);
 
+    let personajeMantequilla = this.add
+      .image(550, 575, "mantequilla")
+      .setScale(2.5);
+
+    let personajeMermelada = this.add
+      .image(800, 525, "mermelada")
+      .setScale(2.5);
+
     let clickButtonOK = this.add
       .image(940, 780, "OK")
       .setScale(0.3)

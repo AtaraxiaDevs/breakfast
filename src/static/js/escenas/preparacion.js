@@ -6,35 +6,64 @@ export default class Preparacion extends Phaser.Scene {
   }
 
   preload() {
-    APIJuego.setEscena();
+    APIJuego.setEscena(this);
+    this.seleccionActual = "atacante";
   }
 
   create() {
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
 
-    this.add.image(970, 310, "flecha").setScale(0.4);
-    this.add.image(970, 515, "flecha").setScale(0.4);
-    this.add.image(970, 700, "flecha").setScale(0.4);
+    let clickButtonFlecha1 = this.add
+      .image(970, 310, "flecha")
+      .setScale(0.4)
+      .setInteractive()
+      .on("pointerdown", () => APIJuego.añadirPersonaje(1));
+    let clickButtonFlecha2 = this.add.image(970, 515, "flecha").setScale(0.4);
+    let clickButtonFlecha3 = this.add.image(970, 700, "flecha").setScale(0.4);
+
+    let selectorPersonajes = this.add
+    .image(550, 490, this.seleccionActual)
 
     let clickButtonDeshacer = this.add
       .image(560, 720, APIJuego.lenguage + "_deshacer")
       .setScale(0.25)
       .setInteractive()
-      .on("pointerdown", () => APIJuego.deshacer());
+      .on("pointerdown", function () {
+        switch (APIJuego.escena.seleccionActual) {
+          case "atacante":
+            selectorPersonajes.setTexture("defensor");
+            APIJuego.escena.seleccionActual = "defensor";
+            break;
+          case "defensor":
+            selectorPersonajes.setTexture("distancia");
+            APIJuego.escena.seleccionActual = "distancia";
+            break;
+          case "distancia":
+            selectorPersonajes.setTexture("velocista");
+            APIJuego.escena.seleccionActual = "velocista";
+            break;
+          case "velocista":
+            selectorPersonajes.setTexture("atacante");
+            APIJuego.escena.seleccionActual = "atacante";
+            break;
+        }
+
+        console.log(APIJuego.escena.seleccionActual)
+      });
 
     let clickButtonSalir = this.add
       .image(1500, 900, "salir")
       .setScale(1.2)
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("menuPrincipal"));
+      .on("pointerdown", () => this.scene.start("login"));
 
     let textoUnidades = this.add
       .image(545, 250, APIJuego.lenguage + "_unidades")
       .setScale(0.4);
 
     let dinero = this.make.text({
-      x: 545,
-      y: 250,
+      x: 740,
+      y: 55,
       text: APIJuego.dinero + " $",
       style: {
         font: "70px 'Sigmar One'",

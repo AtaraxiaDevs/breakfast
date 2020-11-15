@@ -105,6 +105,13 @@ export default class GameAPI {
     this.escena.load.image("english_velocista", "assets/tutorial/personajes/Sprinter.png")
     this.escena.load.image("spanish_jefe", "assets/tutorial/personajes/Jefe.png")
     this.escena.load.image("english_jefe", "assets/tutorial/personajes/Boss.png")
+    this.escena.load.image("mantequilla", "assets/buffs/SpriteBuffMantequilla/mante1.png")
+    this.escena.load.image("mermelada", "assets/buffs/SpriteBuffMermelada/jam1.png")
+
+    // --------------- ASSETS LOGIN -----------------
+    this.escena.load.image("fondoLogin", "assets/login/InterfazRegistroBase.png")
+    this.escena.load.image("spanish_nombre", "assets/login/IntroduceTuNombre.png")    
+    this.escena.load.image("english_nombre", "assets/login/IntroduceYourNickname.png")
 
     // --------------- ASSETS PREPARACION -----------------
     this.escena.load.image("fondoPreparacion", "assets/preparacion/InterfazBasePreparacion.png")
