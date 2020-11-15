@@ -12,29 +12,102 @@ export default class GameAPI {
     this.escena.load.image("s_provisional2", "assets/images/s_provisional2.png");
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
-    this.escena.load.image("fondoMP", "assets/images/MenuFinalSinBotones.png");
-    this.escena.load.image("spanish", "assets/misc/ESPAÑA.png");
-    this.escena.load.image("english", "assets/misc/GB.png");
-    this.escena.load.image("spanish_jugar", "assets/misc/JUGAR.png");
-    this.escena.load.image("english_jugar", "assets/misc/PLAY.png");
-    this.escena.load.image("ranking", "assets/misc/RANKING.png");
-    this.escena.load.image("spanish_tienda", "assets/misc/TIENDA.png");
-    this.escena.load.image("english_tienda", "assets/misc/SHOP.png");
-    this.escena.load.image("soundOff", "assets/misc/SoundOFF.png");
-    this.escena.load.image("soundOn", "assets/misc/SoundON.png");
-    this.escena.load.image("tutorial", "assets/misc/TUTORIAL.png");
-    this.escena.load.image("spanish_creditos", "assets/misc/CREDITOS.png");
-    this.escena.load.image("english_creditos", "assets/misc/CREDITS.png");
-    this.escena.load.image("sonidoOn", "assets/misc/SoundON.png");
-    this.escena.load.image("sonidoOff", "assets/misc/SoundOFF.png");
-    this.escena.load.image("salir", "assets/misc/Salir.png");
-
+    this.escena.load.image("fondoMP", "assets/menuPrincipal/MenuFinalSinBotones.png");
+    this.escena.load.image("spanish", "assets/menuPrincipal/ESPAÑA.png");
+    this.escena.load.image("english", "assets/menuPrincipal/GB.png");
+    this.escena.load.image("spanish_jugar", "assets/menuPrincipal/JUGAR.png");
+    this.escena.load.image("english_jugar", "assets/menuPrincipal/PLAY.png");
+    this.escena.load.image("ranking", "assets/menuPrincipal/RANKING.png");
+    this.escena.load.image("spanish_tienda", "assets/menuPrincipal/TIENDA.png");
+    this.escena.load.image("english_tienda", "assets/menuPrincipal/SHOP.png");
+    this.escena.load.image("soundOff", "assets/menuPrincipal/SoundOFF.png");
+    this.escena.load.image("soundOn", "assets/menuPrincipal/SoundON.png");
+    this.escena.load.image("tutorial", "assets/menuPrincipal/TUTORIAL.png");
+    this.escena.load.image("spanish_creditos", "assets/menuPrincipal/CREDITOS.png");
+    this.escena.load.image("english_creditos", "assets/menuPrincipal/CREDITS.png");
+    this.escena.load.image("sonidoOn", "assets/menuPrincipal/SoundON.png");
+    this.escena.load.image("sonidoOff", "assets/menuPrincipal/SoundOFF.png");
+    this.escena.load.image("salir", "assets/menuPrincipal/Salir.png");
 
     // --------------- ASSETS RANKING -----------------
-    this.escena.load.image("fondoRanking", "assets/images/InterfazBaseRanking.png");
+    this.escena.load.image("fondoRanking", "assets/ranking/InterfazRanking10Base.png");
+    this.escena.load.image("OK", "assets/ranking/OK.png")
+
+    // --------------- ASSETS CRÉDITOS -----------------
+    this.escena.load.image("fondoCreditos", "assets/creditos/InterfazBaseCreditos.png");
+    this.escena.load.image("spanish_contacto", "assets/creditos/Contacto.png");
+    this.escena.load.image("english_contacto", "assets/creditos/Contact.png");
+    this.escena.load.image("spanish_desarrolladores", "assets/creditos/Desarrolladores.png");
+    this.escena.load.image("english_desarrolladores", "assets/creditos/Developers.png");
+    this.escena.load.image("twitter", "assets/creditos/twitter.png");
+    this.escena.load.image("web", "assets/creditos/web.png");
+    this.escena.load.image("youtube", "assets/creditos/youtube.png");
+
+    // --------------- ASSETS TIENDA -----------------
+    this.escena.load.image("fondoTiendaComprar", "assets/tienda/InterfazTiendaComprarBase.png")
+    this.escena.load.image("fondoTiendaSkin", "assets/tienda/InterfazTiendaSkinBase.png")
+    this.escena.load.image("spanish_comprar", "assets/tienda/Comprar.png")
+    this.escena.load.image("english_comprar", "assets/tienda/Buy.png")
+    this.escena.load.image("spanish_comprarNoSelect", "assets/tienda/ComprarNoSelect.png")
+    this.escena.load.image("english_comprarNoSelect", "assets/tienda/BuyNoSelect.png")
+    this.escena.load.image("spanish_confirmar", "assets/tienda/Confirmar.png")
+    this.escena.load.image("english_confirmar", "assets/tienda/confirm.png")
+    this.escena.load.image("spanish_premios", "assets/tienda/premios.png")
+    this.escena.load.image("english_premios", "assets/tienda/Rewards.png")
+    this.escena.load.image("spanish_premiosNoSelect", "assets/tienda/PremiosNoSelect.png")
+    this.escena.load.image("english_premiosNoSelect", "assets/tienda/rewardsNoSelect.png")
+    this.escena.load.image("skins", "assets/tienda/Skins.png")
+    this.escena.load.image("skinsNoSelect", "assets/tienda/SkinNoSelect.png")
+  
+
+    // --------------- ASSETS TUTORIAL -----------------
+    this.escena.load.image("fondoTutorial", "assets/tutorial/InterfazBaseTutorial.png");
+    this.escena.load.image("spanish_personajes", "assets/tutorial/personajes.png");
+    this.escena.load.image("english_personajes", "assets/tutorial/characters.png");
+    this.escena.load.image("spanish_controles", "assets/tutorial/Controles.png");
+    this.escena.load.image("english_controles", "assets/tutorial/Controls.png");
+    this.escena.load.image("spanish_descripcion", "assets/tutorial/Descripcion.png");
+    this.escena.load.image("english_descripcion", "assets/tutorial/Description.png");
+    this.escena.load.image("spanish_fases", "assets/tutorial/fases.png");
+    this.escena.load.image("english_fases", "assets/tutorial/Rounds.png");
+    this.escena.load.image("spanish_habilidades", "assets/tutorial/Habilidades.png");
+    this.escena.load.image("english_habilidades", "assets/tutorial/Skills.png");
+
+    // --------------- ASSETS TUTORIAL --> Descripción -----------------
+    this.escena.load.image("spanish_fondoDescripcion", "assets/tutorial/descripcion/InterfazBaseDescripcionESP.png")
+    this.escena.load.image("english_fondoDescripcion", "assets/tutorial/descripcion/InterfazBaseDescriptionENG.png")
+
+    // --------------- ASSETS TUTORIAL --> Controles -----------------
+    this.escena.load.image("fondoControles", "assets/tutorial/controles/InterfazBaseControles.png")
+    this.escena.load.image("spanish_ordenador", "assets/tutorial/controles/Ordenador.png")
+    this.escena.load.image("english_ordenador", "assets/tutorial/controles/Computer.png")
+    this.escena.load.image("spanish_raton", "assets/tutorial/controles/raton.png")
+    this.escena.load.image("english_raton", "assets/tutorial/controles/Mouse.png")
+    this.escena.load.image("spanish_movil", "assets/tutorial/controles/Movil.png")
+    this.escena.load.image("english_movil", "assets/tutorial/controles/Mobile.png")
+    this.escena.load.image("spanish_tactil", "assets/tutorial/controles/tactil.png")
+    this.escena.load.image("english_tactil", "assets/tutorial/controles/Tactile.png")
+
+    // --------------- ASSETS TUTORIAL --> Habilidades -----------------
+    this.escena.load.image("spanish_fondoHabilidades", "assets/tutorial/habilidades/InterfazHabilidadesEspañolBASE.png")
+    this.escena.load.image("english_fondoHabilidades", "assets/tutorial/habilidades/InterfazHabilidadesInglesBASE.png")
+
+    // --------------- ASSETS TUTORIAL --> Personajes -----------------
+    this.escena.load.image("fondoPersonajes", "assets/tutorial/personajes/InterfazBasePersonajes.png")
+    this.escena.load.image("fondoStatsPersonajes", "assets/tutorial/personajes/InterfazBaseStatsPersonajes.png")
+    this.escena.load.image("spanish_atacante", "assets/tutorial/personajes/Atacante.png")
+    this.escena.load.image("english_atacante", "assets/tutorial/personajes/Attacker.png")
+    this.escena.load.image("spanish_defensor", "assets/tutorial/personajes/Defensor.png")
+    this.escena.load.image("english_defensor", "assets/tutorial/personajes/Defender.png")
+    this.escena.load.image("spanish_distancia", "assets/tutorial/personajes/Distancia.png")
+    this.escena.load.image("english_distancia", "assets/tutorial/personajes/Distance.png")
+    this.escena.load.image("spanish_velocista", "assets/tutorial/personajes/Velocista.png")
+    this.escena.load.image("english_velocista", "assets/tutorial/personajes/Sprinter.png")
+    this.escena.load.image("spanish_jefe", "assets/tutorial/personajes/Jefe.png")
+    this.escena.load.image("english_jefe", "assets/tutorial/personajes/Boss.png")
 
     // --------------- ASSETS PREPARACION -----------------
-    this.escena.load.image("fondoPreparacion", "assets/images/InterfazBasePreparacion.png")
+    this.escena.load.image("fondoPreparacion", "assets/preparacion/InterfazBasePreparacion.png")
     this.escena.load.image("flecha", "assets/preparacion/flecha3.png")
     this.escena.load.image("spanish_deshacer", "assets/preparacion/Deshacer.png")
     this.escena.load.image("english_deshacer", "assets/preparacion/Undo.png")
@@ -42,6 +115,10 @@ export default class GameAPI {
     this.escena.load.image("english_comenzar", "assets/preparacion/Start.png")
     this.escena.load.image("spanish_unidades", "assets/preparacion/EligeTusUnidades.png")
     this.escena.load.image("english_unidades", "assets/preparacion/ChooseYourUnits.png")
+    this.escena.load.image("atacante", "assets/preparacion/atacante.png")
+    this.escena.load.image("defensor", "assets/preparacion/Defensor.png")
+    this.escena.load.image("distancia", "assets/preparacion/Distancia.png")
+    this.escena.load.image("velocista", "assets/preparacion/Velocista.png")
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {

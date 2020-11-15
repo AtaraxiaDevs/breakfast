@@ -1,26 +1,34 @@
-import {ConfiguracionJuego, APIJuego} from "../main.js"
+import { ConfiguracionJuego, APIJuego } from "../main.js";
 
 export default class Ranking extends Phaser.Scene {
-    constructor() {
-        super("ranking");
-    }
+  constructor() {
+    super("ranking");
+  }
 
-    preload() {
-        APIJuego.setEscena(this)
-    }
+  preload() {
+    APIJuego.setEscena(this);
+  }
 
-    create() {
-        var fondo = this.add.image(0, 0, "fondoRanking").setOrigin(0);
+  create() {
+    var fondo = this.add.image(0, 0, "fondoRanking").setOrigin(0);
 
-        let clickButtonIdioma = this.add
-        .image(925, 855, "english")
-        .setScale(0.2)
-        .setInteractive()
-        .on("pointerdown", function () {
-          let lenguage = APIJuego.setLenguage();
-          clickButtonIdioma.setTexture(
-            lenguage === "spanish" ? "english" : "spanish"
-          );
-        });
-    }
+    let clickButtonOK = this.add
+      .image(930, 900, "OK")
+      .setScale(0.3)
+      .setInteractive()
+      .on("pointerdown", () => this.scene.start("menuPrincipal"));
+
+    let clickButtonSonido = this.add.image(1500, 900, "sonidoOn");
+
+    let clickButtonIdioma = this.add
+      .image(340, 900, APIJuego.lenguage === "spanish" ? "english" : "spanish")
+      .setScale(0.2)
+      .setInteractive()
+      .on("pointerdown", function () {
+        let lenguage = APIJuego.setLenguage();
+        clickButtonIdioma.setTexture(
+          lenguage === "spanish" ? "english" : "spanish"
+        );
+      });
+  }
 }
