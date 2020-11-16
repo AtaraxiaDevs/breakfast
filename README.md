@@ -506,7 +506,7 @@ Juegos con Personajes similares:
 
 `Advance Wars`: 
 
-![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/advancewars.jpeg)
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/advancewars.jpg)
 
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
