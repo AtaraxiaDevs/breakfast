@@ -7,12 +7,17 @@ export default class Escena2 extends Phaser.Scene {
   }
 
   create() {
+    var fondo = this.add.image(0, 0, "fondoJuego").setOrigin(0);
+
+
     APIJuego.setEscena(this);
+    APIJuego.reiniciarCombate();
     APIJuego.cargarCombate();
 
   //------------------------ UI---------------------------------------
     //TODO -Botón para confirmar compo ?
     //TODO -Botón deshacer
+
 
     this.button = this.add.image(0, 0, "s_provisional2").setInteractive(); // BOTÓN PROVISIONAL
     

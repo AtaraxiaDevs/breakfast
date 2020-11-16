@@ -10,6 +10,8 @@ export default class GameAPI {
   cargarAssets = function () {
     this.escena.load.image("s_provisional", "assets/images/s_provisional.png");
     this.escena.load.image("s_provisional2", "assets/images/s_provisional2.png");
+    this.escena.load.image("fondoJuego","assets/images/InterfazBasePartida.png")
+
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
     this.escena.load.image("fondoMP", "assets/menuPrincipal/MenuFinalSinBotones.png");
@@ -141,17 +143,17 @@ export default class GameAPI {
 
   cambiarTipo() {
     switch (this.personajeActual) {
-      case "veloz":
+      case "atacante":
         this.personajeActual = "tank";
         break;
       case "tank":
         this.personajeActual = "distancia";
         break;
       case "distancia":
-        this.personajeActual = "atacante";
-        break;
-      case "atacante":
         this.personajeActual = "veloz";
+        break;
+      case "veloz":
+        this.personajeActual = "atacante";
         break;
     }
 
@@ -187,6 +189,7 @@ export default class GameAPI {
   //* Parámetros: string con el tipo de personaje
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
   añadirPersonaje = function (fila) {
+    console.log(this.personajeActual)
     this.combate[fila-1].push(
       new Personaje(this.personajeActual, 200, 400, this.escena,+1,this.idCount)
     );
@@ -194,32 +197,42 @@ export default class GameAPI {
     this.idCount++;
     
 
-    this.reeordenarFilas();
+    //this.reeordenarFilas();
     
   };
 
   reeordenarFilas = function(){
-      for(let i =0;i<this.combate.length;i++){
+      /*
+      
+   
+    for(let i =0;i<this.combate.length;i++){  
+      for(let j = 0;j<this.combate[i].length;j++){
+        let x = inicioX + j*150
+        let y = inicioY + i*200
+        this.combate[i][j].body.reset(x,y);
+      }
+    }*/ 
+    
+    let inicioX = 100;
+    let inicioY = 400;
+    for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == +1 )
-        arrayAux = arrayAux.sort(function(a,b){
-          return a.priority - b.priority;
-        })
-        let inicio = 100
+        
+  
+        
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicio + j*125, 400);
+          arrayAux[j].body.reset(inicioX + j*125, inicioY + 200*i);
         }
       }
 
       for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == -1 )
-        arrayAux = arrayAux.sort(function(a,b){
-          return a.priority - b.priority;
-        })
-        let inicio = 1500
+        
+        let inicioX = 1500
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicio - j*125, 400);
+          arrayAux[j].body.reset(inicioX - j*125,inicioY + 200*i);
         }
       }
   }
@@ -232,7 +245,6 @@ export default class GameAPI {
     eliminarPersonaje = function(id){
       for(let i = 0;i< this.combate.length;i++){
         for(let j = 0;i< this.combate[i].length;j++){
-          console.log("I: " + i + " y J: " + j)
           if(this.combate[i][j] == undefined){break}
             if(this.combate[i][j].id==id){
               this.combate[i][j].destroy()
@@ -247,33 +259,56 @@ export default class GameAPI {
       console.log("Eliminado")
     }
 
-    enemigoCercano = function(id,x,direction){
-        let masCercano = undefined;
-        let fila = undefined;
+    personajeCercano = function(id,x,direction){
+      
 
-        for (let i = 0; i < this.combate.length; i++) {
-          for(let j=0;j<this.combate[i].length;j++)
-            if(this.combate[i][j].id == id){
-              fila = i;
-            }
-        }
+      let masCercano = undefined;
+      let fila = undefined;
 
-        if(fila != undefined){
-        for(let j = 0;j<this.combate[fila].length;j++){
-            if(this.combate[fila][j].direction != direction){
-                if(masCercano < Math.abs(this.combate[fila][j].x - x) || masCercano == undefined){
-                    masCercano = {
-                      id: this.combate[fila][j].id,
-                      separacion: Math.abs(this.combate[fila][j].x - x)
-                    }
-                }
-            }
-        }
+      for (let i = 0; i < this.combate.length; i++) {
+        for(let j=0;j<this.combate[i].length;j++)
+          if(this.combate[i][j].id == id){
+            fila = i;
+          }
       }
 
-        return masCercano;
 
-    }
+      let arrayAux = []
+      if(fila != undefined){
+          
+            for(let i = 0;i<this.combate[fila].length;i++){
+              if((Math.sign((direction*this.combate[fila][i].x) - (direction*x))) == 1 ){
+                //console.log((direction*this.combate[fila][i].x) - (direction*x))
+            
+
+                arrayAux.push(this.combate[fila][i])
+              }
+            }
+       
+            arrayAux.sort(function(a,b){
+              let distA = Math.abs((direction*a.x) - (direction*x))
+              let distB = Math.abs((direction*b.x) - (direction*x))
+              return distA-distB;
+            })
+        
+      }
+
+      if(arrayAux === undefined || arrayAux.length == 0){
+    
+      }else{
+        masCercano = {
+          id: arrayAux[0].id,
+          separacion: (direction*arrayAux[0].x) - (direction*x),
+          direction: arrayAux[0].direction,
+          vel: arrayAux[0].velocidadActual
+        }
+        
+      }
+
+
+      return masCercano;
+
+  }
 
 
   //Función encargada de recorrer cada personaje y activarlos para que empiecen a luchar.
@@ -288,6 +323,7 @@ export default class GameAPI {
   cargarPuzle = function(){
    // console.log(bdPuzles[this.puzleActual].enemigos[0].linea)
     for(let i in bdPuzles[this.puzleActual].enemigos){
+      console.log(bdPuzles[this.puzleActual].enemigos[i].tipo)
       this.combate[bdPuzles[this.puzleActual].enemigos[i].linea-1].push(
         new Personaje(bdPuzles[this.puzleActual].enemigos[i].tipo, 200, 400, this.escena,-1,this.idCount))
         this.idCount++;
@@ -296,12 +332,22 @@ export default class GameAPI {
     this.reeordenarFilas();
     
   }
+
   cargarCombate = function(){
+    
+    this.cargarPuzle();
+    this.cargarLineUp();
+    this.reeordenarFilas()
+    console.log(this.idCount)
+  }
+
+  reiniciarCombate = function(){
     for(let i = 0;i<3;i++){
       this.combate[i] = [];
     }
-    this.cargarPuzle();
-
+    this.personajeActual = "atacante"
+    this.idCount =0
+    //this.lineUp = [];
   }
 
   actualizar = function(){
@@ -335,13 +381,54 @@ export default class GameAPI {
       return this.lenguage
   }
 
+  cambiarTexto = function(textObject,textoNuevo){
+    textObject.setText(textoNuevo)
+
+  }
+
+  //---------------- PREPARACION --------------------------------
+  vaciarCombate = function(){
+    this.combate = [];
+  }
+
+  colocarPreparacion = function(){
+    let inicioX = 1200;
+    let inicioY = 300;
+    for(let i =0;i<this.combate.length;i++){  
+      for(let j = 0;j<this.combate[i].length;j++){
+        let x = inicioX + j*150
+        let y = inicioY + i*200
+        this.combate[i][j].body.reset(x,y);
+      }
+    }
+  }
+
+  añadirLineUp = function(linea){
+    this.lineUp.push({
+      linea: linea,
+      tipo: this.personajeActual,
+    })
+    console.log(this.lineUp[0])
+  }
+
+  cargarLineUp = function(){
+    for(let i in this.lineUp){
+      console.log(this.lineUp[i].linea)
+      this.combate[this.lineUp[i].linea-1].push(
+        new Personaje(this.lineUp[i].tipo, 200, 400, this.escena,+1,this.idCount))
+        this.idCount++;
+    }
+  }
+
+
   constructor() {
     this.puzleActual = "1";
     this.combate = []; // Lista con todos los personajes de la escena
-    this.personajeActual = "veloz";
+    this.personajeActual = "atacante";
     this.lenguage = "spanish";
     this.dinero = "1000"
     this.ultimoColocado = "";
     this.idCount = 0;
+    this.lineUp = []
   }
 }
