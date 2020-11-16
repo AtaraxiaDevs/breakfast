@@ -336,6 +336,10 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Habilidades/InterfazHabilidadesEspañol.png)
 
+`FASES:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Fases/InterfazFases.png)
+
 `TIENDA-SKINS:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaSkin.png)
