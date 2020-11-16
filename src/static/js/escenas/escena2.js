@@ -14,6 +14,8 @@ export default class Escena2 extends Phaser.Scene {
     APIJuego.reiniciarCombate();
     APIJuego.cargarCombate();
 
+    APIJuego.activarMusica("temaCombate")
+
   //------------------------ UI---------------------------------------
     //TODO -Botón para confirmar compo ?
     //TODO -Botón deshacer

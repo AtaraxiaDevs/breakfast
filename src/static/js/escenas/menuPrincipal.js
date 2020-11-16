@@ -10,6 +10,8 @@ export default class MenuPrincipal extends Phaser.Scene {
   }
 
   create() {
+    APIJuego.activarMusica("temaInicio")
+
     var fondo = this.add.image(0, 0, "fondoMP").setOrigin(0);
 
     let clickButtonJugar = this.add
@@ -43,10 +45,13 @@ export default class MenuPrincipal extends Phaser.Scene {
       .on("pointerdown", () => this.scene.start("tutorial"));
 
     let clickButtonSonido = this.add
-      .image(750, 870, "sonidoOn")
+      .image(750, 870, APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff")
       .setInteractive()
       .on("pointerdown", function () {
-        clickButtonSonido.setTexture("sonidoOff");
+        APIJuego.controlMusica();
+        clickButtonSonido.setTexture(
+          APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff"
+        );
       });
 
     let clickButtonIdioma = this.add
