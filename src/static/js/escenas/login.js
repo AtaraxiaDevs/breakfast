@@ -3,6 +3,7 @@ import { ConfiguracionJuego, APIJuego } from "../main.js";
 export default class Login extends Phaser.Scene {
   constructor() {
     super("login");
+    this.inputText = "";
   }
 
   preload() {
@@ -36,7 +37,11 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
           editor = this.plugins.get("rextexteditplugin").edit(printText);
-        }, this);
+          
+        }, this)
+      .on("pointerout", function(){
+          
+      })
 
     let cartelNombre = this.add.image(950, 400, APIJuego.lenguage + "_nombre");
 
@@ -45,9 +50,8 @@ export default class Login extends Phaser.Scene {
       .setScale(0.3)
       .setInteractive()
       .on("pointerdown", function () {
-          let inputText = editor.inputText.node.value
-          console.log(inputText)
-          if (inputText != "") {
+          console.log(printText.text)
+          if (printText.text != "") {
             APIJuego.escena.scene.start("preparacion");
           }
       });
