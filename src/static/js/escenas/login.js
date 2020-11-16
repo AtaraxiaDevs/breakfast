@@ -50,7 +50,7 @@ export default class Login extends Phaser.Scene {
       .setScale(0.3)
       .setInteractive()
       .on("pointerdown", function () {
-          console.log(printText.text)
+        APIJuego.cambiarMusica()
           if (printText.text != "") {
             APIJuego.escena.scene.start("preparacion");
           }
@@ -59,7 +59,10 @@ export default class Login extends Phaser.Scene {
     let clickButtonSalir = this.add
       .image(1400, 750, "salir")
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("menuPrincipal"));
+      .on("pointerdown", function () {
+
+        this.scene.start("menuPrincipal")
+      });
 
     let clickButtonIdioma = this.add
       .image(520, 775, APIJuego.lenguage === "spanish" ? "english" : "spanish")

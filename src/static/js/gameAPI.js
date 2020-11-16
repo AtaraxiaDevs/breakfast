@@ -60,7 +60,6 @@ export default class GameAPI {
     this.escena.load.image("english_premiosNoSelect", "assets/tienda/rewardsNoSelect.png")
     this.escena.load.image("skins", "assets/tienda/Skins.png")
     this.escena.load.image("skinsNoSelect", "assets/tienda/SkinNoSelect.png")
-  
 
     // --------------- ASSETS TUTORIAL -----------------
     this.escena.load.image("fondoTutorial", "assets/tutorial/InterfazBaseTutorial.png");
@@ -128,6 +127,13 @@ export default class GameAPI {
     this.escena.load.image("defensor", "assets/preparacion/Defensor.png")
     this.escena.load.image("distancia", "assets/preparacion/Distancia.png")
     this.escena.load.image("velocista", "assets/preparacion/Velocista.png")
+    this.escena.load.image("spanish_cambiar", "assets/preparacion/cambiar.png")
+    this.escena.load.image("english_cambiar", "assets/preparacion/Change.png")
+
+    // --------------- AUDIO -----------------
+    this.escena.load.audio("temaInicio", "assets/audio/musica/temaInicio.wav");
+    this.escena.load.audio("temaPreparacion", "assets/audio/musica/temaPreparacion.mp3");
+    this.escena.load.audio("temaCombate", "assets/audio/musica/temaCombate.wav");
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
@@ -239,7 +245,8 @@ export default class GameAPI {
 
     deshacer = function(){
       this.eliminarPersonaje(this.ultimoColocado)
-      this.reeordenarFilas();
+      this.colocarPreparacion();
+      this.lineUp.length = this.lineUp.length - 1;
     }
 
     eliminarPersonaje = function(id){
@@ -420,6 +427,30 @@ export default class GameAPI {
     }
   }
 
+  activarMusica = function(tema) {
+    this.tema = this.escena.sound.add(tema, {volume: 0.25, loop: true})
+    this.tema.stop()
+    if (this.sonidoActivado && !this.sonidoPrimeraActivacion) {
+      this.tema.play()
+      this.sonidoPrimeraActivacion = true
+    }
+  }
+
+  controlMusica = function () {
+    if (this.sonidoActivado) {
+      this.tema.stop()
+      this.sonidoActivado = false
+    } else {
+      this.tema.play()
+      this.sonidoActivado = true
+    }
+  }
+
+  cambiarMusica = function () {
+    this.tema.stop();
+    this.tema = "";
+    this.sonidoPrimeraActivacion = false;
+  }
 
   constructor() {
     this.puzleActual = "1";
@@ -428,6 +459,9 @@ export default class GameAPI {
     this.lenguage = "spanish";
     this.dinero = "1000"
     this.ultimoColocado = "";
+    this.sonidoActivado = true
+    this.sonidoPrimeraActivacion = false
+    this.tema;
     this.idCount = 0;
     this.lineUp = []
   }
