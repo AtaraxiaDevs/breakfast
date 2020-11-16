@@ -12,6 +12,8 @@ export default class Preparacion extends Phaser.Scene {
   }
 
   create() {
+    APIJuego.activarMusica("temaPreparacion")
+
     APIJuego.reiniciarCombate();
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
     
@@ -55,53 +57,55 @@ export default class Preparacion extends Phaser.Scene {
       },
     })
 
+    let clickButtonCambiar = this.add
+    .image(700, 720, APIJuego.lenguage + "_cambiar")
+    .setScale(0.2)
+    .setInteractive()
+    .on("pointerdown", function () {
+      switch (APIJuego.escena.seleccionActual) {
+        case "atacante":
+          selectorPersonajes.setTexture("defensor");
+          APIJuego.escena.seleccionActual = "defensor";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          break;
+        case "defensor":
+          selectorPersonajes.setTexture("distancia");
+          APIJuego.escena.seleccionActual = "distancia";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          break;
+        case "distancia":
+          selectorPersonajes.setTexture("velocista");
+          APIJuego.escena.seleccionActual = "velocista";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          break;
+        case "velocista":
+          selectorPersonajes.setTexture("atacante");
+          APIJuego.escena.seleccionActual = "atacante";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          break;
+      }
+      APIJuego.cambiarTipo()
+    });
+
+
     let clickButtonDeshacer = this.add
-      .image(560, 720, APIJuego.lenguage + "_deshacer")
-      .setScale(0.25)
+      .image(400, 720, APIJuego.lenguage + "_deshacer")
+      .setScale(0.2)
       .setInteractive()
-      .on("pointerdown", function () {
-        switch (APIJuego.escena.seleccionActual) {
-          case "atacante":
-            selectorPersonajes.setTexture("defensor");
-            APIJuego.escena.seleccionActual = "defensor";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
-            break;
-          case "defensor":
-            selectorPersonajes.setTexture("distancia");
-            APIJuego.escena.seleccionActual = "distancia";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
-            break;
-          case "distancia":
-            selectorPersonajes.setTexture("velocista");
-            APIJuego.escena.seleccionActual = "velocista";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
-            break;
-          case "velocista":
-            selectorPersonajes.setTexture("atacante");
-            APIJuego.escena.seleccionActual = "atacante";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
-            break;
-        }
-
-        APIJuego.cambiarTipo()
-
-      });
+      .on("pointerdown", () => APIJuego.deshacer())
 
     let clickButtonSalir = this.add
       .image(1500, 900, "salir")
       .setScale(1.2)
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("login"));
+      .on("pointerdown", function () {
+        APIJuego.cambiarMusica();
+        APIJuego.escena.scene.start("menuPrincipal")
+      });
 
     let textoUnidades = this.add
       .image(545, 250, APIJuego.lenguage + "_unidades")
       .setScale(0.4);
-
-    
-
-    
-
-    
 
     let dinero = this.make.text({
       x: 740,
@@ -112,13 +116,15 @@ export default class Preparacion extends Phaser.Scene {
       },
     });
 
-  
 
     let clickButtonComenzar = this.add
       .image(930, 900, APIJuego.lenguage + "_comenzar")
       .setScale(0.4)
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("escena2"));
+      .on("pointerdown", function () {
+        APIJuego.cambiarMusica()
+        APIJuego.escena.scene.start("escena2")
+      });
 
     let clickButtonIdioma = this.add
       .image(370, 910, APIJuego.lenguage === "spanish" ? "english" : "spanish")
@@ -127,6 +133,7 @@ export default class Preparacion extends Phaser.Scene {
       .on("pointerdown", function () {
         let lenguage = APIJuego.setLenguage();
         clickButtonDeshacer.setTexture(lenguage + "_deshacer");
+        clickButtonCambiar.setTexture(lenguage + "_cambiar")
         clickButtonComenzar.setTexture(lenguage + "_comenzar");
         textoUnidades.setTexture(lenguage + "_unidades");
         clickButtonIdioma.setTexture(
