@@ -473,7 +473,7 @@ Este apartado se refiere a los diferentes escenarios visuales en los que se desa
 
 - **RESTAURANTE:**
 
-
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida2.png)
 
 - **COCINA:**
 
