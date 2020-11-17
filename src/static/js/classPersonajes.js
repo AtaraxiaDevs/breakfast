@@ -11,21 +11,36 @@ export default class Personaje extends Phaser.Physics.Arcade.Sprite{
 
 correr = function(){
     this.state = "corriendo"
-   
-  /*  if(this.velocdiadActual == 0 ){
-        this.playAnimation("idle")
-    }else{
-        this.playAnimation("correr")
-
-    }*/
-  
-    this.setVelocityX(this.direction * this.velocidadActual*this.multiplicador); //! POR AHORA solo activa la velocidad en el eje X, deberia arrancar la máquna de estados
+    if (APIJuego.getRandom(0, 1000) < 1) {
+        switch(APIJuego.getRandom(0, 2)){
+            case 1:
+                APIJuego.playSonido("gritito1")
+                break;
+            case 2:
+                APIJuego.playSonido("gritito2")
+                break;
+        }
+    }
+    this.setVelocityX(this.direction * this.velocidadActual*this.multiplicador); 
 }
 
 atacar = function(){
     this.velocidadActual = 0;
     this.setVelocityX(0)
     this.state= "atacando"
+    if (APIJuego.getRandom(0, 100) < 1) {
+        switch(APIJuego.getRandom(0, 3)){
+            case 1:
+                APIJuego.playSonido("hit1")
+                break;
+            case 2:
+                APIJuego.playSonido("hit2")
+                break;
+            case 3:
+                APIJuego.playSonido("hit3")
+                break;
+        }
+    }
     this.playAnimation("atacar")
     this.state = "atacando" 
     this.once("animationcomplete",()=>{
@@ -51,6 +66,7 @@ recargar = function(){
 
 morir = function(){
     this.state = "muriendo"
+    APIJuego.playSonido("muerte")
     this.playAnimation("muerte")
     this.once("animationcomplete", ()=>{
         APIJuego.eliminarPersonaje(this.id)
@@ -103,7 +119,6 @@ buscarObjetivo = function(){
 
 
 update = function(){
-    //console.log(this.hpActual)
     if(this.arrancado){
     if(this.hpActual<=0){
         this.morir()

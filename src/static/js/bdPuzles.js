@@ -24,6 +24,6 @@ let bdPuzles = {
 
 
         },
-        "Dinero": "100"
+        "dinero": "600"
     },
 }
