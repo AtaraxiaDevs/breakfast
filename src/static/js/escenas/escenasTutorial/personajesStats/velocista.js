@@ -22,6 +22,31 @@ export default class Velocista extends Phaser.Scene {
       .image(700, 500, "velocista")
       .setScale(1.5);
 
+    let textoDistancia = this.make.text({
+      x: 1020,
+      y: 370,
+      text:
+        "ATK: " +
+        bdInfoPersonajes.veloz.atk +
+        "\n" +
+        "HP: " +
+        bdInfoPersonajes.veloz.hp +
+        "\n" +
+        "VEL: " +
+        bdInfoPersonajes.veloz.vel +
+        "\n" +
+        "DPS: " +
+        bdInfoPersonajes.veloz.dps +
+        "\n" +
+        "RANGO: " +
+        bdInfoPersonajes.veloz.rango +
+        "\n",
+      style: {
+        color: "black",
+        font: "45px 'Sigmar One'",
+      },
+    });
+
     let clickButtonOK = this.add
       .image(940, 780, "OK")
       .setScale(0.3)

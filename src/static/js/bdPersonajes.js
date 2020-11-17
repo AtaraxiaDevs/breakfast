@@ -23,8 +23,6 @@ let bdInfoPersonajes = {
         "dps":  1,
         "rango": 1,
         "priority": 2,
-        
-
     },
     
     "atacante":{

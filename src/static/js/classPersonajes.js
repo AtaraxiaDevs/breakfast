@@ -11,7 +11,7 @@ export default class Personaje extends Phaser.Physics.Arcade.Sprite{
 
 correr = function(){
     this.state = "corriendo"
-    if (APIJuego.getRandom(0, 1000) < 1) {
+    if (APIJuego.getRandom(0, 600) < 1) {
         switch(APIJuego.getRandom(0, 2)){
             case 1:
                 APIJuego.playSonido("gritito1")
@@ -66,7 +66,14 @@ recargar = function(){
 
 morir = function(){
     this.state = "muriendo"
-    APIJuego.playSonido("muerte")
+    switch (APIJuego.getRandom(0, 2)) {
+        case 1: 
+            APIJuego.playSonido("muerte")
+            break;
+        case 2:
+            APIJuego.playSonido("muerte3")
+            break;
+    }
     this.playAnimation("muerte")
     this.once("animationcomplete", ()=>{
         APIJuego.eliminarPersonaje(this.id)

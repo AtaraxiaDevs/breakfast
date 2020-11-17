@@ -22,6 +22,31 @@ export default class Distancia extends Phaser.Scene {
       .image(700, 500, "distancia")
       .setScale(1.5);
 
+    let textoDistancia = this.make.text({
+      x: 1020,
+      y: 370,
+      text:
+        "ATK: " +
+        bdInfoPersonajes.distancia.atk +
+        "\n" +
+        "HP: " +
+        bdInfoPersonajes.distancia.hp +
+        "\n" +
+        "VEL: " +
+        bdInfoPersonajes.distancia.vel +
+        "\n" +
+        "DPS: " +
+        bdInfoPersonajes.distancia.dps +
+        "\n" +
+        "RANGO: " +
+        bdInfoPersonajes.distancia.rango +
+        "\n",
+      style: {
+        color: "black",
+        font: "45px 'Sigmar One'",
+      },
+    });
+
     let clickButtonOK = this.add
       .image(940, 780, "OK")
       .setScale(0.3)

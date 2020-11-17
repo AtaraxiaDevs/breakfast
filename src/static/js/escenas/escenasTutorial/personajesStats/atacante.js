@@ -18,9 +18,32 @@ export default class Atacante extends Phaser.Scene {
       .image(940, 135, APIJuego.lenguage + "_atacante")
       .setScale(0.73);
 
-    let personajeAtacante = this.add
-      .image(700, 500, "atacante")
-      .setScale(1.5);
+    let personajeAtacante = this.add.image(700, 500, "atacante").setScale(1.5);
+
+    let textoAtacante = this.make.text({
+      x: 1020,
+      y: 370,
+      text:
+        "ATK: " +
+        bdInfoPersonajes.atacante.atk +
+        "\n" +
+        "HP: " +
+        bdInfoPersonajes.atacante.hp +
+        "\n" +
+        "VEL: " +
+        bdInfoPersonajes.atacante.vel +
+        "\n" +
+        "DPS: " +
+        bdInfoPersonajes.atacante.dps +
+        "\n" +
+        "RANGO: " +
+        bdInfoPersonajes.atacante.rango +
+        "\n",
+      style: {
+        color: "black",
+        font: "45px 'Sigmar One'",
+      },
+    });
 
     let clickButtonOK = this.add
       .image(940, 780, "OK")

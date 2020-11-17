@@ -18,9 +18,32 @@ export default class Defensor extends Phaser.Scene {
       .image(940, 135, APIJuego.lenguage + "_defensor")
       .setScale(0.73);
 
-    let personajeDistancia = this.add
-      .image(700, 500, "defensor")
-      .setScale(1.5);
+    let personajeDefensor = this.add.image(700, 500, "defensor").setScale(1.5);
+
+    let textoDefensor = this.make.text({
+      x: 1020,
+      y: 370,
+      text:
+        "ATK: " +
+        bdInfoPersonajes.tank.atk +
+        "\n" +
+        "HP: " +
+        bdInfoPersonajes.tank.hp +
+        "\n" +
+        "VEL: " +
+        bdInfoPersonajes.tank.vel +
+        "\n" +
+        "DPS: " +
+        bdInfoPersonajes.tank.dps +
+        "\n" +
+        "RANGO: " +
+        bdInfoPersonajes.tank.rango +
+        "\n",
+      style: {
+        color: "black",
+        font: "45px 'Sigmar One'",
+      },
+    });
 
     let clickButtonOK = this.add
       .image(940, 780, "OK")

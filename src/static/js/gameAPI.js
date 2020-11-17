@@ -148,6 +148,7 @@ export default class GameAPI {
     this.escena.load.audio("hit2", "assets/audio/efectos/hit2.mp3");
     this.escena.load.audio("hit3", "assets/audio/efectos/hit3.mp3");
     this.escena.load.audio("muerte", "assets/audio/efectos/muerte.mp3");
+    this.escena.load.audio("muerte3", "assets/audio/efectos/muerte3.mp3");
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
