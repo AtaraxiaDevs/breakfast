@@ -1,4 +1,4 @@
-let bd = {
+let bdInfoPersonajes = {
     "veloz":{
         "atk":  4,
         "hp":   9,

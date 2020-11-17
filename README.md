@@ -57,7 +57,7 @@
 
 | **NOMBRE**      | BTF: Break-Troops-Fast   |
 | :-------------: | :---------------------:  |
-| **VERSION**     | 1.0                      |
+| **VERSION**     | 1.2                      |
 | **GENERO**      | Estrategia     |
 | **TEMÁTICA**    | Comida                   |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
@@ -78,7 +78,7 @@
 | :-------------: |:---------------------:  |
 | 1.0             | Versión Inicial         |
 | 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
-|                 |                                                                               |
+| 1.2             | Otro refinamiento de mecánicas                                                |
 
 ---
  
@@ -151,21 +151,20 @@ Los personajes o unidades combaten entre sí, y ayudan a ganar puntos para la ro
 - `VEL`: Velocidad de Movimiento
 - `DPS`: Velocidad de Ataque
 - `RAN`: Distancia a la que se empieza a atacar o se establece un combate.
-- `PRIORIDAD`: Valor que define el orden en el que se colocan las unidades en la linea. A mayor valor, se colocan antes.
 
 Las Unidades Disponibles y sus estadísticas son:
 
-| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** | **PRIORIDAD** |
-| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: | :-----------: |
-| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |       3       |
-| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |       4       |
-| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |       2       |
-| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    |       1       |
-| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    |       -       |
+| **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** |
+| :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: |
+| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |
+| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |
+| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |
+| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    | 
+| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    | 
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
 
-El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear a un enemigo a la vez, pero puede ser golpeada por varios. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
+El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear y ser golpeada por un enemigo a la vez. Los personajes están separados, siguiéndose entre sí en la línea, para evitar acumulaciones. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
 
 Daño de Ataque = (0,9 x ATK) + (0,1 x RANDOM(0,10))
 
@@ -204,12 +203,12 @@ Las habilidades constituyen la parte jugable en el combate a tiempo real. Están
 
 **COMÚN**
 
-- *SWAP* (): Se intercambian las unidades controladas por un jugador entre dos líneas. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
 **RARO**
 
+- *SWAP* (): Se intercambian las unidades controladas por un jugador entre dos líneas. Sirve para recular en una decisión estratégica en la fase de preparación, una vez vistas las unidades. Aparece siempre la primera en el Stack de Habilidades.
 - *EXTRA UNIT* (): Una unidad aleatoria aparece en una línea a elegir, en la zona del jugador propio. Puede servir como ataque sorpresa o como defensa de línea ante unidades enemigas. <br>
 - *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 5 segundos.
 - *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para ganar dinero al mantenerlo en el campo.
@@ -271,7 +270,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/ESTADOS%20DEL%20JUEGO1.png)
 
 **INICIO**: Menú que se muestra al iniciar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*<br>
 
@@ -286,7 +285,7 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 **JUEGO**: Pantallas del juego<br>
 
-- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego. Si se elige el modo Duelo (M), hay dos fases de preparación. Si se elige el modo Táctica, aparecen sus niveles y solo hay una fase de preparación.Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
 - *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. Hay una por jugador. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *COMBATE*: Gameplay en tiempo real de la batalla. Tiene botones para controlar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *RECUENTO RONDA*: Se cuentan los puntos para ver quien gana la ronda, se muestra mediante una tabla resumen. Cuando se pasa 5 veces por esta pantalla, la siguiente será **GAME OVER**. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
@@ -337,13 +336,17 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Habilidades/InterfazHabilidadesEspañol.png)
 
-`TIENDA:`
+`FASES:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/BOCETOS%20INTERFACES/TIENDA.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tutorial/Fases/InterfazFases.png)
 
 `TIENDA-SKINS:`
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTienda.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaSkin.png)
+
+`TIENDA-PREMIOS:`
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Tienda/InterfazTiendaPremios.png)
 
 `TIENDA-COMPRAR:`
 
@@ -365,6 +368,8 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida.png)
 
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida2.png)
+
 `RECUENTO RONDA:`
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/RecuentoRonda/InterfazRecuentoRonda.png)
@@ -379,25 +384,19 @@ Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y m�
 
 **CONTROLES PC**
 
-Basado en el teclado.
+Basado en el teclado y ratón.
 
 *Controles Menú* <br>
-`WASD`: Seleccionar entre opciones<br>
-`INTRO`: Elegir opción
+`Ratón`: Seleccionar entre opciones<br>
+`Click Izq Ratón`: Elegir opción
 
 *Jugador 1*<br>
-`W - S`: Cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
-`A - D`: Cambiar entre unidades en la Preparación (o habilidades, en el Combate).<br>
-`SPACE`: Acción / Desplegar Unidad / Usar habilidad
+`W - S`: Cambiar entre habilidades y cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
+`SPACE`: Acción / Usar habilidad
 
 *Jugador 2*<br>
-`Flecha Arriba - Flecha Abajo`: Cambiar entre líneas (Usando habilidades o desplegando unidades)<br>
-`Flecha Izquierda - Flecha Derecha`: Cambiar entre unidades en la preparación (o habilidades, en el combate)<br>
-`INTRO`: Acción / Desplegar Unidad / Usar habilidad
-
-*Botones Extra*<br>
-**...**<br>
-`ESC`: Salir
+`Flecha Izquierda - Flecha Derecha`: Cambiar entre habilidades y cambiar entre líneas (Usando habilidades o desplegando unidades). Se resaltará la flecha de la línea seleccionada.<br>
+`INTRO`: Acción / Usar habilidad
 
 **CONTROLES MÓVIL Y TABLETA**
 
@@ -436,9 +435,9 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 
 - **Modo TÁCTICA**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina. Estos puzzles se organizan en una serie de sectores, basados en modos de juego o promociones:
 
--> PUZZLE CLÁSICO:
--> PUZZLE MICRO:
--> EVENTO HALLOWEEN:
+-> PUZZLE CLÁSICO:<br>
+-> PUZZLE MICRO:<br>
+-> EVENTO HALLOWEEN:<br>
 
 ---
 
@@ -472,25 +471,75 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 
 Este apartado se refiere a los diferentes escenarios visuales en los que se desarrolla el juego:
 
-- **MERENDERO:**
+- **RESTAURANTE:**
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida2.png)
+
 - **COCINA:**
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/InterfazUsuario/Partida/InterfazPartida.png)
 
 ---
 
 ## 7.- ARTE	<a name="arte"/>
 ### 7.1.- ESTILO Y REFERENCIAS<a name="estiloYReferencias"/>	
 
+Debido a que el público objetivo son principalmente niños pequeños, se ha querido dotar el arte del juego un estilo amigable, colorido,mono, y con colores pastel.
+Inicialmente se planteó como se podrían diseñar personajes relacionados con el desayuno. Se plantearon varios diseños, hasta que se decidió que los protagonistas iban a ser pequeños alienígenas adorables que, con materiales que pueden encontrarse en la cocina a la hora del desayuno, se han construido máquinas para combatir entre sí.
+Aquí ya podemos concretar un estilo predefinido para todos los personajes: consistirían en un pequeño extraterrestre manejando una máquina fabricada a partir de utensilios de cocina y alimentos típicos del desayuno.
+Los escenarios, por tanto, serán lugares donde es típico tomarse el desayuno: un restaurante, la cocina...
+También se ha decidido utilizar pixel art para homogeneizar el estilo de los artistas 2D del equipo, además de aportar un estilo sencillo.
+
+Juegos con Personajes similares:
+
+`Fall Guys`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/Fallguys.jpeg)
+
+`Little Big Planet`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/littlebigplanet.jpeg)
+
+`Melbits`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/melbits.jpeg)
+
+`Among Us`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/amongus.jpeg)
+
+`Advance Wars`: 
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Imagenes%20Referencias/advancewars.jpg)
 
 
 ### 7.2.- ARTE FINAL	<a name="arteFinal"/>
 
+- **TOSTADA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_atacante_idle.png)
+
+- **MAGDALENA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_tank_idle.png)
+
+- **BOL DE CEREALES:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_distancia_idle.png)
+
 - **VELOCISTA:**
 
-![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/src/static/resources/sprite_veloz_idle.png)
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/ARTE%20FINAL/sprite_veloz_idle.png)
+
+- **MANTEQUILLA GRITONA:**
+
+
+- **MERMELADA EXPLOSIVA:**
+
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
-
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/Imagenes%20Promocionales/promo.png)
 
 ---
 
