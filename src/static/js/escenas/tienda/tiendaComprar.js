@@ -26,7 +26,9 @@ export default class TiendaComprar extends Phaser.Scene {
 
     let cartelPremios = this.add
       .image(750, 300, APIJuego.lenguage + "_premiosNoSelect")
-      .setScale(0.25);
+      .setScale(0.25)
+      .setInteractive()
+      .on("pointerdown", () => this.scene.start("tiendaPremios"))
 
     let clickButtonComprar = this.add
       .image(1100, 300, APIJuego.lenguage + "_comprar")

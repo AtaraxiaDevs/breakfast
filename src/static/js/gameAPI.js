@@ -48,6 +48,8 @@ export default class GameAPI {
     // --------------- ASSETS TIENDA -----------------
     this.escena.load.image("fondoTiendaComprar", "assets/tienda/InterfazTiendaComprarBase.png")
     this.escena.load.image("fondoTiendaSkin", "assets/tienda/InterfazTiendaSkinBase.png")
+    this.escena.load.image("spanish_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseEspañol.png")
+    this.escena.load.image("english_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseInglés.png")
     this.escena.load.image("spanish_comprar", "assets/tienda/Comprar.png")
     this.escena.load.image("english_comprar", "assets/tienda/Buy.png")
     this.escena.load.image("spanish_comprarNoSelect", "assets/tienda/ComprarNoSelect.png")
@@ -76,7 +78,7 @@ export default class GameAPI {
 
     // --------------- ASSETS TUTORIAL --> Descripción -----------------
     this.escena.load.image("spanish_fondoDescripcion", "assets/tutorial/descripcion/InterfazBaseDescripcionESP.png")
-    this.escena.load.image("english_fondoDescripcion", "assets/tutorial/descripcion/InterfazBaseDescriptionENG.png")
+    this.escena.load.image("english_fondoDescripcion", "assets/tutorial/descripcion/InterfazBaseDescripcionENG.png")
 
     // --------------- ASSETS TUTORIAL --> Controles -----------------
     this.escena.load.image("fondoControles", "assets/tutorial/controles/InterfazBaseControles.png")
@@ -108,6 +110,10 @@ export default class GameAPI {
     this.escena.load.image("english_jefe", "assets/tutorial/personajes/Boss.png")
     this.escena.load.image("mantequilla", "assets/buffs/SpriteBuffMantequilla/mante1.png")
     this.escena.load.image("mermelada", "assets/buffs/SpriteBuffMermelada/jam1.png")
+
+  // --------------- ASSETS TUTORIAL --> Fases -----------------
+    this.escena.load.image("spanish_fondoFases", "assets/tutorial/fases/InterfazBaseFasesESP.png")
+    this.escena.load.image("english_fondoFases", "assets/tutorial/fases/InterfazBaseFasesENG.png")
 
     // --------------- ASSETS LOGIN -----------------
     this.escena.load.image("fondoLogin", "assets/login/InterfazRegistroBase.png")

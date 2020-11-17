@@ -39,6 +39,8 @@ export default class Tutorial extends Phaser.Scene {
       let clickButtonFases = this.add
       .image(1200, 710, APIJuego.lenguage + "_fases")
       .setScale(0.35)
+      .setInteractive()
+      .on("pointerdown", () => this.scene.start("fases"))
 
       let clickButtonSonido = this.add
       .image(750, 870, "sonidoOn")

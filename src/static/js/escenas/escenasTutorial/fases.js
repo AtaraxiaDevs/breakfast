@@ -1,16 +1,16 @@
 import { ConfiguracionJuego, APIJuego } from "../../main.js";
 
-export default class Descripcion extends Phaser.Scene {
+export default class Fases extends Phaser.Scene {
     constructor() {
-        super("descripcion")
+        super("fases")
     }
 
     preload() {
-        APIJuego.setEscena(this)
+        APIJuego.setEscena(this);
     }
 
     create() {
-        var fondoDescripcion = this.add.image(0, 0, APIJuego.lenguage + "_fondoDescripcion").setOrigin(0);
+        var fondoFases = this.add.image(0, 0, APIJuego.lenguage + "_fondoFases").setOrigin(0)
 
         let clickButtonOK = this.add
         .image(930, 920, "OK")
@@ -24,7 +24,7 @@ export default class Descripcion extends Phaser.Scene {
         .setInteractive()
         .on("pointerdown", function () {
           let lenguage = APIJuego.setLenguage();
-          fondoDescripcion.setTexture(lenguage + "_fondoDescripcion")
+          fondoFases.setTexture(lenguage + "_fondoFases")
           clickButtonIdioma.setTexture(
             lenguage === "spanish" ? "english" : "spanish"
           );
