@@ -19,6 +19,8 @@ import Atacante from "./escenas/escenasTutorial/personajesStats/atacante.js";
 import TiendaSkins from "./escenas/tienda/tiendaSkins.js";
 import TiendaComprar from "./escenas/tienda/tiendaComprar.js";
 import Login from "./escenas/login.js";
+import Fases from "./escenas/escenasTutorial/fases.js";
+import TiendaPremios from "./escenas/tienda/tiendaPremios.js";
 
 var config = {
   type: Phaser.AUTO,
@@ -48,6 +50,7 @@ var config = {
     Creditos,
     TiendaSkins,
     TiendaComprar,
+    TiendaPremios,
     Tutorial,
     Descripcion,
     Controles,
@@ -58,6 +61,7 @@ var config = {
     Defensor,
     Velocista,
     Atacante,
+    Fases,
     Escena2,
   ],
   parent: "canvas",
