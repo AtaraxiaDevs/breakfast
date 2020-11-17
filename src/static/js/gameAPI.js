@@ -135,6 +135,14 @@ export default class GameAPI {
     this.escena.load.audio("temaPreparacion", "assets/audio/musica/temaPreparacion.mp3");
     this.escena.load.audio("temaCombate", "assets/audio/musica/temaCombate.wav");
 
+    // --------------- EFECTOS -----------------
+    this.escena.load.audio("gritito1", "assets/audio/efectos/gritito1.mp3");
+    this.escena.load.audio("gritito2", "assets/audio/efectos/gritito2.mp3");
+    this.escena.load.audio("hit1", "assets/audio/efectos/hit.mp3");
+    this.escena.load.audio("hit2", "assets/audio/efectos/hit2.mp3");
+    this.escena.load.audio("hit3", "assets/audio/efectos/hit3.mp3");
+    this.escena.load.audio("muerte", "assets/audio/efectos/muerte2.mp3");
+
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
       for (let j in dbAnimations[i].animaciones) {
@@ -475,6 +483,15 @@ export default class GameAPI {
     this.lineUp = []
   }
 
+  getRandom = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
+  playSonido = function (sonido) {
+    this.sonido = this.escena.sound.add(sonido, {volume: 0.5});
+    this.sonido.play();
+  }
+
   constructor() {
     this.puzleActual = "1";
     this.combate = []; // Lista con todos los personajes de la escena
@@ -485,6 +502,7 @@ export default class GameAPI {
     this.sonidoActivado = true
     this.sonidoPrimeraActivacion = false
     this.tema;
+    this.sonido;
     this.idCount = 0;
     this.lineUp = []
     this.precioActual = 100
