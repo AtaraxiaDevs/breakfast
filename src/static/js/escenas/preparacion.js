@@ -14,35 +14,48 @@ export default class Preparacion extends Phaser.Scene {
   create() {
     APIJuego.activarMusica("temaPreparacion")
 
+    APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
+    APIJuego.getDinero();
+
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
-    
+
+
+    let dinero = this.make.text({
+      x: 740,
+      y: 55,
+      text: APIJuego.dinero + " $",
+      style: {
+        font: "70px 'Sigmar One'",
+      },
+    });
+
+    APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
 
     let clickButtonFlecha1 = this.add
       .image(970, 310, "flecha")
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function(){ 
-        APIJuego.añadirPersonaje(1)
-        APIJuego.colocarPreparacion()
-        APIJuego.añadirLineUp(1)
+        
+        APIJuego.pagar(1);
+        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
+
       }
         );
 
     let clickButtonFlecha2 = this.add.image(970, 515, "flecha").setScale(0.4)
     .setInteractive()
     .on("pointerdown", function(){ 
-      APIJuego.añadirPersonaje(2)
-      APIJuego.colocarPreparacion()
-      APIJuego.añadirLineUp(2)
+      APIJuego.pagar(2);
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
     });;
 
     let clickButtonFlecha3 = this.add.image(970, 700, "flecha").setScale(0.4)
     .setInteractive()
     .on("pointerdown", function(){ 
-        APIJuego.añadirPersonaje(3)
-        APIJuego.colocarPreparacion()
-        APIJuego.añadirLineUp(3)
+      APIJuego.pagar(3);
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
       });;
 
     let selectorPersonajes = this.add
@@ -67,21 +80,25 @@ export default class Preparacion extends Phaser.Scene {
           selectorPersonajes.setTexture("defensor");
           APIJuego.escena.seleccionActual = "defensor";
           APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          APIJuego.precioActual = 100;
           break;
         case "defensor":
           selectorPersonajes.setTexture("distancia");
           APIJuego.escena.seleccionActual = "distancia";
           APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          APIJuego.precioActual = 200;
           break;
         case "distancia":
           selectorPersonajes.setTexture("velocista");
           APIJuego.escena.seleccionActual = "velocista";
           APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          APIJuego.precioActual = 200;
           break;
         case "velocista":
           selectorPersonajes.setTexture("atacante");
           APIJuego.escena.seleccionActual = "atacante";
           APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          APIJuego.precioActual = 100;
           break;
       }
       APIJuego.cambiarTipo()
@@ -92,7 +109,10 @@ export default class Preparacion extends Phaser.Scene {
       .image(400, 720, APIJuego.lenguage + "_deshacer")
       .setScale(0.2)
       .setInteractive()
-      .on("pointerdown", () => APIJuego.deshacer())
+      .on("pointerdown", function(){
+       APIJuego.deshacer()
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
+    })
 
     let clickButtonSalir = this.add
       .image(1500, 900, "salir")
@@ -107,14 +127,7 @@ export default class Preparacion extends Phaser.Scene {
       .image(545, 250, APIJuego.lenguage + "_unidades")
       .setScale(0.4);
 
-    let dinero = this.make.text({
-      x: 740,
-      y: 55,
-      text: APIJuego.dinero + " $",
-      style: {
-        font: "70px 'Sigmar One'",
-      },
-    });
+   
 
 
     let clickButtonComenzar = this.add

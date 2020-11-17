@@ -244,26 +244,28 @@ export default class GameAPI {
   }
 
     deshacer = function(){
-      this.eliminarPersonaje(this.ultimoColocado)
-      this.colocarPreparacion();
-      this.lineUp.length = this.lineUp.length - 1;
+
+        this.eliminarPersonaje(this.ultimoColocado)
+        this.colocarPreparacion();
+        this.lineUp.length = this.lineUp.length - 1;
+        this.dinero += this.pagoPrevio 
+        this.pagoPrevio =0;
     }
 
     eliminarPersonaje = function(id){
-      for(let i = 0;i< this.combate.length;i++){
-        for(let j = 0;i< this.combate[i].length;j++){
+      for(let i in this.combate){
+        for(let j in this.combate[i]){
           if(this.combate[i][j] == undefined){break}
-            if(this.combate[i][j].id==id){
-              this.combate[i][j].destroy()
-              this.combate[i].splice(j,1);
-              this.idCount--;
-              this.ultimoColocado = "m"
-              break
-            }
-         
+          if(this.combate[i][j].id==id){
+            this.combate[i][j].destroy()
+            this.combate[i].splice(j,1);
+            this.idCount--;
+            this.ultimoColocado = "m"
+            break
+          }
         }
       }
-      console.log("Eliminado")
+      
     }
 
     personajeCercano = function(id,x,direction){
@@ -337,6 +339,8 @@ export default class GameAPI {
     }
 
     this.reeordenarFilas();
+
+
     
   }
 
@@ -353,6 +357,7 @@ export default class GameAPI {
       this.combate[i] = [];
     }
     this.personajeActual = "atacante"
+    this.precioActual = 100;
     this.idCount =0
     //this.lineUp = [];
   }
@@ -452,6 +457,24 @@ export default class GameAPI {
     this.sonidoPrimeraActivacion = false;
   }
 
+  getDinero = function(){
+    this.dinero = bdPuzles[this.puzleActual].dinero
+  }
+
+  pagar = function(linea){
+    if(this.dinero-this.precioActual>=0){
+        this.añadirPersonaje(linea)
+        this.colocarPreparacion()
+        this.añadirLineUp(linea)
+        this.dinero -= this.precioActual 
+        this.pagoPrevio = this.precioActual
+    }
+  }
+
+  reiniciarLineUp = function(){
+    this.lineUp = []
+  }
+
   constructor() {
     this.puzleActual = "1";
     this.combate = []; // Lista con todos los personajes de la escena
@@ -464,5 +487,7 @@ export default class GameAPI {
     this.tema;
     this.idCount = 0;
     this.lineUp = []
+    this.precioActual = 100
+    this.pagoPrevio = 0;
   }
 }

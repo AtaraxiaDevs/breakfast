@@ -61,7 +61,7 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
 
-        this.scene.start("menuPrincipal")
+        APIJuego.escena.scene.start("menuPrincipal")
       });
 
     let clickButtonIdioma = this.add

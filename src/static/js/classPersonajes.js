@@ -103,7 +103,6 @@ buscarObjetivo = function(){
 
 
 update = function(){
-    //console.log(this.hpActual)
     if(this.arrancado){
     if(this.hpActual<=0){
         this.morir()
