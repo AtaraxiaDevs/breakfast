@@ -10,7 +10,7 @@ export default class MenuPrincipal extends Phaser.Scene {
   }
 
   create() {
-    APIJuego.activarMusica("temaInicio")
+    APIJuego.inicializarMusica("temaInicio")
 
     var fondo = this.add.image(0, 0, "fondoMP").setOrigin(0);
 
