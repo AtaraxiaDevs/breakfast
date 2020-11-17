@@ -447,11 +447,17 @@ export default class GameAPI {
   }
 
   activarMusica = function(tema) {
+    if(this.sonidoPrimeraActivacion){
+      this.tema.stop()
+    }
     this.tema = this.escena.sound.add(tema, {volume: 0.25, loop: true})
     this.tema.stop()
     if (this.sonidoActivado && !this.sonidoPrimeraActivacion) {
-      this.tema.play()
-      this.sonidoPrimeraActivacion = true
+      if(!this.sonidoPrimeraActivacion){
+        this.tema.play()
+        this.sonidoPrimeraActivacion = true
+      }
+      
     }
   }
 
