@@ -767,7 +767,7 @@ segundaActivacionBuffo = function(j){
         break;
     }
   }else{
-    switch(this.buffoJ1.tipoBuffo){
+    switch(this.buffoJ2.tipoBuffo){
       case "SpeedyBoy":
         console.log("Segunda Activacion SpeedyBoy")
         console.log(this.datosActivacionBuffo.flechaActivada1)
