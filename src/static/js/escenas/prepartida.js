@@ -18,17 +18,25 @@ export default class PrePartida extends Phaser.Scene {
       APIJuego.lenguage + "_ModoJuegoEscenario"
     );
 
-    let cartelModoJuego = this.add.image(1250, 450, "iconoNorm");
+    let cartelModoJuego = this.add.image(1250, 450, "icono_Normal");
 
-    let cartelEscenario = this.add.image(1250, 625, "iconoEscenarioCocina");
+    let cartelEscenario = this.add.image(1250, 625, "icono_EscenarioCocina");
 
-    let flechaDerModo = this.add.image(1400, 450, "flechaDer");
+    let flechasModo = this.add
+      .image(1260, 450, "flechasJuntas")
+      .setInteractive()
+      .on("pointerdown", function () {
+        cartelModoJuego.setTexture("icono_" + APIJuego.cambiarModo());
+      });
 
-    let flechaDerEscenario = this.add.image(1400, 625, "flechaDer");
-
-    let flechaIzqModo = this.add.image(1100, 450, "flechaIzq");
-
-    let flechaIzqEscenario = this.add.image(1100, 625, "flechaIzq");
+    let flechasEscenario = this.add
+      .image(1260, 625, "flechasJuntas")
+      .setInteractive()
+      .on("pointerdown", function () {
+        cartelEscenario.setTexture(
+          "icono_" + APIJuego.cambiarEscenario()
+        );
+      });
 
     let clickButtonJugar = this.add
       .image(925, 820, APIJuego.lenguage + "_jugar")

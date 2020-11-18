@@ -10,7 +10,8 @@ export default class GameAPI {
   cargarAssets = function () {
     this.escena.load.image("s_provisional", "assets/images/s_provisional.png");
     this.escena.load.image("s_provisional2", "assets/images/s_provisional2.png");
-    this.escena.load.image("fondoJuego","assets/images/InterfazBasePartida.png")
+    this.escena.load.image("EscenarioCocina","assets/partida/InterfazBasePartida.png");
+    this.escena.load.image("EscenarioRestaurante","assets/partida/InterfazBasePartida2.png");
 
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
@@ -138,14 +139,13 @@ export default class GameAPI {
 
     // --------------- ASSETS PREPARTIDA -----------------
     this.escena.load.image("fondoPrePartida", "assets/prePartida/InterfazBasePrePartida.png")
-    this.escena.load.image("flechaDer", "assets/prePartida/flechaDer.png")
-    this.escena.load.image("flechaIzq", "assets/prePartida/flechaIzq.png")
+    this.escena.load.image("flechasJuntas", "assets/prePartida/flechasJuntas.png")
     this.escena.load.image("spanish_ModoJuegoEscenario", "assets/prePartida/ModoJuegoEscenario.png")
     this.escena.load.image("english_ModoJuegoEscenario", "assets/prePartida/GameModeScene.png")
-    this.escena.load.image("iconoEscenarioCocina", "assets/prePartida/IconoEscenarioCocina.png")
-    this.escena.load.image("iconoEscenarioRestaurante", "assets/prePartida/IconoEscenarioRestaurante.png")
-    this.escena.load.image("iconoNorm", "assets/prePartida/iconoNorm.png")
-    this.escena.load.image("iconoHallo", "assets/prePartida/iconoHallo.png")
+    this.escena.load.image("icono_EscenarioCocina", "assets/prePartida/IconoEscenarioCocina.png")
+    this.escena.load.image("icono_EscenarioRestaurante", "assets/prePartida/IconoEscenarioRestaurante.png")
+    this.escena.load.image("icono_Normal", "assets/prePartida/iconoNorm.png")
+    this.escena.load.image("icono_Halloween", "assets/prePartida/iconoHallo.png")
 
     // --------------- AUDIO -----------------
     this.escena.load.audio("temaInicio", "assets/audio/musica/temaInicio.wav");
@@ -537,6 +537,24 @@ export default class GameAPI {
     this.sonido.play();
   }
 
+  cambiarModo = function (){
+    if (this.modoActual == "Normal") {
+      this.modoActual = "Halloween"
+    } else {
+      this.modoActual = "Normal"
+    }
+    return this.modoActual;
+  }
+
+  cambiarEscenario = function () {
+    if (this.escenarioActual == "EscenarioCocina") {
+      this.escenarioActual = "EscenarioRestaurante"
+    } else {
+      this.escenarioActual = "EscenarioCocina"
+    }
+    return this.escenarioActual;
+  }
+
   constructor() {
     this.puzleActual = "1";
     this.combate = []; // Lista con todos los personajes de la escena
@@ -547,6 +565,8 @@ export default class GameAPI {
     this.sonidoActivado = true
     this.tema = undefined;
     this.cancionActual = "";
+    this.modoActual = "Normal"
+    this.escenarioActual = "EscenarioCocina"
     this.idCount = 0;
     this.lineUp = []
     this.precioActual = 100

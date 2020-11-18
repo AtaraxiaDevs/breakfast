@@ -7,7 +7,7 @@ export default class Escena2 extends Phaser.Scene {
   }
 
   create() {
-    var fondo = this.add.image(0, 0, "fondoJuego").setOrigin(0);
+    var fondo = this.add.image(0, 0, APIJuego.escenarioActual).setOrigin(0);
 
     APIJuego.setEscena(this);
     APIJuego.reiniciarCombate();
