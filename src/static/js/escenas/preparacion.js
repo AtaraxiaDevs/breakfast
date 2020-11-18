@@ -8,16 +8,18 @@ export default class Preparacion extends Phaser.Scene {
   preload() {
     APIJuego.setEscena(this);
     this.seleccionActual = "atacante";
+    
   }
 
   create() {
-    APIJuego.inicializarMusica("temaPreparacion");
+    APIJuego.activarMusica("temaPreparacion")
 
     APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
     APIJuego.getDinero();
 
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
+
 
     let dinero = this.make.text({
       x: 740,
@@ -28,119 +30,113 @@ export default class Preparacion extends Phaser.Scene {
       },
     });
 
-    APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
+    APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
 
     let clickButtonFlecha1 = this.add
       .image(970, 310, "flecha")
       .setScale(0.4)
       .setInteractive()
-      .on("pointerdown", function () {
+      .on("pointerdown", function(){ 
+        
         APIJuego.pagar(1);
-        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
-      });
+        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
 
-    let clickButtonFlecha2 = this.add
-      .image(970, 515, "flecha")
-      .setScale(0.4)
-      .setInteractive()
-      .on("pointerdown", function () {
-        APIJuego.pagar(2);
-        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
-      });
+      }
+        );
 
-    let clickButtonFlecha3 = this.add
-      .image(970, 700, "flecha")
-      .setScale(0.4)
-      .setInteractive()
-      .on("pointerdown", function () {
-        APIJuego.pagar(3);
-        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
-      });
+    let clickButtonFlecha2 = this.add.image(970, 515, "flecha").setScale(0.4)
+    .setInteractive()
+    .on("pointerdown", function(){ 
+      APIJuego.pagar(2);
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
+    });;
 
-    let selectorPersonajes = this.add.image(550, 490, this.seleccionActual);
+    let clickButtonFlecha3 = this.add.image(970, 700, "flecha").setScale(0.4)
+    .setInteractive()
+    .on("pointerdown", function(){ 
+      APIJuego.pagar(3);
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
+      });;
+
+    let selectorPersonajes = this.add
+    .image(550, 490, this.seleccionActual)
 
     let textoPrecioUnidad = this.make.text({
       x: 625,
       y: 525,
-      text: "100$",
+      text:  "100$",
       style: {
         font: "45px 'Sigmar One'",
       },
-    });
+    })
 
     let clickButtonCambiar = this.add
-      .image(700, 720, APIJuego.lenguage + "_cambiar")
-      .setScale(0.2)
-      .setInteractive()
-      .on("pointerdown", function () {
-        switch (APIJuego.escena.seleccionActual) {
-          case "atacante":
-            selectorPersonajes.setTexture("defensor");
-            APIJuego.escena.seleccionActual = "defensor";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "100$");
-            APIJuego.precioActual = 100;
-            break;
-          case "defensor":
-            selectorPersonajes.setTexture("distancia");
-            APIJuego.escena.seleccionActual = "distancia";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "200$");
-            APIJuego.precioActual = 200;
-            break;
-          case "distancia":
-            selectorPersonajes.setTexture("velocista");
-            APIJuego.escena.seleccionActual = "velocista";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "200$");
-            APIJuego.precioActual = 200;
-            break;
-          case "velocista":
-            selectorPersonajes.setTexture("atacante");
-            APIJuego.escena.seleccionActual = "atacante";
-            APIJuego.cambiarTexto(textoPrecioUnidad, "100$");
-            APIJuego.precioActual = 100;
-            break;
-        }
-        APIJuego.cambiarTipo();
-      });
+    .image(700, 720, APIJuego.lenguage + "_cambiar")
+    .setScale(0.2)
+    .setInteractive()
+    .on("pointerdown", function () {
+      switch (APIJuego.escena.seleccionActual) {
+        case "atacante":
+          selectorPersonajes.setTexture("defensor");
+          APIJuego.escena.seleccionActual = "defensor";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          APIJuego.precioActual = 100;
+          break;
+        case "defensor":
+          selectorPersonajes.setTexture("distancia");
+          APIJuego.escena.seleccionActual = "distancia";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          APIJuego.precioActual = 200;
+          break;
+        case "distancia":
+          selectorPersonajes.setTexture("velocista");
+          APIJuego.escena.seleccionActual = "velocista";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "200$")
+          APIJuego.precioActual = 200;
+          break;
+        case "velocista":
+          selectorPersonajes.setTexture("atacante");
+          APIJuego.escena.seleccionActual = "atacante";
+          APIJuego.cambiarTexto(textoPrecioUnidad, "100$")
+          APIJuego.precioActual = 100;
+          break;
+      }
+      APIJuego.cambiarTipo()
+    });
+
 
     let clickButtonDeshacer = this.add
       .image(400, 720, APIJuego.lenguage + "_deshacer")
       .setScale(0.2)
       .setInteractive()
-      .on("pointerdown", function () {
-        APIJuego.deshacer();
-        APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
-      });
+      .on("pointerdown", function(){
+       APIJuego.deshacer()
+      APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$")
+    })
 
     let clickButtonSalir = this.add
       .image(1500, 900, "salir")
       .setScale(1.2)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.eliminarCancion();
-        APIJuego.escena.scene.start("menuPrincipal");
+        APIJuego.cambiarMusica();
+        APIJuego.escena.scene.start("menuPrincipal")
       });
 
     let textoUnidades = this.add
       .image(545, 250, APIJuego.lenguage + "_unidades")
       .setScale(0.4);
 
-    let clickButtonSonido = this.add
-      .image(600, 900, APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff")
-      .setInteractive()
-      .on("pointerdown", function () {
-        APIJuego.controlMusica();
-        clickButtonSonido.setTexture(
-          APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff"
-        );
-      });
+   
+
 
     let clickButtonComenzar = this.add
       .image(930, 900, APIJuego.lenguage + "_comenzar")
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.eliminarCancion();
-        APIJuego.escena.scene.start("escena2");
+        APIJuego.cambiarMusica()
+        APIJuego.escena.scene.start("escena2")
       });
 
     let clickButtonIdioma = this.add
@@ -150,7 +146,7 @@ export default class Preparacion extends Phaser.Scene {
       .on("pointerdown", function () {
         let lenguage = APIJuego.setLenguage();
         clickButtonDeshacer.setTexture(lenguage + "_deshacer");
-        clickButtonCambiar.setTexture(lenguage + "_cambiar");
+        clickButtonCambiar.setTexture(lenguage + "_cambiar")
         clickButtonComenzar.setTexture(lenguage + "_comenzar");
         textoUnidades.setTexture(lenguage + "_unidades");
         clickButtonIdioma.setTexture(

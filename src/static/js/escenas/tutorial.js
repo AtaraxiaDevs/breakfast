@@ -42,6 +42,13 @@ export default class Tutorial extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", () => this.scene.start("fases"))
 
+      let clickButtonSonido = this.add
+      .image(750, 870, "sonidoOn")
+      .setInteractive()
+      .on("pointerdown", function () {
+        clickButtonSonido.setTexture("sonidoOff");
+      });
+
     let clickButtonSalir = this.add
       .image(1100, 870, "salir")
       .setScale(1.2)

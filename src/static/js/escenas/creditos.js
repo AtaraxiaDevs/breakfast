@@ -30,6 +30,13 @@ export default class Creditos extends Phaser.Scene {
 
     let cartelWeb = this.add.image(1250, 750, "web").setScale(0.3);
 
+    let clickButtonSonido = this.add
+      .image(750, 870, "sonidoOn")
+      .setInteractive()
+      .on("pointerdown", function () {
+        clickButtonSonido.setTexture("sonidoOff");
+      });
+
     let clickButtonSalir = this.add
       .image(1100, 870, "salir")
       .setScale(1.2)

@@ -50,8 +50,8 @@ export default class Login extends Phaser.Scene {
       .setScale(0.3)
       .setInteractive()
       .on("pointerdown", function () {
+        APIJuego.cambiarMusica()
           if (printText.text != "") {
-            APIJuego.eliminarCancion()
             APIJuego.escena.scene.start("preparacion");
           }
       });
@@ -60,6 +60,7 @@ export default class Login extends Phaser.Scene {
       .image(1400, 750, "salir")
       .setInteractive()
       .on("pointerdown", function () {
+
         APIJuego.escena.scene.start("menuPrincipal")
       });
 
