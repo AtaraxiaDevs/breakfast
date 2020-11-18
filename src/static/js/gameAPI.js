@@ -757,7 +757,6 @@ activarFlechas = function(j){
 }
 
 segundaActivacionBuffo = function(j){
-  console.log(this.buffoJ1.tipoBuffo)
   if(j == 1){
     switch(this.buffoJ1.tipoBuffo){
       case "SpeedyBoy":

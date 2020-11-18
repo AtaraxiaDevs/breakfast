@@ -75,9 +75,11 @@ export default class Buffo {
         } 
 
         console.log(y)
+
+
  
         APIJuego.combate[linea-1].push(
-            new Personaje("veloz", x, y, APIJuego.escena,+1,APIJuego.idCount)
+            new Personaje("veloz", x, y, APIJuego.escena,j==1?+1:-1,APIJuego.idCount)
           )
         APIJuego.combate[linea-1][APIJuego.combate[linea-1].length-1].arrancar();
           APIJuego.idCount++;
