@@ -283,16 +283,39 @@ export default class GameAPI {
       
     }
 
+    reiniciarVelocidades = function(id,direction){
+      let linea = -1;
+      for(let i in this.combate){
+        for(let j in this.combate[i]){
+            if(this.combate[i][j].id == id){
+                linea = i;
+            }
+        }
+      }
+
+      for(let i in this.combate){
+        for(let j in this.combate[i]){
+          if(this.combate[i][j].direction == direction){
+            this.combate[i][j].velocidadActual = this.combate[i][j].infoBase.vel
+          }
+        }
+      }
+    }
+
     personajeCercano = function(id,x,direction){
       
 
-      let masCercano = undefined;
+      let masCercano = {};
+      masCercano.enemigo = ""
+      masCercano.aliado = "";
       let fila = undefined;
 
-      for (let i = 0; i < this.combate.length; i++) {
-        for(let j=0;j<this.combate[i].length;j++)
+      
+      for (let i in this.combate) {
+        for(let j in this.combate[i])
           if(this.combate[i][j].id == id){
             fila = i;
+     
           }
       }
 
@@ -300,9 +323,8 @@ export default class GameAPI {
       let arrayAux = []
       if(fila != undefined){
           
-            for(let i = 0;i<this.combate[fila].length;i++){
+            for(let i in this.combate[fila]){
               if((Math.sign((direction*this.combate[fila][i].x) - (direction*x))) == 1 ){
-                //console.log((direction*this.combate[fila][i].x) - (direction*x))
             
 
                 arrayAux.push(this.combate[fila][i])
@@ -316,19 +338,39 @@ export default class GameAPI {
             })
         
       }
+ 
 
       if(arrayAux === undefined || arrayAux.length == 0){
     
       }else{
-        masCercano = {
-          id: arrayAux[0].id,
-          separacion: (direction*arrayAux[0].x) - (direction*x),
-          direction: arrayAux[0].direction,
-          vel: arrayAux[0].velocidadActual
-        }
-        
-      }
+        for(let i in arrayAux){
+          if(masCercano.aliado == ""){
+            if(arrayAux[i].direction == direction){
+              masCercano.aliado ={
+                id: arrayAux[i].id,
+                separacion: (direction*arrayAux[i].x) - (direction*x),
+                direction: arrayAux[i].direction,
+                vel: arrayAux[i].velocidadActual
+              }
+            }
+         
+            }
 
+            if(masCercano.enemigo == ""){
+              if(arrayAux[i].direction != direction){
+                masCercano.enemigo ={
+                  id: arrayAux[i].id,
+                  separacion: (direction*arrayAux[i].x) - (direction*x),
+                  direction: arrayAux[i].direction,
+                  vel: arrayAux[i].velocidadActual
+                }
+              }
+
+            }
+          }
+        }
+     
+        
 
       return masCercano;
 
@@ -345,9 +387,7 @@ export default class GameAPI {
 
   //------------------------------ COMBATE --------------------------------------------
   cargarPuzle = function(){
-   // console.log(bdPuzles[this.puzleActual].enemigos[0].linea)
     for(let i in bdPuzles[this.puzleActual].enemigos){
-      console.log(bdPuzles[this.puzleActual].enemigos[i].tipo)
       this.combate[bdPuzles[this.puzleActual].enemigos[i].linea-1].push(
         new Personaje(bdPuzles[this.puzleActual].enemigos[i].tipo, 200, 400, this.escena,-1,this.idCount))
         this.idCount++;
@@ -364,7 +404,6 @@ export default class GameAPI {
     this.cargarPuzle();
     this.cargarLineUp();
     this.reeordenarFilas()
-    console.log(this.idCount)
   }
 
   reiniciarCombate = function(){
@@ -378,15 +417,15 @@ export default class GameAPI {
   }
 
   actualizar = function(){
-    for (let i = 0; i < this.combate.length; i++) {
-      for(let j=0;j<this.combate[i].length;j++)
+    for (let i in this.combate) {
+      for(let j in this.combate[i])
       this.combate[i][j].update();
     }
   }
 
   hacerDaño = function(id,daño){
-    for (let i = 0; i < this.combate.length; i++) {
-      for(let j=0;j<this.combate[i].length;j++)
+    for (let i in this.combate) {
+      for(let j in this.combate[i])
         if(this.combate[i][j].id == id){
             this.combate[i][j].hpActual = this.combate[i][j].hpActual-daño
         }
@@ -435,12 +474,10 @@ export default class GameAPI {
       linea: linea,
       tipo: this.personajeActual,
     })
-    console.log(this.lineUp[0])
   }
 
   cargarLineUp = function(){
     for(let i in this.lineUp){
-      console.log(this.lineUp[i].linea)
       this.combate[this.lineUp[i].linea-1].push(
         new Personaje(this.lineUp[i].tipo, 200, 400, this.escena,+1,this.idCount))
         this.idCount++;

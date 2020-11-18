@@ -13,7 +13,7 @@ let bdPuzles = {
                 "tipo": "tank",
                 "linea": "1"
             },
-            "4":{
+           /* "4":{
                 "tipo": "tank",
                 "linea": "2"
             },
@@ -21,7 +21,7 @@ let bdPuzles = {
                 "tipo": "tank",
                 "linea": "3"
             }
-
+*/
 
         },
         "dinero": "600"

@@ -59,8 +59,8 @@ recargar = function(){
     this.playAnimation("idle")
     this.setTimmer(2,()=>{
         this.state="";
-        this.velocidadActual = this.infoBase.vel;
-
+       
+        this.velocidadActual = this.infoBase.vel
     })
 }
 
@@ -76,7 +76,9 @@ morir = function(){
     }
     this.playAnimation("muerte")
     this.once("animationcomplete", ()=>{
+        APIJuego.reiniciarVelocidades(this.id, this.direction)
         APIJuego.eliminarPersonaje(this.id)
+        
     })
 }
 
@@ -89,38 +91,52 @@ seguir = function(vel){
 
 buscarObjetivo = function(){
     let personajeCercano = APIJuego.personajeCercano(this.id,this.x,this.direction)
-   // console.log(personajeCercano.separacion)
-    if(personajeCercano == undefined){
-       
+   
+    if(personajeCercano.enemigo == ""){
         this.objetivo = ""
         return false;
-    }else{
-        if(personajeCercano.separacion <= 175){
-            if(personajeCercano.direction != this.direction){
-            this.objetivo = personajeCercano.id;
-            return true;
-            }else{
-
-
-                if(personajeCercano.vel < this.velocidadActual){
-                    this.velocidadActual = personajeCercano.vel
-                    this.setVelocityX(this.velocidadActual)
-                    
-               }else{
-                  
-                
-               }
-            
-                
-            return false;
-        }
-        
-    }else{
-        this.velocidadActual = this.infoBase.vel
-        return false
+    }
     
+   
+    
+    if(personajeCercano.enemigo != ""){
+        if(personajeCercano.enemigo.separacion <= 175*this.rango){
+            this.objetivo = personajeCercano.enemigo.id
+            console.log(personajeCercano.enemigo.id)
+            return true
+        }else{
+            this.objetivo = ""
+
+            
+        }
+    }else{
+        this.objetivo = "";
+    }
+
+    return false
+    
+   
 }
-}
+
+buscarAliado = function(){
+
+    let personajeCercano = APIJuego.personajeCercano(this.id,this.x,this.direction)
+   
+    if(personajeCercano.aliado != ""){
+        // console.log(personajeCercano.aliado.vel)
+         //  console.log(personajeCercano.aliado.vel)
+         if(personajeCercano.aliado.separacion <= 175){
+         if(personajeCercano.aliado.vel < this.velocidadActual){
+           
+             this.velocidadActual = personajeCercano.aliado.vel
+             return true
+        }
+         
+     }
+
+     }
+
+     return false;
 }
 
 
@@ -130,17 +146,25 @@ update = function(){
     if(this.hpActual<=0){
         this.morir()
     }else{
-        if(this.state!="recargando" && this.buscarObjetivo()){
-            this.atacar();
-        }else if(this.state!="recargando"){
-            this.correr();
-            if(this.velocidadActual==0){
-                this.playAnimation("idle")
-            }else{
-                this.playAnimation("correr")
-            }
+        if(this.state!="recargando"){
+            if (this.buscarObjetivo()){
+                this.atacar();
+                }else{
+                    if(!this.buscarAliado()){                  
+                        this.correr();
+                        if(this.velocidadActual==0){
+                            this.playAnimation("idle")
+                        }else{
+                            this.playAnimation("correr")
+                        }             
+                        
+                    }
+                   
+                }
         }
-    }
+        
+
+    }   
     
 }
 
@@ -153,7 +177,6 @@ update = function(){
 
 
 playAnimation = function(animacion){
-    //console.log(animacion)
     this.anims.play(this.tipo + "_" + animacion,true)
 }
 
@@ -184,6 +207,8 @@ constructor(tipoPersonaje,x,y,escena,direction,id){
     this.arrancado = false;
     this.recarga = 0;
     this.velocidadActual = this.infoBase.vel
+
+    this.rango = this.infoBase.rango
 
     
     escena.add.existing(this);

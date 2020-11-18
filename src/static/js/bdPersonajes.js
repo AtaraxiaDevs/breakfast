@@ -5,7 +5,6 @@ let bdInfoPersonajes = {
         "vel":  15,
         "dps":  1,
         "rango": 1,
-        "priority": 1,
     },
     "tank":{
         "atk":  4,
@@ -13,7 +12,6 @@ let bdInfoPersonajes = {
         "vel":  10,
         "dps":  1,
         "rango": 1,
-        "priority": 4,
     },
 
     "distancia":{
@@ -21,8 +19,7 @@ let bdInfoPersonajes = {
         "hp":   9,
         "vel":  10,
         "dps":  1,
-        "rango": 1,
-        "priority": 2,
+        "rango": 2,
     },
     
     "atacante":{
@@ -31,8 +28,6 @@ let bdInfoPersonajes = {
         "vel":  10,
         "dps":  1,
         "rango": 1,
-        "priority": 3,
-        
 
     },
 }
