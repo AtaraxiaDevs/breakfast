@@ -22,6 +22,8 @@ import Login from "./escenas/login.js";
 import Fases from "./escenas/escenasTutorial/fases.js";
 import TiendaPremios from "./escenas/tienda/tiendaPremios.js";
 import PrePartida from "./escenas/prepartida.js";
+import Resultados from "./escenas/resultados.js";
+import ModoJugadores from "./escenas/modoJugadores.js";
 
 var config = {
   type: Phaser.AUTO,
@@ -46,6 +48,7 @@ var config = {
     Escena1,
     Login,
     PrePartida,
+    ModoJugadores,
     MenuPrincipal,
     Ranking,
     Preparacion,
@@ -65,6 +68,7 @@ var config = {
     Atacante,
     Fases,
     Escena2,
+    Resultados
   ],
   parent: "canvas",
 };

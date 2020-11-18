@@ -137,6 +137,13 @@ export default class GameAPI {
     this.escena.load.image("spanish_cambiar", "assets/preparacion/cambiar.png")
     this.escena.load.image("english_cambiar", "assets/preparacion/Change.png")
 
+    // --------------- ASSETS RESULTADOS -----------------
+    this.escena.load.image("fondoResultados", "assets/resultados/InterfazBaseRecuentoRonda.png")
+    this.escena.load.image("spanish_jugarOtraVez", "assets/resultados/JugarOtraVez.png")
+    this.escena.load.image("english_jugarOtraVez", "assets/resultados/PlayAgain.png")
+    this.escena.load.image("spanish_resultados", "assets/resultados/Resultado.png")
+    this.escena.load.image("english_resultados", "assets/resultados/Result.png")
+
     // --------------- ASSETS PREPARTIDA -----------------
     this.escena.load.image("fondoPrePartida", "assets/prePartida/InterfazBasePrePartida.png")
     this.escena.load.image("flechasJuntas", "assets/prePartida/flechasJuntas.png")
@@ -146,6 +153,14 @@ export default class GameAPI {
     this.escena.load.image("icono_EscenarioRestaurante", "assets/prePartida/IconoEscenarioRestaurante.png")
     this.escena.load.image("icono_Normal", "assets/prePartida/iconoNorm.png")
     this.escena.load.image("icono_Halloween", "assets/prePartida/iconoHallo.png")
+    this.escena.load.image("spanish_unJugador", "assets/prePartida/Unjugador.png")
+    this.escena.load.image("english_unJugador", "assets/prePartida/OnePlayer.png")
+    this.escena.load.image("spanish_dosJugadores", "assets/prePartida/DosJugadores.png")
+    this.escena.load.image("english_dosJugadores", "assets/prePartida/TwoPlayer.png")
+
+    // --------------- ASSETS PARTIDA -----------------
+    this.escena.load.image("flecha1", "assets/partida/Flecha1.png")
+    this.escena.load.image("flecha2", "assets/partida/Flecha2.png")
 
     // --------------- AUDIO -----------------
     this.escena.load.audio("temaInicio", "assets/audio/musica/temaInicio.wav");
