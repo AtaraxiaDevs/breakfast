@@ -766,6 +766,14 @@ segundaActivacionBuffo = function(j){
         this.buffoJ1.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
     }
+  }else{
+    switch(this.buffoJ1.tipoBuffo){
+      case "SpeedyBoy":
+        console.log("Segunda Activacion SpeedyBoy")
+        console.log(this.datosActivacionBuffo.flechaActivada1)
+        this.buffoJ2.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+        break;
+    }
   }
 }
 
