@@ -79,7 +79,7 @@ export default class Escena2 extends Phaser.Scene {
         APIJuego.segundaActivacionBuffo(2)
 
       }
-      APIJuego.desactivarFlecha(1)
+      APIJuego.desactivarFlecha(2)
 
     })
     APIJuego.flechaReverse1.visible = false
@@ -95,7 +95,7 @@ export default class Escena2 extends Phaser.Scene {
         APIJuego.segundaActivacionBuffo(2)
 
       }
-      APIJuego.desactivarFlecha(1)
+      APIJuego.desactivarFlecha(2)
 
     })
     APIJuego.flechaReverse2.visible = false
@@ -113,7 +113,7 @@ export default class Escena2 extends Phaser.Scene {
 
       }
       
-      APIJuego.desactivarFlecha(1)
+      APIJuego.desactivarFlecha(2)
 
     })
     APIJuego.flechaReverse3.visible = false
