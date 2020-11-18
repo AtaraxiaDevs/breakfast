@@ -60,7 +60,7 @@ recargar = function(){
     this.setTimmer(2,()=>{
         this.state="";
        
-        this.velocidadActual = this.infoBase.vel
+      //  APIJuego.reiniciarVelocidades(this.id, this.direction)
     })
 }
 
@@ -121,7 +121,6 @@ buscarObjetivo = function(){
 buscarAliado = function(){
 
     let personajeCercano = APIJuego.personajeCercano(this.id,this.x,this.direction)
-   
     if(personajeCercano.aliado != ""){
         // console.log(personajeCercano.aliado.vel)
          //  console.log(personajeCercano.aliado.vel)
@@ -129,6 +128,7 @@ buscarAliado = function(){
          if(personajeCercano.aliado.vel < this.velocidadActual){
            
              this.velocidadActual = personajeCercano.aliado.vel
+             
              return true
         }
          
@@ -150,13 +150,15 @@ update = function(){
             if (this.buscarObjetivo()){
                 this.atacar();
                 }else{
-                    if(!this.buscarAliado()){                  
+                
+                    if(!this.buscarAliado()){              
                         this.correr();
                         if(this.velocidadActual==0){
                             this.playAnimation("idle")
                         }else{
                             this.playAnimation("correr")
-                        }             
+                        }
+                        this.velocidadActual = this.infoBase.vel           
                         
                     }
                    
