@@ -57,50 +57,69 @@ export default class Preparacion extends Phaser.Scene {
         APIJuego.cambiarTexto(dinero, APIJuego.dinero + "$");
       });
 
-    let selectorPersonajes = this.add.image(550, 490, this.seleccionActual);
+      let selectorPersonajes = this.add.image(550, 490, this.seleccionActual);
+      let textoPrecioUnidad = this.make.text({
+        x: 625,
+        y: 525,
+        text: "100$",
+        style: {
+          font: "45px 'Sigmar One'",
+        },
+      });
 
-    let textoPrecioUnidad = this.make.text({
-      x: 625,
-      y: 525,
-      text: "100$",
-      style: {
-        font: "45px 'Sigmar One'",
-      },
-    });
+      if(APIJuego.modoActual != "Normal"){
+      selectorPersonajes.visible = false
+      let textoInterrogante = this.make.text({
+        x: 550,
+        y: 400,
+        text: "?",
+        style: {
+          font: "100px 'Sigmar One'",
+        },
+      });
+
+
+      APIJuego.cambiarTexto(textoPrecioUnidad,"?")
+    }
+
+    
 
     let clickButtonCambiar = this.add
       .image(700, 720, APIJuego.lenguage + "_cambiar")
       .setScale(0.2)
       .setInteractive()
       .on("pointerdown", function () {
-        switch (APIJuego.escena.seleccionActual) {
+
+        if(APIJuego.modoActual == "Normal"){
+        switch (APIJuego.personajeActual) {
           case "atacante":
-            selectorPersonajes.setTexture("defensor");
-            APIJuego.escena.seleccionActual = "defensor";
+            selectorPersonajes.setTexture("tank");
             APIJuego.cambiarTexto(textoPrecioUnidad, "100$");
             APIJuego.precioActual = 100;
             break;
-          case "defensor":
+          case "tank":
             selectorPersonajes.setTexture("distancia");
-            APIJuego.escena.seleccionActual = "distancia";
             APIJuego.cambiarTexto(textoPrecioUnidad, "200$");
             APIJuego.precioActual = 200;
             break;
           case "distancia":
-            selectorPersonajes.setTexture("velocista");
-            APIJuego.escena.seleccionActual = "velocista";
+            selectorPersonajes.setTexture("veloz");
             APIJuego.cambiarTexto(textoPrecioUnidad, "200$");
             APIJuego.precioActual = 200;
             break;
-          case "velocista":
+          case "veloz":
             selectorPersonajes.setTexture("atacante");
-            APIJuego.escena.seleccionActual = "atacante";
             APIJuego.cambiarTexto(textoPrecioUnidad, "100$");
             APIJuego.precioActual = 100;
             break;
         }
         APIJuego.cambiarTipo();
-      });
+      }else{
+          APIJuego.randomAliado();
+          console.log(APIJuego.personajeActual)
+      }}
+      
+      );
 
     let clickButtonDeshacer = this.add
       .image(400, 720, APIJuego.lenguage + "_deshacer")

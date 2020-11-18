@@ -131,9 +131,9 @@ export default class GameAPI {
     this.escena.load.image("spanish_unidades", "assets/preparacion/EligeTusUnidades.png")
     this.escena.load.image("english_unidades", "assets/preparacion/ChooseYourUnits.png")
     this.escena.load.image("atacante", "assets/preparacion/atacante.png")
-    this.escena.load.image("defensor", "assets/preparacion/Defensor.png")
+    this.escena.load.image("tank", "assets/preparacion/Defensor.png")
     this.escena.load.image("distancia", "assets/preparacion/Distancia.png")
-    this.escena.load.image("velocista", "assets/preparacion/Velocista.png")
+    this.escena.load.image("veloz", "assets/preparacion/Velocista.png")
     this.escena.load.image("spanish_cambiar", "assets/preparacion/cambiar.png")
     this.escena.load.image("english_cambiar", "assets/preparacion/Change.png")
 
@@ -236,7 +236,7 @@ export default class GameAPI {
   reeordenarFilas = function(){
      
     
-    let inicioX = 100;
+    let inicioX = -85;
     let inicioY = 470;
     for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == +1 )
@@ -245,17 +245,17 @@ export default class GameAPI {
         
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicioX - j*200, inicioY + 190*i);
+          arrayAux[j].body.reset(inicioX + j*200, inicioY + 190*i);
         }
       }
 
       for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == -1 )
         
-        let inicioX = 1500
+        let inicioX = 2000
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicioX + j*200,inicioY + 190*i);
+          arrayAux[j].body.reset(inicioX -j*200,inicioY + 190*i);
         }
       }
   }
@@ -429,7 +429,12 @@ export default class GameAPI {
     for (let i in this.combate) {
       for(let j in this.combate[i])
         if(this.combate[i][j].id == id){
-            this.combate[i][j].hpActual = this.combate[i][j].hpActual-daño
+            let random = getRandom(0,2)
+            let esquivar = getRandom(0,9)
+            if(esquivar != 0){
+              this.combate[i][j].hpActual = this.combate[i][j].hpActual-(daño*(1-random))
+
+            }
         }
     }
   }
@@ -553,6 +558,31 @@ export default class GameAPI {
       this.escenarioActual = "EscenarioCocina"
     }
     return this.escenarioActual;
+  }
+
+  randomAliado = function(){
+   
+   do{
+    let random = this.getRandom(0,3);
+    switch(random){
+      case 0: 
+        this.personajeActual = "atacante";
+        this.precioActual = 100
+        break;
+        case 1: 
+        this.personajeActual = "tank";
+        this.precioActual = 100
+        break;
+        case 2: 
+        this.personajeActual = "distancia";
+        this.precioActual = 200
+        break;
+        case 3: 
+        this.personajeActual = "veloz";
+        this.precioActual = 200
+        break;
+    }
+  }while(this.dinero <this.precioActual)
   }
 
   constructor() {
