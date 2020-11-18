@@ -51,7 +51,7 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
           if (printText.text != "") {
-            APIJuego.cambiarMusica()
+            APIJuego.eliminarCancion();
             APIJuego.escena.scene.start("preparacion");
           }
       });

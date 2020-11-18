@@ -18,8 +18,6 @@ export default class Ranking extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", () => this.scene.start("menuPrincipal"));
 
-    let clickButtonSonido = this.add.image(1500, 900, "sonidoOn");
-
     let clickButtonIdioma = this.add
       .image(340, 900, APIJuego.lenguage === "spanish" ? "english" : "spanish")
       .setScale(0.2)

@@ -10,7 +10,7 @@ export default class MenuPrincipal extends Phaser.Scene {
   }
 
   create() {
-    APIJuego.activarMusica("temaInicio")
+    APIJuego.inicializarMusica("temaInicio")
 
     var fondo = this.add.image(0, 0, "fondoMP").setOrigin(0);
 
@@ -48,7 +48,7 @@ export default class MenuPrincipal extends Phaser.Scene {
       .image(750, 870, APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff")
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.controlMusica();
+        APIJuego.controlMusica()
         clickButtonSonido.setTexture(
           APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff"
         );

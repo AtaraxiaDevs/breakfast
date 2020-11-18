@@ -484,18 +484,12 @@ export default class GameAPI {
     }
   }
 
-  activarMusica = function(tema) {
-    if(this.sonidoPrimeraActivacion){
-      this.tema.stop()
-    }
-    this.tema = this.escena.sound.add(tema, {volume: 0.25, loop: true})
-    this.tema.stop()
-    if (this.sonidoActivado && !this.sonidoPrimeraActivacion) {
-      if(!this.sonidoPrimeraActivacion){
+  inicializarMusica = function(audio) {
+    if (this.tema === undefined) {
+      this.tema = this.escena.sound.add(audio, {volume: 0.25, loop: true})
+      if (this.sonidoActivado) {
         this.tema.play()
-        this.sonidoPrimeraActivacion = true
       }
-      
     }
   }
 
@@ -509,10 +503,9 @@ export default class GameAPI {
     }
   }
 
-  cambiarMusica = function () {
+  eliminarCancion = function() {
     this.tema.stop();
-    this.tema = "";
-    this.sonidoPrimeraActivacion = false;
+    this.tema = undefined;
   }
 
   getDinero = function(){
@@ -550,9 +543,8 @@ export default class GameAPI {
     this.dinero = "1000"
     this.ultimoColocado = "";
     this.sonidoActivado = true
-    this.sonidoPrimeraActivacion = false
-    this.tema;
-    this.sonido;
+    this.tema = undefined;
+    this.cancionActual = "";
     this.idCount = 0;
     this.lineUp = []
     this.precioActual = 100
