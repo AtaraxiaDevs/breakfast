@@ -57,7 +57,7 @@ atacar = function(){
 recargar = function(){
     this.state = "recargando"
     this.playAnimation("idle")
-    this.setTimmer(2,()=>{
+    this.setTimmer(this.infoBase.dps,()=>{
         this.state="";
        
       //  APIJuego.reiniciarVelocidades(this.id, this.direction)
@@ -124,7 +124,7 @@ buscarAliado = function(){
     if(personajeCercano.aliado != ""){
         // console.log(personajeCercano.aliado.vel)
          //  console.log(personajeCercano.aliado.vel)
-         if(personajeCercano.aliado.separacion <= 175){
+         if(personajeCercano.aliado.separacion <= 250){
          if(personajeCercano.aliado.vel < this.velocidadActual){
            
              this.velocidadActual = personajeCercano.aliado.vel

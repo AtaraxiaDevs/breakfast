@@ -234,19 +234,10 @@ export default class GameAPI {
   };
 
   reeordenarFilas = function(){
-      /*
-      
-   
-    for(let i =0;i<this.combate.length;i++){  
-      for(let j = 0;j<this.combate[i].length;j++){
-        let x = inicioX + j*150
-        let y = inicioY + i*200
-        this.combate[i][j].body.reset(x,y);
-      }
-    }*/ 
+     
     
     let inicioX = 100;
-    let inicioY = 400;
+    let inicioY = 470;
     for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == +1 )
         
@@ -254,7 +245,7 @@ export default class GameAPI {
         
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicioX + j*125, inicioY + 200*i);
+          arrayAux[j].body.reset(inicioX - j*200, inicioY + 190*i);
         }
       }
 
@@ -264,7 +255,7 @@ export default class GameAPI {
         let inicioX = 1500
         
         for(let j = 0;j<arrayAux.length;j++){
-          arrayAux[j].body.reset(inicioX - j*125,inicioY + 200*i);
+          arrayAux[j].body.reset(inicioX + j*200,inicioY + 190*i);
         }
       }
   }

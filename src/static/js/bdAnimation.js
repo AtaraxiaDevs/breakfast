@@ -27,7 +27,7 @@ let dbAnimations = {
         "spritesheet": "sp_velozAtacar",
         "startFrame": 0,
         "endFrame": 6,
-        "frameRate": 3,
+        "frameRate": 8,
         "repeat": 0,
         "src": "sprite_veloz_atacar.png"
        },
@@ -168,7 +168,7 @@ let dbAnimations = {
     "spritesheet": "sp_atacanteAtacar",
     "startFrame": 0,
     "endFrame": 7,
-    "frameRate": 3,
+    "frameRate": 6,
     "repeat": 0,
     "src":"sprite_atacante_atacar.png"
    },

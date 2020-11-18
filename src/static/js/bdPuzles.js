@@ -4,7 +4,7 @@ let bdPuzles = {
             "1":{
                 "tipo": "tank",
                 "linea": "1"
-            },
+            },/*
             "2":{
                 "tipo": "atacante",
                 "linea": "1"  
@@ -12,7 +12,7 @@ let bdPuzles = {
             "3":{
                 "tipo": "tank",
                 "linea": "1"
-            },
+            },*/
            /* "4":{
                 "tipo": "tank",
                 "linea": "2"
