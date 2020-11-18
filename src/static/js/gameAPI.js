@@ -136,6 +136,17 @@ export default class GameAPI {
     this.escena.load.image("spanish_cambiar", "assets/preparacion/cambiar.png")
     this.escena.load.image("english_cambiar", "assets/preparacion/Change.png")
 
+    // --------------- ASSETS PREPARTIDA -----------------
+    this.escena.load.image("fondoPrePartida", "assets/prePartida/InterfazBasePrePartida.png")
+    this.escena.load.image("flechaDer", "assets/prePartida/flechaDer.png")
+    this.escena.load.image("flechaIzq", "assets/prePartida/flechaIzq.png")
+    this.escena.load.image("spanish_ModoJuegoEscenario", "assets/prePartida/ModoJuegoEscenario.png")
+    this.escena.load.image("english_ModoJuegoEscenario", "assets/prePartida/GameModeScene.png")
+    this.escena.load.image("iconoEscenarioCocina", "assets/prePartida/IconoEscenarioCocina.png")
+    this.escena.load.image("iconoEscenarioRestaurante", "assets/prePartida/IconoEscenarioRestaurante.png")
+    this.escena.load.image("iconoNorm", "assets/prePartida/iconoNorm.png")
+    this.escena.load.image("iconoHallo", "assets/prePartida/iconoHallo.png")
+
     // --------------- AUDIO -----------------
     this.escena.load.audio("temaInicio", "assets/audio/musica/temaInicio.wav");
     this.escena.load.audio("temaPreparacion", "assets/audio/musica/temaPreparacion.mp3");

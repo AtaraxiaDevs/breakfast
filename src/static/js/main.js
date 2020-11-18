@@ -21,6 +21,7 @@ import TiendaComprar from "./escenas/tienda/tiendaComprar.js";
 import Login from "./escenas/login.js";
 import Fases from "./escenas/escenasTutorial/fases.js";
 import TiendaPremios from "./escenas/tienda/tiendaPremios.js";
+import PrePartida from "./escenas/prepartida.js";
 
 var config = {
   type: Phaser.AUTO,
@@ -44,6 +45,7 @@ var config = {
   scene: [
     Escena1,
     Login,
+    PrePartida,
     MenuPrincipal,
     Ranking,
     Preparacion,

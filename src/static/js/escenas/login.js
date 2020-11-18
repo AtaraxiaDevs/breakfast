@@ -8,19 +8,10 @@ export default class Login extends Phaser.Scene {
 
   preload() {
     APIJuego.setEscena(this);
-
-    var url;
-    url =
-      "https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexbbcodetextplugin.min.js";
-    this.load.plugin("rexbbcodetextplugin", url, true);
-
-    url =
-      "https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rextexteditplugin.min.js";
-    this.load.plugin("rextexteditplugin", url, true);
   }
 
   create() {
-    let editor = ""
+    let editor = "";
 
     var fondoLogin = this.add.image(0, 0, "fondoLogin").setOrigin(0);
 
@@ -28,20 +19,21 @@ export default class Login extends Phaser.Scene {
       .rexBBCodeText(950, 555, "", {
         color: "black",
         fontSize: "70px",
-        fontFamily: 'Sigmar One',
+        fontFamily: "Sigmar One",
         fixedWidth: 700,
         fixedHeight: 100,
         valign: "center",
       })
       .setOrigin(0.5)
       .setInteractive()
-      .on("pointerdown", function () {
+      .on(
+        "pointerdown",
+        function () {
           editor = this.plugins.get("rextexteditplugin").edit(printText);
-          
-        }, this)
-      .on("pointerout", function(){
-          
-      })
+        },
+        this
+      )
+      .on("pointerout", function () {});
 
     let cartelNombre = this.add.image(950, 400, APIJuego.lenguage + "_nombre");
 
@@ -50,18 +42,16 @@ export default class Login extends Phaser.Scene {
       .setScale(0.3)
       .setInteractive()
       .on("pointerdown", function () {
-          if (printText.text != "") {
-            APIJuego.eliminarCancion();
-            APIJuego.escena.scene.start("preparacion");
-          }
+        if (printText.text != "") {
+          APIJuego.escena.scene.start("prePartida");
+        }
       });
 
     let clickButtonSalir = this.add
       .image(1400, 750, "salir")
       .setInteractive()
       .on("pointerdown", function () {
-
-        APIJuego.escena.scene.start("menuPrincipal")
+        APIJuego.escena.scene.start("menuPrincipal");
       });
 
     let clickButtonIdioma = this.add
