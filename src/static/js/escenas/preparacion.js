@@ -16,9 +16,14 @@ export default class Preparacion extends Phaser.Scene {
     APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
     APIJuego.getDinero();
+    APIJuego.generarBuffo();
 
+    console.log(APIJuego.buffoActual)
+    console.log("iconBuff" + APIJuego.buffoActual)
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
 
+    
+    
     let dinero = this.make.text({
       x: 740,
       y: 55,
@@ -176,5 +181,25 @@ export default class Preparacion extends Phaser.Scene {
           lenguage === "spanish" ? "english" : "spanish"
         );
       });
+
+      switch(APIJuego.lineaBuffo){
+        case 0: 
+        this.add.image(1080,220,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+        break;
+        case 1:
+          this.add.image(1075,425,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+        break
+        case 2:
+          this.add.image(1075,610,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+          break
+      }
+
+
+      
+
+      
+     
+    
+
   }
 }

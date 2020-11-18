@@ -1,3 +1,4 @@
+import Buffo from "./classBuffos.js";
 import Personaje from "./classPersonajes.js";
 export default class GameAPI {
   //-------------------------- UTILES PARA EL RENDERIZADO ---------------------------------------
@@ -5,6 +6,11 @@ export default class GameAPI {
     for (let i in dbAnimations) {
     }
   };
+
+  
+  getRandom = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
 
   // Función encargada de cargar todos las imágenes  de la pantalla de partida.
   cargarAssets = function () {
@@ -167,7 +173,7 @@ export default class GameAPI {
     this.escena.load.audio("temaPreparacion", "assets/audio/musica/temaPreparacion.mp3");
     this.escena.load.audio("temaCombate", "assets/audio/musica/temaCombate.wav");
 
-    // --------------- EFECTOS -----------------
+    // --------------- EFECTOS DE SONIDO-----------------
     this.escena.load.audio("gritito1", "assets/audio/efectos/gritito1.mp3");
     this.escena.load.audio("gritito2", "assets/audio/efectos/gritito2.mp3");
     this.escena.load.audio("hit1", "assets/audio/efectos/hit.mp3");
@@ -175,6 +181,20 @@ export default class GameAPI {
     this.escena.load.audio("hit3", "assets/audio/efectos/hit3.mp3");
     this.escena.load.audio("muerte", "assets/audio/efectos/muerte.mp3");
     this.escena.load.audio("muerte3", "assets/audio/efectos/muerte3.mp3");
+
+    //---------------------- ICONOS Y EFECTOS BUFFOS --------------
+    this.escena.load.image("iconBuffMantequilla","assets/buffs/buff_boss_mantequilla.png")
+    this.escena.load.image("iconBuffMermelada","assets/buffs/buff_boss_mermelada.png")
+    this.escena.load.image("iconBuffExtraUnit","assets/buffs/buff_extra_unit.png")
+    this.escena.load.image("iconBuffNoSweet","assets/buffs/buff_no_sweet.png")
+    this.escena.load.image("iconBuffSlowDown","assets/buffs/buff_slow_down.png")
+    this.escena.load.image("iconBuffSpeedyBoy","assets/buffs/buff_speedy_boy.png")
+    this.escena.load.image("iconBuffSwap","assets/buffs/buff_swap.png")
+    this.escena.load.image("iconBuffSweet","assets/buffs/buff_sweet.png")
+    this.escena.load.spritesheet("efectoSweet","assets/buffs/buffsAnimaciones/sprite_dinero_mas.png",{frameWidth:250,frameHeight:250})
+    this.escena.load.spritesheet("efectoNoSweet","assets/buffs/buffsAnimaciones/sprite_dinero_menos.png",{frameWidth:250,frameHeight:250})
+    this.escena.load.spritesheet("efectoSlowDown","assets/buffs/buffsAnimaciones/sprite_lento.png",{frameWidth:250,frameHeight:250})
+
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
@@ -222,7 +242,29 @@ export default class GameAPI {
         });
       }
     }
+    this.escena.anims.create({
+      key: "animacionEfectoSweet",
+          frames: this.escena.anims.generateFrameNumbers(
+            "efectoSweet",
+            { start: 0, end: 7 }
+          ),
+          frameRate: 5,
+          repeat: 2,
+    })
+
+    this.escena.anims.create({
+      key: "animacionEfectoNoSweet",
+          frames: this.escena.anims.generateFrameNumbers(
+            "efectoNoSweet",
+            { start: 0, end: 7 }
+          ),
+          frameRate: 5,
+          repeat: 2,
+    })
   };
+
+  
+
 
   //Parámetros: objeto Escena de phaser
   //Función encargada de reapuntar la escena para poder trabajar con ella
@@ -438,17 +480,18 @@ export default class GameAPI {
       for(let j in this.combate[i])
       this.combate[i][j].update();
     }
+    this.updateBuffo()
   }
 
   hacerDaño = function(id,daño){
     for (let i in this.combate) {
       for(let j in this.combate[i])
         if(this.combate[i][j].id == id){
-            let random = getRandom(0,2)
-            let esquivar = getRandom(0,9)
+            let random = this.getRandom(0,2)
+            let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
-              this.combate[i][j].hpActual = this.combate[i][j].hpActual-(daño*(1-random))
-
+              this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
+              console.log(this.combate[i][j].hpActual)
             }
         }
     }
@@ -548,9 +591,6 @@ export default class GameAPI {
     this.lineUp = []
   }
 
-  getRandom = function (min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
 
   playSonido = function (sonido) {
     this.sonido = this.escena.sound.add(sonido, {volume: 0.5});
@@ -600,6 +640,151 @@ export default class GameAPI {
   }while(this.dinero <this.precioActual)
   }
 
+  generarBuffo = function(){
+    this.lineaBuffo = this.getRandom(0,2)
+    let randomN = this.getRandom(0,17)
+    switch(true){
+        case (randomN<3):
+            this.buffoActual = "Sweet"
+            break;
+        case (randomN<6):
+            this.buffoActual = "NoSweet"
+            break;
+        case (randomN<10):
+            this.buffoActual = "SlowDown"
+            break;
+        case (randomN<12):
+            this.buffoActual = "SpeedyBoy"
+            break;
+        case (randomN<14):
+            this.buffoActual = "Swap"
+            break;
+        case (randomN<15):
+            this.buffoActual = "Mantequilla"
+            break;
+        case (randomN<16):
+            this.buffoActual = "Mermelada"
+    }
+
+    this.buffoActual = "SpeedyBoy"
+}
+
+colocarBuffoEscenario = function(){
+  let y = 500
+  switch(this.lineaBuffo){
+    case 0: y = 500;
+    break;
+    case 1: y = 660;
+    break;
+    case 2: y =870;
+    break
+  }
+
+  this.buffoCombate = this.escena.add.image(960,y,"iconBuff" + this.buffoActual).setOrigin(0.5,0.5);
+}
+
+updateBuffo = function(){
+  if(this.buffoCombate != null){
+
+  
+  for(let i in this.combate[this.lineaBuffo]){
+    if(this.combate[this.lineaBuffo][i].x >= 960 && this.combate[this.lineaBuffo][i].x <= 970 ){
+      
+      if(this.combate[this.lineaBuffo][i].direction == 1){
+        this.buffoActivoJ1.visible = true
+        this.buffoActivoJ1.setTexture("iconBuff" + this.buffoActual)
+        this.buffoActivoJ2.input.enable = true;
+
+          
+      }else{
+        this.buffoActivoJ2.visible = true
+        this.buffoActivoJ2.setTexture("iconBuff" + this.buffoActual)
+        this.buffoActivoJ2.input.enable = true;
+      }
+
+      
+
+      
+      this.buffoCombate.destroy()
+      this.buffoCombate = null
+     
+
+    }
+  
+
+   
+  }
+}
+}
+
+
+
+quitarBuffoJ1 = function(){
+  this.buffoActivoJ1.visible = false;
+  this.buffoActivoJ1.input.enable = false;
+  this.buffoJ1 = new Buffo(this.buffoActual)
+  this.buffoJ1.activarBuffo(1);
+ // console.log(this.buffoJ1.tipoBuffo)
+
+}
+
+quitarBuffoJ2 = function(){
+      this.buffoActivoJ2.visible = false;
+      this.buffoActivoJ2.input.enable = false;
+      this.buffoJ2 = new Buffo(this.buffoActual)
+      this.buffoJ2.activarBuffo(2);
+     // console.log(this.buffoJ2.tipoBuffo)
+}
+
+activarFlechas = function(j){
+  switch(j){
+    case 1: 
+    this.datosActivacionBuffo.j = 1
+    this.flecha1.visible = true
+    this.flecha2.visible = true
+    this.flecha3.visible = true
+    
+      break;
+    case 2 : 
+    this.datosActivacionBuffo.j = 2
+
+    this.flechaReverse1.visible = true
+    this.flechaReverse2.visible = true
+    
+    this.flechaReverse3.visible = true
+      break
+  }
+}
+
+segundaActivacionBuffo = function(j){
+  console.log(this.buffoJ1.tipoBuffo)
+  if(j == 1){
+    switch(this.buffoJ1.tipoBuffo){
+      case "SpeedyBoy":
+        console.log("Segunda Activacion SpeedyBoy")
+        console.log(this.datosActivacionBuffo.flechaActivada1)
+        this.buffoJ1.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+        break;
+    }
+  }
+}
+
+desactivarFlecha = function(j){
+  switch(j){
+    case 1: 
+    this.flecha1.visible = false
+    this.flecha2.visible = false
+    this.flecha3.visible = false
+      break;
+    case 2 : 
+    this.flechaReverse1.visible = false
+    this.flechaReverse2.visible = false
+    this.flechaReverse3.visible = false
+      break
+  }
+}
+
+
   constructor() {
     this.puzleActual = "1";
     this.combate = []; // Lista con todos los personajes de la escena
@@ -616,5 +801,30 @@ export default class GameAPI {
     this.lineUp = []
     this.precioActual = 100
     this.pagoPrevio = 0;
+   
+    this.buffoActual="";
+    this.lineaBuffo="";
+    this.nJugadores = 1;
+    this.buffoCombate = "";
+
+    this.buffoActivoJ1 ="";
+    this.buffoActivoJ2 = "";
+    this.buffoJ1 = "";
+    this.buffoJ2 = "";
+    this.flecha1 = "";
+    this.flecha2 = "";
+    this.flecha3 = "";
+    this.flechaReverse1 = "";
+    this.flechaReverse2 = "";
+    this.flechaReverse3 = "";
+
+    this.efectoActual = "";
+    this.datosActivacionBuffo = {
+      "j": "",
+      "flechaActivada1": "",
+      "flechaActivada2": "",
+    };
+
+
   }
 }

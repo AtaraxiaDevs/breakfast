@@ -194,6 +194,8 @@ setTimmer = function(seg,calback){
 
 
 
+
+
 //* Parámetros: string con el nombre del tipo de personaje
 //Constructor con la información base de un personaje
 constructor(tipoPersonaje,x,y,escena,direction,id){
@@ -222,6 +224,7 @@ constructor(tipoPersonaje,x,y,escena,direction,id){
     this.setScale("0.4");
     this.setOrigin(0.5,0.5);
     if(this.direction==-1){ this.flipX = true}
+
     
 
 }}
