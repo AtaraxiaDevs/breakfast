@@ -15,6 +15,7 @@ let bdInfoPersonajes = {
     },
 
     "distancia":{
+<<<<<<< Updated upstream
         "atk":  3.5,
         "hp":   7,
         "vel":  10,
