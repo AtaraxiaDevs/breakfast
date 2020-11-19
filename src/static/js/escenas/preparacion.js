@@ -13,7 +13,12 @@ export default class Preparacion extends Phaser.Scene {
   create() {
     let jugadorActual;
     let textoDinero = APIJuego.datosJugadorActual;
-
+    APIJuego.datosJugador2.puntosLinea1=0
+    APIJuego.datosJugador2.puntosLinea2=0
+    APIJuego.datosJugador2.puntosLinea3=0
+    APIJuego.datosJugador1.puntosLinea1=0
+    APIJuego.datosJugador1.puntosLinea2=0
+    APIJuego.datosJugador1.puntosLinea3=0
     APIJuego.linea1 = 0
     APIJuego.linea2 = 0
     APIJuego.linea3 = 0
