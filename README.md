@@ -77,9 +77,9 @@
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
 | 1.0             | Versión Inicial         |
-| 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
-| 1.2             | Otro refinamiento de mecánicas                                                |
-| 2.0             | Versión Final. Modos de juego definidos; interfaces nuevas y nuevos estados del juego; refinamiento de economía y puntuación; nuevo ranking |
+| 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                         |
+| 1.2             | Otro refinamiento de mecánicas.                                                |
+| 2.0             | Versión Final. Modos de juego definidos; interfaces nuevas y nuevos estados del juego; refinamiento de economía y puntuación; nuevo ranking. |
 
 ---
  
@@ -201,7 +201,7 @@ EL ATACANTE GANA
 
 Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario, y se almacenan en una pestaña de la interfaz, donde podremos usarlas en cualquier momento del combate. Se selecciona en esa pestaña y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
 
-**COMÚN: **
+**COMÚN:**
 
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
@@ -667,7 +667,7 @@ POSIBLES AMPLIACIONES DEL JUEGO EN ESTA ÚLTIMA ETAPA:
 
 El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo). Del Ranking hay que destacar que, debido a la naturaleza local del juego, puede fomentar a la competitividad entre conocidos cercanos, y ayudar a que se creen grupos de juego que sean capaces de captar nuevos interesados en el juego.
 
-Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
+Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Por cada partida se ganan 10 CCs. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
 
 - Pueden probar nuevos productos y ver si el público está interesado. Los datos de compra alojados en nuestra tienda les pueden indicar que productos triunfan y cuales no
 - Actuar como Cebo y Anzuelo: poner los productos en la tienda puede implicar que nuestros jugadores los prueben y acaben cogiendoles el gusto, lo que supone nuevos clientes potenciales para la empresa que los ponga.
