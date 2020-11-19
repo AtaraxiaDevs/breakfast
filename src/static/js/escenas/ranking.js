@@ -12,10 +12,30 @@ export default class Ranking extends Phaser.Scene {
   create() {
     var fondo = this.add.image(0, 0, "fondoRanking").setOrigin(0);
 
+    let listaPuntuaciones = []
+
+    for(let i = 0; i<localStorage.length; i++){
+        let key = localStorage.key(i)
+        let value = parseInt(localStorage.getItem(key))
+        listaPuntuaciones.push({
+          "key": key,
+          "value": value
+        })
+      }
+
+      listaPuntuaciones.sort( function( a , b){
+        if(a.value > b.value) return 1;
+        if(a.value < b.value) return -1;
+        return 0;
+      });
+
+      console.log(listaPuntuaciones[0].key + " " + listaPuntuaciones[0].value )
+      
+
     let rankingJugador1 = this.make.text({
       x: 400,
       y: 260,
-      text: "Jugador",
+      text: listaPuntuaciones[0] == undefined ? "" : listaPuntuaciones[0].key ,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -26,7 +46,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador1 = this.make.text({
       x: 690,
       y: 260,
-      text: "Puntos",
+      text: listaPuntuaciones[0] == undefined ? "" : listaPuntuaciones[0].value ,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -37,7 +57,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador2 = this.make.text({
       x: 400,
       y: 375,
-      text: "Jugador",
+      text: listaPuntuaciones[1] == undefined ? "" : listaPuntuaciones[1].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -48,7 +68,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador2 = this.make.text({
       x: 690,
       y: 375,
-      text: "Puntos",
+      text: listaPuntuaciones[1] == undefined ? "" : listaPuntuaciones[1].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -59,7 +79,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador3 = this.make.text({
       x: 400,
       y: 490,
-      text: "Jugador",
+      text: listaPuntuaciones[2] == undefined ? "" : listaPuntuaciones[2].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -70,7 +90,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador3 = this.make.text({
       x: 690,
       y: 490,
-      text: "Puntos",
+      text: listaPuntuaciones[2] == undefined ? "" : listaPuntuaciones[2].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -81,7 +101,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador4 = this.make.text({
       x: 400,
       y: 605,
-      text: "Jugador",
+      text: listaPuntuaciones[3] == undefined ? "" : listaPuntuaciones[3].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -92,7 +112,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador4 = this.make.text({
       x: 690,
       y: 605,
-      text: "Puntos",
+      text: listaPuntuaciones[3] == undefined ? "" : listaPuntuaciones[3].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -103,7 +123,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador5 = this.make.text({
       x: 400,
       y: 720,
-      text: "Jugador",
+      text: listaPuntuaciones[4] == undefined ? "" : listaPuntuaciones[4].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -114,7 +134,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador5 = this.make.text({
       x: 690,
       y: 720,
-      text: "Puntos",
+      text: listaPuntuaciones[4] == undefined ? "" : listaPuntuaciones[4].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -125,7 +145,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador6 = this.make.text({
       x: 1170,
       y: 260,
-      text: "Jugador",
+      text: listaPuntuaciones[5] == undefined ? "" : listaPuntuaciones[5].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -136,7 +156,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador6 = this.make.text({
       x: 1460,
       y: 260,
-      text: "Puntos",
+      text: listaPuntuaciones[5] == undefined ? "" : listaPuntuaciones[5].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -147,7 +167,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador7 = this.make.text({
       x: 1170,
       y: 375,
-      text: "Jugador",
+      text: listaPuntuaciones[6] == undefined ? "" : listaPuntuaciones[6].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -158,7 +178,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador7 = this.make.text({
       x: 1460,
       y: 375,
-      text: "Puntos",
+      text: listaPuntuaciones[6] == undefined ? "" : listaPuntuaciones[6].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -169,7 +189,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador8 = this.make.text({
       x: 1170,
       y: 490,
-      text: "Jugador",
+      text: listaPuntuaciones[7] == undefined ? "" : listaPuntuaciones[7].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -180,7 +200,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador8 = this.make.text({
       x: 1460,
       y: 490,
-      text: "Puntos",
+      text: listaPuntuaciones[7] == undefined ? "" : listaPuntuaciones[7].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -191,7 +211,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador9 = this.make.text({
       x: 1170,
       y: 605,
-      text: "Jugador",
+      text: listaPuntuaciones[8] == undefined ? "" : listaPuntuaciones[8].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -202,7 +222,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador9 = this.make.text({
       x: 1460,
       y: 605,
-      text: "Puntos",
+      text: listaPuntuaciones[8] == undefined ? "" : listaPuntuaciones[8].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -213,7 +233,7 @@ export default class Ranking extends Phaser.Scene {
     let rankingJugador10 = this.make.text({
       x: 1170,
       y: 720,
-      text: "Jugador",
+      text: listaPuntuaciones[9] == undefined ? "" : listaPuntuaciones[9].key,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
@@ -224,7 +244,7 @@ export default class Ranking extends Phaser.Scene {
     let puntosJugador10 = this.make.text({
       x: 1460,
       y: 720,
-      text: "Puntos",
+      text: listaPuntuaciones[9] == undefined ? "" : listaPuntuaciones[9].value,
       style: {
         color: "black",
         font: "40px 'Sigmar One'",
