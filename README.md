@@ -62,13 +62,13 @@
 | **TEMÁTICA**    | Comida                   |
 | **PLATAFORMA**  | Web (PC, Móvil o Tablet) |
 | **JUEGOS RELACIONADOS**  | Clash Royale, Warlords: Call To Arms, Stratego |
-| **PUBLICO OBJETIVO**     | Infantil, Casual        |
+| **PUBLICO OBJETIVO**     | 12-16 años. Casual      |
 | **ESTILO VISUAL**        | 2D, Pixel Art           |
 | **CALIFICACIÓN**         | PEGI 7+                 |
 | **IDIOMA**      | Español, Inglés          |
 | **VISTA**       | Cenital 3/4              |
 | **TECNOLOGÍAS** | Phaser                   |
-| **MECÁNICAS**   | - Duelos 1vs1 de Ejércitos, a ciegas <br> - Diferentes Unidades y Habilidades <br>- Conquistar el terreno enemigo |
+| **MECÁNICAS**   | - Duelos de Ejércitos, a ciegas <br> - Diferentes Unidades y Habilidades <br>- Conquistar el terreno enemigo |
 
 ---
 
@@ -79,6 +79,7 @@
 | 1.0             | Versión Inicial         |
 | 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
 | 1.2             | Otro refinamiento de mecánicas                                                |
+| 2.0             | Versión Final. Modos de juego definidos; interfaces nuevas y nuevos estados del juego; refinamiento de economía y puntuación; nuevo ranking |
 
 ---
  
@@ -87,7 +88,7 @@
 > ¿Cual es la comida más importante del día? ¡Compite con tus amigos para ayudar a los pequeños alienígenas  del espacio exterior a decidir! 
 > ¿Estas del lado de la valiente Mantequilla Gritona o de la astuta Mermelada Explosiva ? ¡Descúbrelo aquí!
 
-> BTF: Break-Troops-Fast es un juego de estrategia, que enfrenta a dos jugadores en una batalla donde deberán gestionar sus comestibles tropas para conseguir llegar hasta
+> BTF: Break-Troops-Fast es un juego de estrategia, que enfrenta a dos equipos en una batalla donde deberán gestionar sus comestibles tropas para conseguir llegar hasta
 > la base enemiga y ganar la ronda. El equipo ganador se decide al mejor de 5 de estas rondas, donde los ejércitos tendrán que sobrevivir a un escenario cambiante. ¡Usa las
 > habilidades de tus aliados para abrirte paso! El enemigo se esconde... ¡pero tu revelarás su plan, y haras que muerdan el polvo del Cacao!
 
@@ -101,14 +102,13 @@
 **- Uso de Habilidades:** Durante la partida, podrás conseguir habilidades que te ayudaran a avanzar o a fastidiar a tu rival.¡Úsalas sabiamente! Encuentra a las mascotas del juego... ¡y ya verás!<br>
 **- Consigue Grandes Premios:** Mientras vas jugando, podrás conseguir CeReal Currency (CC). Con esta moneda, podrás acceder en la tienda a Cupones Descuento, Productos y mucho más. También podrás comprar con nuestras Ataraxia Coins muchos extras, como geniales Skins o Chromas.
 
-
 ---
 
 ## 5.- DISEÑO DEL JUEGO	 <a name="diseñoDelJuego"/>
 ### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
 #### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
 
-El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que hay que repartir o usar en el escenario. Este escenario consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA y cada fila es ganada por el que más haya conseguido.  Al mejor de 3, el jugador que gana consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
+El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que se usan durante la partida. El campo de batlla consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA y cada fila es ganada por el que más haya conseguido.  Al mejor de 3, el jugador que gana consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
 
 Si una fila no puntua (EMPATE TÉCNICO) el marcador puede quedar 1-1, por lo que: o gana el que haya ganado la Fila más contudentemente (entre un 4-2 y un 3-1, el punto se lo lleva el 4-2). Si en el remoto caso de que las filas hayan quedado exactamente igual, la ronda se da como "reiniciada": el dinero gastado se pierde, pero no se gana nada de lo ocurrido en esa ronda. 
 
