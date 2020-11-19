@@ -121,15 +121,72 @@ export default class Buffo {
             },
         })
     }
-   /* slowDownActivacion = fucntion(linea,j){
-        APIJuego.aplicarDebufo()
-        APIJuego.escena.time.addEvent({
-            delay: 5*1000,
-            callback: APIJuego.aplicarDebufo(),
-           
-            
-        })
-    }*/
+
+    mantequilla = function(j){
+        APIJuego.activarFlechas(j)
+    }
+
+    mantequillaActivacion = function(linea,j){
+        let direction = j ==1? +1:-1
+        let y = 0
+        switch(linea){
+            case 1: 
+            y = 470
+            break;
+            case 2: 
+            y = 470 + 190
+            break;
+            case 3 :
+            y = 470 + 190*2
+            break
+        }
+
+        APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y+50,"efectoMantequilla").setScale(2)
+        APIJuego.efectoActual.anims.play("animacionEfectoMantequilla")
+        APIJuego.efectoActual.once("animationcomplete", ()=>{
+            APIJuego.efectoActual.destroy();
+            direction = direction*-1
+            APIJuego.destruirEnemigos(linea,direction)
+                
+            })
+        
+        
+        
+    }
+
+    mermelada = function(j){
+        APIJuego.activarFlechas(j)
+    }
+
+    mermeladaActivacion = function(linea,j){
+        let direction = j ==1? +1:-1
+        let y = 0
+        switch(linea){
+            case 1: 
+            y = 470
+            break;
+            case 2: 
+            y = 470 + 190
+            break;
+            case 3 :
+            y = 470 + 190*2
+            break
+        }
+
+        APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y+50,"efectoMermelada").setScale(2)
+        APIJuego.efectoActual.anims.play("animacionEfectoMermelada")
+        APIJuego.efectoActual.once("animationcomplete", ()=>{
+            APIJuego.efectoActual.destroy();
+            direction = direction*-1
+            APIJuego.destruirEnemigos(linea,direction)
+                
+            })
+        
+        
+        
+    }
+  
+  
     
     activarBuffo = function(j){
         switch(this.tipoBuffo){
@@ -147,6 +204,13 @@ export default class Buffo {
             case "SlowDown":
                 this.slowDown(j);
                 break
+            case "Mantequilla":
+                this.mantequilla(j)
+                break
+            case "Mermelada":
+                this.mermelada(j)
+                break
+
         }
     }
     

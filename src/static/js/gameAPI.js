@@ -194,6 +194,8 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoSweet","assets/buffs/buffsAnimaciones/sprite_dinero_mas.png",{frameWidth:250,frameHeight:250})
     this.escena.load.spritesheet("efectoNoSweet","assets/buffs/buffsAnimaciones/sprite_dinero_menos.png",{frameWidth:250,frameHeight:250})
     this.escena.load.spritesheet("efectoSlowDown","assets/buffs/buffsAnimaciones/sprite_lento.png",{frameWidth:250,frameHeight:250})
+    this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
+    this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
 
     // ---------------- SPRITES ANIMACIONES -------------------
@@ -265,10 +267,30 @@ export default class GameAPI {
       key: "animacionEfectoSlowDown",
           frames: this.escena.anims.generateFrameNumbers(
             "efectoSlowDown",
+            { start: 0, end: 3 }
+          ),
+          frameRate: 2,
+          repeat: -1,
+    })
+
+    this.escena.anims.create({
+      key: "animacionEfectoMantequilla",
+          frames: this.escena.anims.generateFrameNumbers(
+            "efectoMantequilla",
+            { start: 0, end: 7 }
+          ),
+          frameRate: 1,
+          repeat: 0,
+    })
+
+    this.escena.anims.create({
+      key: "animacionEfectoMermelada",
+          frames: this.escena.anims.generateFrameNumbers(
+            "efectoMermelada",
             { start: 0, end: 8 }
           ),
-          frameRate: 5,
-          repeat: -1,
+          frameRate: 2,
+          repeat: 0,
     })
   };
 
@@ -675,7 +697,7 @@ export default class GameAPI {
             this.buffoActual = "Mermelada"
     }
 
-    this.buffoActual = "SlowDown"
+    this.buffoActual = "Mermelada"
 }
 
 colocarBuffoEscenario = function(){
@@ -775,6 +797,12 @@ segundaActivacionBuffo = function(j){
       case "SlowDown":
         this.buffoJ1.slowDownActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
+      case "Mantequilla":
+        this.buffoJ1.mantequillaActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+        break
+      case "Mermelada":
+        this.buffoJ1.mermeladaActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+        break;
     }
   }else{
     switch(this.buffoJ2.tipoBuffo){
@@ -786,6 +814,12 @@ segundaActivacionBuffo = function(j){
         case "SlowDown":
           this.buffoJ2.slowDownActivacion(this.datosActivacionBuffo.flechaActivada1,j)
           break;
+        case "Mantequilla":
+          this.buffoJ2.mantequillaActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+          break;
+          case "Mermelada":
+            this.buffoJ2.mermeladaActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+            break;
     }
   }
 }
@@ -811,6 +845,14 @@ aplicarDebufo = function(linea, direction, debufoMov,debufoRecarga){
       this.combate[linea-1][i].debufoRecarga = debufoRecarga
     }
       
+  }
+}
+
+destruirEnemigos = function(linea,direction){
+  for(let i in this.combate[linea-1]){
+    if(this.combate[linea-1][i].direction == direction){
+      this.combate[linea-1][i].hpActual = 0;
+    }
   }
 }
 
