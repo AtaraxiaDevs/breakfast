@@ -129,7 +129,7 @@ El juego se divide en dos grandes fases:
 
 En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Es la parte estática del juego.
 
-En esta fase, se nos presenta una interfaz que muestra: Nombre y Dinero de Ronda (zona superior); nuestra zona del campo, con sus 3 líneas, y 3 recuadros, que representan los bufos que hay en esa determinada línea (zona derecha); y un panel que representa las unidades disponibles en ese momento, que se van cambiando al pulsar "CAMBIAR" (zona izquierda). La unidad mostrada en el panel está seleccionada, y hay que pulsar la flecha de línea para colocarla. Si nos equivocamos al elegir nuestras unidades, podemos pulsar "DESHACER" para vender la última unidad colocada, sin coste alguno. Las líneas tienen un máximo de 3 unidades, siendo el máximo de unidades 9 por equipo. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+En esta fase, se nos presenta una interfaz que muestra: Nombre y Dinero de Ronda (zona superior); nuestra zona del campo, con sus 3 líneas, y 3 recuadros, que representan las Habilidades que hay en esa determinada línea (zona derecha); y un panel que representa las unidades disponibles en ese momento, que se van cambiando al pulsar "CAMBIAR" (zona izquierda). La unidad mostrada en el panel está seleccionada, y hay que pulsar la flecha de línea para colocarla. Si nos equivocamos al elegir nuestras unidades, podemos pulsar "DESHACER" para vender la última unidad colocada, sin coste alguno. Las líneas tienen un máximo de 3 unidades, siendo el máximo de unidades 9 por equipo. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
 
 **FASE DE COMBATE**
 
@@ -176,17 +176,17 @@ El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va r
 
 Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario, y se almacenan en una pestaña de la interfaz, donde podremos usarlas en cualquier momento del combate. Se selecciona en esa pestaña y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
 
-**COMÚN:**
+**COMÚN:** (50%)
 
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
-**RARO**
+**RARO:** (35%)
 
 - *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 10 segundos.
 - *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para tener una unidad extra.
 
-**ULTRA RARO**
+**ÉPICO:** (15%)
 
 - *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en la Zona Neutra, en una línea a elegir. Eliminan a todos los enemigos de una fila cuando termina su animación.
 
@@ -581,11 +581,25 @@ Juegos con Personajes similares:
 ---
 
 ## 8.- SONIDO	<a name="sonido"/>
+
+Para el sonido, hemos querido buscar una mezcla entre un ambiente agradable y la tensión de un combate. Curiosamente, nos vino a la cabeza el juego Cooking Mama, que combina menús tranquilos con música un poco más activa para los minijuegos de cocina. Buscamos assets externos que responden a estos 2 puntos.
+
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
-- *Tema Menú*: 
-- *Tema Preparación*:
-- *Tema Combate*:
+Todos los temas de la banda sonora son Assets Externos. Se han sacado principalmente del siguiente canal de Youtube, llamado Hadwin Channel: 
+
+<a href="https://www.youtube.com/watch?v=jncq-_yBG7U&feature=youtu.be"/>
+
+Adjuntamos aqui su referencia y mensajes del propio autor en el que autoriza su uso a otros usuarios:
+
+- *Tema Menú*: Cartoon Fun Holidays by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image.png)
+- *Tema Preparación*: DarkTown Stratters Ball by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(2).png)
+- *Tema Combate*: Run of Clowns by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(1).png)
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image3.png)
 
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
 
