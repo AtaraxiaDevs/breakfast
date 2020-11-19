@@ -130,6 +130,7 @@ export default class GameAPI {
 
     // --------------- ASSETS PREPARACION -----------------
     this.escena.load.image("fondoPreparacion", "assets/preparacion/InterfazBasePreparacion.png")
+    this.escena.load.image("fondoPreparacionPuzzle", "assets/preparacion/InterfazBasePreparacionPuzzle.png")
     this.escena.load.image("flecha", "assets/preparacion/flecha3.png")
     this.escena.load.image("spanish_deshacer", "assets/preparacion/Deshacer.png")
     this.escena.load.image("english_deshacer", "assets/preparacion/Undo.png")
