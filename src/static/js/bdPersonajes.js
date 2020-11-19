@@ -3,7 +3,7 @@ let bdInfoPersonajes = {
         "atk":  8,
         "hp":   3,
         "vel":  15,
-        "dps":  0.5,
+        "dps":  1,
         "rango": 1,
     },
     "tank":{
