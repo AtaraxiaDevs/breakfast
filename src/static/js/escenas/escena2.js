@@ -20,10 +20,40 @@ export default class Escena2 extends Phaser.Scene {
     let textoRondaSpanish = "RONDA\n1";
     let textoRondaEnglish = "ROUND\n1";
 
+    let recuadroDineroJ1 = this.add
+      .image(200, 220, "recuadro")
+      .setScale(0.25, 0.2);
+
+    let recuadroDineroJ2 = this.add
+      .image(1725, 220, "recuadro")
+      .setScale(0.25, 0.2);
+
+    APIJuego.recuadroDineroJ1 = this.make.text({
+      x: 130,
+      y: 185,
+      text: APIJuego.datosJugador1.dinero + " $",
+      style: {
+        color: "black",
+        font: "48px 'Sigmar One'",
+        align: "center",
+      },
+    });
+
+    APIJuego.recuadroDineroJ2 = this.make.text({
+      x: 1650,
+      y: 185,
+      text: APIJuego.datosJugador2.dinero + " $",
+      style: {
+        color: "black",
+        font: "48px 'Sigmar One'",
+        align: "center",
+      },
+    });
+
     let nombreJ1 = this.make.text({
       x: 55,
       y: 40,
-      text: "Jugador1",
+      text: APIJuego.datosJugador1.nombre,
       style: {
         color: "black",
         font: "48px 'Sigmar One'",
@@ -34,7 +64,7 @@ export default class Escena2 extends Phaser.Scene {
     let nombreJ2 = this.make.text({
       x: 1590,
       y: 40,
-      text: APIJuego.nJugadores === 1 ? "CPU" : "Jugador2",
+      text: APIJuego.nJugadores === 1 ? "CPU" : APIJuego.datosJugador2.nombre,
       style: {
         color: "black",
         font: "48px 'Sigmar One'",
@@ -93,6 +123,13 @@ export default class Escena2 extends Phaser.Scene {
         font: "72px 'Sigmar One'",
       },
     });
+
+    let clickButtonSalir = this.add
+      .image(1800, 1000, "salir")
+      .setInteractive()
+      .on("pointerdown", function () {
+        APIJuego.escena.scene.start("resultados");
+      });
 
     APIJuego.flecha1 = this.add.image(100, 500, "flecha2").setScale(0.25);
     APIJuego.flecha1.setInteractive().on("pointerdown", function () {

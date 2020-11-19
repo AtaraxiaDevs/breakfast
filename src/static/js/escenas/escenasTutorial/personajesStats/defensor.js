@@ -18,7 +18,7 @@ export default class Defensor extends Phaser.Scene {
       .image(940, 135, APIJuego.lenguage + "_defensor")
       .setScale(0.73);
 
-    let personajeDefensor = this.add.image(700, 500, "defensor").setScale(1.5);
+    let personajeDefensor = this.add.image(700, 500, "tank").setScale(1.5);
 
     let textoDefensor = this.make.text({
       x: 1020,

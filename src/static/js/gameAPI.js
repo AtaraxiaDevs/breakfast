@@ -1,5 +1,6 @@
 import Buffo from "./classBuffos.js";
 import Personaje from "./classPersonajes.js";
+import { APIJuego } from "./main.js";
 export default class GameAPI {
   //-------------------------- UTILES PARA EL RENDERIZADO ---------------------------------------
   cargarSprites = function () {
@@ -163,6 +164,7 @@ export default class GameAPI {
     this.escena.load.image("english_unJugador", "assets/prePartida/OnePlayer.png")
     this.escena.load.image("spanish_dosJugadores", "assets/prePartida/DosJugadores.png")
     this.escena.load.image("english_dosJugadores", "assets/prePartida/TwoPlayer.png")
+    this.escena.load.image("recuadro", "assets/prePartida/Recuadro.png")
 
     // --------------- ASSETS PARTIDA -----------------
     this.escena.load.image("flecha1", "assets/partida/Flecha1.png")
@@ -196,9 +198,6 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoSlowDown","assets/buffs/buffsAnimaciones/sprite_lento.png",{frameWidth:250,frameHeight:250})
     this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
-    this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
-    this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
-    this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
 
     // ---------------- SPRITES ANIMACIONES -------------------
@@ -229,6 +228,7 @@ export default class GameAPI {
         break;
     }
 
+    console.log(this.personajeActual);
   }
 
   cargarAnims = function () {
@@ -311,6 +311,7 @@ export default class GameAPI {
   //* Parámetros: string con el tipo de personaje
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
   añadirPersonaje = function (fila) {
+    console.log(this.personajeActual)
     this.combate[fila-1].push(
       new Personaje(this.personajeActual, 200, 400, this.escena,+1,this.idCount)
     );
@@ -349,12 +350,15 @@ export default class GameAPI {
       }
   }
 
-    deshacer = function(){
-
+    deshacer = function(juagdorActual){
         this.eliminarPersonaje(this.ultimoColocado)
         this.colocarPreparacion();
         this.lineUp.length = this.lineUp.length - 1;
-        this.dinero += this.pagoPrevio 
+        if (juagdorActual === 1) {
+          this.datosJugador1.dinero += this.pagoPrevio
+        } else {
+          this.datosJugador2.dinero += this.pagoPrevio
+        }
         this.pagoPrevio =0;
     }
 
@@ -521,14 +525,11 @@ export default class GameAPI {
     for (let i in this.combate) {
       for(let j in this.combate[i])
         if(this.combate[i][j].id == id){
-            let random = this.getRandom(-0.5,0.5)
+            let random = this.getRandom(0,2)
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
-              let dañoRealizado = -daño + random
-              console.log("Daño a " + this.combate[i][j].tipo + " : " +  dañoRealizado )
-            }else{
-              console.log("Daño a " + this.combate[i][j].tipo + ": miss" )
+              console.log(this.combate[i][j].hpActual)
             }
         }
     }
@@ -634,14 +635,24 @@ export default class GameAPI {
     this.dinero = bdPuzles[this.puzleActual].dinero
   }
 
-  pagar = function(linea){
-    if(this.dinero-this.precioActual>=0){
+  pagar = function(linea, jugador){
+    if (jugador === 1) {
+      if(this.datosJugador1.dinero - this.precioActual>=0){
         this.añadirPersonaje(linea)
         this.colocarPreparacion()
         this.añadirLineUp(linea)
-        this.dinero -= this.precioActual 
+        this.datosJugador1.dinero -= this.precioActual 
         this.pagoPrevio = this.precioActual
     }
+    } else {
+      if(this.datosJugador2.dinero - this.precioActual>=0){
+        this.añadirPersonaje(linea)
+        this.colocarPreparacion()
+        this.añadirLineUp(linea)
+        this.datosJugador2.dinero -= this.precioActual 
+        this.pagoPrevio = this.precioActual
+    }
+  }
   }
 
   reiniciarLineUp = function(){
@@ -720,7 +731,11 @@ export default class GameAPI {
             this.buffoActual = "Mermelada"
     }
 
+<<<<<<< Updated upstream
     this.buffoActual = "SlowDown"
+=======
+    this.buffoActual = "NoSweet"
+>>>>>>> Stashed changes
 }
 
 colocarBuffoEscenario = function(){
@@ -776,7 +791,7 @@ updateBuffo = function(){
 quitarBuffoJ1 = function(){
   this.buffoActivoJ1.visible = false;
   this.buffoActivoJ1.input.enable = false;
-  this.buffoJ1 = new Buffo(this.buffoActual)
+  this.buffoJ1 = new Buffo(this.buffoActual, 1)
   this.buffoJ1.activarBuffo(1);
  // console.log(this.buffoJ1.tipoBuffo)
 
@@ -785,7 +800,7 @@ quitarBuffoJ1 = function(){
 quitarBuffoJ2 = function(){
       this.buffoActivoJ2.visible = false;
       this.buffoActivoJ2.input.enable = false;
-      this.buffoJ2 = new Buffo(this.buffoActual)
+      this.buffoJ2 = new Buffo(this.buffoActual, 2)
       this.buffoJ2.activarBuffo(2);
      // console.log(this.buffoJ2.tipoBuffo)
 }
@@ -882,7 +897,7 @@ reiniciarInfoJugadores = function(){
   this.datosJugador1 = {
     "nombre": undefined,
     "puntuacionActual":"",
-    "dinero": "",
+    "dinero": 600,
     "checkLineUp": false,
 
   }
@@ -890,10 +905,15 @@ reiniciarInfoJugadores = function(){
   this.datosJugador2 = {
     "nombre": undefined,
     "puntuacionActual":"",
-    "dinero": "",
+    "dinero": 600,
     "checkLineUp": false,
 
   }
+}
+
+actualizarDinero = function() {
+  this.cambiarTexto(this.recuadroDineroJ1, this.datosJugador1.dinero + " $")
+  this.cambiarTexto(this.recuadroDineroJ2, this.datosJugador2.dinero + " $")
 }
 
 
@@ -902,7 +922,6 @@ reiniciarInfoJugadores = function(){
     this.combate = []; // Lista con todos los personajes de la escena
     this.personajeActual = "atacante";
     this.lenguage = "spanish";
-    this.dinero = "1000"
     this.ultimoColocado = "";
     this.sonidoActivado = true
     this.tema = undefined;
@@ -929,7 +948,9 @@ reiniciarInfoJugadores = function(){
     this.flechaReverse1 = "";
     this.flechaReverse2 = "";
     this.flechaReverse3 = "";
-    
+
+    this.recuadroDineroJ1 = "";
+    this.recuadroDineroJ2 = "";
 
     this.efectoActual = "";
     this.datosActivacionBuffo = {
@@ -941,7 +962,7 @@ reiniciarInfoJugadores = function(){
     this.datosJugador1 = {
       "nombre": undefined,
       "puntuacionActual":"",
-      "dinero": "",
+      "dinero": 600,
       "checkLineUp": false,
   
     }
@@ -949,7 +970,7 @@ reiniciarInfoJugadores = function(){
     this.datosJugador2 = {
       "nombre": undefined,
       "puntuacionActual":"",
-      "dinero": "",
+      "dinero": 600,
       "checkLineUp": false,
   
     }
