@@ -877,6 +877,23 @@ destruirEnemigos = function(linea,direction){
     }
   }
 }
+reiniciarInfoJugadores = function(){
+  this.datosJugador1 = {
+    "nombre": undefined,
+    "puntuacionActual":"",
+    "dinero": "",
+    "checkLineUp": false,
+
+  }
+
+  this.datosJugador2 = {
+    "nombre": undefined,
+    "puntuacionActual":"",
+    "dinero": "",
+    "checkLineUp": false,
+
+  }
+}
 
 
   constructor() {

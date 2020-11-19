@@ -1,3 +1,4 @@
+import GameAPI from "../gameAPI.js";
 import { ConfiguracionJuego, APIJuego } from "../main.js";
 
 export default class ModoJugadores extends Phaser.Scene {
@@ -11,6 +12,8 @@ export default class ModoJugadores extends Phaser.Scene {
 
   create() {
     var fondoPrepartida = this.add.image(0, 0, "fondoPrePartida").setOrigin(0);
+
+    APIJuego.reiniciarInfoJugadores()
 
     let mermelada = this.add.image(1075, 650, "mermelada").setScale(2);
 
