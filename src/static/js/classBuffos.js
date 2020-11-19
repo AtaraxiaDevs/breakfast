@@ -22,9 +22,15 @@ export default class Buffo {
         APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y,"efectoSweet").setScale(0.5)
         APIJuego.efectoActual.anims.play("animacionEfectoSweet")
         APIJuego.efectoActual.setVelocityY(-30)
-        APIJuego.efectoActual.once("animationcomplete", ()=>{
-            APIJuego.efectoActual.destroy();
-            
+        if (this.jugador === 1) {
+            APIJuego.datosJugador1.dinero += 100;
+        } else {
+            APIJuego.datosJugador2.dinero += 100;
+        }
+        this.jugador === 1 ? APIJuego.datosJugador1 : APIJuego.datosJugador2
+        APIJuego.actualizarDinero();
+        APIJuego.efectoActual.once("animationcomplete", function () {
+            APIJuego.efectoActual.destroy();      
         })
         //CAMBIAR EL DINERO DEL JUGADOR
         //ACTIVAR EL SPRITE ANIMATION
@@ -45,9 +51,23 @@ export default class Buffo {
         APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y,"efectoNoSweet").setScale(0.5)
         APIJuego.efectoActual.anims.play("animacionEfectoNoSweet")
         APIJuego.efectoActual.setVelocityY(-30)
-        APIJuego.efectoActual.once("animationcomplete", ()=>{
-        APIJuego.efectoActual.destroy();
-            
+        if (this.jugador === 1) {
+            if (APIJuego.datosJugador2.dinero < 100) {
+                APIJuego.datosJugador2.dinero = 0;
+            } else {
+                APIJuego.datosJugador2.dinero -= 100;
+            }
+        } else {
+            if (APIJuego.datosJugador1.dinero < 100) {
+                APIJuego.datosJugador1.dinero = 0;
+            } else {
+                APIJuego.datosJugador1.dinero -= 100;
+            }
+        }
+        this.jugador === 1 ? APIJuego.datosJugador1 : APIJuego.datosJugador2
+        APIJuego.actualizarDinero();
+        APIJuego.efectoActual.once("animationcomplete", function (){
+            APIJuego.efectoActual.destroy();
         })
     }
 
@@ -215,9 +235,10 @@ export default class Buffo {
     }
     
     
-    constructor(tipoBuffo){
-        console.log(tipoBuffo)
+    constructor(tipoBuffo, j){
         this.tipoBuffo = tipoBuffo
+        this.jugador = j
+        console.log(this.jugador)
     }
 
 }

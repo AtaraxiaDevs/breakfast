@@ -19,7 +19,7 @@ export default class Velocista extends Phaser.Scene {
       .setScale(0.73);
 
     let personajeVelocista = this.add
-      .image(700, 500, "velocista")
+      .image(700, 500, "veloz")
       .setScale(1.5);
 
     let textoDistancia = this.make.text({
