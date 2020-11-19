@@ -205,6 +205,8 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
+    this.escena.load.image("placeHolderHalloween","assets/misc/calabaza_modohalloween.png")
+
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
@@ -713,7 +715,7 @@ export default class GameAPI {
 
   generarBuffo = function(){
     this.lineaBuffo = this.getRandom(0,2)
-    let randomN = this.getRandom(0,17)
+    let randomN = this.getRandom(0,15)
     switch(true){
         case (randomN<3):
             this.buffoActual = "Sweet"
@@ -1042,11 +1044,11 @@ updateCombate(){
           }else if(totalJ1 < totalJ2){
             this.ganador = 2;
             this.ronda = this.ronda+1
-            this.arrancarFinCombate("preparacion")
             this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
             this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
             this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1
-      
+            this.arrancarFinCombate("preparacion")
+
             
           }else{
             this.ganador = 0;
@@ -1069,9 +1071,11 @@ arrancarFinCombate = function(escena){
 
   console.log(this.ronda)
 
-  if(this.datosJugador1.puntuacionTotal == 3 || this.datosJugador2.puntuacionTotal == 3){
+  if(this.datosJugador1.puntuacionTotal == 3){
     this.ronda = 5
-    
+  }
+  if(this.datosJugador2.puntuacionTotal == 3){
+    this.ronda = 5
   }
 
   if(this.ronda == 5){

@@ -115,6 +115,10 @@ export default class Preparacion extends Phaser.Scene {
             ? APIJuego.datosJugador1.dinero + " $"
             : APIJuego.datosJugador2.dinero + " $"
         );
+
+        if(APIJuego.modoActual != "Normal"){
+          APIJuego.randomAliado();
+        }
       });
 
     let selectorPersonajes = this.add.image(550, 490, this.seleccionActual);
@@ -181,16 +185,9 @@ export default class Preparacion extends Phaser.Scene {
       clickButtonCambiar.visible = false;
       clickButtonDeshacer.visible = false;
       fondo.setTexture("fondoPreparacionPuzzle");
-      let textoInterrogante = this.make.text({
-        x: 550,
-        y: 400,
-        text: "?",
-        style: {
-          font: "100px 'Sigmar One'",
-        },
-      });
+      let placeHolder = this.add.image(550,475,"placeHolderHalloween").setScale(2)
 
-      APIJuego.cambiarTexto(textoPrecioUnidad, "?");
+      APIJuego.cambiarTexto(textoPrecioUnidad, "");
     }
 
     let clickButtonSalir = this.add
