@@ -41,6 +41,52 @@ export default class Resultados extends Phaser.Scene {
         APIJuego.lenguage === "spanish"
           ? textoVictoriaSpanishJ1
           : textoVictoriaEnglishJ1;
+     
+     
+     if(APIJuego.nJugadores == 2){
+        let puntuacionAnterior = 0
+        let puntuacionSumada = 0;
+        let puntuacionFinal = 0;
+
+       
+
+        if(localStorage.getItem(APIJuego.datosJugador1.nombre) != undefined){
+            puntuacionAnterior = localStorage.getItem(APIJuego.datosJugador1.nombre)
+        
+        }
+        
+        puntuacionSumada = 100 + 100*APIJuego.datosJugador1.puntuacionTotal + 300
+        puntuacionFinal = parseInt(puntuacionAnterior) + puntuacionSumada
+        localStorage.setItem(APIJuego.datosJugador1.nombre,puntuacionFinal)
+        console.log(localStorage.getItem(APIJuego.datosJugador1.nombre))
+
+        if(localStorage.getItem(APIJuego.datosJugador2.nombre) != undefined){
+          puntuacionAnterior = localStorage.getItem(APIJuego.datosJugador2.nombre)
+      }
+
+        puntuacionSumada = 100 + 100*APIJuego.datosJugador2.puntuacionTotal
+        puntuacionFinal = parseInt(puntuacionAnterior) + puntuacionSumada
+        localStorage.setItem(APIJuego.datosJugador2.nombre,puntuacionFinal)
+        console.log(localStorage.getItem(APIJuego.datosJugador2.nombre))
+     }else{
+      let puntuacionAnterior = 0
+      let puntuacionSumada = 0;
+      let puntuacionFinal = 0;
+
+     
+
+      if(localStorage.getItem(APIJuego.datosJugador1.nombre) != undefined){
+          puntuacionAnterior = localStorage.getItem(APIJuego.datosJugador1.nombre)
+      
+      }
+      
+      puntuacionSumada = APIJuego.puzleActual >5? 300:100;
+      puntuacionFinal = parseInt(puntuacionAnterior) + puntuacionSumada
+      localStorage.setItem(APIJuego.datosJugador1.nombre,puntuacionFinal)
+      console.log(localStorage.getItem(APIJuego.datosJugador1.nombre))
+       
+     }
+       
     }
 
     if (APIJuego.ganador === 2) {
@@ -48,6 +94,31 @@ export default class Resultados extends Phaser.Scene {
         APIJuego.lenguage === "spanish"
           ? textoVictoriaSpanishJ2
           : textoVictoriaEnglishJ2;
+          let puntuacionAnterior = 0
+          let puntuacionSumada = 0;
+          let puntuacionFinal = 0;
+  
+         
+  
+          if(localStorage.getItem(APIJuego.datosJugador2.nombre) != undefined){
+              puntuacionAnterior = localStorage.getItem(APIJuego.datosJugador2.nombre)
+          
+          }
+          
+          puntuacionSumada = 100 + 100*APIJuego.datosJugador2.puntuacionTotal + 300
+          puntuacionFinal = parseInt(puntuacionAnterior) + puntuacionSumada
+          localStorage.setItem(APIJuego.datosJugador2.nombre,puntuacionFinal)
+          console.log(localStorage.getItem(APIJuego.datosJugador2.nombre))
+  
+          if(localStorage.getItem(APIJuego.datosJugador1.nombre) != undefined){
+            puntuacionAnterior = localStorage.getItem(APIJuego.datosJugador1.nombre)
+        }
+  
+          puntuacionSumada = 100 + 100*APIJuego.datosJugador1.puntuacionTotal
+          puntuacionFinal = parseInt(puntuacionAnterior) + puntuacionSumada
+          localStorage.setItem(APIJuego.datosJugador1.nombre,puntuacionFinal)
+          console.log(localStorage.getItem(APIJuego.datosJugador1.nombre))
+
     }
 
     if (APIJuego.ganador === 0) {

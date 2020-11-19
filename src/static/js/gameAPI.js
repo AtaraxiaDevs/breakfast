@@ -729,7 +729,7 @@ export default class GameAPI {
 
   generarBuffo = function(){
     this.lineaBuffo = this.getRandom(0,2)
-    let randomN = this.getRandom(0,17)
+    let randomN = this.getRandom(0,15)
     switch(true){
         case (randomN<3):
             this.buffoActual = "Sweet"
