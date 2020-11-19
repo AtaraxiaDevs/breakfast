@@ -95,11 +95,12 @@
 
 ## 4.- CARACTERÍSTICAS PRINCIPALES <a name="caracteristicasPrincipales"/>
 
-**- Batallas 1vs1:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
-**- Multijugador Local:** Juega en pantalla dividida con un amigo en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación!<br>
+**- Batallas a ciegas:** Dos equipos, dos ejércitos, las mismas unidades. Llegar con una unidad al terreno rival suma un punto para la ronda. Hay un recuento al final de cada ronda, que determina el ganador de la misma. La victoria final se consigue ganando 3 de estas 5 rondas.<br>
+**- Modos de Juego:** Puedes jugar con tus amigos en el Modo Dos Jugadores, en pantalla dividida y en el dispositivo que prefieras. ¡Evita que cotillee tu fase de preparación! También puedes jugar contra la máquina en los desafiantes niveles del Modo Un Jugador. Además, añadido al modo Clásico, ¡podrás jugar al modo especial de Halloween!<br>
 **- Diferentes Unidades:** Usarás estratégicamente las 4 unidades básicas: la agresiva Tostada, la defensora Magdalena, el preciso Bol de Cereales o el Velocista.<br>
-**- Uso de Habilidades:** Los poderosos personajes de apoyo te prestarán su ayuda, en forma de habilidades. Se pueden conseguir durante la partida. Encuentra a la mascota del juego... ¡y ya verás!<br>
-**- Modos de Juego:** Puedes jugar con tus amigos en el Modo Duelo o enfrentarte a los desafiantes niveles del Modo Táctica. También puede elegirse entre Modo NORMAL y Modo HALLOWEEN.
+**- Uso de Habilidades:** Durante la partida, podrás conseguir habilidades que te ayudaran a avanzar o a fastidiar a tu rival.¡Úsalas sabiamente! Encuentra a las mascotas del juego... ¡y ya verás!<br>
+**- Consigue Grandes Premios:** Mientras vas jugando, podrás conseguir CeReal Currency (CC). Con esta moneda, podrás acceder en la tienda a Cupones Descuento, Productos y mucho más. También podrás comprar con nuestras Ataraxia Coins muchos extras, como geniales Skins o Chromas.
+
 
 ---
 
