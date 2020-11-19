@@ -29,9 +29,9 @@ export default class Resultados extends Phaser.Scene {
       "CONGRATULATIONS!\n\n" + APIJuego.datosJugador2.nombre + ", you win!";
 
     let textoDerrotaSpanish =
-      "¡DERROTA!\n\nLo siento, nombre,\nvuelve a intentarlo";
+      "¡DERROTA!\n\nLo siento, "+ APIJuego.datosJugador1.nombre +"\nvuelve a intentarlo";
 
-    let textoDerrotaEnglish = "DEFEAT!\n\nSorry, nombre,\ntry again";
+    let textoDerrotaEnglish = "DEFEAT!\n\nSorry, " + APIJuego.datosJugador1.nombre +",\ntry again";
 
     let resultadosSpanish = "Se ha cancelado\nla batalla";
     let resultadosEnglish = "The battle\nis cancelled";
@@ -86,7 +86,12 @@ export default class Resultados extends Phaser.Scene {
         console.log(localStorage.getItem(APIJuego.datosJugador1.nombre));
       }
     }
-
+    if(APIJuego.ganador === -1){
+      textoGanador= 
+      APIJuego.lenguage  === "spanish"
+      ? textoDerrotaSpanish
+      : textoDerrotaEnglish;
+    }
     if (APIJuego.ganador === 2) {
       textoGanador =
         APIJuego.lenguage === "spanish"
@@ -195,6 +200,15 @@ export default class Resultados extends Phaser.Scene {
             APIJuego.lenguage === "spanish"
               ? resultadosSpanish
               : resultadosEnglish
+          );
+        }
+        
+        if (APIJuego.ganador === -1) {
+          APIJuego.cambiarTexto(
+            textoVictoria,
+            APIJuego.lenguage === "spanish"
+              ? textoDerrotaSpanish
+              : textoDerrotaEnglish
           );
         }
         clickButtonIdioma.setTexture(

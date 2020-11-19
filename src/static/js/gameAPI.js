@@ -1033,7 +1033,7 @@ updateCombate(){
 
 
          }else{
-            this.ganador = 0
+            this.ganador = -1
             this.ronda = 5
             this.arrancarFinCombate("resultados")
 
