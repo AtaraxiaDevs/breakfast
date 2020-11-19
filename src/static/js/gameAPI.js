@@ -205,8 +205,6 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
-    this.escena.load.image("placeHolderHalloween","assets/misc/calabaza_modohalloween.png")
-
 
     // ---------------- SPRITES ANIMACIONES -------------------
     for (let i in dbAnimations) {
@@ -357,6 +355,22 @@ export default class GameAPI {
   }
 
     deshacer = function(juagdorActual){
+      for(let i in this.combate) {
+        for (let j in this.combate[i]) {
+          if (this.ultimoColocado === this.combate[i][j].id) {
+            if (i == 0) {
+              console.log("id encontrado")
+              this.linea1 = this.linea1 - 1;
+            }
+            if (i == 1) {
+              this.linea2 = this.linea2 - 1;
+            }
+            if (i == 2) {
+              this.linea3 = this.linea3 - 1;
+            }
+          }
+        }
+      }
         this.eliminarPersonaje(this.ultimoColocado)
         this.colocarPreparacion();
         this.lineUp.length = this.lineUp.length - 1;
@@ -715,7 +729,7 @@ export default class GameAPI {
 
   generarBuffo = function(){
     this.lineaBuffo = this.getRandom(0,2)
-    let randomN = this.getRandom(0,15)
+    let randomN = this.getRandom(0,17)
     switch(true){
         case (randomN<3):
             this.buffoActual = "Sweet"
@@ -894,6 +908,7 @@ destruirEnemigos = function(linea,direction){
   }
 }
 reiniciarInfoJugadores = function(){
+  this.ronda = 0;
   this.datosJugador1 = {
     "nombre": undefined,
     "puntuacionActual":"",
@@ -1048,7 +1063,7 @@ updateCombate(){
             this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
             this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1
             this.arrancarFinCombate("preparacion")
-
+      
             
           }else{
             this.ganador = 0;
@@ -1070,10 +1085,12 @@ arrancarFinCombate = function(escena){
   this.datosJugador2.checkLineUp = false
 
   console.log(this.ronda)
+  console.log("puto " + this.datosJugador2.puntuacionTotal)
 
-  if(this.datosJugador1.puntuacionTotal == 3){
+  if(this.datosJugador1.puntuacionTotal == 3) {
     this.ronda = 5
   }
+
   if(this.datosJugador2.puntuacionTotal == 3){
     this.ronda = 5
   }
@@ -1083,8 +1100,6 @@ arrancarFinCombate = function(escena){
   }else{
     this.escena.scene.start("preparacion")
   }
-  
-  
 }
 
   constructor() {
@@ -1118,6 +1133,10 @@ arrancarFinCombate = function(escena){
     this.flechaReverse1 = "";
     this.flechaReverse2 = "";
     this.flechaReverse3 = "";
+
+    this.linea1 = 0
+    this.linea2 = 0
+    this.linea3 = 0
 
     this.recuadroDineroJ1 = "";
     this.recuadroDineroJ2 = "";

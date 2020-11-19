@@ -14,6 +14,10 @@ export default class Preparacion extends Phaser.Scene {
     let jugadorActual;
     let textoDinero = APIJuego.datosJugadorActual;
 
+    APIJuego.linea1 = 0
+    APIJuego.linea2 = 0
+    APIJuego.linea3 = 0
+
     APIJuego.pagoPrevio = "";
 
     APIJuego.reiniciarLineUp();
@@ -80,13 +84,16 @@ export default class Preparacion extends Phaser.Scene {
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.pagar(1, jugadorActual);
-        APIJuego.cambiarTexto(
-          dinero,
-          jugadorActual === 1
-            ? APIJuego.datosJugador1.dinero + " $"
-            : APIJuego.datosJugador2.dinero + " $"
-        );
+        if (APIJuego.linea1 < 3) {
+          APIJuego.linea1 += 1;
+          APIJuego.pagar(1, jugadorActual);
+          APIJuego.cambiarTexto(
+            dinero,
+            jugadorActual === 1
+              ? APIJuego.datosJugador1.dinero + " $"
+              : APIJuego.datosJugador2.dinero + " $"
+          );
+        }
       });
 
     let clickButtonFlecha2 = this.add
@@ -94,13 +101,16 @@ export default class Preparacion extends Phaser.Scene {
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.pagar(2, jugadorActual);
-        APIJuego.cambiarTexto(
-          dinero,
-          jugadorActual === 1
-            ? APIJuego.datosJugador1.dinero + " $"
-            : APIJuego.datosJugador2.dinero + " $"
-        );
+        if (APIJuego.linea2 < 3) {
+          APIJuego.linea2 += 1;
+          APIJuego.pagar(2, jugadorActual);
+          APIJuego.cambiarTexto(
+            dinero,
+            jugadorActual === 1
+              ? APIJuego.datosJugador1.dinero + " $"
+              : APIJuego.datosJugador2.dinero + " $"
+          );
+        }
       });
 
     let clickButtonFlecha3 = this.add
@@ -108,16 +118,15 @@ export default class Preparacion extends Phaser.Scene {
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.pagar(3, jugadorActual);
-        APIJuego.cambiarTexto(
-          dinero,
-          jugadorActual === 1
-            ? APIJuego.datosJugador1.dinero + " $"
-            : APIJuego.datosJugador2.dinero + " $"
-        );
-
-        if(APIJuego.modoActual != "Normal"){
-          APIJuego.randomAliado();
+        if (APIJuego.linea3 < 3) {
+          APIJuego.linea3 += 1;
+          APIJuego.pagar(3, jugadorActual);
+          APIJuego.cambiarTexto(
+            dinero,
+            jugadorActual === 1
+              ? APIJuego.datosJugador1.dinero + " $"
+              : APIJuego.datosJugador2.dinero + " $"
+          );
         }
       });
 
@@ -185,9 +194,16 @@ export default class Preparacion extends Phaser.Scene {
       clickButtonCambiar.visible = false;
       clickButtonDeshacer.visible = false;
       fondo.setTexture("fondoPreparacionPuzzle");
-      let placeHolder = this.add.image(550,475,"placeHolderHalloween").setScale(2)
+      let textoInterrogante = this.make.text({
+        x: 550,
+        y: 400,
+        text: "?",
+        style: {
+          font: "100px 'Sigmar One'",
+        },
+      });
 
-      APIJuego.cambiarTexto(textoPrecioUnidad, "");
+      APIJuego.cambiarTexto(textoPrecioUnidad, "?");
     }
 
     let clickButtonSalir = this.add
