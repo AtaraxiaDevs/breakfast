@@ -588,15 +588,15 @@ Para el sonido, hemos querido buscar una mezcla entre un ambiente agradable y la
 
 Todos los temas de la banda sonora son Assets Externos. Se han sacado principalmente del siguiente canal de Youtube, llamado Hadwin Channel: 
 
-<a href="https://www.youtube.com/watch?v=jncq-_yBG7U&feature=youtu.be"/>
+<a href="https://www.youtube.com/watch?v=jncq-_yBG7U&feature=youtu.be"/>Canal de Youtube</a>
 
 Adjuntamos aqui su referencia y mensajes del propio autor en el que autoriza su uso a otros usuarios:
 
-- *Tema Menú*: Cartoon Fun Holidays by Hadwin Channel
+- *Tema Menú*: Cartoon Fun Holidays by Hadwin Channel<br>
 ![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image.png)
-- *Tema Preparación*: DarkTown Stratters Ball by Hadwin Channel
+- *Tema Preparación*: DarkTown Stratters Ball by Hadwin Channel<br>
 ![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(2).png)
-- *Tema Combate*: Run of Clowns by Hadwin Channel
+- *Tema Combate*: Run of Clowns by Hadwin Channel<br>
 ![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(1).png)
 
 ![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image3.png)
@@ -696,10 +696,10 @@ Un ejemplo pueden ser los niños pequeños. Muchos de los niños actuales juegan
 
 *MARKETING*
 
-- Promoción en redes sociales
-- Potenciar eventos online (COVID)
-- Convenciones Pequeñas
-- Torneos
+- Promoción en redes sociales: El juego se promociona principalmente con la cuenta de Twitter de @AtaraxiaDevs. Hemos ido subiendo diferentes publicaciones a esta cuenta, entre las que se incluyen Bocetos de Personajes, Interfaces, Animaciones y otros elementos para ir dando idea de que va el juego y generar interés.
+- Youtube: Aquí colgaremos vídeos, acerca del juego, por ejemplo el Trailer del propio juego. También podremos realizar comunicados, con información acerca del juego o próximos juegos, además de algunos vídeos interesantes como puede ser un SpeedPaint del Arte.
+- Blog: En esta página se añaden cosas más técnicas del desarrollo, como entrevistas, artículos o comentarios de autor. 
+- Potenciar eventos online (COVID): Se va a intentar potenciar los eventos online: quedadas con los autores, streamings de desarrollo, torneos online mediante intermediarios (que actue de arbitro y controle la partida para evitar trampas)...
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Modelo%20de%20Negocio.png)
 
