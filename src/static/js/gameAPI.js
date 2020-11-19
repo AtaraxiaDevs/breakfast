@@ -524,7 +524,7 @@ export default class GameAPI {
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
-              console.log(this.combate[i][j].hpActual)
+              console.log("Daño a " + this.combate[i][j].tipo + " en linea + " + (i + 1))
             }
         }
     }
