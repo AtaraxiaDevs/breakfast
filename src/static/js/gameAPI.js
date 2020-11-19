@@ -153,6 +153,7 @@ export default class GameAPI {
 
     // --------------- ASSETS PREPARTIDA -----------------
     this.escena.load.image("fondoPrePartida", "assets/prePartida/InterfazBasePrePartida.png")
+    this.escena.load.image("fondoPrePartida2", "assets/prePartida/InterfazbasePrePartida2.png")
     this.escena.load.image("flechasJuntas", "assets/prePartida/flechasJuntas.png")
     this.escena.load.image("spanish_ModoJuegoEscenario", "assets/prePartida/ModoJuegoEscenario.png")
     this.escena.load.image("english_ModoJuegoEscenario", "assets/prePartida/GameModeScene.png")
@@ -169,6 +170,10 @@ export default class GameAPI {
     // --------------- ASSETS PARTIDA -----------------
     this.escena.load.image("flecha1", "assets/partida/Flecha1.png")
     this.escena.load.image("flecha2", "assets/partida/Flecha2.png")
+    this.escena.load.image("recuadroAzul", "assets/partida/recuadroAzul.png")
+    this.escena.load.image("recuadroRosa", "assets/partida/recuadroRosa.png")
+    this.escena.load.image("recuadroJ1", "assets/partida/J1.png")
+    this.escena.load.image("recuadroJ2", "assets/partida/J2.png")
 
     // --------------- AUDIO -----------------
     this.escena.load.audio("temaInicio", "assets/audio/musica/temaInicio.wav");
