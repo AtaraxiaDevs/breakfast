@@ -77,9 +77,9 @@
 | **VERSION**     | **CAMBIOS DE VERSION**  |
 | :-------------: |:---------------------:  |
 | 1.0             | Versión Inicial         |
-| 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                        |
-| 1.2             | Otro refinamiento de mecánicas                                                |
-| 2.0             | Versión Final. Modos de juego definidos; interfaces nuevas y nuevos estados del juego; refinamiento de economía y puntuación; nuevo ranking |
+| 1.1             | Rediseño de mecánicas y cambios en los modos de juego.                         |
+| 1.2             | Otro refinamiento de mecánicas.                                                |
+| 2.0             | Versión Final. Modos de juego definidos; interfaces nuevas y nuevos estados del juego; refinamiento de economía y puntuación; nuevo ranking. |
 
 ---
  
@@ -116,7 +116,7 @@ Si una fila no puntua, cuenta 0 para ambos jugadores. Por ello, el marcador pued
 
 El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra.
 
-- **Zona de Jugador:** Zona inmutable, siempre es recta. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
+- **Zona de Jugador:** Donde aparecen las unidades. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
 - **Zona Neutra:** Aquí pueden aparecer objetos, que son Habilidades obtenibles.
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Escenario.png)
@@ -129,7 +129,7 @@ El juego se divide en dos grandes fases:
 
 En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Es la parte estática del juego.
 
-En esta fase, se nos presenta una interfaz que muestra: Nombre, Dinero de ronda y Habilidad (zona superior); nuestra zona del campo, con sus 3 líneas, y 3 recuadros, que representan los bufos que hay en esa determinada línea (zona derecha); y un panel que representa las unidades disponibles en ese momento, que se van cambiando al pulsar "CAMBIAR" (zona izquierda). La unidad mostrada en el panel está seleccionada, y hay que pulsar la flecha de línea para colocarla. Si nos equivocamos al elegir nuestras unidades, podemos pulsar "DESHACER" para vender la última unidad colocada, sin coste alguno. Las líneas tienen un máximo de 3 unidades, siendo el máximo de unidades 9 por equipo. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
+En esta fase, se nos presenta una interfaz que muestra: Nombre y Dinero de Ronda (zona superior); nuestra zona del campo, con sus 3 líneas, y 3 recuadros, que representan las Habilidades que hay en esa determinada línea (zona derecha); y un panel que representa las unidades disponibles en ese momento, que se van cambiando al pulsar "CAMBIAR" (zona izquierda). La unidad mostrada en el panel está seleccionada, y hay que pulsar la flecha de línea para colocarla. Si nos equivocamos al elegir nuestras unidades, podemos pulsar "DESHACER" para vender la última unidad colocada, sin coste alguno. Las líneas tienen un máximo de 3 unidades, siendo el máximo de unidades 9 por equipo. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
 
 **FASE DE COMBATE**
 
@@ -139,9 +139,9 @@ En esta fase, entramos de lleno al escenario principal. Vemos el campo de batall
 
 Las unidades combaten cuando se encuentran a una distancia de X (Rango) entre sí. Estos combates se deciden teniendo en cuenta las estadísticas definidas en el apartado **PERSONAJES**. El combate se desarrolla mejor en el apartado **COMBATE**. Una unidad sale vencedora y la otra muere. Todas las unidades vuelven a caminar cuando terminan su combate, hasta llegar a la zona de puntuación.
 
-En el escenario, se pueden conseguir Habilidades en forma de objetos. Cuando una unidad pasa por encima, la obtiene y se añade a una pestaña al lado del nombre del jugador (icono). Al pulsar en ella, aparecen las flechas de línea, que sirven para seleccionar la línea de acción de la habilidad en cuestión. Algunas habilidades no hacen aparecer estas flechas. Cuando se usa, desaparece su icono de la pestaña. Las Habilidades se conservan entre rondas si no se usan (aparecen en la fase de preparación), pero si se coge una nueva habilidad se pierde la anterior.
+En el escenario, se pueden conseguir Habilidades en forma de objetos. Cuando una unidad pasa por encima, la obtiene y se añade a una pestaña al lado del nombre del jugador (icono). Al pulsar en ella, aparecen las flechas de línea, que sirven para seleccionar la línea de acción de la habilidad en cuestión. Algunas habilidades no hacen aparecer estas flechas. Cuando se usa, desaparece su icono de la pestaña. Las Habilidades no se conservan entre rondas, así que se pierden si no se usan.
 
-El combate se acaba cuando todas las unidades han llegado a campo contrario o hayan sido eliminadas. Tanto los Toppings como la Habilidad poseida se conservan entre rondas. Se pasa de nuevo a la fase de preparación, a menos que sea el punto de Partida, que pasará a la pantalla de Resultados.
+El combate se acaba cuando todas las unidades han llegado a campo contrario o hayan sido eliminadas. Los Toppings se conservan entre rondas. Se pasa de nuevo a la fase de preparación, a menos que sea el punto de Partida, que pasará a la pantalla de Resultados.
 
 #### 5.1.2.- PERSONAJES  <a name="mecanicas2"/>
 
@@ -170,48 +170,23 @@ Daño de Ataque = (ATK) + (RANDOM(-0.5,+0.5))
 
 Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores. También es posible que una unidad esquive un ataque, con una probabilidad de 1 sobre 10, y no recibe daño. 
 
-El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick. El atacante ataca cada vez, mientras que el tanque debe esperar 3 ticks. El velocista ataca 2 veces por tick.
-
-Algunos ejemplos de Batalla:
-
-**Atacante vs Defensor**
-
-Rango => 1 = 1     (Empiezan a la vez)
-
-`DPS` =>  A = 1   /////////   D = 0,33
-
-Ataque 1 => A     /////////   R = 3      ////////    HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
-
-`DPS` =>  A = 1   /////////   D = 0,66
-
-Ataque 2 => A     /////////   R = 7      ////////    HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
-
-`DPS` =>  A = 1   /////////   D = 1      ////////    (RANDOM) = > ¿Quien ataca primero? Sale D
-
-Ataque 3 => D     /////////   R = 9      ////////    HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3 <br>
-Ataque 4 => A     /////////   R = 1      ////////    HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
-
-`DPS` =>  A = 1   /////////   D = 0,33
-
-Ataque 5 => A     /////////   R = 0      ////////    HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
-
-EL ATACANTE GANA
+El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick.
 
 #### 5.1.4.- HABILIDADES <a name="mecanicas4"/>
 
-Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario y de premios, y se almacenan en un Stack de Habilidades, donde podremos usarlas en cualquier momento del combate. Se selecciona en ese Stack y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
+Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario, y se almacenan en una pestaña de la interfaz, donde podremos usarlas en cualquier momento del combate. Se selecciona en esa pestaña y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
 
-**COMÚN: **
+**COMÚN:** (50%)
 
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
-**RARO**
+**RARO:** (35%)
 
-- *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 5 segundos.
-- *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para ganar dinero al mantenerlo en el campo.
+- *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 10 segundos.
+- *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para tener una unidad extra.
 
-**ULTRA RARO**
+**ÉPICO:** (15%)
 
 - *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en la Zona Neutra, en una línea a elegir. Eliminan a todos los enemigos de una fila cuando termina su animación.
 
@@ -232,24 +207,24 @@ Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los g
 
 | **PASAR DE RONDA** | **GANADOR RONDA** | **PERDEDOR RONDA** | **LLEGAR AL FINAL CON UNIDAD** |
 | :----------------: | :---------------: | :----------------: | :----------------------------: | 
-|        +600        |       +100        |       +200         |             +100               |
+|        +600        |       +300        |       +500         |             +100               |
 
 #### 5.1.6.- RANKING    <a name="mecanicas6"/>
 
 El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas puntuaciones se miden con un sistema interno, que resulta de una combinación de los resultados de los 2 modos de juego: Un Jugador y Dos Jugadores. Al final de cada puzle resuelto, se nos da una cantidad de puntos que suma. Así mismo, al final de cada partida de Dos Jugadores, se hace un recuento y ambos jugadores ganan puntos para el Ranking. El resumen de las puntuaciones internas es este:
 
-| **NOMBRE**      | **POR BAJA** | **POR MANTENER** | **POR PUNTUAR**  | 
-| :-------------: | :----------: | :--------------: | :--------------: | 
-| Atacante        |    +10       |   +5             |   +20            |         
-| Defensor        |    +10       |   +5             |   +20            |
-| Distancia       |    +10       |   +5             |   +20            | 
-| Velocista       |    +10       |   +20            |   +20            |
 
 <br>
 
-| **GANADOR RONDA** | **PERDEDOR RONDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR TOPPINGS RESTANTES** | **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
-| :---------------: | :----------------: | :------------------: | :--------------------: | :------------------------: | :--------------: | :----------------: |
-|       +100        |       -50          |         +200         |          +20           |       +(TOPPINGS / 2)      |       +100       |        +300        |
+| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** |
+| :---------------: | :---------------: | :------------------: | 
+|       +100        |       +100        |         +300         |
+
+<br>
+
+| **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
+| :--------------: | :----------------: |
+|       +100       |        +300        |
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
@@ -372,7 +347,7 @@ Al poderse jugar en diferentes plataformas, se usan 2 sets de controles: PC y m�
 
 **CONTROLES PC**
 
-Basado en el teclado y ratón.
+Basado en el ratón. (Al solo tener una Habilidad por Ronda, y que no se conserve entre ellas, no hay necesidad de hacer controles de Teclado. Esto ocurre porque solo un jugador tiene la posibilidad de usar la Habilidad, por lo que no hay conflictos. En versiones posteriores del juego esto puede cambiar hacia unos controles de teclado, que dividan los controles en 2.)
 
 *Controles Menú* <br>
 `Ratón`: Seleccionar entre opciones<br>
@@ -391,7 +366,6 @@ Basado en el control táctil. Los mismos controles para los dos jugadores, un ti
 `ICONO DE HABILIDADES`: Al pulsar,activas la habilidad acumulada.<br>
 
 *Botones Extra*<br>
-**...**<br>
 `SALIR`: Sale al menú principal
 
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
@@ -412,86 +386,87 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 
 - **MODO DOS JUGADORES**: Basado en Multijugador Local. Empiezas en una pantalla pre-partida, donde tienes que elegir entre 2 variantes:
 
--> NORMAL: el juego estándar, sin cambios adicionales.
--> HALLOWEEN: no se muestra qué unidad estás comprando en la fase de preparación. Es sorpresa.
+**-> NORMAL:** el juego estándar, sin cambios adicionales.<br>
+**-> HALLOWEEN:** no se muestra qué unidad estás comprando en la fase de preparación. Es sorpresa.
 
 - **MODO UN JUGADOR**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina, usando un número determinado de Toppings y Habilidades. Estos puzzles se organizan por dificultad, saliendote de manera aleatoria dependiendo de tu puntuación interna. Si no es alta, aparecen los fáciles, y si no, los dificiles. Aqui se resumen los puzzles y sus características:
 
--> PUZZLE FÁCIL:<br>
+**-> PUZZLE FÁCIL:**<br>
 
 **1:** <br>
 DINERO: 200<br>
 HABILIDAD: ---
 
-L1 -> AAA		L2 -> ---		L3 -> --- <br>
-SOLUCIÓN: 	L1 -> ---		L2 -> A			L3-> A <br>
+L1 -> AAA	/	L2 -> ---	/	L3 -> --- <br>
+SOLUCIÓN: 	L1 -> ---	/	L2 -> A	/	L3-> A <br>
 
 **2:**	<br>
 DINERO: 800<br>
 HABILIDAD: ---
 
-L1 -> AAA		L2 -> AAA		L3 -> AAA	<br>									
-SOLUCIÓN: 	L1 -> TDA		L2 -> TDA		L3-> --- <br>
+L1 -> AAA	/	L2 -> AAA	/	L3 -> AAA	<br>									
+SOLUCIÓN: 	L1 -> TDA	/	L2 -> TDA	/	L3-> --- <br>
 
 **3:**	<br>
 DINERO: 300<br>
 HABILIDAD: SLOWDOWN L1
 
-L1 -> VVV		L2 -> VVV		L3 -> VVV	<br>
-SOLUCIÓN: 	L1 -> V	(SLOW)		L2 -> ---		L3-> --- <br>
+L1 -> VVV	/	L2 -> VVV	/	L3 -> VVV	<br>
+SOLUCIÓN: 	L1 -> V	(SLOW)	/	L2 -> ---	/	L3-> --- <br>
 
 **4:** <br>
 DINERO: 100<br>
 HABILIDAD: SPEEDY L1
 
-L1 -> ---		L2 -> AAA	L3 -> ---	<br>								
-SOLUCIÓN: 	L1 -> A			L2 -> ---		L3-> (SPEEDY) <br>
+L1 -> ---	/	L2 -> AAA /	L3 -> ---	<br>								
+SOLUCIÓN: 	L1 -> A		/	L2 -> ---	/	L3-> (SPEEDY) <br>
  
 **5:** <br>
 DINERO: 300<br>
 HABILIDAD: ---
 
-L1 -> VVV		L2 -> VVV	L3 -> ---	<br>		
-SOLUCIÓN: 	L1 -> D			L2 -> ---		L3-> A	<br>
+L1 -> VVV	/	L2 -> VVV	/ L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> D	/	L2 -> ---	/	L3-> A	<br>
 
--> PUZZLE DIFÍCIL:<br>
+**-> PUZZLE DIFÍCIL:**<br>
 
 **1:** <br>
 DINERO: 400<br>
 HABILIDAD: MANTEQUILLA L1
 
-L1 -> ATD		L2 -> VVV		L3 -> VVV <br>
-SOLUCIÓN: 	L1 -> ---		L2 -> AA			L3-> AA <br>
+L1 -> ATD	/	L2 -> VVV	/	L3 -> VVV <br>
+SOLUCIÓN: 	L1 -> ---	/	L2 -> AA	/	L3-> AA <br>
 
 **2:**	<br>
 DINERO: 400<br>
 HABILIDAD: ---
 
-L1 -> TTT		L2 -> TD		L3 -> TTT	<br>									
-SOLUCIÓN: 	L1 -> AA		L2 -> ---		L3-> AA <br>
+L1 -> TTT	/	L2 -> TD	/	L3 -> TTT	<br>									
+SOLUCIÓN: 	L1 -> AA	/	L2 -> ---	/	L3-> AA <br>
 
 **3:**	<br>
 DINERO: 500<br>
 HABILIDAD: ---
 
-L1 -> TDA		L2 -> ---		L3 -> TDA	<br>
-SOLUCIÓN: 	L1 -> VTD		L2 -> A		  L3-> --- <br>
+L1 -> TDA	/	L2 -> ---	/	L3 -> TDA	<br>
+SOLUCIÓN: 	L1 -> VTD	/	L2 -> A	/ L3-> --- <br>
 
 **4:** <br>
 DINERO: 700<br>
 HABILIDAD: SLOWDOWN L3
 
-L1 -> AAA		L2 -> ADA	L3 -> TDA	<br>								
-SOLUCIÓN: 	L1 -> TD			L2 -> TD (SLOW)		L3-> A <br>
+L1 -> AAA	/	L2 -> ADA /	L3 -> TDA	<br>								
+SOLUCIÓN: 	L1 -> TD	/	L2 -> TD (SLOW)	/	L3-> A <br>
  
 **5:** <br>
 DINERO: 300<br>
 HABILIDAD: MANTEQUILLA L3
 
-L1 -> TDA		L2 -> TDA	L3 -> ---	<br>		
-SOLUCIÓN: 	L1 -> T(MAN)			L2 -> ---		L3-> A	<br>
+L1 -> TDA	/	L2 -> TDA /	L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> T(MAN)	/	L2 -> ---	/	L3-> A	<br>
 
--> LEYENDA:<br>
+**-> LEYENDA:**<br>
+
 A = Atacante<br>
 T = Tanque<br>
 D = Distancia<br>
@@ -606,11 +581,25 @@ Juegos con Personajes similares:
 ---
 
 ## 8.- SONIDO	<a name="sonido"/>
+
+Para el sonido, hemos querido buscar una mezcla entre un ambiente agradable y la tensión de un combate. Curiosamente, nos vino a la cabeza el juego Cooking Mama, que combina menús tranquilos con música un poco más activa para los minijuegos de cocina. Buscamos assets externos que responden a estos 2 puntos.
+
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
-- *Tema Menú*: 
-- *Tema Preparación*:
-- *Tema Combate*:
+Todos los temas de la banda sonora son Assets Externos. Se han sacado principalmente del siguiente canal de Youtube, llamado Hadwin Channel: 
+
+<a href="https://www.youtube.com/watch?v=jncq-_yBG7U&feature=youtu.be"/>
+
+Adjuntamos aqui su referencia y mensajes del propio autor en el que autoriza su uso a otros usuarios:
+
+- *Tema Menú*: Cartoon Fun Holidays by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image.png)
+- *Tema Preparación*: DarkTown Stratters Ball by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(2).png)
+- *Tema Combate*: Run of Clowns by Hadwin Channel
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image%20(1).png)
+
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/COPYRIGHT/MicrosoftTeams-image3.png)
 
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
 
@@ -627,7 +616,7 @@ Realizados con sonidos reales modificados a través de Audacity.
 ## 9.- NARRATIVA Y GUION	<a name="narrativaYGuion"/>
 ### 9.1.- SINOPSIS <a name="sinopsis"/>	
 
-Unos amigables alienígenas deciden venir a la Tierra en busca de nutrientes que les hagan crecer y llegar a su forma completa. Sin embargo, se encuentran con tan amplia variedad de alimentos, que empiezan a tener discusiones internas. Dos de los más respetados, M.G. Y M.E. (NOMBRES PROVISIONALES) reúnen dos grandes grupos, que defienden que el desayuno es la comida más importante del día. 
+Unos amigables alienígenas deciden venir a la Tierra en busca de nutrientes que les hagan crecer y llegar a su forma completa. Sin embargo, se encuentran con tan amplia variedad de alimentos, que empiezan a tener discusiones internas. Dos de los más respetados, M.G. Y M.E. reúnen dos grandes grupos, que defienden que el desayuno es la comida más importante del día. 
 
 M.G. defiende que la dieta debería estar sustentada en la Mantequilla, y decide fusionarse con ella para demostrar su poder. M.E. no se queda atrás, pero cree que la Mermelada es mucho más poderosa. Sus constantes discusiones y su creciente temperamento hacen que decidan librar una batalla para probar que llevan la razón.
 
@@ -648,9 +637,9 @@ Los jugadores representan a un pequeño ejército de estos dos grandes grupos. E
 
 La idea es mantener el juego a lo largo del tiempo, por lo que el modelo que se toma es la mejora e inclusión de contenido constante, así como actualización casi diaria de la tienda, promociones y eventos.
 
-La primera etapa es ver como se comporta el juego: analizar datos, buscar mejoras nuevas, definir el jugador medio... Esto puede provocar cambios en el plan, así como ayudar a que afloren nuevas ideas y pensar en que quieren o buscan los jugadores en nuestro juego. Durará un mes desde el lanzamiento
+La primera etapa es ver como se comporta el juego: analizar datos, buscar mejoras nuevas, definir el jugador medio... Esto puede provocar cambios en el plan, así como ayudar a que afloren nuevas ideas y pensar en que quieren o buscan los jugadores en nuestro juego. También intentaremos añadir, en un primer parche, algunos elementos que se quedaron en el aire, ya sea por falta de tiempo o testeo: posibilidad de conservar las Habilidades entre rondas y almacenarlas (con el consiguiente cambio de los controles de PC, ya que habría problemas a la hora de lanzar las Habilidades a la vez), etc. Durará un mes desde el lanzamiento.
 
-La segunda etapa va a buscar añadir al juego nuevas unidades y habilidades, para fomentar la diversidad de partidas, evitar que se haga repetitivo y mejorar el sistema de la economía. Esto se mantendrá a lo largo de todo su ciclo de vida. Hay que establecer un ritmo de salida de nuevo contenido, que irá relacinado con los socios externos y las necesidades del público o el juego. Las estadísticas nos ayudarán a identificar que es lo que le falta al juego. Además, introduciremos los eventos, con los que añadiremos contenido temporal en un lapso de tiempo definido: modos de juego, Habilidad  Durará 2 meses.
+La segunda etapa va a buscar añadir al juego nuevas unidades y habilidades, para fomentar la diversidad de partidas, evitar que se haga repetitivo y mejorar el sistema de la economía. Esto se mantendrá a lo largo de todo su ciclo de vida. Hay que establecer un ritmo de salida de nuevo contenido, que irá relacinado con los socios externos y las necesidades del público o el juego. Las estadísticas nos ayudarán a identificar que es lo que le falta al juego. Además, introduciremos los eventos, con los que añadiremos contenido temporal en un lapso de tiempo definido: modos de juego, Habilidades, ideas nuevas...  Durará 2 meses.
 
 La tercera etapa consiste en la ampliación de la tienda y la transición online. Para este punto, atraídas una serie de marcas, necesitaremos reformar la tienda para empezar a vender Skins basadas en las marcas y mejorar el sistema de premios, enlazándolo con nuevos elementos. Uno de estos elementos será el juego online, que consistirá en hacer que el Multijugador Local pase a ser Online. Con él, aparecerá el modo Torneo, que nos dará mucha moneda virtual para canjear los premios. Existe la opción de crear una tercera moneda, pensada para los modos Online. Esta etapa durará unos 8 meses, teniendo en cuenta el tiempo de producción, y que la ampliación progresiva se añadirá a través de actualizaciones.
 
@@ -667,9 +656,9 @@ POSIBLES AMPLIACIONES DEL JUEGO EN ESTA ÚLTIMA ETAPA:
 
 *MODELO DE NEGOCIO*
 
-El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo).
+El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo). Del Ranking hay que destacar que, debido a la naturaleza local del juego, puede fomentar a la competitividad entre conocidos cercanos, y ayudar a que se creen grupos de juego que sean capaces de captar nuevos interesados en el juego.
 
-Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
+Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Por cada partida se ganan 10 CCs. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
 
 - Pueden probar nuevos productos y ver si el público está interesado. Los datos de compra alojados en nuestra tienda les pueden indicar que productos triunfan y cuales no
 - Actuar como Cebo y Anzuelo: poner los productos en la tienda puede implicar que nuestros jugadores los prueben y acaben cogiendoles el gusto, lo que supone nuevos clientes potenciales para la empresa que los ponga.
