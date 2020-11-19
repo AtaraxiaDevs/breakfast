@@ -238,18 +238,16 @@ Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los g
 
 El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas puntuaciones se miden con un sistema interno, que resulta de una combinación de los resultados de los 2 modos de juego: Un Jugador y Dos Jugadores. Al final de cada puzle resuelto, se nos da una cantidad de puntos que suma. Así mismo, al final de cada partida de Dos Jugadores, se hace un recuento y ambos jugadores ganan puntos para el Ranking. El resumen de las puntuaciones internas es este:
 
-| **NOMBRE**      | **POR BAJA** | **POR MANTENER** | **POR PUNTUAR**  | 
-| :-------------: | :----------: | :--------------: | :--------------: | 
-| Atacante        |    +10       |   +5             |   +20            |         
-| Defensor        |    +10       |   +5             |   +20            |
-| Distancia       |    +10       |   +5             |   +20            | 
-| Velocista       |    +10       |   +20            |   +20            |
 
 <br>
 
-| **GANADOR RONDA** | **PERDEDOR RONDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR TOPPINGS RESTANTES** | **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
-| :---------------: | :----------------: | :------------------: | :--------------------: | :------------------------: | :--------------: | :----------------: |
-|       +100        |       -50          |         +200         |          +20           |       +(TOPPINGS / 2)      |       +100       |        +300        |
+| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR PUNTUAR** | **POR TOPPINGS RESTANTES** | 
+| :---------------: | :---------------: | :------------------: | :--------------------: | :-------------: | :------------------------: | 
+|       +100        |       +100        |         +200         |          +20           |       +20       |      +(TOPPINGS / 2)       |
+<br>
+| **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
+| :--------------: | :----------------: |
+|       +100       |        +300        |
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
@@ -667,7 +665,7 @@ POSIBLES AMPLIACIONES DEL JUEGO EN ESTA ÚLTIMA ETAPA:
 
 *MODELO DE NEGOCIO*
 
-El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo).
+El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo). Del Ranking hay que destacar que, debido a la naturaleza local del juego, puede fomentar a la competitividad entre conocidos cercanos, y ayudar a que se creen grupos de juego que sean capaces de captar nuevos interesados en el juego.
 
 Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
 
