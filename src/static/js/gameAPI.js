@@ -23,7 +23,7 @@ export default class GameAPI {
 
     // --------------- ASSETS MENU PRINCIPAL -----------------
     this.escena.load.image("fondoMP", "assets/menuPrincipal/MenuFinalSinBotones.png");
-    this.escena.load.image("spanish", "assets/menuPrincipal/ESPAÑA.png");
+    this.escena.load.image("spanish", "assets/menuPrincipal/ESPANA.png");
     this.escena.load.image("english", "assets/menuPrincipal/GB.png");
     this.escena.load.image("spanish_jugar", "assets/menuPrincipal/JUGAR.png");
     this.escena.load.image("english_jugar", "assets/menuPrincipal/PLAY.png");
@@ -56,8 +56,8 @@ export default class GameAPI {
     // --------------- ASSETS TIENDA -----------------
     this.escena.load.image("fondoTiendaComprar", "assets/tienda/InterfazTiendaComprarBase.png")
     this.escena.load.image("fondoTiendaSkin", "assets/tienda/InterfazTiendaSkinBase.png")
-    this.escena.load.image("spanish_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseEspañol.png")
-    this.escena.load.image("english_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseInglés.png")
+    this.escena.load.image("spanish_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseEspanol.png")
+    this.escena.load.image("english_fondoTiendaPremios", "assets/tienda/InterfazTiendaPremiosBaseIngles.png")
     this.escena.load.image("spanish_comprar", "assets/tienda/Comprar.png")
     this.escena.load.image("english_comprar", "assets/tienda/Buy.png")
     this.escena.load.image("spanish_comprarNoSelect", "assets/tienda/ComprarNoSelect.png")
@@ -100,7 +100,7 @@ export default class GameAPI {
     this.escena.load.image("english_tactil", "assets/tutorial/controles/Tactile.png")
 
     // --------------- ASSETS TUTORIAL --> Habilidades -----------------
-    this.escena.load.image("spanish_fondoHabilidades", "assets/tutorial/habilidades/InterfazHabilidadesEspañolBASE.png")
+    this.escena.load.image("spanish_fondoHabilidades", "assets/tutorial/habilidades/InterfazHabilidadesEspanolBASE.png")
     this.escena.load.image("english_fondoHabilidades", "assets/tutorial/habilidades/InterfazHabilidadesInglesBASE.png")
 
     // --------------- ASSETS TUTORIAL --> Personajes -----------------
@@ -125,7 +125,7 @@ export default class GameAPI {
 
     // --------------- ASSETS LOGIN -----------------
     this.escena.load.image("fondoLogin", "assets/login/InterfazRegistroBase.png")
-    this.escena.load.image("spanish_nombre", "assets/login/IntroduceTuNombre.png")    
+    this.escena.load.image("spanish_nombre", "assets/login/IntroduceTuNombre.png")
     this.escena.load.image("english_nombre", "assets/login/IntroduceYourNickname.png")
 
     // --------------- ASSETS PREPARACION -----------------
@@ -301,7 +301,7 @@ export default class GameAPI {
     })
   };
 
-  
+
 
 
   //Parámetros: objeto Escena de phaser
@@ -321,23 +321,23 @@ export default class GameAPI {
     );
     this.ultimoColocado = this.idCount;
     this.idCount++;
-    
+
 
     //this.reeordenarFilas();
-    
+
   };
 
   reeordenarFilas = function(){
-     
-    
+
+
     let inicioX = -85;
     let inicioY = 470;
     for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == +1 )
-        
-  
-        
-        
+
+
+
+
         for(let j = 0;j<arrayAux.length;j++){
           arrayAux[j].body.reset(inicioX + j*200, inicioY + 190*i);
         }
@@ -345,9 +345,9 @@ export default class GameAPI {
 
       for(let i =0;i<this.combate.length;i++){
         let arrayAux = this.combate[i].filter(obj => obj.direction == -1 )
-        
+
         let inicioX = 2000
-        
+
         for(let j = 0;j<arrayAux.length;j++){
           arrayAux[j].body.reset(inicioX -j*200,inicioY + 190*i);
         }
@@ -395,7 +395,7 @@ export default class GameAPI {
           }
         }
       }
-      
+
     }
 
     reiniciarVelocidades = function(id,direction){
@@ -418,45 +418,45 @@ export default class GameAPI {
     }
 
     personajeCercano = function(id,x,direction){
-      
+
 
       let masCercano = {};
       masCercano.enemigo = ""
       masCercano.aliado = "";
       let fila = undefined;
 
-      
+
       for (let i in this.combate) {
         for(let j in this.combate[i])
           if(this.combate[i][j].id == id){
             fila = i;
-     
+
           }
       }
 
 
       let arrayAux = []
       if(fila != undefined){
-          
+
             for(let i in this.combate[fila]){
               if((Math.sign((direction*this.combate[fila][i].x) - (direction*x))) == 1 ){
-            
+
 
                 arrayAux.push(this.combate[fila][i])
               }
             }
-       
+
             arrayAux.sort(function(a,b){
               let distA = Math.abs((direction*a.x) - (direction*x))
               let distB = Math.abs((direction*b.x) - (direction*x))
               return distA-distB;
             })
-        
+
       }
- 
+
 
       if(arrayAux === undefined || arrayAux.length == 0){
-    
+
       }else{
         for(let i in arrayAux){
           if(masCercano.aliado == ""){
@@ -468,7 +468,7 @@ export default class GameAPI {
                 vel: arrayAux[i].velocidadActual
               }
             }
-         
+
             }
 
             if(masCercano.enemigo == ""){
@@ -484,8 +484,8 @@ export default class GameAPI {
             }
           }
         }
-     
-        
+
+
 
       return masCercano;
 
@@ -511,14 +511,14 @@ export default class GameAPI {
     this.reeordenarFilas();
 
 
-    
+
   }
 
   cargarCombate = function(){
     if(this.nJugadores == 1){
       this.cargarPuzle();
     }
-  
+
     this.cargarLineUp();
     this.reeordenarFilas()
   }
@@ -554,7 +554,7 @@ export default class GameAPI {
     }
   }
 
-  
+
 
   //------------------------ UI---------------------------------------
   //TODO -Botón para confirmar compo ?
@@ -582,7 +582,7 @@ export default class GameAPI {
   colocarPreparacion = function(){
     let inicioX = 1200;
     let inicioY = 300;
-    for(let i =0;i<this.combate.length;i++){  
+    for(let i =0;i<this.combate.length;i++){
       for(let j = 0;j<this.combate[i].length;j++){
         let x = inicioX + j*150
         let y = inicioY + i*200
@@ -623,7 +623,7 @@ export default class GameAPI {
           this.idCount++;
         }
     }
-    
+
   }
 
   inicializarMusica = function(audio) {
@@ -660,7 +660,7 @@ export default class GameAPI {
         this.añadirPersonaje(linea)
         this.colocarPreparacion()
         this.añadirLineUp(linea)
-        this.datosJugador1.dinero -= this.precioActual 
+        this.datosJugador1.dinero -= this.precioActual
         this.pagoPrevio = this.precioActual
     }
     } else {
@@ -668,7 +668,7 @@ export default class GameAPI {
         this.añadirPersonaje(linea)
         this.colocarPreparacion()
         this.añadirLineUp(linea)
-        this.datosJugador2.dinero -= this.precioActual 
+        this.datosJugador2.dinero -= this.precioActual
         this.pagoPrevio = this.precioActual
     }
   }
@@ -703,23 +703,23 @@ export default class GameAPI {
   }
 
   randomAliado = function(){
-   
+
    do{
     let random = this.getRandom(0,3);
     switch(random){
-      case 0: 
+      case 0:
         this.personajeActual = "atacante";
         this.precioActual = 100
         break;
-        case 1: 
+        case 1:
         this.personajeActual = "tank";
         this.precioActual = 100
         break;
-        case 2: 
+        case 2:
         this.personajeActual = "distancia";
         this.precioActual = 200
         break;
-        case 3: 
+        case 3:
         this.personajeActual = "veloz";
         this.precioActual = 200
         break;
@@ -773,33 +773,33 @@ colocarBuffoEscenario = function(){
 updateBuffo = function(){
   if(this.buffoCombate != null){
 
-  
+
   for(let i in this.combate[this.lineaBuffo]){
     if(this.combate[this.lineaBuffo][i].x >= 960 && this.combate[this.lineaBuffo][i].x <= 970 ){
-      
+
       if(this.combate[this.lineaBuffo][i].direction == 1){
         this.buffoActivoJ1.visible = true
         this.buffoActivoJ1.setTexture("iconBuff" + this.buffoActual)
         this.buffoActivoJ2.input.enable = true;
 
-          
+
       }else{
         this.buffoActivoJ2.visible = true
         this.buffoActivoJ2.setTexture("iconBuff" + this.buffoActual)
         this.buffoActivoJ2.input.enable = true;
       }
 
-      
 
-      
+
+
       this.buffoCombate.destroy()
       this.buffoCombate = null
-     
+
 
     }
-  
 
-   
+
+
   }
 }
 }
@@ -823,19 +823,19 @@ quitarBuffoJ2 = function(){
 
 activarFlechas = function(j){
   switch(j){
-    case 1: 
+    case 1:
     this.datosActivacionBuffo.j = 1
     this.flecha1.visible = true
     this.flecha2.visible = true
     this.flecha3.visible = true
-    
+
       break;
-    case 2 : 
+    case 2 :
     this.datosActivacionBuffo.j = 2
 
     this.flechaReverse1.visible = true
     this.flechaReverse2.visible = true
-    
+
     this.flechaReverse3.visible = true
       break
   }
@@ -878,12 +878,12 @@ segundaActivacionBuffo = function(j){
 
 desactivarFlecha = function(j){
   switch(j){
-    case 1: 
+    case 1:
     this.flecha1.visible = false
     this.flecha2.visible = false
     this.flecha3.visible = false
       break;
-    case 2 : 
+    case 2 :
     this.flechaReverse1.visible = false
     this.flechaReverse2.visible = false
     this.flechaReverse3.visible = false
@@ -896,7 +896,7 @@ aplicarDebufo = function(linea, direction, debufoMov,debufoRecarga){
       this.combate[linea-1][i].debufoMov = debufoMov;
       this.combate[linea-1][i].debufoRecarga = debufoRecarga
     }
-      
+
   }
 }
 
@@ -957,7 +957,7 @@ puntoLinea = function(id,direction){
           if(i == 2){
             this.datosJugador1.puntosLinea3++;
           }
-          
+
         }else{
           if(i ==0){
             this.datosJugador2.puntosLinea1++;
@@ -970,7 +970,7 @@ puntoLinea = function(id,direction){
           if(i == 2){
             this.datosJugador2.puntosLinea3++;
           }
-          
+
         }
       }
     }
@@ -1037,15 +1037,15 @@ updateCombate(){
           this.arrancarFinCombate("preparacion")
 
 
-        
+
         }else if(this.datosJugador1.puntuacionCombate < this.datosJugador2.puntuacionComabate){
           this.ganador = 2
           this.ronda = this.ronda+1
           this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
           this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
-          this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1 
+          this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1
           this.arrancarFinCombate("preparacion")
-          
+
         }else{
             let totalJ1 = this.datosJugador1.puntosLinea1 + this.datosJugador1.puntosLinea2 +this.datosJugador1.puntosLinea3
             let totalJ2 = this.datosJugador2.puntosLinea1 + this.datosJugador2.puntosLinea2 +this.datosJugador2.puntosLinea3
@@ -1063,13 +1063,13 @@ updateCombate(){
             this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
             this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1
             this.arrancarFinCombate("preparacion")
-      
-            
+
+
           }else{
             this.ganador = 0;
             this.arrancarFinCombate("preparacion")
-            this.datosJugador1.dinero = this.datosJugador1.dinero  + 300 
-          this.datosJugador2.dinero = this.datosJugador2.dinero  + 300 
+            this.datosJugador1.dinero = this.datosJugador1.dinero  + 300
+          this.datosJugador2.dinero = this.datosJugador2.dinero  + 300
 
           }
 
@@ -1079,7 +1079,7 @@ updateCombate(){
 }
 
 arrancarFinCombate = function(escena){
- 
+
 
   this.datosJugador1.checkLineUp = false
   this.datosJugador2.checkLineUp = false
@@ -1117,7 +1117,7 @@ arrancarFinCombate = function(escena){
     this.lineUp = []
     this.precioActual = 100
     this.pagoPrevio = 0;
-   
+
     this.buffoActual="";
     this.lineaBuffo="";
     this.nJugadores = 1;
@@ -1161,7 +1161,7 @@ arrancarFinCombate = function(escena){
       "puntosLinea3": 0,
       "puntuacionCombate": 0,
       "puntuacionTotal": 0,
-  
+
     }
 
     this.datosJugador2 = {
