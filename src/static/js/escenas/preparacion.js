@@ -11,7 +11,7 @@ export default class Preparacion extends Phaser.Scene {
   }
 
   create() {
-    APIJuego.inicializarMusica("temaPreparacion");
+    
 
     APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
@@ -19,6 +19,7 @@ export default class Preparacion extends Phaser.Scene {
     
     if(APIJuego.datosJugador1.checkLineUp== false){
       APIJuego.generarBuffo();
+      APIJuego.inicializarMusica("temaPreparacion");
     }
     
 
@@ -174,7 +175,6 @@ export default class Preparacion extends Phaser.Scene {
           APIJuego.escena.scene.start("escena2");
         }else{
           if(APIJuego.datosJugador1.checkLineUp == false){
-            APIJuego.eliminarCancion();
             APIJuego.datosJugador1.checkLineUp = true
             APIJuego.datosJugador1.lineUp = APIJuego.lineUp
             APIJuego.escena.scene.start("preparacion");

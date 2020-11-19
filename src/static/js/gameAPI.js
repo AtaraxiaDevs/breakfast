@@ -709,17 +709,14 @@ export default class GameAPI {
         case (randomN<12):
             this.buffoActual = "SpeedyBoy"
             break;
-        case (randomN<14):
-            this.buffoActual = "Swap"
-            break;
-        case (randomN<15):
+        case (randomN<13):
             this.buffoActual = "Mantequilla"
             break;
-        case (randomN<16):
+        case (randomN<14):
             this.buffoActual = "Mermelada"
     }
 
-    this.buffoActual = "Mermelada"
+    //this.buffoActual = "Mermelada"
 }
 
 colocarBuffoEscenario = function(){
