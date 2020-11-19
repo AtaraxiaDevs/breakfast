@@ -108,11 +108,13 @@
 ### 5.1.- MECÁNICAS			   <a name="mecanicas"/>
 #### 5.1.1.- SISTEMA     <a name="mecanicas1"/>
 
-El objetivo de BTF es ir ganando las batallas contra tu adversario. Para ello, dispones de una serie de unidades y habilidades, que se usan durante la partida. El campo de batlla consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA y cada fila es ganada por el que más haya conseguido.  Al mejor de 3, el jugador que gana consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. El jugador ganador ve reflejada su partida en el Ranking (basándose en una puntuación interna del juego, que determina la victoria más aplastante).
+El objetivo de BTF es ganar batallas contra tus adversarios. Para ello, dispones de una serie de unidades y habilidades, que se usan durante la partida. El campo de batalla consiste en 3 líneas de ataque, por donde las unidades irán avanzando hasta el lado del oponente. Cada unidad marca 1 punto de FILA al llegar al borde (marcado por una bandera) del campo enemigo. Al final de cada Ronda, se contabilizan los puntos de FILA (llegar al final con un personaje) y cada fila es ganada por el que más haya conseguido.  Al mejor de 3 filas ganadas, el jugador consigue un punto de RONDA. Al mejor de 5 puntos de RONDA, consigues ganar la Partida. Al final de cada partida, se muestra una pantalla donde se resumen los puntos conseguidos (Ranking), las estadísticas y el CC ganado.
 
-Si una fila no puntua (EMPATE TÉCNICO) el marcador puede quedar 1-1, por lo que: o gana el que haya ganado la Fila más contudentemente (entre un 4-2 y un 3-1, el punto se lo lleva el 4-2). Si en el remoto caso de que las filas hayan quedado exactamente igual, la ronda se da como "reiniciada": el dinero gastado se pierde, pero no se gana nada de lo ocurrido en esa ronda. 
+El tiempo empleado en una partida normal rondará los 7-10 minutos. La fase de preparación podrá durar unos 30 segundos por persona, a lo que se añade la fase de combate, que se acerca al minuto. Si llegamos al caso de que se llegue al mejor de 5 (un 3-2), la partida podrá sobrepasar hasta los 10-12 minutos como mucho, lo cual no lo hace un tiempo excesivo.
 
-El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra. Para compararlas, partiremos de la base de la unidad Atacante (Vel = 5).
+Si una fila no puntua, cuenta 0 para ambos jugadores. Por ello, el marcador puede quedar 1-1. En este caso, se contarían los puntos de FILA de todas las líneas, siendo el que tenga más el que gana la ronda. Si en el remoto caso de que las filas hayan quedado exactamente igual, la ronda se da como "reiniciada": el dinero gastado se pierde, pero no se gana nada de lo ocurrido en esa ronda. 
+
+El escenario del juego consiste en 3 líneas de ataque, divididas en 3 zonas diferenciables: 2 zonas de jugadores y una zona neutra.
 
 - **Zona de Jugador:** Zona inmutable, siempre es recta. Al inicio de esta, hay una línea que limita la zona donde el equipo contrario puntúa.
 - **Zona Neutra:** Aquí pueden aparecer objetos, que son Habilidades obtenibles.
@@ -125,23 +127,21 @@ El juego se divide en dos grandes fases:
 
 **FASE DE PREPARACIÓN**
 
-En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. 
+En la fase de preparación se manejan recursos y tiene un componente estratégico, en cuanto a saber entender como juega el jugador contrario. Es la parte estática del juego.
 
-En esta fase, se nos presenta una interfaz que muestra nuestra zona del campo, con sus 3 líneas. Un único botón representa las unidades disponibles en ese momento, que se van cambiando al pulsarlo. Esa unidad mostrada esta seleccionada, y hay que pulsar la línea para colocarla. Las líneas tienen un máximo de 3 unidades. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
-
-Si no se pone NINGUNA unidad en el campo en esta fase, el jugador pierde la Ronda automáticamente.
+En esta fase, se nos presenta una interfaz que muestra: Nombre, Dinero de ronda y Habilidad (zona superior); nuestra zona del campo, con sus 3 líneas, y 3 recuadros, que representan los bufos que hay en esa determinada línea (zona derecha); y un panel que representa las unidades disponibles en ese momento, que se van cambiando al pulsar "CAMBIAR" (zona izquierda). La unidad mostrada en el panel está seleccionada, y hay que pulsar la flecha de línea para colocarla. Si nos equivocamos al elegir nuestras unidades, podemos pulsar "DESHACER" para vender la última unidad colocada, sin coste alguno. Las líneas tienen un máximo de 3 unidades, siendo el máximo de unidades 9 por equipo. Al aceptar, las líneas quedan definidas y se pasa a la fase de combate.
 
 **FASE DE COMBATE**
 
-En la fase de combate, en tiempo real, se usan las habilidades para: corregir tu estrategia, perjudicar al adversario, invocar a poderosas unidades extra... 
+En la fase de combate, en tiempo real, se usan las habilidades para: ganar Toppings, perjudicar al adversario, invocar a poderosas unidades extra... Es la parte dinámica del juego.
 
-En esta fase, entramos de lleno al escenario principal. Vemos el campo de batalla, y se revela la colocación de las unidades. Una cuenta atrás y empieza la partida. Se muestra el oro del jugador contrario en este momento. A partir de este momento, se pueden usar habilidades.
+En esta fase, entramos de lleno al escenario principal. Vemos el campo de batalla, y se revela la colocación de las unidades de ambos jugadores. En esta pantalla se muestra el oro del jugador contrario en este momento, clave para planear tu estrategia en las futuras rondas. A partir de este momento, se pueden usar Habilidades.
 
 Las unidades combaten cuando se encuentran a una distancia de X (Rango) entre sí. Estos combates se deciden teniendo en cuenta las estadísticas definidas en el apartado **PERSONAJES**. El combate se desarrolla mejor en el apartado **COMBATE**. Una unidad sale vencedora y la otra muere. Todas las unidades vuelven a caminar cuando terminan su combate, hasta llegar a la zona de puntuación.
 
-En el escenario, se pueden conseguir habilidades en forma de objetos. Se añaden a tu stack de habilidades, donde se podrá almacenar la útlima que has recogido.
+En el escenario, se pueden conseguir Habilidades en forma de objetos. Cuando una unidad pasa por encima, la obtiene y se añade a una pestaña al lado del nombre del jugador (icono). Al pulsar en ella, aparecen las flechas de línea, que sirven para seleccionar la línea de acción de la habilidad en cuestión. Algunas habilidades no hacen aparecer estas flechas. Cuando se usa, desaparece su icono de la pestaña. Las Habilidades se conservan entre rondas si no se usan (aparecen en la fase de preparación), pero si se coge una nueva habilidad se pierde la anterior.
 
-El combate se acaba cuando todas las unidades han llegado a campo contrario o hayan sido eliminadas. Los recursos monetarios y las habilidades se conservan entre rondas.
+El combate se acaba cuando todas las unidades han llegado a campo contrario o hayan sido eliminadas. Tanto los Toppings como la Habilidad poseida se conservan entre rondas. Se pasa de nuevo a la fase de preparación, a menos que sea el punto de Partida, que pasará a la pantalla de Resultados.
 
 #### 5.1.2.- PERSONAJES  <a name="mecanicas2"/>
 
@@ -157,19 +157,18 @@ Las Unidades Disponibles y sus estadísticas son:
 
 | **NOMBRE**      | **PERSONAJE**           | **ATK** | **HP** | **VEL** | **DPS** | **RAN** |
 | :-------------: | :---------------------: | :-----: | :----: | :-----: | :-----: | :-----: |
-| Atacante        | Tostada                 |    4    |   9    |    5    |    1    |    1    |
-| Defensor        | Magdalena               |    2    |   15   |    2    |    3    |    1    |
-| Distancia       | Bol de Cereales         |    3    |   5    |    4    |    2    |    5    |
-| Velocista       | Robot Velocista         |    3    |   4    |    10   |   0,5   |    1    | 
-| Jefe            | Mantequilla / Mermelada |   15    |   20   |    2    |    1    |    1    | 
+| Atacante        | Tostada                 |    4    |   9    |   15    |    1    |    1    |
+| Defensor        | Magdalena               |   2.5   |   15   |    5    |   0.65  |    1    |
+| Distancia       | Bol de Cereales         |   3.5   |   7    |   10    |   1.5   |    5    |
+| Velocista       | Robot Velocista         |    8    |   3    |   15    |    1    |    1    | 
 
 #### 5.1.3.- COMBATE     <a name="mecanicas3"/>
 
-El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear y ser golpeada por un enemigo a la vez. Los personajes están separados, siguiéndose entre sí en la línea, para evitar acumulaciones. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
+El sistema de combate se basa en bajar la vida de las unidades contrarias lo más rápido posible. Las unidades atacarán en cuanto estén a rango (RAN) de otra unidad, y bajarán la vida de otra unidad a una velocidad definida (DPS). Una unidad solo puede golpear a otra unidad a la vez, pero si puede ser golpeada por varias (concretamente, por los distancia). Los personajes están separados, siguiéndose entre sí en la línea, para evitar acumulaciones. Para evitar empates entre las unidades, cada ataque se basa en la siguiente fórmula:<br>
 
 Daño de Ataque = (ATK) + (RANDOM(-0.5,+0.5))
 
-Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores. También es posible que una unidad esquive un ataque, con una probabilidad de 1 sobre 10.
+Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores. También es posible que una unidad esquive un ataque, con una probabilidad de 1 sobre 10, y no recibe daño. 
 
 El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick. El atacante ataca cada vez, mientras que el tanque debe esperar 3 ticks. El velocista ataca 2 veces por tick.
 
@@ -202,14 +201,13 @@ EL ATACANTE GANA
 
 Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario y de premios, y se almacenan en un Stack de Habilidades, donde podremos usarlas en cualquier momento del combate. Se selecciona en ese Stack y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
 
-**COMÚN**
+**COMÚN: **
 
 - *SWEETS* (): Aumenta tus Toppings en 100.
 - *NO SWEETS* (): Disminuye los Toppings del rival en 100.
 
 **RARO**
 
-- *EXTRA UNIT* (): Una unidad aleatoria aparece en una línea a elegir, en la zona del jugador propio. Puede servir como ataque sorpresa o como defensa de línea ante unidades enemigas. <br>
 - *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 5 segundos.
 - *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para ganar dinero al mantenerlo en el campo.
 
@@ -219,7 +217,7 @@ Las habilidades constituyen la parte jugable en el combate a tiempo real. Están
 
 #### 5.1.5.- ECONOMÍA    <a name="mecanicas5"/>
 
-Se usa un sistema monetario para comprar unidades y ponerlas al campo. La moneda de este juego son los "Toppings de Colores". Cada jugador empezará la partida con 600 Toppings en su poder. Gastará esos Toppings para conseguir las primeras unidades, y recibirá más Toppings atendiendo a unidad eliminada, ganar la ronda o consiguiendo el power up Sweets.
+Se usa un sistema monetario para comprar unidades y ponerlas al campo. La moneda de este juego son los "Toppings de Colores". Cada jugador empezará la partida con 600 Toppings en su poder. Gastará esos Toppings para conseguir las primeras unidades, y recibirá más Toppings dependiendo de las unidades eliminadas, de sus resultados o de usar las Habilidades Sweets y No Sweets.
 
 Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los gana y un símbolo "-" que los pierde realizando esta acción.
 
@@ -229,17 +227,16 @@ Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los g
 | Defensor        | -100        |    +100      |   +100           |
 | Distancia       | -200        |    +100      |   +200           | 
 | Velocista       | -200        |    +25       |   +50            |
-| Jefe            |  NO         |    +500      |   +1000          |
 
 <br>
 
-| **GANADOR RONDA** | **PERDEDOR RONDA** | **TOPPINGS POR SEGUNDO** |
-| :---------------: | :----------------: | :----------------------: |
-|       +500        |       +300         |           20 TPS         |
+| **PASAR DE RONDA** | **GANADOR RONDA** | 
+| :----------------: | :---------------: | 
+|        +300        |       +300        | 
 
 #### 5.1.6.- RANKING    <a name="mecanicas6"/>
 
-El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas puntuaciones se miden con este sistema, y se muestra en la pantalla de Final de Partida. Este sistema es interno, y solo se le informa al jugador de su puntuación final:
+El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas puntuaciones se miden con un sistema interno, que resulta de una combinación de los resultados de los 2 modos de juego: Un Jugador y Dos Jugadores. Al final de cada puzle resuelto, se nos da una cantidad de puntos que suma. Así mismo, al final de cada partida de Dos Jugadores, se hace un recuento y ambos jugadores ganan puntos para el Ranking. El resumen de las puntuaciones internas es este:
 
 | **NOMBRE**      | **POR BAJA** | **POR MANTENER** | **POR PUNTUAR**  | 
 | :-------------: | :----------: | :--------------: | :--------------: | 
@@ -247,13 +244,12 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 | Defensor        |    +10       |   +5             |   +20            |
 | Distancia       |    +10       |   +5             |   +20            | 
 | Velocista       |    +10       |   +20            |   +20            |
-| Jefe            |    +300      |   +50            |   +500           |
 
 <br>
 
-| **GANADOR RONDA** | **PERDEDOR RONDA** | **GANAR LA PARTIDA** | **PERDER LA PARTIDA** | **POR USAR HABILIDAD** | **POR TOPPINGS RESTANTES** |
-| :---------------: | :----------------: | :------------------: | :-------------------: | :--------------------: | :------------------------: |
-|       +300        |       -100         |         +100         |           0           |          +10           |       +(TOPPINGS / 2)      |
+| **GANADOR RONDA** | **PERDEDOR RONDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR TOPPINGS RESTANTES** | **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
+| :---------------: | :----------------: | :------------------: | :--------------------: | :------------------------: | :--------------: | :----------------: |
+|       +100        |       -50          |         +200         |          +20           |       +(TOPPINGS / 2)      |       +100       |        +300        |
 
 ### 5.2.- ESTADOS JUEGO	<a name="estadosJuego"/>
 
@@ -262,30 +258,32 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 **INICIO**: Menú que se muestra al iniciar el juego. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*<br>
 
 - *JUGAR*: Empieza la partida.
-- *RANKING*: Muestra las mejores puntuaciones. Contabiliza los puntos de las 5 rondas. Tiene un botón ATRÁS, que vuelve a **INICIO**.
+- *RANKING*: Muestra las mejores puntuaciones por Nombre. Tiene un botón ATRÁS, que vuelve a **INICIO**.
 - *CRÉDITOS*: Nombre del equipo y los desarrolladores. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
 - *TIENDA*: Tienda del Juego. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *TUTORIAL*: Pantalla que muestra los controles. Cuenta con: *PERSONAJES*,*DESCRIPCION*,*CONTROLES*,*FASES* Y *HABILIDADES*. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *PERSONAJES*: Accesible desde **TUTORIAL**. Muestra estadísticas avanzadas, para jugadores más experimentados. Al ser para niños, se evita mostrar este tipo de contenido. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-- *HABILIDADES*: Accesible desde **TUTORIAL**. Muestra la descripción de las habilidades. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
--*DESCRIPCION*: Describe a grandes rasgos como funciona el juego y los modos que hay.Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
--*FASES*: Explica las distitas fases del juego (Preparación y Combate).Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
--*CONTROLES*: Explica que los controles por ordenador se gestionan con el ratón, y con el móvil, pulsando.Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
-
+- *TUTORIAL*: Pantalla que muestra los controles. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
 
 **JUEGO**: Pantallas del juego<br>
 
-- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego. Si se elige el modo 2 jugadores (M), hay dos fases de preparación. Si se elige el modo 1 jugador, aparecen sus niveles y solo hay una fase de preparación. También se puede elegir si se juega en modo HALLOWEEN o modo NORMAL.Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
-- *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. En el Modo HALLOWEEN el jugador no ve que tipo de unidad está colocando, es sorpresa.Hay una por jugador. Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
+- *PRE-PARTIDA*: Los jugadores eligen el escenario y el modo de juego (Normal o Halloween). Si se elige el modo Dos Jugadores, hay dos fases de preparación. Si se elige el modo 1 jugador, aparecen sus niveles y solo hay una fase de preparación. Tiene un botón *ATRÁS*, que vuelve a **INICIO**.
+- *FASE PREPARACIÓN*: Cada jugador coloca sus tropas antes del combate. Hay una (Un Jugador) o una por jugador (Dos Jugadores). Hay 2 botones de configuración: *IDIOMA* y *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *COMBATE*: Gameplay en tiempo real de la batalla. Tiene botones para controlar el juego. Tiene un botón de *SONIDO*. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *RECUENTO RONDA*: Se cuentan los puntos para ver quien gana la ronda, se muestra mediante una tabla resumen. Cuando se pasa 5 veces por esta pantalla, la siguiente será **GAME OVER**. Tiene un botón *ATRÁS*, que va a **GAME OVER**.
 - *GAME OVER*: Pantalla final del juego, donde se muestra el ganador y los puntos conseguidos.
 
+**TUTORIAL**
+
+- *PERSONAJES*: Muestra estadísticas avanzadas, para jugadores más experimentados. Al ser para niños, se evita mostrar este tipo de contenido. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+- *HABILIDADES*: Muestra la descripción de las habilidades. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+- *DESCRIPCION*: Describe a grandes rasgos como funciona el juego y los modos que hay. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+- *FASES*: Explica las distitas fases del juego (Preparación y Combate). Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+- *CONTROLES*: Explica los controles: en ordenador, se gestionan con el ratón; y en el móvil, pulsando de manera táctil. Tiene un botón *ATRÁS*, que vuelve a **TUTORIAL**.
+
 **TIENDA**: Pantallas de la tienda. Se pasan a través de Pestañas Botón. <br>
 
-- *SKINS*: Lista de las Skins que se pueden comprar, el precio y la moneda necesaria.
-- *PREMIOS*: Lista de los Premios canjeables y su precio, siempre en la Moneda del Juego.
-- *COMPRAR*: Pantalla que conecta con los métodos de pago para comprar moneda virtual. Ventana de confirmación y contactos extra con los métodos de pago. **DEFINIR MÉTODO DE PAGO**
+- *SKINS*: Lista de las Skins que se pueden comprar, el precio y la moneda necesaria (en cada caso).
+- *PREMIOS*: Lista de los Premios canjeables y su precio, siempre en CeReal Currency (CC).
+- *COMPRAR*: Pantalla que conecta con los métodos de pago para comprar Ataraxia Coins. Ventana de confirmación y contactos extra con los métodos de pago. 
 
 ### 5.3.- INTERFACES	<a name="interfaces"/>
 
@@ -381,7 +379,7 @@ Basado en el teclado y ratón.
 `Click Izq Ratón`: Elegir opción
 
 *Jugadores*<br>
-`Click Izq Ratón a la habilidad en su respectiva interfaz`: Selecciona la habilidad, y si necesitas elegir una linea, te muestra flechas en las diferentes lineas para poder seleccionar a cual de ellas aplicar.
+`Click Izq Ratón a la habilidad en su respectiva interfaz`: Selecciona la Habilidad, y si necesitas elegir una linea, te muestra flechas en las diferentes líneas para poder seleccionar a cual de ellas aplicar la Habilidad.
 
 **CONTROLES MÓVIL Y TABLETA**
 
@@ -398,29 +396,74 @@ Basado en el control táctil. Los mismos controles para los dos jugadores, un ti
 
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
 
-La idea del juego es que ambos jugadores jueguen muchas partidas entre sí. Cuanto más jueguen, más descubren el funcionamiento de las unidades / habilidades, y sobre todo, las estrategias de sus rivales.
+La idea del juego es que ambos jugadores jueguen muchas partidas entre sí. Cuanto más jueguen, más descubren el funcionamiento de las unidades / habilidades, y sobre todo, las estrategias de sus rivales. Hay ciertos elementos que incitan a la Rejugabilidad del juego, como son el Ranking (llegar a lo más alto), los puzzles (completarlos todos y sumar al Ranking) y las Habilidades de rareza alta (en busca de la Mantequilla), por poner algunos ejemplos.
 
-Las primeras partidas consistirán en un tanteo aleatorio de las mecánicas. Destacará mucho más el uso de habilidades, ya que es lo más tangible en primera instancia. Probablemente se consigan partidas de duración media. 
+Las primeras partidas consistirán en un tanteo aleatorio de las mecánicas. Destacará mucho más el uso de habilidades, ya que es lo más tangible en primera instancia. Probablemente se consigan partidas de duración media (6-9 min). 
 
-Al ir avanzando, entrará más en juego la estrategia en la fase de preparación. Sobre todo, si te enfrentas a alguien conocido. Apareceran nuevas estrategias, como dejar vacía una línea para ganar las otras dos, ahorrar toppings entre rondas, tirar rondas enteras sin usar unidades... Y muchas otras.
+Al ir avanzando, entrará más en juego la estrategia en la fase de preparación. Sobre todo, si te enfrentas a alguien conocido. Apareceran nuevas estrategias, como dejar vacía una línea para ganar las otras dos, ahorrar toppings entre rondas, tirar rondas enteras sin usar unidades... Y muchas otras. Estas partidas más estratégicas ya podrán irse a una duración larga (10-12 min)
 
 El engaño va a ser una constante entre rondas: cargar la línea superior para dejarla vacía en la siguiente ronda; saber donde pondrá sus unidades el contrario y contratacar; usar alguna habilidad decisiva en el último momento...
 
-El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran las victorias más épicas y aplastantes.
+El consiguiente progreso se verá reflejado en el ranking de puntuaciones, donde se encuentran los mejores jugadores.
 
 ### 5.6.- NIVELES	<a name="niveles"/>
 
 Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego:
 
-- **MODO DUELO**: Basado en Multijugador Local. Empiezas en una pantalla pre-partida, donde tienes que elegir entre 2 variantes:
+- **MODO DOS JUGADORES**: Basado en Multijugador Local. Empiezas en una pantalla pre-partida, donde tienes que elegir entre 2 variantes:
 
 -> NORMAL: el juego estándar, sin cambios adicionales.
 -> HALLOWEEN: no se muestra qué unidad estás comprando en la fase de preparación. Es sorpresa.
 
-- **Modo TÁCTICA**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina. Estos puzzles se organizan en una serie de sectores, basados en modos de juego o promociones:
+- **MODO UN JUGADOR**: Basado en Juego Solitario Local. Se basa en una serie de puzzles contra la máquina, usando un número determinado de Toppings y Habilidades. Estos puzzles se organizan por dificultad, saliendote de manera aleatoria dependiendo de tu puntuación interna. Si no es alta, aparecen los fáciles, y si no, los dificiles. Aqui se resumen los puzzles y sus características:
 
--> PUZZLE CLÁSICO:<br>
--> EVENTO HALLOWEEN:<br>
+-> PUZZLE FÁCIL:<br>
+
+**1:** <br>
+DINERO: 200<br>
+HABILIDAD: ---
+
+L1 -> AAA		L2 -> ---		L3 -> --- <br>
+SOLUCIÓN: 	L1 -> ---		L2 -> A			L3-> A <br>
+
+**2:**	<br>
+DINERO: 800<br>
+HABILIDAD: ---
+
+L1 -> AAA		L2 -> AAA		L3 -> AAA	<br>									
+SOLUCIÓN: 	L1 -> TDA		L2 -> TDA		L3-> --- <br>
+
+**3:**	<br>
+DINERO: 300<br>
+HABILIDAD: SLOWDOWN L1
+
+L1 -> VVV		L2 -> VVV		L3 -> VVV	<br>
+SOLUCIÓN: 	L1 -> V	(SLOW)		L2 -> ---		L3-> --- <br>
+
+**4:** <br>
+DINERO: 100<br>
+HABILIDAD: SPEEDY L1
+
+L1 -> ---		L2 -> AAA	L3 -> ---	<br>								
+SOLUCIÓN: 	L1 -> A			L2 -> ---		L3-> (SPEEDY) <br>
+ 
+**5:** <br>
+DINERO: 300<br>
+HABILIDAD: ---
+
+L1 -> VVV		L2 -> VVV	L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> D			L2 -> ---		L3-> A	<br>
+
+-> PUZZLE DIFÍCIL:<br>
+
+
+
+-> LEYENDA:<br>
+A = Atacante<br>
+T = Tanque<br>
+D = Distancia<br>
+V = Velocista<br>
+L = Línea determinada<br>
 
 ---
 
