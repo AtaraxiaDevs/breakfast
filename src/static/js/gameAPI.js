@@ -731,11 +731,10 @@ export default class GameAPI {
             this.buffoActual = "Mermelada"
     }
 
-<<<<<<< Updated upstream
+
     this.buffoActual = "SlowDown"
-=======
-    this.buffoActual = "NoSweet"
->>>>>>> Stashed changes
+
+
 }
 
 colocarBuffoEscenario = function(){

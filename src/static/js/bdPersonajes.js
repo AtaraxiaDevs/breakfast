@@ -15,18 +15,12 @@ let bdInfoPersonajes = {
     },
 
     "distancia":{
-<<<<<<< Updated upstream
+
         "atk":  3.5,
         "hp":   7,
         "vel":  10,
         "dps":  1.5,
-=======
-        "atk":  4,
-        "hp":   9,
-        "vel":  5,
-        "dps":  1,
->>>>>>> Stashed changes
-        "rango": 2.5,
+
     },
     
     "atacante":{
