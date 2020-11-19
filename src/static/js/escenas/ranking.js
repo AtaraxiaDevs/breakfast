@@ -24,12 +24,12 @@ export default class Ranking extends Phaser.Scene {
       }
 
       listaPuntuaciones.sort( function( a , b){
-        if(a.value > b.value) return 1;
-        if(a.value < b.value) return -1;
+        if(a.value < b.value) return 1;
+        if(a.value > b.value) return -1;
         return 0;
       });
 
-      console.log(listaPuntuaciones[0].key + " " + listaPuntuaciones[0].value )
+      //console.log(listaPuntuaciones[0].key + " " + listaPuntuaciones[0].value )
       
 
     let rankingJugador1 = this.make.text({

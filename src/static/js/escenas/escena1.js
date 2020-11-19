@@ -24,6 +24,8 @@ export default class Escena1 extends Phaser.Scene {
     APIJuego.setEscena(this);
     APIJuego.cargarAnims();
 
+  
+
     let textoVictoria = this.make.text({
       x: 10000,
       y: 10000,

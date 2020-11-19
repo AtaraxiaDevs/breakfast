@@ -514,6 +514,17 @@ export default class GameAPI {
 
   }
 
+  getRandomPuzzle = function(){
+    if (localStorage.getItem(APIJuego.datosJugador1.nombre) != undefined) {
+        this.puzleActual = this.getRandom(1,5)        
+    }else if(parseInt(localStorage.getItem(APIJuego.datosJugador1.nombre))>=2000){
+        this.puzleActual = this.getRandom(6,10)
+    }else{
+      this.puzleActual = this.getRandom(1,5)        
+  
+    }
+  }
+
   cargarCombate = function(){
     if(this.nJugadores == 1){
       this.cargarPuzle();
@@ -1077,6 +1088,8 @@ updateCombate(){
     }
 }
 }
+
+
 
 arrancarFinCombate = function(escena){
 

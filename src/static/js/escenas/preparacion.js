@@ -25,6 +25,7 @@ export default class Preparacion extends Phaser.Scene {
 
     APIJuego.pagoPrevio = "";
 
+    APIJuego.getRandomPuzzle();
     APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
     APIJuego.getDinero();
@@ -92,12 +93,19 @@ export default class Preparacion extends Phaser.Scene {
         if (APIJuego.linea1 < 3) {
           APIJuego.linea1 += 1;
           APIJuego.pagar(1, jugadorActual);
+
           APIJuego.cambiarTexto(
             dinero,
             jugadorActual === 1
               ? APIJuego.datosJugador1.dinero + " $"
               : APIJuego.datosJugador2.dinero + " $"
+
+              
           );
+        }
+
+        if(APIJuego.modoActual != "Normal"){
+          APIJuego.randomAliado()
         }
       });
 
@@ -116,6 +124,10 @@ export default class Preparacion extends Phaser.Scene {
               : APIJuego.datosJugador2.dinero + " $"
           );
         }
+
+        if(APIJuego.modoActual != "Normal"){
+          APIJuego.randomAliado()
+        }
       });
 
     let clickButtonFlecha3 = this.add
@@ -132,6 +144,9 @@ export default class Preparacion extends Phaser.Scene {
               ? APIJuego.datosJugador1.dinero + " $"
               : APIJuego.datosJugador2.dinero + " $"
           );
+        }
+        if(APIJuego.modoActual != "Normal"){
+          APIJuego.randomAliado
         }
       });
 
