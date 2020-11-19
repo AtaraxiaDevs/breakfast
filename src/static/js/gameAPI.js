@@ -521,7 +521,7 @@ export default class GameAPI {
     for (let i in this.combate) {
       for(let j in this.combate[i])
         if(this.combate[i][j].id == id){
-            let random = this.getRandom(-2,2)
+            let random = this.getRandom(-0.5,0.5)
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
