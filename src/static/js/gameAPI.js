@@ -7,7 +7,7 @@ export default class GameAPI {
     }
   };
 
-  
+
   getRandom = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
@@ -720,7 +720,7 @@ export default class GameAPI {
             this.buffoActual = "Mermelada"
     }
 
-    //this.buffoActual = "Mermelada"
+    this.buffoActual = "SlowDown"
 }
 
 colocarBuffoEscenario = function(){

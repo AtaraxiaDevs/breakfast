@@ -1,6 +1,6 @@
 let bdInfoPersonajes = {
     "veloz":{
-        "atk":  6,
+        "atk":  8,
         "hp":   3,
         "vel":  15,
         "dps":  0.5,

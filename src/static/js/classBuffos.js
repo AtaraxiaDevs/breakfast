@@ -106,7 +106,7 @@ export default class Buffo {
             y = 470 + 190*2
             break
         }
-        APIJuego.aplicarDebufo(linea,direction,direction*-1*60,5)
+        APIJuego.aplicarDebufo(linea,direction,direction*-1*60,15)
         APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y+50,"efectoSlowDown").setScale(0.5)
         if(direction==-1){ APIJuego.efectoActual.flipX = true}
         APIJuego.efectoActual.anims.play("animacionEfectoSlowDown")
