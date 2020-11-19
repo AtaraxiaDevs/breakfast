@@ -207,7 +207,7 @@ Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los g
 
 | **PASAR DE RONDA** | **GANADOR RONDA** | **PERDEDOR RONDA** | **LLEGAR AL FINAL CON UNIDAD** |
 | :----------------: | :---------------: | :----------------: | :----------------------------: | 
-|        +600        |       +100        |       +200         |             +100               |
+|        +600        |       +300        |       +500         |             +100               |
 
 #### 5.1.6.- RANKING    <a name="mecanicas6"/>
 
@@ -216,9 +216,9 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 <br>
 
-| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** | **POR PUNTUAR** | **POR TOPPINGS RESTANTES** | 
-| :---------------: | :---------------: | :------------------: | :-------------: | :------------------------: | 
-|       +100        |       +100        |         +200         |       +20       |      +(TOPPINGS / 2)       |
+| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** |
+| :---------------: | :---------------: | :------------------: | 
+|       +100        |       +100        |         +300         |
 
 <br>
 
