@@ -12,13 +12,21 @@ export default class Resultados extends Phaser.Scene {
   create() {
     var fondoResultados = this.add.image(0, 0, "fondoResultados").setOrigin(0);
 
+    let textoGanador;
+
     let atacante = this.add.image(490, 470, "atacante");
 
     let mantequilla = this.add.image(1440, 450, "mantequilla").setScale(2.5);
 
-    let textoVictoriaSpanish = "¡ENHORABUENA!\n\n¡Has ganado, nombre!";
+    let textoVictoriaSpanishJ1 =
+      "¡ENHORABUENA!\n\n¡Has ganado, " + APIJuego.datosJugador1.nombre + "!";
+    let textoVictoriaSpanishJ2 =
+      "¡ENHORABUENA!\n\n¡Has ganado, " + APIJuego.datosJugador2.nombre + "!";
 
-    let textoVictoriaEnglish = "CONGRATULATIONS!\n\nnombre, you win!";
+    let textoVictoriaEnglishJ1 =
+      "CONGRATULATIONS!\n\n" + APIJuego.datosJugador1.nombre + ", you win!";
+    let textoVictoriaEnglishJ2 =
+      "CONGRATULATIONS!\n\n" + APIJuego.datosJugador2.nombre + ", you win!";
 
     let textoDerrotaSpanish =
       "¡DERROTA!\n\nLo siento, nombre,\nvuelve a intentarlo";
@@ -28,11 +36,29 @@ export default class Resultados extends Phaser.Scene {
     let resultadosSpanish = "Se ha cancelado\nla batalla";
     let resultadosEnglish = "The battle is cancelled";
 
+    if (APIJuego.ganador === 1) {
+      textoGanador =
+        APIJuego.lenguage === "spanish"
+          ? textoVictoriaSpanishJ1
+          : textoVictoriaEnglishJ1;
+    }
+
+    if (APIJuego.ganador === 2) {
+      textoGanador =
+        APIJuego.lenguage === "spanish"
+          ? textoVictoriaSpanishJ2
+          : textoVictoriaEnglishJ2;
+    }
+
+    if (APIJuego.ganador === 0) {
+      textoGanador =
+        APIJuego.lenguage === "spanish" ? resultadosSpanish : resultadosEnglish;
+    }
+
     let textoVictoria = this.make.text({
       x: 600,
       y: 370,
-      text:
-        APIJuego.lenguage === "spanish" ? resultadosSpanish : resultadosEnglish,
+      text: textoGanador,
       style: {
         color: "black",
         font: "64px 'Sigmar One'",
@@ -48,14 +74,14 @@ export default class Resultados extends Phaser.Scene {
       .image(940, 860, APIJuego.lenguage + "_jugarOtraVez")
       .setScale(0.25)
       .setInteractive()
-      .on("pointerdown", function() {
+      .on("pointerdown", function () {
         let nombreJ1 = APIJuego.datosJugador1.nombre;
         let nombreJ2 = APIJuego.datosJugador2.nombre;
         APIJuego.reiniciarInfoJugadores();
         APIJuego.datosJugador1.nombre = nombreJ1;
         APIJuego.datosJugador2.nombre = nombreJ2;
         APIJuego.eliminarCancion();
-        APIJuego.escena.scene.start("preparacion")
+        APIJuego.escena.scene.start("preparacion");
       });
 
     let clickButtonSalir = this.add
@@ -75,12 +101,32 @@ export default class Resultados extends Phaser.Scene {
         let lenguage = APIJuego.setLenguage();
         cartelResultados.setTexture(lenguage + "_resultados");
         clickButtonJugarOtraVez.setTexture(lenguage + "_jugarOtraVez");
-        APIJuego.cambiarTexto(
-          textoVictoria,
-          APIJuego.lenguage === "spanish"
-            ? textoVictoriaSpanish
-            : textoVictoriaEnglish
-        );
+        if (APIJuego.ganador === 1) {
+          APIJuego.cambiarTexto(
+            textoVictoria,
+            APIJuego.lenguage === "spanish"
+              ? textoVictoriaSpanishJ1
+              : textoVictoriaEnglishJ1
+          );
+        }
+
+        if (APIJuego.ganador === 2) {
+          APIJuego.cambiarTexto(
+            textoVictoria,
+            APIJuego.lenguage === "spanish"
+              ? textoVictoriaSpanishJ2
+              : textoVictoriaEnglishJ2
+          );
+        }
+
+        if (APIJuego.ganador === 0) {
+          APIJuego.cambiarTexto(
+            textoVictoria,
+            APIJuego.lenguage === "spanish"
+              ? resultadosSpanish
+              : resultadosEnglish
+          );
+        }
         clickButtonIdioma.setTexture(
           lenguage === "spanish" ? "english" : "spanish"
         );
