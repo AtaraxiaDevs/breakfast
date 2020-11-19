@@ -170,32 +170,7 @@ Daño de Ataque = (ATK) + (RANDOM(-0.5,+0.5))
 
 Así, hacemos que un empate sea casi imposible y evitamos el manejo de esta situación. Además, añadimos el componente de que ciertas unidades puedan caer más rápido de lo normal, como los Defensores. También es posible que una unidad esquive un ataque, con una probabilidad de 1 sobre 10, y no recibe daño. 
 
-El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick. El atacante ataca cada vez, mientras que el tanque debe esperar 3 ticks. El velocista ataca 2 veces por tick.
-
-Algunos ejemplos de Batalla:
-
-**Atacante vs Defensor**
-
-Rango => 1 = 1     (Empiezan a la vez)
-
-`DPS` =>  A = 1   /////////   D = 0,33
-
-Ataque 1 => A     /////////   R = 3      ////////    HP(D) = 15 - ( (0,9 x 4) + (0,1 x R) = 3,9 ) = 11,1
-
-`DPS` =>  A = 1   /////////   D = 0,66
-
-Ataque 2 => A     /////////   R = 7      ////////    HP(D) = 11,1 - ( (0,9 x 4) + (0,1 x R) = 4,3 ) = 6,8
-
-`DPS` =>  A = 1   /////////   D = 1      ////////    (RANDOM) = > ¿Quien ataca primero? Sale D
-
-Ataque 3 => D     /////////   R = 9      ////////    HP(A) = 9 - ( (0,9 x 2) + (0,1 x R) = 2,7 ) = 6,3 <br>
-Ataque 4 => A     /////////   R = 1      ////////    HP(D) = 6,8 - ( (0,9 x 4) + (0,1 x R) = 3,7 ) = 3,1
-
-`DPS` =>  A = 1   /////////   D = 0,33
-
-Ataque 5 => A     /////////   R = 0      ////////    HP(D) = 3,1 - ( (0,9 x 4) + (0,1 x R) = 3,6 ) = 0
-
-EL ATACANTE GANA
+El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va reduciendo hasta 0 (0 = se declara un ataque), a una velocidad constante de 1 tick.
 
 #### 5.1.4.- HABILIDADES <a name="mecanicas4"/>
 
@@ -244,7 +219,9 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 | **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR PUNTUAR** | **POR TOPPINGS RESTANTES** | 
 | :---------------: | :---------------: | :------------------: | :--------------------: | :-------------: | :------------------------: | 
 |       +100        |       +100        |         +200         |          +20           |       +20       |      +(TOPPINGS / 2)       |
+
 <br>
+
 | **PUZZLE FÁCIL** | **PUZZLE DIFÍCIL** |
 | :--------------: | :----------------: |
 |       +100       |        +300        |
