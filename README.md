@@ -176,17 +176,17 @@ El DPS funciona como un contador. Desde el valor de DPS correspondiente, se va r
 
 Las habilidades constituyen la parte jugable en el combate a tiempo real. Están clasificadas por un sistema de rareza, que definen la probabilidad de que le salga a un jugador. Aparecen en el juego en forma de objetos en el escenario, y se almacenan en una pestaña de la interfaz, donde podremos usarlas en cualquier momento del combate. Se selecciona en esa pestaña y se elige la línea a la que afecta, marcada con una fecha. Aquí la lista:
 
-**COMÚN:** (50%)
+**COMÚN:** (6 opciones de 14)
 
-- *SWEETS* (): Aumenta tus Toppings en 100.
-- *NO SWEETS* (): Disminuye los Toppings del rival en 100.
+- *SWEETS* (3 opciones): Aumenta tus Toppings en 100.
+- *NO SWEETS* (3 opciones): Disminuye los Toppings del rival en 100.
 
-**RARO:** (35%)
+**RARO:** (35%) (6 opciones de 14)
 
-- *SLOW DOWN* (): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 10 segundos.
-- *SPEEDY SPEED BOY* (): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para tener una unidad extra.
+- *SLOW DOWN* (4 opciones): Las unidades enemigas de una línea elegida ven mermadas sus estadísticas VEL y DPS. Dura 10 segundos.
+- *SPEEDY SPEED BOY* (2 opciones): Invoca un velocista en cualquier línea. Puede servir para ganar una línea o para tener una unidad extra.
 
-**ÉPICO:** (15%)
+**ÉPICO:** (15%) (2 opciones de 14)
 
 - *BOSS* (Mantequilla Gritona / Mermelada Explosiva): Invoca a la unidad Jefe en la Zona Neutra, en una línea a elegir. Eliminan a todos los enemigos de una fila cuando termina su animación.
 
