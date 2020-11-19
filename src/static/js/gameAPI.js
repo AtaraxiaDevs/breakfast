@@ -737,7 +737,7 @@ export default class GameAPI {
     }
 
 
-    this.buffoActual = "SlowDown"
+    //this.buffoActual = "SlowDown"
 
 
 }
@@ -922,7 +922,7 @@ actualizarDinero = function() {
 
 
   constructor() {
-    this.puzleActual = "1";
+    this.puzleActual = "6";
     this.combate = []; // Lista con todos los personajes de la escena
     this.personajeActual = "atacante";
     this.lenguage = "spanish";

@@ -27,10 +27,29 @@ export default class Preparacion extends Phaser.Scene {
     } else {
       jugadorActual = 2
     }
+
+    //console.log(APIJuego.nJugadores == 1)
     
+    if(APIJuego.nJugadores == 1){
+      APIJuego.buffoActual = bdPuzles[APIJuego.puzleActual].bufo
+      APIJuego.lineaBuffo = bdPuzles[APIJuego.puzleActual].lineaBufo
+    }
+
     console.log(APIJuego.buffoActual)
     console.log("iconBuff" + APIJuego.buffoActual)
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
+
+    switch(APIJuego.lineaBuffo){
+      case 0: 
+      this.add.image(1080,220,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+      break;
+      case 1:
+        this.add.image(1075,425,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+      break
+      case 2:
+        this.add.image(1075,610,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
+        break
+    }
     
     let dinero = this.make.text({
       x: 740,
@@ -206,6 +225,8 @@ export default class Preparacion extends Phaser.Scene {
         );
       });
 
+console.log(APIJuego.lineaBuffo)
+
       switch(APIJuego.lineaBuffo){
         case 0: 
         this.add.image(1080,220,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
@@ -217,13 +238,5 @@ export default class Preparacion extends Phaser.Scene {
           this.add.image(1075,610,"iconBuff" + APIJuego.buffoActual).setScale(0.8)
           break
       }
-
-
-      
-
-      
-     
-    
-
   }
 }
