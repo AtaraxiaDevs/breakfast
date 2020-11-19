@@ -9,16 +9,16 @@ let bdInfoPersonajes = {
     "tank":{
         "atk":  2,
         "hp":   15,
-        "vel":  10,
-        "dps":  0.65,
+        "vel":  5,
+        "dps":  2,
         "rango": 1,
     },
 
     "distancia":{
-        "atk":  4,
-        "hp":   9,
-        "vel":  5,
-        "dps":  1,
+        "atk":  2.5,
+        "hp":   7,
+        "vel":  10,
+        "dps":  1.5,
         "rango": 2.5,
     },
     

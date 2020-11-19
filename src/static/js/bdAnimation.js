@@ -124,7 +124,7 @@ let dbAnimations = {
     "spritesheet": "sp_tankAtacar",
     "startFrame": 0,
     "endFrame": 7,
-    "frameRate": 6,
+    "frameRate": 4,
     "repeat": 0,
     "src":"sprite_tank_atacar.png"
    },
