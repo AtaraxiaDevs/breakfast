@@ -17,10 +17,10 @@ export default class Login extends Phaser.Scene {
     var fondoLogin = this.add.image(0, 0, "fondoLogin").setOrigin(0);
     let jugadorActual = 0;
 
-    if(APIJuego.datosJugador1.nombre == undefined){
-      jugadorActual = "1"
-    }else{
-      jugadorActual = "2"
+    if (APIJuego.datosJugador1.nombre == undefined) {
+      jugadorActual = "1";
+    } else {
+      jugadorActual = "2";
     }
 
     var printText = this.add
@@ -44,42 +44,60 @@ export default class Login extends Phaser.Scene {
       .on("pointerout", function () {});
 
     //let cartelNombre = this.add.image(950, 400, APIJuego.lenguage + "_nombre");
-    let textoSpanish = "Introduce tu nombre jugador " + jugadorActual
-    let textoEnglish = "Introduce your nickname player" + jugadorActual
+    let textoSpanish = "Introduce tu nombre jugador " + jugadorActual;
+    let textoEnglish = "Introduce your nickname player" + jugadorActual;
+
+    let textoErrorSpanish = "Por favor, introduce un nombre más corto";
+    let textoErrorEnglish = "Please, enter a shorter name";
 
     let textoInstrucciones = this.make.text({
       x: 460,
       y: 350,
-      text: APIJuego.lenguage == "spanish"? textoSpanish: textoEnglish,
+      text: APIJuego.lenguage == "spanish" ? textoSpanish : textoEnglish,
       style: {
         font: "50px 'Sigmar One'",
-        color: "black"
+        color: "black",
       },
     });
 
+    let textoError = this.make.text({
+      x: 640,
+      y: 675,
+      text:
+        APIJuego.lenguage === "spanish" ? textoErrorSpanish : textoErrorEnglish,
+      style: {
+        font: "24px 'Sigmar One'",
+        color: "black",
+        align: "center"
+      },
+    });
 
-
+    textoError.visible = false;
 
     let clickButtonOK = this.add
       .image(950, 770, "OK")
       .setScale(0.3)
       .setInteractive()
       .on("pointerdown", function () {
+        console.log(printText.text.length);
         if (printText.text != "") {
-          if(APIJuego.nJugadores == 1){
-            APIJuego.datosJugador1.nombre= printText.text
-            APIJuego.escena.scene.start("prePartida");
-          }else{
-          if(jugadorActual == 1){
-            APIJuego.datosJugador1.nombre= printText.text
-            APIJuego.escena.scene.start("login");
-
-          }else{
-            APIJuego.datosJugador2.nombre = printText.text
-            APIJuego.escena.scene.start("prePartida");
+          if (printText.text.length <= 7) {
+            if (APIJuego.nJugadores == 1) {
+              APIJuego.datosJugador1.nombre = printText.text;
+              APIJuego.escena.scene.start("prePartida");
+            } else {
+              if (jugadorActual == 1) {
+                APIJuego.datosJugador1.nombre = printText.text;
+                APIJuego.escena.scene.start("login");
+              } else {
+                APIJuego.datosJugador2.nombre = printText.text;
+                APIJuego.escena.scene.start("prePartida");
+              }
+            }
+          } else {
+            textoError.visible = true;
           }
         }
-      }
       });
 
     let clickButtonSalir = this.add
@@ -95,7 +113,16 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
         let lenguage = APIJuego.setLenguage();
-        APIJuego.cambiarTexto(textoInstrucciones,  APIJuego.lenguage === "spanish" ? textoEnglish : textoSpanish)
+        APIJuego.cambiarTexto(
+          textoInstrucciones,
+          APIJuego.lenguage === "spanish" ? textoEnglish : textoSpanish
+        );
+        APIJuego.cambiarTexto(
+          textoError,
+          APIJuego.lenguage === "spanish"
+            ? textoErrorEnglish
+            : textoErrorSpanish
+        );
         clickButtonIdioma.setTexture(
           lenguage === "spanish" ? "english" : "spanish"
         );

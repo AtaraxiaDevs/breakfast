@@ -21,11 +21,11 @@ export default class Escena2 extends Phaser.Scene {
     let textoRondaEnglish = "ROUND\n1";
 
     let recuadroDineroJ1 = this.add
-      .image(200, 220, "recuadro")
+      .image(200, 220, "recuadroAzul")
       .setScale(0.25, 0.2);
 
     let recuadroDineroJ2 = this.add
-      .image(1725, 220, "recuadro")
+      .image(1725, 220, "recuadroRosa")
       .setScale(0.25, 0.2);
 
     APIJuego.recuadroDineroJ1 = this.make.text({

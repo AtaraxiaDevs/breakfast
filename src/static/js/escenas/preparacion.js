@@ -31,6 +31,24 @@ export default class Preparacion extends Phaser.Scene {
     console.log(APIJuego.buffoActual)
     console.log("iconBuff" + APIJuego.buffoActual)
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
+
+    let cartelJugadores = this.add.image(950, 100, jugadorActual === 1 ? "recuadroJ1" : "recuadroJ2").setScale(0.6)
+
+    if (jugadorActual === 2) {
+      cartelJugadores.rotation = Math.PI;
+    }
+
+    let cartelNombreJugadores = this.add.image(500, 100, jugadorActual === 1 ? "recuadroAzul" : "recuadroRosa").setScale(0.3)
+
+    let nombreJugadores = this.make.text({
+      x: 375,
+      y: 65,
+      text: jugadorActual === 1 ? APIJuego.datosJugador1.nombre : APIJuego.datosJugador2.nombre,
+      style: {
+        color: "black",
+        font: "50px 'Sigmar One'",
+      }
+    })
     
     let dinero = this.make.text({
       x: 740,
