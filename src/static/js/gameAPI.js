@@ -196,6 +196,8 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoSlowDown","assets/buffs/buffsAnimaciones/sprite_lento.png",{frameWidth:250,frameHeight:250})
     this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
+    this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
+    this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
 
     // ---------------- SPRITES ANIMACIONES -------------------
@@ -226,7 +228,6 @@ export default class GameAPI {
         break;
     }
 
-    console.log(this.personajeActual);
   }
 
   cargarAnims = function () {
@@ -309,7 +310,6 @@ export default class GameAPI {
   //* Parámetros: string con el tipo de personaje
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
   añadirPersonaje = function (fila) {
-    console.log(this.personajeActual)
     this.combate[fila-1].push(
       new Personaje(this.personajeActual, 200, 400, this.escena,+1,this.idCount)
     );
@@ -524,7 +524,8 @@ export default class GameAPI {
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
-              console.log("Daño a " + this.combate[i][j].tipo + " en linea + " + (i + 1))
+              let daño = daño + random
+              console.log("Daño a " + this.combate[i][j].tipo + " : " +  daño )
             }
         }
     }
