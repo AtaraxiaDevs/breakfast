@@ -198,6 +198,7 @@ export default class GameAPI {
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMantequilla","assets/buffs/sprite_boss_mantequilla.png",{frameWidth:100,frameHeight:100})
     this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
+    this.escena.load.spritesheet("efectoMermelada","assets/buffs/sprite_boss_mermelada.png",{frameWidth:100,frameHeight:100})
 
 
     // ---------------- SPRITES ANIMACIONES -------------------
@@ -524,8 +525,8 @@ export default class GameAPI {
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
-              let daño = daño + random
-              console.log("Daño a " + this.combate[i][j].tipo + " : " +  daño )
+              let dañoRealizado = daño + random
+              console.log("Daño a " + this.combate[i][j].tipo + " : " +  dañoRealizado )
             }
         }
     }
