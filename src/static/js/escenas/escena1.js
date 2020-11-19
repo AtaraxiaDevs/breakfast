@@ -24,6 +24,17 @@ export default class Escena1 extends Phaser.Scene {
     APIJuego.setEscena(this);
     APIJuego.cargarAnims();
 
+    let textoVictoria = this.make.text({
+      x: 10000,
+      y: 10000,
+      text: "Hey, me has pillado!",
+      style: {
+        color: "black",
+        font: "64px 'Sigmar One'",
+        align: "center",
+      },
+    });
+
     // DETECCIÓN DE MÓVIL
     if (ConfiguracionJuego.isMobile) {
       console.log("Era mobile");

@@ -11,7 +11,7 @@ export default class ModoJugadores extends Phaser.Scene {
   }
 
   create() {
-    var fondoPrepartida = this.add.image(0, 0, "fondoPrePartida").setOrigin(0);
+    var fondoPrepartida = this.add.image(0, 0, "fondoPrePartida2").setOrigin(0);
 
     APIJuego.reiniciarInfoJugadores()
 
