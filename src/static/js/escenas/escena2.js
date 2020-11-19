@@ -124,11 +124,25 @@ export default class Escena2 extends Phaser.Scene {
       },
     });
 
+    let cartelSalir = this.add.image(1800, 1000, "recuadroRosa").setScale(0.3);
+
+    let cartelSonido = this.add.image(100, 1000, "recuadroAzul").setScale(0.3);
+
     let clickButtonSalir = this.add
       .image(1800, 1000, "salir")
       .setInteractive()
       .on("pointerdown", function () {
         APIJuego.escena.scene.start("resultados");
+      });
+
+    let clickButtonSonido = this.add
+      .image(100, 1000, APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff")
+      .setInteractive()
+      .on("pointerdown", function () {
+        APIJuego.controlMusica();
+        clickButtonSonido.setTexture(
+          APIJuego.sonidoActivado ? "sonidoOn" : "sonidoOff"
+        );
       });
 
     APIJuego.flecha1 = this.add.image(100, 500, "flecha2").setScale(0.25);
