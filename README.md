@@ -216,9 +216,9 @@ El ranking lo componen 10 puntuaciones distintas asignadas a un nombre. Estas pu
 
 <br>
 
-| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** | **POR USAR HABILIDAD** | **POR PUNTUAR** | **POR TOPPINGS RESTANTES** | 
-| :---------------: | :---------------: | :------------------: | :--------------------: | :-------------: | :------------------------: | 
-|       +100        |       +100        |         +200         |          +20           |       +20       |      +(TOPPINGS / 2)       |
+| **GANADOR RONDA** | **JUGAR PARTIDA** | **GANAR LA PARTIDA** | **POR PUNTUAR** | **POR TOPPINGS RESTANTES** | 
+| :---------------: | :---------------: | :------------------: | :-------------: | :------------------------: | 
+|       +100        |       +100        |         +200         |       +20       |      +(TOPPINGS / 2)       |
 
 <br>
 
