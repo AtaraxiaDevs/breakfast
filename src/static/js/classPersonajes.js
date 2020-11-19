@@ -21,7 +21,7 @@ correr = function(){
                 break;
         }
     }
-    this.setVelocityX(this.direction * this.velocidadActual*this.multiplicador); 
+    this.setVelocityX(this.direction * this.velocidadActual*this.multiplicador-this.debufoMov); 
 }
 
 atacar = function(){
@@ -57,7 +57,7 @@ atacar = function(){
 recargar = function(){
     this.state = "recargando"
     this.playAnimation("idle")
-    this.setTimmer(this.infoBase.dps,()=>{
+    this.setTimmer(this.infoBase.dps + this.debufoRecarga,()=>{
         this.state="";
        
       //  APIJuego.reiniciarVelocidades(this.id, this.direction)
@@ -102,7 +102,6 @@ buscarObjetivo = function(){
     if(personajeCercano.enemigo != ""){
         if(personajeCercano.enemigo.separacion <= 175*this.rango){
             this.objetivo = personajeCercano.enemigo.id
-            console.log(personajeCercano.enemigo.id)
             return true
         }else{
             this.objetivo = ""
@@ -122,8 +121,7 @@ buscarAliado = function(){
 
     let personajeCercano = APIJuego.personajeCercano(this.id,this.x,this.direction)
     if(personajeCercano.aliado != ""){
-        // console.log(personajeCercano.aliado.vel)
-         //  console.log(personajeCercano.aliado.vel)
+        
          if(personajeCercano.aliado.separacion <= 250){
          if(personajeCercano.aliado.vel < this.velocidadActual){
            
@@ -206,6 +204,8 @@ constructor(tipoPersonaje,x,y,escena,direction,id){
     this.hpActual = this.infoBase.hp;
     this.priority = this.infoBase.priority;
     this.multiplicador = 10;
+    this.debufoMov = 0;
+    this.debufoRecarga = 0
     this.objetivo = "";
     this.id = id
     this.arrancado = false;

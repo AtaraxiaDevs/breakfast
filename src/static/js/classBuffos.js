@@ -55,6 +55,11 @@ export default class Buffo {
         APIJuego.activarFlechas(j)
     }
 
+    slowDown = function(j){
+        APIJuego.activarFlechas(j)
+    }
+
+
 
 
     speedyBoyActivacion = function(linea,j){
@@ -72,7 +77,9 @@ export default class Buffo {
             case 3 :
             y = 470 + 190*2
             break
-        } 
+        }
+    
+
 
         console.log(y)
 
@@ -84,6 +91,45 @@ export default class Buffo {
         APIJuego.combate[linea-1][APIJuego.combate[linea-1].length-1].arrancar();
           APIJuego.idCount++;
     }
+
+    slowDownActivacion = function(linea,j){
+        let direction = j ==1? +1:-1
+        let y = 0
+        switch(linea){
+            case 1: 
+            y = 470
+            break;
+            case 2: 
+            y = 470 + 190
+            break;
+            case 3 :
+            y = 470 + 190*2
+            break
+        }
+        APIJuego.aplicarDebufo(linea,direction,direction*-1*60,3)
+        APIJuego.efectoActual = APIJuego.escena.physics.add.sprite(960,y+50,"efectoSlowDown").setScale(0.5)
+        if(direction==-1){ APIJuego.efectoActual.flipX = true}
+        APIJuego.efectoActual.anims.play("animacionEfectoSlowDown")
+        APIJuego.efectoActual.setVelocityX(direction * 30)
+        
+        
+        APIJuego.escena.time.addEvent({
+            delay: 5*1000,
+            callback: function(){
+                APIJuego.aplicarDebufo(linea,j ==1? +1:-1,0,0)
+                APIJuego.efectoActual.destroy();
+            },
+        })
+    }
+   /* slowDownActivacion = fucntion(linea,j){
+        APIJuego.aplicarDebufo()
+        APIJuego.escena.time.addEvent({
+            delay: 5*1000,
+            callback: APIJuego.aplicarDebufo(),
+           
+            
+        })
+    }*/
     
     activarBuffo = function(j){
         switch(this.tipoBuffo){
@@ -98,6 +144,9 @@ export default class Buffo {
             case "NoSweet":
                 this.noSweet(j)
                 break;
+            case "SlowDown":
+                this.slowDown(j);
+                break
         }
     }
     

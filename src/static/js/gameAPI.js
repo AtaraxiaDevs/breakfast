@@ -261,6 +261,15 @@ export default class GameAPI {
           frameRate: 5,
           repeat: 2,
     })
+    this.escena.anims.create({
+      key: "animacionEfectoSlowDown",
+          frames: this.escena.anims.generateFrameNumbers(
+            "efectoSlowDown",
+            { start: 0, end: 8 }
+          ),
+          frameRate: 5,
+          repeat: -1,
+    })
   };
 
   
@@ -666,7 +675,7 @@ export default class GameAPI {
             this.buffoActual = "Mermelada"
     }
 
-    this.buffoActual = "SpeedyBoy"
+    this.buffoActual = "SlowDown"
 }
 
 colocarBuffoEscenario = function(){
@@ -760,18 +769,23 @@ segundaActivacionBuffo = function(j){
   if(j == 1){
     switch(this.buffoJ1.tipoBuffo){
       case "SpeedyBoy":
-        console.log("Segunda Activacion SpeedyBoy")
         console.log(this.datosActivacionBuffo.flechaActivada1)
         this.buffoJ1.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+        break;
+      case "SlowDown":
+        this.buffoJ1.slowDownActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
     }
   }else{
     switch(this.buffoJ2.tipoBuffo){
       case "SpeedyBoy":
-        console.log("Segunda Activacion SpeedyBoy")
         console.log(this.datosActivacionBuffo.flechaActivada1)
         this.buffoJ2.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
+
+        case "SlowDown":
+          this.buffoJ2.slowDownActivacion(this.datosActivacionBuffo.flechaActivada1,j)
+          break;
     }
   }
 }
@@ -788,6 +802,15 @@ desactivarFlecha = function(j){
     this.flechaReverse2.visible = false
     this.flechaReverse3.visible = false
       break
+  }
+}
+aplicarDebufo = function(linea, direction, debufoMov,debufoRecarga){
+  for(let i in this.combate[linea-1]){
+    if(this.combate[linea-1][i].direction != direction){
+      this.combate[linea-1][i].debufoMov = debufoMov;
+      this.combate[linea-1][i].debufoRecarga = debufoRecarga
+    }
+      
   }
 }
 
