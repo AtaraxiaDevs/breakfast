@@ -135,6 +135,7 @@ export default class Escena2 extends Phaser.Scene {
       .image(1800, 1000, "salir")
       .setInteractive()
       .on("pointerdown", function () {
+        APIJuego.ganador = 0
         APIJuego.escena.scene.start("resultados");
       });
 
