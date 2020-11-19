@@ -20,11 +20,21 @@ export default class ModoJugadores extends Phaser.Scene {
 
     let clickButtonUnJugador = this.add
       .image(700, 450, APIJuego.lenguage + "_unJugador")
-      .setScale(0.45);
+      .setScale(0.45)
+      .setInteractive()
+      .on("pointerdown",function(){
+        APIJuego.nJugadores = 1;
+        APIJuego.escena.scene.start("login")
+      })
 
     let clickButtonDosJugadores = this.add
       .image(1175, 450, APIJuego.lenguage + "_dosJugadores")
-      .setScale(0.45);
+      .setScale(0.45)
+      .setInteractive()
+      .on("pointerdown",function(){
+        APIJuego.nJugadores = 2;
+        APIJuego.escena.scene.start("login")
+      })
 
     let clickButtonSalir = this.add
       .image(1400, 850, "salir")

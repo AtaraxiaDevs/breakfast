@@ -490,8 +490,10 @@ export default class GameAPI {
   }
 
   cargarCombate = function(){
-    
-    this.cargarPuzle();
+    if(this.nJugadores == 1){
+      this.cargarPuzle();
+    }
+  
     this.cargarLineUp();
     this.reeordenarFilas()
   }
@@ -573,11 +575,31 @@ export default class GameAPI {
   }
 
   cargarLineUp = function(){
-    for(let i in this.lineUp){
-      this.combate[this.lineUp[i].linea-1].push(
-        new Personaje(this.lineUp[i].tipo, 200, 400, this.escena,+1,this.idCount))
-        this.idCount++;
+    if(this.nJugadores ==2){
+      this.datosJugador1.checkLineUp == false
+      for(let i in this.datosJugador1.lineUp){
+        this.combate[this.datosJugador1.lineUp[i].linea-1].push(
+          new Personaje(this.datosJugador1.lineUp[i].tipo, 200, 400, this.escena,+1,this.idCount))
+          this.idCount++;
+        }
+
+      for(let i in this.datosJugador2.lineUp){
+        this.combate[this.datosJugador2.lineUp[i].linea-1].push(
+          new Personaje(this.datosJugador2.lineUp[i].tipo, 200, 400, this.escena,-1,this.idCount))
+          this.idCount++;
+      }
+
+      this.datosJugador1.lineUp = "";
+      this.datosJugador2.lineUp = "";
+    }else{
+      this.datosJugador1.checkLineUp == false
+      for(let i in this.datosJugador1.lineUp){
+        this.combate[this.datosJugador1.lineUp[i].linea-1].push(
+          new Personaje(this.datosJugador1.lineUp[i].tipo, 200, 400, this.escena,+1,this.idCount))
+          this.idCount++;
+        }
     }
+    
   }
 
   inicializarMusica = function(audio) {
@@ -889,6 +911,7 @@ destruirEnemigos = function(linea,direction){
     this.flechaReverse1 = "";
     this.flechaReverse2 = "";
     this.flechaReverse3 = "";
+    
 
     this.efectoActual = "";
     this.datosActivacionBuffo = {
@@ -896,6 +919,22 @@ destruirEnemigos = function(linea,direction){
       "flechaActivada1": "",
       "flechaActivada2": "",
     };
+
+    this.datosJugador1 = {
+      "nombre": undefined,
+      "puntuacionActual":"",
+      "dinero": "",
+      "checkLineUp": false,
+  
+    }
+
+    this.datosJugador2 = {
+      "nombre": undefined,
+      "puntuacionActual":"",
+      "dinero": "",
+      "checkLineUp": false,
+  
+    }
 
 
   }

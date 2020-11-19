@@ -1,3 +1,4 @@
+import GameAPI from "../gameAPI.js";
 import { ConfiguracionJuego, APIJuego } from "../main.js";
 
 export default class Login extends Phaser.Scene {
@@ -14,6 +15,13 @@ export default class Login extends Phaser.Scene {
     let editor = "";
 
     var fondoLogin = this.add.image(0, 0, "fondoLogin").setOrigin(0);
+    let jugadorActual = 0;
+
+    if(APIJuego.datosJugador1.nombre == undefined){
+      jugadorActual = "1"
+    }else{
+      jugadorActual = "2"
+    }
 
     var printText = this.add
       .rexBBCodeText(950, 555, "", {
@@ -35,7 +43,22 @@ export default class Login extends Phaser.Scene {
       )
       .on("pointerout", function () {});
 
-    let cartelNombre = this.add.image(950, 400, APIJuego.lenguage + "_nombre");
+    //let cartelNombre = this.add.image(950, 400, APIJuego.lenguage + "_nombre");
+    let textoSpanish = "Introduce tu nombre jugador " + jugadorActual
+    let textoEnglish = "Introduce your nickname player" + jugadorActual
+
+    let textoInstrucciones = this.make.text({
+      x: 460,
+      y: 350,
+      text: APIJuego.lenguage == "spanish"? textoSpanish: textoEnglish,
+      style: {
+        font: "50px 'Sigmar One'",
+        color: "black"
+      },
+    });
+
+
+
 
     let clickButtonOK = this.add
       .image(950, 770, "OK")
@@ -43,8 +66,20 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
         if (printText.text != "") {
-          APIJuego.escena.scene.start("prePartida");
+          if(APIJuego.nJugadores == 1){
+            APIJuego.datosJugador1.nombre= printText.text
+            APIJuego.escena.scene.start("prePartida");
+          }else{
+          if(jugadorActual == 1){
+            APIJuego.datosJugador1.nombre= printText.text
+            APIJuego.escena.scene.start("login");
+
+          }else{
+            APIJuego.datosJugador2.nombre = printText.text
+            APIJuego.escena.scene.start("prePartida");
+          }
         }
+      }
       });
 
     let clickButtonSalir = this.add
@@ -60,7 +95,7 @@ export default class Login extends Phaser.Scene {
       .setInteractive()
       .on("pointerdown", function () {
         let lenguage = APIJuego.setLenguage();
-        cartelNombre.setTexture(lenguage + "_nombre");
+        APIJuego.cambiarTexto(textoInstrucciones,  APIJuego.lenguage === "spanish" ? textoEnglish : textoSpanish)
         clickButtonIdioma.setTexture(
           lenguage === "spanish" ? "english" : "spanish"
         );

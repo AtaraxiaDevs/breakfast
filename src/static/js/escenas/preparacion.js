@@ -16,7 +16,11 @@ export default class Preparacion extends Phaser.Scene {
     APIJuego.reiniciarLineUp();
     APIJuego.reiniciarCombate();
     APIJuego.getDinero();
-    APIJuego.generarBuffo();
+    
+    if(APIJuego.datosJugador1.checkLineUp== false){
+      APIJuego.generarBuffo();
+    }
+    
 
     console.log(APIJuego.buffoActual)
     console.log("iconBuff" + APIJuego.buffoActual)
@@ -163,8 +167,25 @@ export default class Preparacion extends Phaser.Scene {
       .setScale(0.4)
       .setInteractive()
       .on("pointerdown", function () {
-        APIJuego.eliminarCancion();
-        APIJuego.escena.scene.start("escena2");
+        if(APIJuego.nJugadores==1){
+          APIJuego.eliminarCancion();
+          APIJuego.datosJugador1.checkLineUp = true
+          APIJuego.datosJugador1.lineUp = APIJuego.lineUp
+          APIJuego.escena.scene.start("escena2");
+        }else{
+          if(APIJuego.datosJugador1.checkLineUp == false){
+            APIJuego.eliminarCancion();
+            APIJuego.datosJugador1.checkLineUp = true
+            APIJuego.datosJugador1.lineUp = APIJuego.lineUp
+            APIJuego.escena.scene.start("preparacion");
+          }else{
+            APIJuego.eliminarCancion();
+            APIJuego.datosJugador2.checkLineUp = true
+            APIJuego.datosJugador2.lineUp = APIJuego.lineUp
+            APIJuego.escena.scene.start("escena2");
+          }
+        }
+        
       });
 
     let clickButtonIdioma = this.add

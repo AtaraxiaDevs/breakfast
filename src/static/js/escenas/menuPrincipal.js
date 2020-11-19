@@ -18,7 +18,7 @@ export default class MenuPrincipal extends Phaser.Scene {
       .image(925, 570, APIJuego.lenguage + "_jugar")
       .setScale(0.4)
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("login"));
+      .on("pointerdown", () => this.scene.start("modoJugadores"));
 
     let clickButtonCreditos = this.add
       .image(1240, 410, APIJuego.lenguage + "_creditos")
