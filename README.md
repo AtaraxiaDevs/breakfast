@@ -391,7 +391,6 @@ Basado en el control táctil. Los mismos controles para los dos jugadores, un ti
 `ICONO DE HABILIDADES`: Al pulsar,activas la habilidad acumulada.<br>
 
 *Botones Extra*<br>
-**...**<br>
 `SALIR`: Sale al menú principal
 
 ### 5.5.- PROGRESO DEL JUEGO	<a name="progresoDelJuego"/>
@@ -423,36 +422,36 @@ Según el número de jugadores que quieran jugar, se ofrecen 2 opciones de juego
 DINERO: 200<br>
 HABILIDAD: ---
 
-L1 -> AAA		L2 -> ---		L3 -> --- <br>
-SOLUCIÓN: 	L1 -> ---		L2 -> A			L3-> A <br>
+L1 -> AAA	/	L2 -> ---	/	L3 -> --- <br>
+SOLUCIÓN: 	L1 -> ---	/	L2 -> A	/	L3-> A <br>
 
 **2:**	<br>
 DINERO: 800<br>
 HABILIDAD: ---
 
-L1 -> AAA		L2 -> AAA		L3 -> AAA	<br>									
-SOLUCIÓN: 	L1 -> TDA		L2 -> TDA		L3-> --- <br>
+L1 -> AAA	/	L2 -> AAA	/	L3 -> AAA	<br>									
+SOLUCIÓN: 	L1 -> TDA	/	L2 -> TDA	/	L3-> --- <br>
 
 **3:**	<br>
 DINERO: 300<br>
 HABILIDAD: SLOWDOWN L1
 
-L1 -> VVV		L2 -> VVV		L3 -> VVV	<br>
-SOLUCIÓN: 	L1 -> V	(SLOW)		L2 -> ---		L3-> --- <br>
+L1 -> VVV	/	L2 -> VVV	/	L3 -> VVV	<br>
+SOLUCIÓN: 	L1 -> V	(SLOW)	/	L2 -> ---	/	L3-> --- <br>
 
 **4:** <br>
 DINERO: 100<br>
 HABILIDAD: SPEEDY L1
 
-L1 -> ---		L2 -> AAA	L3 -> ---	<br>								
-SOLUCIÓN: 	L1 -> A			L2 -> ---		L3-> (SPEEDY) <br>
+L1 -> ---	/	L2 -> AAA /	L3 -> ---	<br>								
+SOLUCIÓN: 	L1 -> A		/	L2 -> ---	/	L3-> (SPEEDY) <br>
  
 **5:** <br>
 DINERO: 300<br>
 HABILIDAD: ---
 
-L1 -> VVV		L2 -> VVV	L3 -> ---	<br>		
-SOLUCIÓN: 	L1 -> D			L2 -> ---		L3-> A	<br>
+L1 -> VVV	/	L2 -> VVV	/ L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> D	/	L2 -> ---	/	L3-> A	<br>
 
 **-> PUZZLE DIFÍCIL:**<br>
 
@@ -460,36 +459,36 @@ SOLUCIÓN: 	L1 -> D			L2 -> ---		L3-> A	<br>
 DINERO: 400<br>
 HABILIDAD: MANTEQUILLA L1
 
-L1 -> ATD		L2 -> VVV		L3 -> VVV <br>
-SOLUCIÓN: 	L1 -> ---		L2 -> AA			L3-> AA <br>
+L1 -> ATD	/	L2 -> VVV	/	L3 -> VVV <br>
+SOLUCIÓN: 	L1 -> ---	/	L2 -> AA	/	L3-> AA <br>
 
 **2:**	<br>
 DINERO: 400<br>
 HABILIDAD: ---
 
-L1 -> TTT		L2 -> TD		L3 -> TTT	<br>									
-SOLUCIÓN: 	L1 -> AA		L2 -> ---		L3-> AA <br>
+L1 -> TTT	/	L2 -> TD	/	L3 -> TTT	<br>									
+SOLUCIÓN: 	L1 -> AA	/	L2 -> ---	/	L3-> AA <br>
 
 **3:**	<br>
 DINERO: 500<br>
 HABILIDAD: ---
 
-L1 -> TDA		L2 -> ---		L3 -> TDA	<br>
-SOLUCIÓN: 	L1 -> VTD		L2 -> A		  L3-> --- <br>
+L1 -> TDA	/	L2 -> ---	/	L3 -> TDA	<br>
+SOLUCIÓN: 	L1 -> VTD	/	L2 -> A	/ L3-> --- <br>
 
 **4:** <br>
 DINERO: 700<br>
 HABILIDAD: SLOWDOWN L3
 
-L1 -> AAA		L2 -> ADA	L3 -> TDA	<br>								
-SOLUCIÓN: 	L1 -> TD			L2 -> TD (SLOW)		L3-> A <br>
+L1 -> AAA	/	L2 -> ADA /	L3 -> TDA	<br>								
+SOLUCIÓN: 	L1 -> TD	/	L2 -> TD (SLOW)	/	L3-> A <br>
  
 **5:** <br>
 DINERO: 300<br>
 HABILIDAD: MANTEQUILLA L3
 
-L1 -> TDA		L2 -> TDA	L3 -> ---	<br>		
-SOLUCIÓN: 	L1 -> T(MAN)			L2 -> ---		L3-> A	<br>
+L1 -> TDA	/	L2 -> TDA /	L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> T(MAN)	/	L2 -> ---	/	L3-> A	<br>
 
 **-> LEYENDA:**<br>
 
