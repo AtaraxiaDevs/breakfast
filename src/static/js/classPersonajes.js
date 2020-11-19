@@ -164,9 +164,14 @@ update = function(){
         }
         
 
-    }   
-    
-}
+        }   
+    if((this.direction == 1 && this.x >= 1920) || (this.direction==-1 && this.x <= -100)){
+        console.log("Punto para el jugador" + this.direction)
+        APIJuego.puntoLinea(this.id, this.direction)
+        APIJuego.eliminarPersonaje(this.id)
+        
+    } 
+    }
 
 }
     

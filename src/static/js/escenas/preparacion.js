@@ -28,8 +28,6 @@ export default class Preparacion extends Phaser.Scene {
       jugadorActual = 2;
     }
 
-    console.log(APIJuego.buffoActual);
-    console.log("iconBuff" + APIJuego.buffoActual);
     var fondo = this.add.image(0, 0, "fondoPreparacion").setOrigin(0);
 
     let cartelJugadores = this.add
@@ -58,8 +56,8 @@ export default class Preparacion extends Phaser.Scene {
     });
 
     let dinero = this.make.text({
-      x: 375, 
-      y: 65,
+      x: 400, 
+      y: 60,
       text:
         jugadorActual === 1
           ? APIJuego.datosJugador1.dinero + " $"
@@ -160,7 +158,7 @@ export default class Preparacion extends Phaser.Scene {
           APIJuego.cambiarTipo();
         } else {
           APIJuego.randomAliado();
-          console.log(APIJuego.personajeActual);
+
         }
       });
 

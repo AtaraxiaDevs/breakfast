@@ -234,7 +234,6 @@ export default class GameAPI {
         break;
     }
 
-    console.log(this.personajeActual);
   }
 
   cargarAnims = function () {
@@ -317,7 +316,6 @@ export default class GameAPI {
   //* Parámetros: string con el tipo de personaje
   //Función encargada de añadir a la lista de personajes de la escena addemás de dibujarlo por pantalla.
   añadirPersonaje = function (fila) {
-    console.log(this.personajeActual)
     this.combate[fila-1].push(
       new Personaje(this.personajeActual, 200, 400, this.escena,+1,this.idCount)
     );
@@ -535,7 +533,6 @@ export default class GameAPI {
             let esquivar = this.getRandom(0,9)
             if(esquivar != 0){
               this.combate[i][j].hpActual = this.combate[i][j].hpActual- daño + random
-              console.log(this.combate[i][j].hpActual)
             }
         }
     }
@@ -798,7 +795,6 @@ quitarBuffoJ1 = function(){
   this.buffoActivoJ1.input.enable = false;
   this.buffoJ1 = new Buffo(this.buffoActual, 1)
   this.buffoJ1.activarBuffo(1);
- // console.log(this.buffoJ1.tipoBuffo)
 
 }
 
@@ -807,7 +803,6 @@ quitarBuffoJ2 = function(){
       this.buffoActivoJ2.input.enable = false;
       this.buffoJ2 = new Buffo(this.buffoActual, 2)
       this.buffoJ2.activarBuffo(2);
-     // console.log(this.buffoJ2.tipoBuffo)
 }
 
 activarFlechas = function(j){
@@ -834,7 +829,6 @@ segundaActivacionBuffo = function(j){
   if(j == 1){
     switch(this.buffoJ1.tipoBuffo){
       case "SpeedyBoy":
-        console.log(this.datosActivacionBuffo.flechaActivada1)
         this.buffoJ1.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
       case "SlowDown":
@@ -850,7 +844,6 @@ segundaActivacionBuffo = function(j){
   }else{
     switch(this.buffoJ2.tipoBuffo){
       case "SpeedyBoy":
-        console.log(this.datosActivacionBuffo.flechaActivada1)
         this.buffoJ2.speedyBoyActivacion(this.datosActivacionBuffo.flechaActivada1,j)
         break;
 
@@ -904,6 +897,11 @@ reiniciarInfoJugadores = function(){
     "puntuacionActual":"",
     "dinero": 600,
     "checkLineUp": false,
+    "puntosLinea1": 0,
+    "puntosLinea2": 0,
+    "puntosLinea3": 0,
+    "puntosCombate": 0,
+    "puntuacionTotal": 0,
 
   }
 
@@ -912,6 +910,11 @@ reiniciarInfoJugadores = function(){
     "puntuacionActual":"",
     "dinero": 600,
     "checkLineUp": false,
+    "puntosLinea1": 0,
+    "puntosLinea2": 0,
+    "puntosLinea3": 0,
+    "puntosCombate": 0,
+    "puntuacionTotal": 0,
 
   }
 }
@@ -921,6 +924,164 @@ actualizarDinero = function() {
   this.cambiarTexto(this.recuadroDineroJ2, this.datosJugador2.dinero + " $")
 }
 
+puntoLinea = function(id,direction){
+  for(let i in this.combate){
+    for(let j in this.combate[i]){
+      if(this.combate[i][j].id == id){
+        if(direction == 1 ){
+          if(i ==0){
+            this.datosJugador1.puntosLinea1++;
+          }
+
+          if(i == 1){
+            this.datosJugador1.puntosLinea2++;
+          }
+
+          if(i == 2){
+            this.datosJugador1.puntosLinea3++;
+          }
+          
+        }else{
+          if(i ==0){
+            this.datosJugador2.puntosLinea1++;
+          }
+
+          if(i == 1){
+            this.datosJugador2.puntosLinea2++;
+          }
+
+          if(i == 2){
+            this.datosJugador2.puntosLinea3++;
+          }
+          
+        }
+      }
+    }
+  }
+  this.actualizarPuntuacionLinea()
+}
+
+actualizarPuntuacionLinea = function(){
+  this.datosJugador1.puntuacionCombate = 0
+  this.datosJugador2.puntuacionCombate = 0
+
+  if(this.datosJugador1.puntosLinea1 > this.datosJugador2.puntosLinea1){
+
+    this.datosJugador1.puntuacionCombate =  this.datosJugador1.puntuacionCombate+ 1
+  }else if(this.datosJugador1.puntosLinea1 < this.datosJugador2.puntosLinea1){
+    this.datosJugador2.puntuacionCombate =  this.datosJugador2.puntuacionCombate+ 1
+  }
+
+  if(this.datosJugador1.puntosLinea2 > this.datosJugador2.puntosLinea2){
+    this.datosJugador1.puntuacionCombate =  this.datosJugador1.puntuacionCombate+ 1
+  }else if(this.datosJugador1.puntosLinea2 < this.datosJugador2.puntosLinea2){
+    this.datosJugador2.puntuacionCombate =  this.datosJugador2.puntuacionCombate+ 1
+  }
+
+  if(this.datosJugador1.puntosLinea3 > this.datosJugador2.puntosLinea3){
+    this.datosJugador1.puntuacionCombate =  this.datosJugador1.puntuacionCombate+ 1
+  }else if(this.datosJugador1.puntosLinea3 < this.datosJugador2.puntosLinea3){
+    this.datosJugador2.puntuacionCombate =  this.datosJugador2.puntuacionCombate+ 1
+  }
+
+  this.cambiarTexto(this.puntuacionLineasJ1,this.datosJugador1.puntuacionCombate)
+  this.cambiarTexto(this.puntuacionLineasJ2,this.datosJugador2.puntuacionCombate)
+}
+
+updateCombate(){
+    let update = false;
+    for(let i in this.combate){
+      if(this.combate[i].length !=0){
+          update = true;
+      }
+    }
+
+    if(!update){
+        if(this.nJugadores == 1){
+         if(this.datosJugador1.puntuacionCombate > this.datosJugador2.puntuacionCombate){
+            this.ganador = 1
+            this.ronda = 5;
+            this.arrancarFinCombate("resultados")
+
+
+         }else{
+            this.ganador = 0
+            this.ronda = 5
+            this.arrancarFinCombate("resultados")
+
+         }
+    }else{
+        if(this.datosJugador1.puntuacionCombate > this.datosJugador2.puntuacionComabate){
+          this.ganador = 1;
+          this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
+          this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
+          this.datosJugador1.puntuacionTotal = this.datosJugador1.puntuacionTotal +1
+          this.ronda = this.ronda+1
+          this.arrancarFinCombate("preparacion")
+
+
+        
+        }else if(this.datosJugador1.puntuacionCombate < this.datosJugador2.puntuacionComabate){
+          this.ganador = 2
+          this.ronda = this.ronda+1
+          this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
+          this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
+          this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1 
+          this.arrancarFinCombate("preparacion")
+          
+        }else{
+            let totalJ1 = this.datosJugador1.puntosLinea1 + this.datosJugador1.puntosLinea2 +this.datosJugador1.puntosLinea3
+            let totalJ2 = this.datosJugador2.puntosLinea1 + this.datosJugador2.puntosLinea2 +this.datosJugador2.puntosLinea3
+          if(totalJ1 > totalJ2){
+              this.ganador = 1
+              this.ronda = this.ronda+1
+              this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
+              this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
+              this.datosJugador1.puntuacionTotal = this.datosJugador1.puntuacionTotal +1
+              this.arrancarFinCombate("preparacion")
+          }else if(totalJ1 < totalJ2){
+            this.ganador = 2;
+            this.ronda = this.ronda+1
+            this.arrancarFinCombate("preparacion")
+            this.datosJugador1.dinero = this.datosJugador1.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 200
+            this.datosJugador2.dinero = this.datosJugador2.dinero + this.datosJugador2.puntuacionCombate*100 + 300 + 100
+            this.datosJugador2.puntuacionTotal = this.datosJugador2.puntuacionTotal +1
+      
+            
+          }else{
+            this.ganador = 0;
+            this.arrancarFinCombate("preparacion")
+            this.datosJugador1.dinero = this.datosJugador1.dinero  + 300 
+          this.datosJugador2.dinero = this.datosJugador2.dinero  + 300 
+
+          }
+
+        }
+    }
+}
+}
+
+arrancarFinCombate = function(escena){
+ 
+
+  this.datosJugador1.checkLineUp = false
+  this.datosJugador2.checkLineUp = false
+
+  console.log(this.ronda)
+
+  if(this.datosJugador1.puntuacionTotal == 3 || this.datosJugador2.puntuacionTotal == 3){
+    this.ronda = 5
+    
+  }
+
+  if(this.ronda == 5){
+    this.escena.scene.start("resultados")
+  }else{
+    this.escena.scene.start("preparacion")
+  }
+  
+  
+}
 
   constructor() {
     this.puzleActual = "6";
@@ -957,6 +1118,9 @@ actualizarDinero = function() {
     this.recuadroDineroJ1 = "";
     this.recuadroDineroJ2 = "";
 
+    this.puntuacionLineasJ1 = ""
+    this.puntuacionLineasJ2 = ""
+
     this.efectoActual = "";
     this.datosActivacionBuffo = {
       "j": "",
@@ -969,6 +1133,11 @@ actualizarDinero = function() {
       "puntuacionActual":"",
       "dinero": 600,
       "checkLineUp": false,
+      "puntosLinea1": 0,
+      "puntosLinea2": 0,
+      "puntosLinea3": 0,
+      "puntuacionCombate": 0,
+      "puntuacionTotal": 0,
   
     }
 
@@ -977,8 +1146,15 @@ actualizarDinero = function() {
       "puntuacionActual":"",
       "dinero": 600,
       "checkLineUp": false,
-  
+      "puntosLinea1": 0,
+      "puntosLinea2": 0,
+      "puntosLinea3": 0,
+      "puntuacionCombate": 0,
+      "puntuacionTotal": 0,
     }
+
+    this.ganador = "";
+    this.ronda = 0;
 
 
   }

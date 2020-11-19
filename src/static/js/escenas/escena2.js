@@ -9,6 +9,8 @@ export default class Escena2 extends Phaser.Scene {
   create() {
     var fondo = this.add.image(0, 0, APIJuego.escenarioActual).setOrigin(0);
 
+    
+
     APIJuego.setEscena(this);
     APIJuego.reiniciarCombate();
     APIJuego.cargarCombate();
@@ -17,8 +19,8 @@ export default class Escena2 extends Phaser.Scene {
     APIJuego.colocarBuffoEscenario();
     APIJuego.arrancarPersonajes();
 
-    let textoRondaSpanish = "RONDA\n1";
-    let textoRondaEnglish = "ROUND\n1";
+    let textoRondaSpanish = "RONDA\n" + (APIJuego.ronda +1);
+    let textoRondaEnglish = "ROUND\n" + (APIJuego.ronda +1);
 
     let recuadroDineroJ1 = this.add
       .image(200, 220, "recuadroAzul")
@@ -84,10 +86,11 @@ export default class Escena2 extends Phaser.Scene {
       },
     });
 
+
     let ganadasJ1 = this.make.text({
       x: 650,
       y: -20,
-      text: "0",
+      text: APIJuego.datosJugador1.puntuacionTotal,
       style: {
         color: "black",
         font: "110px 'Sigmar One'",
@@ -97,14 +100,14 @@ export default class Escena2 extends Phaser.Scene {
     let ganadasJ2 = this.make.text({
       x: 1175,
       y: -20,
-      text: "0",
+      text: APIJuego.datosJugador2.puntuacionTotal,
       style: {
         color: "black",
         font: "110px 'Sigmar One'",
       },
     });
 
-    let lineasJ1 = this.make.text({
+    APIJuego.puntuacionLineasJ1 = this.make.text({
       x: 850,
       y: 980,
       text: "0",
@@ -114,7 +117,7 @@ export default class Escena2 extends Phaser.Scene {
       },
     });
 
-    let lineasJ2 = this.make.text({
+    APIJuego.puntuacionLineasJ2   = this.make.text({
       x: 990,
       y: 980,
       text: "0",
@@ -254,5 +257,6 @@ export default class Escena2 extends Phaser.Scene {
 
   update() {
     APIJuego.actualizar();
+    APIJuego.updateCombate()
   }
 }
