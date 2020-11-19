@@ -221,18 +221,18 @@ Se usa un sistema monetario para comprar unidades y ponerlas al campo. La moneda
 
 Aquí se recoge la tabla de precios. Un signo "+" significa que el jugador los gana y un símbolo "-" que los pierde realizando esta acción.
 
-| **NOMBRE**      | **COMPRAR** | **POR BAJA** | **POR PUNTUAR**  |
-| :-------------: | :---------: | :----------: | :--------------: |
-| Atacante        | -100        |    +50       |   +100           |
-| Defensor        | -100        |    +100      |   +100           |
-| Distancia       | -200        |    +100      |   +200           | 
-| Velocista       | -200        |    +25       |   +50            |
+| **NOMBRE**      | **COMPRAR** |
+| :-------------: | :---------: |
+| Atacante        | -100        |
+| Defensor        | -100        |
+| Distancia       | -200        |
+| Velocista       | -200        |
 
 <br>
 
-| **PASAR DE RONDA** | **GANADOR RONDA** | 
-| :----------------: | :---------------: | 
-|        +300        |       +300        | 
+| **PASAR DE RONDA** | **GANADOR RONDA** | **PERDEDOR RONDA** | **LLEGAR AL FINAL CON UNIDAD** |
+| :----------------: | :---------------: | :----------------: | :----------------------------: | 
+|        +600        |       +100        |       +200         |             +100               |
 
 #### 5.1.6.- RANKING    <a name="mecanicas6"/>
 
@@ -456,7 +456,40 @@ SOLUCIÓN: 	L1 -> D			L2 -> ---		L3-> A	<br>
 
 -> PUZZLE DIFÍCIL:<br>
 
+**1:** <br>
+DINERO: 400<br>
+HABILIDAD: MANTEQUILLA L1
 
+L1 -> ATD		L2 -> VVV		L3 -> VVV <br>
+SOLUCIÓN: 	L1 -> ---		L2 -> AA			L3-> AA <br>
+
+**2:**	<br>
+DINERO: 400<br>
+HABILIDAD: ---
+
+L1 -> TTT		L2 -> TD		L3 -> TTT	<br>									
+SOLUCIÓN: 	L1 -> AA		L2 -> ---		L3-> AA <br>
+
+**3:**	<br>
+DINERO: 500<br>
+HABILIDAD: ---
+
+L1 -> TDA		L2 -> ---		L3 -> TDA	<br>
+SOLUCIÓN: 	L1 -> VTD		L2 -> A		  L3-> --- <br>
+
+**4:** <br>
+DINERO: 700<br>
+HABILIDAD: SLOWDOWN L3
+
+L1 -> AAA		L2 -> ADA	L3 -> TDA	<br>								
+SOLUCIÓN: 	L1 -> TD			L2 -> TD (SLOW)		L3-> A <br>
+ 
+**5:** <br>
+DINERO: 300<br>
+HABILIDAD: MANTEQUILLA L3
+
+L1 -> TDA		L2 -> TDA	L3 -> ---	<br>		
+SOLUCIÓN: 	L1 -> T(MAN)			L2 -> ---		L3-> A	<br>
 
 -> LEYENDA:<br>
 A = Atacante<br>
@@ -490,8 +523,9 @@ L = Línea determinada<br>
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/CONCEPT%20ART/BocetosPersonajes/definitivos/TurnArounds_Unidades/turnvelocista.png)
 
-- **MANTEQUILLA GRITONA:**
-- **MERMELADA EXPLOSIVA:**
+- **MANTEQUILLA GRITONA Y MERMELADA EXPLOSIVA:**
+
+![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/ARTE/Imagenes%20Promocionales/bosses.png)
 
 ### 6.2.- LOCALIZACIONES	<a name="localizaciones"/>
 
@@ -559,9 +593,11 @@ Juegos con Personajes similares:
 
 - **MANTEQUILLA GRITONA:**
 
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/src/static/assets/buffs/SpriteBuffMantequilla/mante1.png)
 
 - **MERMELADA EXPLOSIVA:**
 
+![alt_text](https://github.com/AtaraxiaDevs/breakfast/blob/main/src/static/assets/buffs/SpriteBuffMermelada/jam1.png)
 
 ### 7.3.- ARTE PROMOCIONAL	<a name="artePromocional"/>
 
@@ -572,20 +608,19 @@ Juegos con Personajes similares:
 ## 8.- SONIDO	<a name="sonido"/>
 ### 8.1.- BANDA SONORA	<a name="bandaSonora"/>
 
-- *Tema Menú*:
+- *Tema Menú*: 
 - *Tema Preparación*:
 - *Tema Combate*:
 
 ### 8.2.- EFECTOS DE SONIDO	<a name="efectosDeSonido"/>
 
-- *Botón Menú pulsado*:
-- *Cuenta atrás Combate*:
-- *Invocar unidad en línea*: Ruido de Pasos
-- *Cambiar entre unidades / habilidades*:
-- *Ganancia de Toppings*:
-- *Punto conseguido*:
-- *Fin de Ronda*:
-- *Fin de Partida / Game Over*:
+Realizados con sonidos reales modificados a través de Audacity.
+
+- *Grito 1*
+- *Grito 2*
+- *Muerte* 
+- *Golpe 1*
+- *Golpe 2*
 
 ---
 
@@ -613,57 +648,62 @@ Los jugadores representan a un pequeño ejército de estos dos grandes grupos. E
 
 La idea es mantener el juego a lo largo del tiempo, por lo que el modelo que se toma es la mejora e inclusión de contenido constante, así como actualización casi diaria de la tienda, promociones y eventos.
 
-La primera etapa es ver como se comporta el juego: analizar datos, buscar mejoras nuevas, definir el jugador medio... Esto puede provocar cambios en el plan, así como ayudar a que afloren nuevas ideas y pensar en que quieren o buscan los jugadores en nuestro juego.
+La primera etapa es ver como se comporta el juego: analizar datos, buscar mejoras nuevas, definir el jugador medio... Esto puede provocar cambios en el plan, así como ayudar a que afloren nuevas ideas y pensar en que quieren o buscan los jugadores en nuestro juego. Durará un mes desde el lanzamiento
 
-La segunda etapa va a buscar añadir al juego nuevas unidades y habilidades, para fomentar la diversidad de partidas y evitar que se haga repetitivo. Esto se mantendrá a lo largo de todo su ciclo de vida. Hay que establecer un ritmo de salida de nuevo contenido, que irá relacinado con los socios externos y las necesidades del público o el juego. Las estadísticas nos ayudarán a identificar que es lo que le falta al juego.
+La segunda etapa va a buscar añadir al juego nuevas unidades y habilidades, para fomentar la diversidad de partidas, evitar que se haga repetitivo y mejorar el sistema de la economía. Esto se mantendrá a lo largo de todo su ciclo de vida. Hay que establecer un ritmo de salida de nuevo contenido, que irá relacinado con los socios externos y las necesidades del público o el juego. Las estadísticas nos ayudarán a identificar que es lo que le falta al juego. Además, introduciremos los eventos, con los que añadiremos contenido temporal en un lapso de tiempo definido: modos de juego, Habilidad  Durará 2 meses.
 
-La tercera etapa consiste en la ampliación de la tienda. Para este punto, atraídas una serie de marcas, necesitaremos reformar la tienda para empezar a vender Skins y manejar el sistema de premios. La creación de un sistema de Moneda Virtual de Pago y una Moneda del Juego son cruciales en esta parte. 
+La tercera etapa consiste en la ampliación de la tienda y la transición online. Para este punto, atraídas una serie de marcas, necesitaremos reformar la tienda para empezar a vender Skins basadas en las marcas y mejorar el sistema de premios, enlazándolo con nuevos elementos. Uno de estos elementos será el juego online, que consistirá en hacer que el Multijugador Local pase a ser Online. Con él, aparecerá el modo Torneo, que nos dará mucha moneda virtual para canjear los premios. Existe la opción de crear una tercera moneda, pensada para los modos Online. Esta etapa durará unos 8 meses, teniendo en cuenta el tiempo de producción, y que la ampliación progresiva se añadirá a través de actualizaciones.
 
-A partir de aquí, la cuarta etapa se basa en la adición de elementos nuevos, que irán saliendo a lo largo del desarrollo o que parten de algunas ideas que se enumeran a continuación:
+A partir de aquí, la cuarta etapa se basa en la consolidación del nuevo modo Online. Promocionar eventos online será una parte importante, aprovechando el recién creado Modo Torneo para crear una escena competitiva. El Ranking (que ya sería online), podría embocar en un sistema de prestigios que ayude a repartir premios y nivelar el matchmaking del online. En este punto, podríamos tener un gran patrocinador (una cadena de supermercados, por ejemplo), que nos podría proporcionar un espacio para realizar un posible torneo presencial, con un premio relacionado con este mismo patrocinador (un carro regalo valorado en cierta cantidad de dinero, por ejemplo). Si esto funciona, se podría prolongar sobre la marcha. Esta etapa durará otros 8 meses.
 
-POSIBLES AMPLIACIONES DEL JUEGO
+Por último, la quinta etapa supone una gran actualización, que buscará variar el juego a una versión totalmente nueva. Se busca un cambio drástico, ya sea cambiando totalmente el juego o preparando una transición a una secuela, testeando alguno de estos factores. No vemos conveniente suponer si queremos una secuela o seguir con el juego base, ya que dependemos mucho del feedback recibido, y es una decisión tomada 19 meses posteriores a la salida del juego. 
 
-- Pasar el juego a Online: hacer que el juego sea online, lo que supone un rango más amplio de jugadores y la inserción de servidores.
-- Modo Torneo: establecer un torneo competitivo del juego. Compatible con juego Online. Pueden ser presenciales o no, y se darán premios aportados por las marcas, o en forma de Moneda del Juego.
-- Modo de Juego en tiempo real: si el juego resulta poco dinámico, podremos realizar una segunda versión (o rediseño de la misma) donde el combate se cambie a ser 100% en tiempo real, con un Gameplay parecido al Warlords: Call To Arms.
+POSIBLES AMPLIACIONES DEL JUEGO EN ESTA ÚLTIMA ETAPA:
+
+- Modo de Juego en tiempo real: Si el juego resulta poco dinámico, podremos realizar un modo de juego que ayude a probar si esta transición gusta. El combate cambiará a ser 100% en tiempo real, con un Gameplay parecido al Warlords: Call To Arms.
+- Creación de máquinas arcade: Con un presupuesto fuerte detrás, y un patrocinador en forma de cadena de supermercados, podemos probar a distribuir máquinas arcade por los supermercados para que se pueda jugar al juego en el sitio, y canjear los premios en el mismo supermercado donde se juega. No es raro que haya cosas como futbolines o máquinas de bolas en los supermercados y centros comerciales, por lo que podría funcionar. Hay que tener en cuenta, por supuesto, el gasto de distribución, electricidad y mantenimiento, por lo que insistimos en el que el presupuesto debe acompañar.
 
 ### 10.3.- MODELO DE NEGOCIO <a name="modeloDeNegocio"/>
 
-*PLAN DE NEGOCIO*
-
-Como primer paso, hay que poner el juego en el mercado. Aquí ponemos la primera piedra: empezamos valiéndonos de los anuncios (siempre con contenido relacionado) para su monetización y nos enfocamos en ver como reacciona el público, acercándolo a la gente mediante las redes sociales, eventos pequeños y publicidad extra. 
-
-Una vez testeado el juego, necesitaremos prepararlo para ampliar su mercado. Necesitamos unas ciertas cosas para ello: una serie de marcas menores, que nos ayuden a poner en marcha la tienda; buscar contratos de publicidad relacionados con el sector alimenticio, con marcas más conocidas; e ir promocionando el juego por sitios donde podamos encontrar a nuestro público meta.
-
-Para empezar con buen pie, empezaremos enfocándonos en el comercio más local. Con local no nos referimos a comercio de pueblo, sino a franquicias más específicas del panorama, como puede ser SuperSol (Andalucía) o a ciertas tiendas que resulten populares, como XXXXX. Así, ganamos clientes de manera progresiva sin tener que recurrir a marcas grandes, y demostramos que nuestro modelo funciona.
-
-Cuando ya hemos pasado esa primera fase, nos ponemos en contacto con las empresas que vamos a apuntar en la siguiente fase, pero solo para ofrecer espacios de publicidad. Esto nos da a conocer, y además nos posiciona como contactos fiables para hacer negocios. 
-
-PROMOCIONAR ANTE EL PUBLICO META
-
-Al establecer este mercado más pequeño, empezamos a atraer a las grandes empresas, que ya se interesaron cuando les ofrecimos poner su publicidad. Además, empezamos a apuntar a franquicias más grandes: supermercados, marcas populares, etc. Establecemos así un modelo de negocio más firme, basado en el descrito abajo.
-
 *MODELO DE NEGOCIO*
 
-El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. 
+El modelo de negocio principal va a ser la Fidelización. Buscamos jugadores que se queden, ya sea por el juego competitivo o por la obtención de premios. La Rejugabilidad del juego es un factor importantísimo en este apartado, por lo que el juego deberá ir variando a lo largo del tiempo. Esta rejugabilidad será ayudada por el Ranking y el posterior paso a un modo Online, con modos de juego similares al competitivo (Modo Torneo).
 
-El Ranking nos ayuda a conseguir que el juego trascienda a las partidas, buscando superar las puntuaciones más altas. Además, el Modo Torneo que se implementará posteriormente ayudará a que se necesite una práctica anterior a base de jugar partidas, para conseguir el premio final. 
-
-Los premios que se obtienen están directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la moneda del juego, conseguida a base de jugar partidas, podremos canjear cupones y productos de estas marcas. Esto puede servir para animar al jugador a seguir jugando por los premios, mientras que las marcas consiguen varias cosas:
+Pero, sin duda, el punto clave de esta fidelización son los Premios. La Tienda posee un apartado Premios, que sirven para canjear productos y cupones relacionados con la industria alimenticia. Está directamente relacionados con nuestros principales socios: las empresas alimenticias y los supermercados. A través de la Moneda del Juego, la CeReal Currency (CC), conseguida a base de jugar partidas, podremos canjear estos premios proporcionados por los patrocinadores. Esto es un claro ejemplo de Cebo y Anzuelo: a través de los premios, conseguimos que nuestro juego sea jugado y la publicidad cumpla su función de manera excelente. No obstante, no solo sirve para animar al jugador a seguir jugando por los premios, sino que las marcas consiguen varias cosas extra:
 
 - Pueden probar nuevos productos y ver si el público está interesado. Los datos de compra alojados en nuestra tienda les pueden indicar que productos triunfan y cuales no
 - Actuar como Cebo y Anzuelo: poner los productos en la tienda puede implicar que nuestros jugadores los prueben y acaben cogiendoles el gusto, lo que supone nuevos clientes potenciales para la empresa que los ponga.
 - Potenciar la compra en los establecimientos, estableciendo una relación directa con la membresía de estos (Club Carrefour, por ejemplo).
 
-Posteriormente, con la inclusión del modo Torneo, podremos establecer grandes premios aportados por estas marcas (cestas regalo, descuentos, vales por X dinero) para el ganador, que además podrán establecer como requisito ser miembro del establecimiento (en el caso de supermercados, por ejemplo). Esto no resulta un problema para los niños, ya que serían los padres los encargados de hacer esta gestión. 
+Este punto resulta interesante, ya que se relaciona con lo que contaré más adelante del público objetivo.
+
+Los eventos presenciales pueden aprovecharse de estos premios: por ejemplo, podremos establecer grandes premios aportados por estas marcas (cestas regalo, descuentos, vales por X dinero) para el ganador, que además podrán establecer como requisito ser miembro del establecimiento (en el caso de supermercados, por ejemplo). Esto no resulta un problema para los niños, ya que serían los padres los encargados de hacer esta gestión. 
 
 Como modelo secundario, relacionado con las microtransacciones, establecemos el Cebo y Anzuelo. Cuando se tenga una serie de marcas asociadas, podemos regalar a los nuevos jugadores la Skin de alguna de esas marcas, como bienvenida al juego. Esto ayuda a que se conozcan las Skins, y el jugador lo agradecerá. El resto ya resultará de pago, encontrándose en la tienda. Si el juego acaba potenciando las rivalidades entre marcas, no sería de extrañar que ciertas Skins sean muy compradas, para destacar el posicionamiento propio. Tampoco se puede descartar un cambio de opinión, lo cual puede desembocar en comprar otra Skin más acorde a tus preferencias. 
 
 *MONETIZACION*
 
-- Micro-transacciones : Habrá Skins de pago. La Moneda virtual del juego
-- Free to Play: Ningún coste a la hora de jugar.
-- Publicidad: Inclusión de publicidad relacionada con el juego antes del inicio de la partida, evitando así que resulte molesta y repelente a nuestro público infantil. 
+- Micro-transacciones : Habrá Skins de pago. La Moneda virtual de Pago serán las Ataraxia Coins, marca de la empresa
+- Free to Play: Ningún coste a la hora de jugar. Los premios tampoco dependen de la moneda de Pago.
+- Publicidad: Inclusión de publicidad relacionada con el juego, nunca de forma intrusiva y de manera superficial (Skins, Escenarios, Carteles, Eventos...) evitando así que resulte molesta y repelente a nuestro público joven. 
+
+*PLAN DE NEGOCIO*
+
+Como primer paso, hay que poner el juego en el mercado. Aquí ponemos la primera piedra: empezamos valiéndonos de los anuncios (siempre con contenido relacionado) para su monetización y nos enfocamos en ver como reacciona el público, acercándolo a la gente mediante las redes sociales, eventos pequeños y renovación de la publicidad. 
+
+Una vez vista la reacción del público, necesitaremos prepararlo para ampliar su mercado. Necesitamos unas ciertas cosas para ello: una serie de marcas menores, que nos ayuden a poner en marcha la tienda; buscar contratos de publicidad relacionados con el sector alimenticio, con marcas más conocidas; e ir promocionando el juego por sitios donde podamos encontrar a nuestro público meta.
+
+Para empezar con buen pie, empezaremos enfocándonos en el comercio más local. Con local no nos referimos a comercio de pueblo, sino a franquicias más específicas del panorama, como puede ser SuperSol (Andalucía) o a ciertas tiendas que resulten populares. Así, ganamos clientes de manera progresiva sin tener que recurrir a marcas grandes, y demostramos que nuestro modelo funciona.
+
+Cuando ya hemos pasado esa primera fase, nos ponemos en contacto con las empresas que vamos a apuntar en la siguiente fase, pero solo para ofrecer espacios de publicidad. Esto nos da a conocer, y además nos posiciona como contactos fiables para hacer negocios. Con nuestro plan por delante, ofrecemos a las empresas muchas salidas a la hora de promocionarse. Tenemos un aditivo muy importante también: no hay exclusión entre las marcas, no se busca que el juego sea monopolizado por una sola (no es el plan inicial, al menos), sino que todas puedan convivir entre si.
+
+Al establecer este mercado más pequeño, empezamos a atraer a las grandes empresas, que ya se interesaron cuando les ofrecimos poner su publicidad. Además, empezamos a apuntar a franquicias más grandes: supermercados, marcas populares, etc. Establecemos así un modelo de negocio más firme, basado en el descrito abajo. A partir de aquí, ya es posible el acercamiento a eventos presenciales, premios mayores y conseguir un presupuesto firme para asentar el paso al modo Online.
+
+*PUBLICO META*
+
+En este apartado, intentamos explicar por qué nuestro modelo de negocio resulta aún más interesante. Su fortaleza reside en los premios, y eso va a atraer a un público muy variado. Ya ha habido ejemplos de aplicaciones que hacen este tipo de Cebo y Anzuelo: con regalos, hacemos que mucha gente juegue y la publicidad consigue realizar su función. Con esto queremos demostrar que nuestro juego puede atraer a otro tipo de público. 
+
+Un ejemplo pueden ser los niños pequeños. Muchos de los niños actuales juegan a juegos de móvil, pero no poseen un móvil. Normalmente se lo proporcionan los padres. Esto crea una simbiosis excelente con este juego: un padre puede dejar al niño jugando, mientras hace otras cosas. Dejar al pequeño jugando hace que vaya consiguiendo puntos, que al padre se le traducen en descuentos, cupones y productos de varias tiendas, lo cual supone un increible pro a la hora de jugar especificamente a nuestro juego, y no a otro de la competencia. Por ello, se puede decir que este tipo de persona puede ser un posible público meta nuevo a futuro.
 
 *MARKETING*
 
@@ -671,13 +711,6 @@ Como modelo secundario, relacionado con las microtransacciones, establecemos el 
 - Potenciar eventos online (COVID)
 - Convenciones Pequeñas
 - Torneos
-
-*IDEAS*
-
-- Marcas patrocinan las Unidades. Potenciar rivalidad sana entre marcas. 
-- Anuncios de las mismas marcas, no intrusivos, en el inicio de partida. Diseñados codo a codo con las marcas.
-- Relacion con cadenas de Supermercados. Promociones, premios, eventos.
-
 
 ![alt text](https://github.com/AtaraxiaDevs/breakfast/blob/main/GDD/Modelo%20de%20Negocio.png)
 
